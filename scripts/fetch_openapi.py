@@ -3,12 +3,15 @@ import os
 
 API_KEY = os.environ.get("APIFOX_API_KEY")
 
-moduleIds = [7055935, 7056204, 7056214]
+moduleIds = [7055935, 7056204, 7056214, 7073331, 7073289, 7073367]
 
 moduleId_to_filename = {
     7055935: "main.json",
     7056204: "hyg.json",
     7056214: "passport.json",
+    7073331: "live.json",
+    7073289: "vc.json",
+    7073367: "biligame.json",
 }
 
 for moduleId in moduleIds:
