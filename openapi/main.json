@@ -3475,7 +3475,7 @@
     },
     "/x/polymer/web-dynamic/v1/name-to-uid": {
       "get": {
-        "summary": "用户名查UID",
+        "summary": "用户名查 UID",
         "deprecated": false,
         "description": "",
         "tags": [
@@ -11151,7 +11151,7 @@
     },
     "/x/v2/relation/followings": {
       "get": {
-        "summary": "用户关注V2",
+        "summary": "用户关注 V2",
         "deprecated": false,
         "description": "来自[BAC原文档](https://github.com/BACNext/bilibili-API-collect-backup/blob/master/docs/user/relation.md#%E6%9F%A5%E8%AF%A2%E7%94%A8%E6%88%B7%E5%85%B3%E6%B3%A8%E6%98%8E%E7%BB%862)\n接口测试不存在，待确认",
         "tags": [
@@ -11217,7 +11217,7 @@
       "get": {
         "summary": "搜索关注",
         "deprecated": false,
-        "description": "",
+        "description": "测试用户均返回22115用户已设置隐私，待查",
         "tags": [
           "关系"
         ],
@@ -11227,6 +11227,7 @@
             "in": "query",
             "description": "目标mid",
             "required": true,
+            "example": "2",
             "schema": {
               "type": "string"
             }
@@ -11236,6 +11237,7 @@
             "in": "query",
             "description": "",
             "required": false,
+            "example": "liyuu",
             "schema": {
               "type": "string"
             }
@@ -11269,7 +11271,725 @@
                   "properties": {}
                 }
               }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/relation/whispers": {
+      "get": {
+        "summary": "悄悄关注",
+        "deprecated": true,
+        "description": "",
+        "tags": [
+          "关系"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "list": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "mid": {
+                                "type": "integer"
+                              },
+                              "attribute": {
+                                "type": "integer"
+                              },
+                              "mtime": {
+                                "type": "integer"
+                              },
+                              "tag": {
+                                "type": "null"
+                              },
+                              "special": {
+                                "type": "integer"
+                              },
+                              "uname": {
+                                "type": "string"
+                              },
+                              "face": {
+                                "type": "string"
+                              },
+                              "sign": {
+                                "type": "string"
+                              },
+                              "official_verify": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "integer"
+                                  },
+                                  "desc": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "type",
+                                  "desc"
+                                ]
+                              },
+                              "vip": {
+                                "type": "object",
+                                "properties": {
+                                  "vipType": {
+                                    "type": "integer"
+                                  },
+                                  "vipDueDate": {
+                                    "type": "integer"
+                                  },
+                                  "dueRemark": {
+                                    "type": "string"
+                                  },
+                                  "accessStatus": {
+                                    "type": "integer"
+                                  },
+                                  "vipStatus": {
+                                    "type": "integer"
+                                  },
+                                  "vipStatusWarn": {
+                                    "type": "string"
+                                  },
+                                  "themeType": {
+                                    "type": "integer"
+                                  },
+                                  "label": {
+                                    "type": "object",
+                                    "properties": {
+                                      "path": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "path"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "vipType",
+                                  "vipDueDate",
+                                  "dueRemark",
+                                  "accessStatus",
+                                  "vipStatus",
+                                  "vipStatusWarn",
+                                  "themeType",
+                                  "label"
+                                ]
+                              }
+                            }
+                          }
+                        },
+                        "re_version": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "list",
+                        "re_version"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "list": [
+                      {
+                        "mid": 178429408,
+                        "attribute": 1,
+                        "mtime": 1605972105,
+                        "tag": null,
+                        "special": 0,
+                        "uname": "老弟一号",
+                        "face": "https://i2.hdslb.com/bfs/face/21426275f3d3149b96b88783275205ba574c09e3.jpg",
+                        "sign": "萌新硬件玩家，前垃圾佬～(◦˙▽˙◦某宝店 老弟一号 粉丝群679540094商务合作V13869651328",
+                        "official_verify": {
+                          "type": 0,
+                          "desc": "知识领域优质UP主"
+                        },
+                        "vip": {
+                          "vipType": 2,
+                          "vipDueDate": 1632499200000,
+                          "dueRemark": "",
+                          "accessStatus": 0,
+                          "vipStatus": 1,
+                          "vipStatusWarn": "",
+                          "themeType": 0,
+                          "label": {
+                            "path": ""
+                          }
+                        }
+                      }
+                    ],
+                    "re_version": 2137574562
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/relation/friends": {
+      "get": {
+        "summary": "互相关注",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "关系"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "list": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "mid": {
+                                "type": "integer"
+                              },
+                              "attribute": {
+                                "type": "integer"
+                              },
+                              "mtime": {
+                                "type": "integer"
+                              },
+                              "tag": {
+                                "type": "null"
+                              },
+                              "special": {
+                                "type": "integer"
+                              },
+                              "uname": {
+                                "type": "string"
+                              },
+                              "face": {
+                                "type": "string"
+                              },
+                              "sign": {
+                                "type": "string"
+                              },
+                              "face_nft": {
+                                "type": "integer"
+                              },
+                              "handle": {
+                                "type": "string"
+                              },
+                              "official_verify": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "integer"
+                                  },
+                                  "desc": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "type",
+                                  "desc"
+                                ]
+                              },
+                              "vip": {
+                                "type": "object",
+                                "properties": {
+                                  "vipType": {
+                                    "type": "integer"
+                                  },
+                                  "vipDueDate": {
+                                    "type": "integer"
+                                  },
+                                  "dueRemark": {
+                                    "type": "string"
+                                  },
+                                  "accessStatus": {
+                                    "type": "integer"
+                                  },
+                                  "vipStatus": {
+                                    "type": "integer"
+                                  },
+                                  "vipStatusWarn": {
+                                    "type": "string"
+                                  },
+                                  "themeType": {
+                                    "type": "integer"
+                                  },
+                                  "label": {
+                                    "type": "object",
+                                    "properties": {
+                                      "path": {
+                                        "type": "string"
+                                      },
+                                      "text": {
+                                        "type": "string"
+                                      },
+                                      "label_theme": {
+                                        "type": "string"
+                                      },
+                                      "text_color": {
+                                        "type": "string"
+                                      },
+                                      "bg_style": {
+                                        "type": "integer"
+                                      },
+                                      "bg_color": {
+                                        "type": "string"
+                                      },
+                                      "border_color": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "path",
+                                      "text",
+                                      "label_theme",
+                                      "text_color",
+                                      "bg_style",
+                                      "bg_color",
+                                      "border_color"
+                                    ]
+                                  },
+                                  "avatar_subscript": {
+                                    "type": "integer"
+                                  },
+                                  "nickname_color": {
+                                    "type": "string"
+                                  },
+                                  "avatar_subscript_url": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "vipType",
+                                  "vipDueDate",
+                                  "dueRemark",
+                                  "accessStatus",
+                                  "vipStatus",
+                                  "vipStatusWarn",
+                                  "themeType",
+                                  "label",
+                                  "avatar_subscript",
+                                  "nickname_color",
+                                  "avatar_subscript_url"
+                                ]
+                              },
+                              "name_render": {
+                                "type": "object",
+                                "properties": {}
+                              },
+                              "nft_icon": {
+                                "type": "string"
+                              },
+                              "rec_reason": {
+                                "type": "string"
+                              },
+                              "track_id": {
+                                "type": "string"
+                              },
+                              "follow_time": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "mid",
+                              "attribute",
+                              "mtime",
+                              "tag",
+                              "special",
+                              "uname",
+                              "face",
+                              "sign",
+                              "face_nft",
+                              "handle",
+                              "official_verify",
+                              "vip",
+                              "name_render",
+                              "nft_icon",
+                              "rec_reason",
+                              "track_id",
+                              "follow_time"
+                            ]
+                          }
+                        },
+                        "re_version": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "list",
+                        "re_version"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "list": [
+                      {
+                        "mid": 35734399,
+                        "attribute": 6,
+                        "mtime": 1758082111,
+                        "tag": null,
+                        "special": 0,
+                        "uname": "小橙子姐姐解说",
+                        "face": "https://i1.hdslb.com/bfs/face/7af5ccb8df46b88ff13b172fabbfab94aad5eb28.jpg",
+                        "sign": "愿世界和平！小狗温暖世界！商务合作VX:xchengzijiejie（请备注来意~）",
+                        "face_nft": 0,
+                        "handle": "",
+                        "official_verify": {
+                          "type": 0,
+                          "desc": "bilibili 知名游戏UP主"
+                        },
+                        "vip": {
+                          "vipType": 2,
+                          "vipDueDate": 1789747200000,
+                          "dueRemark": "",
+                          "accessStatus": 0,
+                          "vipStatus": 1,
+                          "vipStatusWarn": "",
+                          "themeType": 0,
+                          "label": {
+                            "path": "http://i0.hdslb.com/bfs/vip/label_annual.png",
+                            "text": "年度大会员",
+                            "label_theme": "annual_vip",
+                            "text_color": "#FFFFFF",
+                            "bg_style": 1,
+                            "bg_color": "#FB7299",
+                            "border_color": ""
+                          },
+                          "avatar_subscript": 1,
+                          "nickname_color": "#FB7299",
+                          "avatar_subscript_url": ""
+                        },
+                        "name_render": {},
+                        "nft_icon": "",
+                        "rec_reason": "",
+                        "track_id": "",
+                        "follow_time": ""
+                      }
+                    ],
+                    "re_version": 0
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/relation/blacks": {
+      "get": {
+        "summary": "黑名单",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "关系"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "list": [],
+                        "re_version": 0,
+                        "total": 0
+                      }
+                    }
+                  },
+                  "2": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "list": [
+                          {
+                            "mid": 208259,
+                            "attribute": 128,
+                            "mtime": 1769795841,
+                            "tag": null,
+                            "special": 0,
+                            "uname": "陈睿",
+                            "face": "http://i2.hdslb.com/bfs/app/8920e6741fc2808cce5b81bc27abdbda291655d3.png",
+                            "sign": "喜欢的话就坚持吧",
+                            "face_nft": 0,
+                            "handle": "",
+                            "official_verify": {
+                              "type": 0,
+                              "desc": ""
+                            },
+                            "vip": {
+                              "vipType": 0,
+                              "vipDueDate": 0,
+                              "dueRemark": "",
+                              "accessStatus": 0,
+                              "vipStatus": 0,
+                              "vipStatusWarn": "",
+                              "themeType": 0,
+                              "label": {
+                                "path": "",
+                                "text": "",
+                                "label_theme": "",
+                                "text_color": "",
+                                "bg_style": 0,
+                                "bg_color": "",
+                                "border_color": ""
+                              },
+                              "avatar_subscript": 0,
+                              "nickname_color": "",
+                              "avatar_subscript_url": ""
+                            },
+                            "name_render": {},
+                            "nft_icon": "",
+                            "rec_reason": "",
+                            "track_id": "",
+                            "follow_time": ""
+                          }
+                        ],
+                        "re_version": 0,
+                        "total": 1
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/relation/modify": {
+      "post": {
+        "summary": "关系操作",
+        "deprecated": false,
+        "description": "###### 操作代码\n\n| 代码 | 操作         |\n| ---- | ------------ |\n| 1    | 关注         |\n| 2    | 取关         |\n| 4    | 取消悄悄关注 |\n| 5    | 拉黑         |\n| 6    | 取消拉黑     |\n| 7    | 踢出粉丝     |\n\n###### 操作来源\n\n| 代码 | 类型                     |\n| ---- | ------------------------ |\n| 1    | 包月充电                 |\n| 11   | 个人空间                 |\n| 14   | 视频                     |\n| 15   | 评论区                   |\n| 17   | 视频播放器结束页面       |\n| 58   | H5推荐关注               |\n| 106  | H5关注列表               |\n| 107  | H5粉丝列表               |\n| 115  | 专栏                     |\n| 118  | 私信                     |\n| 120  | 搜索                     |\n| 164  | 视频播放器左上角关注按钮 |\n| 167  | H5共同关注               |\n| 192  | 创作激励计划             |\n| 222  | 活动页面                 |\n| 229  | 联合投稿视频             |\n| 235  | 消息中心点赞详情         |\n| 245  | 视频播放器关注弹幕       |\n\n###### 错误信息\n\n| 代码  | 错误信息                               |\n| ----- | -------------------------------------- |\n| 22001 | 不能对自己进行此操作                   |\n| 22002 | 因对方隐私设置，你还不能关注           |\n| 22003 | 关注失败，请将该用户移除黑名单之后再试 |\n| 22008 | 黑名单达到上限                         |\n| 22009 | 关注失败，已达关注上限                 |\n| 22013 | 账号已注销，无法完成操作               |\n| 22014 | 已经关注用户，无法重复关注             |\n| 22120 | 重复加入黑名单                         |\n| 40061 | 用户不存在                             |\n",
+        "tags": [
+          "关系"
+        ],
+        "parameters": [
+          {
+            "name": "fid",
+            "in": "query",
+            "description": "操作目标",
+            "required": true,
+            "example": "489191198",
+            "schema": {
+              "type": "string"
             }
+          },
+          {
+            "name": "act",
+            "in": "query",
+            "description": "操作代码，见说明",
+            "required": true,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "re_src",
+            "in": "query",
+            "description": "来源，见说明",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "csrf",
+            "in": "query",
+            "description": "Cookie方式必要",
+            "required": false,
+            "example": "5eeda577cfc2316c2e9c054e361ddc90",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl"
+                  ]
+                },
+                "example": {
+                  "code": 22002,
+                  "message": "因对方隐私设置，你还不能关注",
+                  "ttl": 1
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/relation/batch/modify": {
+      "post": {
+        "summary": "批量关系操作",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "关系"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fids": {
+                    "description": "目标mid，用,隔开，一次最多50",
+                    "example": "208259",
+                    "type": "string"
+                  },
+                  "act": {
+                    "description": "仅可为1/5",
+                    "example": "1",
+                    "type": "string"
+                  },
+                  "re_src": {
+                    "description": "见关系操作API文档",
+                    "example": "",
+                    "type": "string"
+                  },
+                  "csrf": {
+                    "description": "Cookie方式必要",
+                    "example": "5eeda577cfc2316c2e9c054e361ddc90",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "fids",
+                  "act"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "failed_fids": [
+                      489191198
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {}
           }
         },
         "security": []
