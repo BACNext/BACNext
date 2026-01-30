@@ -1,0 +1,3238 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Passport",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "安全中心"
+    },
+    {
+      "name": "SNS登录"
+    },
+    {
+      "name": "Web"
+    },
+    {
+      "name": "App"
+    }
+  ],
+  "paths": {
+    "/x/safecenter/user/info": {
+      "get": {
+        "summary": "获取二次验证信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "安全中心"
+        ],
+        "parameters": [
+          {
+            "name": "tmp_code",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "tmpcode过期",
+                    "value": {
+                      "code": 86701,
+                      "message": "身份验证过期，请返回重试",
+                      "ttl": 1
+                    }
+                  },
+                  "2": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "account_info": {
+                          "hide_tel": "1xx*****xxx",
+                          "hide_mail": "xxx*****qq.com",
+                          "bind_mail": true,
+                          "bind_tel": true,
+                          "tel_verify": true,
+                          "mail_verify": true,
+                          "unneeded_check": false,
+                          "bind_safe_question": false,
+                          "mid": 1,
+                          "is_tourist": false
+                        },
+                        "member_info": {
+                          "nickname": "xxxxxxx",
+                          "face": "https://i1.hdslb.com/bfs/face/xxxxxxxxxxxxxxxxxxx.jpg",
+                          "realname_status": true
+                        },
+                        "sns_info": {
+                          "bind_google": false,
+                          "bind_fb": false,
+                          "bind_apple": false,
+                          "bind_qq": true,
+                          "bind_weibo": false,
+                          "bind_wechat": false
+                        },
+                        "account_safe": {
+                          "score": 85
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/safecenter/captcha/pre": {
+      "post": {
+        "summary": "获取验证码",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "安全中心"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "source": {
+                    "example": "risk",
+                    "type": "string"
+                  }
+                }
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "recaptcha_type": "geetest",
+                    "recaptcha_token": "b097bb93ce194eee850b26dd8fb9aaef",
+                    "gee_challenge": "9fff99dff3d23dea665436f4ac12a63f",
+                    "gee_gt": "ac597a4506fee079629df5d8b66dd4fe"
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/safecenter/common/sms/send": {
+      "post": {
+        "summary": "发送手机验证码（绑定场景）",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "安全中心"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tmp_code": {
+                    "example": "",
+                    "type": "string"
+                  },
+                  "sms_type": {
+                    "example": "loginTelBind",
+                    "type": "string"
+                  },
+                  "recaptcha_token": {
+                    "example": "",
+                    "type": "string"
+                  },
+                  "gee_challenge": {
+                    "example": "",
+                    "type": "string"
+                  },
+                  "gee_seccode": {
+                    "example": "",
+                    "type": "string"
+                  },
+                  "gee_validate": {
+                    "example": "",
+                    "type": "string"
+                  },
+                  "country_code": {
+                    "example": "86",
+                    "type": "string"
+                  },
+                  "tel": {
+                    "description": "需要RSA加密",
+                    "example": "",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "tmp_code",
+                  "recaptcha_token",
+                  "gee_challenge",
+                  "gee_seccode",
+                  "gee_validate",
+                  "country_code",
+                  "tel"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/safecenter/common/email/send": {
+      "post": {
+        "summary": "发送邮箱验证码",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "安全中心"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/safecenter/login/tel/verify": {
+      "post": {
+        "summary": "验证手机验证码",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "安全中心"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "验证码错误",
+                    "value": {
+                      "code": 86202,
+                      "message": "验证码错误",
+                      "ttl": 1,
+                      "data": null
+                    }
+                  },
+                  "2": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "code": "757f2f2f6f9400000000000000000000"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/safecenter/login/tel/bind": {
+      "get": {
+        "summary": "手机绑定",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "安全中心"
+        ],
+        "parameters": [
+          {
+            "name": "tmp_code",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cid",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tel",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "captcha_key",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "mail_type",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "bindPhoneUseMail",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "mail_code",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "captcha_key_mail",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "request_id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "source",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "risk",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/safecenter/key": {
+      "get": {
+        "summary": "安全中心公钥获取",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "安全中心"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "key": "-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCvvgKVBDIUPGPXLQzJxGK7Wook\n/vgW5U1NDsezV5vpiTOP5ZrO8ft8vcg+SYWGvOQMJTViKW+uw9cEeJa1zeDT6wVP\nRrHMulgOYElZozGzuGvmT6girP6J4GSSCuCUNsJwl+EzA9ARPJA3wy79G4029ipS\nw0Re0cj4jnXcbTnsFwIDAQAB\n-----END PUBLIC KEY-----\n",
+                    "hash": "2475b067aa52b948"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/passport-login/web/sns/authorize/url": {
+      "post": {
+        "summary": "SNS授权URL",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "SNS登录"
+        ],
+        "parameters": [
+          {
+            "name": "csrf_state",
+            "in": "cookie",
+            "description": "",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sns_platform": {
+                    "description": "qq",
+                    "example": "qq",
+                    "type": "string"
+                  },
+                  "go_url": {
+                    "example": "",
+                    "type": "string"
+                  },
+                  "csrf_state": {
+                    "example": "1",
+                    "type": "string"
+                  },
+                  "source": {
+                    "description": "这他妈是必要参？？",
+                    "example": "main-fe-header",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "sns_platform",
+                  "csrf_state",
+                  "source"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "url": "https://graph.qq.com/oauth2.0/authorize?response_type=code&state=authorize&client_id=101135748&redirect_uri=https%3A%2F%2Fpassport.bilibili.com%2Fpc%2Fpassport%2FsnsLogin%3Fcsrf_state%3D1%26sns_platform%3Dqq%26source%3Dwtf%26go_url%3Dhttps%253A%252F%252Fwww.bilibili.com&scope=do_like,get_user_info,get_simple_userinfo,get_vip_info,get_vip_rich_info,add_one_blog,list_album,upload_pic,add_album,list_photo,get_info,add_t,del_t,add_pic_t,get_repost_list,get_other_info,get_fanslist,get_idollist,add_idol,del_idol,get_tenpay_addr"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/passport-login/web/sns/state/generate": {
+      "get": {
+        "summary": "获取csrf state",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "SNS登录"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "csrf_state": "2e67ad0c0bc82ff9d62094ba0be7face"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/passport-login/web/sns/login": {
+      "post": {
+        "summary": "SNS 登录",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "SNS登录"
+        ],
+        "parameters": [
+          {
+            "name": "csrf_state",
+            "in": "cookie",
+            "description": "",
+            "required": true,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "csrf_state": {
+                    "example": "1",
+                    "type": "string"
+                  },
+                  "sns_platform": {
+                    "example": "qq",
+                    "type": "string"
+                  },
+                  "source": {
+                    "example": "main-fe-header",
+                    "type": "string"
+                  },
+                  "go_url": {
+                    "example": "",
+                    "type": "string"
+                  },
+                  "code": {
+                    "example": "98196BC9B2CF2CA5FC07E54C6F3D45D6",
+                    "type": "string"
+                  }
+                }
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "integer"
+                        },
+                        "verify_url": {
+                          "type": "string"
+                        },
+                        "verify_message": {
+                          "type": "string"
+                        },
+                        "has_bind": {
+                          "type": "boolean"
+                        },
+                        "go_url": {
+                          "type": "string"
+                        },
+                        "refresh": {
+                          "type": "string"
+                        },
+                        "iframe_domain": {
+                          "type": "string"
+                        },
+                        "timestamp": {
+                          "type": "integer"
+                        },
+                        "sns_platform": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "sns_openid": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "status",
+                        "verify_url",
+                        "verify_message",
+                        "has_bind",
+                        "go_url",
+                        "refresh",
+                        "iframe_domain",
+                        "timestamp",
+                        "sns_platform",
+                        "source",
+                        "sns_openid"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "需要绑定",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "status": 0,
+                        "verify_url": "",
+                        "verify_message": "",
+                        "has_bind": false,
+                        "go_url": "https://www.bilibili.com",
+                        "refresh": "",
+                        "iframe_domain": "",
+                        "timestamp": 0,
+                        "sns_platform": "qq",
+                        "source": "main-fe-header",
+                        "sns_openid": "00000000000000000000000000000000"
+                      }
+                    }
+                  },
+                  "2": {
+                    "summary": "成功",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "status": 0,
+                        "verify_url": "",
+                        "verify_message": "",
+                        "has_bind": true,
+                        "go_url": "https://passport.biligame.com/x/passport-login/web/crossDomain?DedeUserID=1&DedeUserID__ckMd5=xxx&Expires=1785251169&SESSDATA=[DELETED]&gourl=https%3A%2F%2Fwww.bilibili.com&first_domain=.bilibili.com",
+                        "refresh": "some_hex_string",
+                        "iframe_domain": "https://www.bilibili.com",
+                        "timestamp": 1769699169792,
+                        "sns_platform": "qq",
+                        "source": "main-fe-header",
+                        "sns_openid": "ALONGHEXSTRING"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/passport-login/captcha": {
+      "get": {
+        "summary": "申请验证码",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        },
+                        "token": {
+                          "type": "string"
+                        },
+                        "geetest": {
+                          "type": "object",
+                          "properties": {
+                            "challenge": {
+                              "type": "string"
+                            },
+                            "gt": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "challenge",
+                            "gt"
+                          ]
+                        },
+                        "tencent": {
+                          "type": "object",
+                          "properties": {
+                            "appid": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "appid"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "token",
+                        "geetest",
+                        "tencent"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "type": "geetest",
+                    "token": "cc1478768283489aa548c8003e7b5ad1",
+                    "geetest": {
+                      "challenge": "6fe815503cd3daaf3faf67c655739906",
+                      "gt": "ac597a4506fee079629df5d8b66dd4fe"
+                    },
+                    "tencent": {
+                      "appid": ""
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/web/captcha/combine": {
+      "get": {
+        "summary": "申请验证码(旧版)",
+        "deprecated": true,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "plat",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": "6",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/passport-login/web/qrcode/generate": {
+      "get": {
+        "summary": "申请二维码",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Web"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        },
+                        "qrcode_key": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "qrcode_key"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "url": "https://account.bilibili.com/h5/account-h5/auth/scan-web?navhide=1&callback=close&qrcode_key=aa46ecc9f7a605b4ab37f7b00adb30a3&from=",
+                    "qrcode_key": "aa46ecc9f7a605b4ab37f7b00adb30a3"
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/passport-login/web/qrcode/poll": {
+      "get": {
+        "summary": "扫码登录",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Web"
+        ],
+        "parameters": [
+          {
+            "name": "qrcode_key",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": "2ce86ade177640d255fda032c965fd65",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        },
+                        "refresh_token": {
+                          "type": "string"
+                        },
+                        "timestamp": {
+                          "type": "integer"
+                        },
+                        "code": {
+                          "type": "integer"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "refresh_token",
+                        "timestamp",
+                        "code",
+                        "message"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "二维码已失效",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "url": "",
+                        "refresh_token": "",
+                        "timestamp": 0,
+                        "code": 86038,
+                        "message": "二维码已失效"
+                      }
+                    }
+                  },
+                  "2": {
+                    "summary": "未扫码",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "url": "",
+                        "refresh_token": "",
+                        "timestamp": 0,
+                        "code": 86101,
+                        "message": "未扫码"
+                      }
+                    }
+                  },
+                  "3": {
+                    "summary": "二维码已扫码未确认",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "url": "",
+                        "refresh_token": "",
+                        "timestamp": 0,
+                        "code": 86090,
+                        "message": "二维码已扫码未确认"
+                      }
+                    }
+                  },
+                  "4": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "url": "https://passport.biligame.com/x/passport-login/web/crossDomain?DedeUserID=1&DedeUserID__ckMd5=[REMOVED]&Expires=[REMOVED]&SESSDATA=[REMOVED]&bili_jct=[REMOVED]&gourl=https%3A%2F%2Fwww.bilibili.com&first_domain=.bilibili.com",
+                        "refresh_token": "61e15000000000000000000000000000",
+                        "timestamp": 1769618093579,
+                        "code": 0,
+                        "message": ""
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/qrcode/getLoginUrl": {
+      "get": {
+        "summary": "申请二维码(旧版)",
+        "deprecated": true,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "ts": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        },
+                        "oauthKey": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "oauthKey"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "status",
+                    "ts",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "status": true,
+                  "ts": 1583314311,
+                  "data": {
+                    "url": "https://passport.bilibili.com/qrcode/h5/login?oauthKey=c3bd5286a2b40a822f5f60e9bf3f602e",
+                    "oauthKey": "c3bd5286a2b40a822f5f60e9bf3f602e"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/qrcode/getLoginInfo": {
+      "get": {
+        "summary": "扫码登录(旧版)",
+        "deprecated": true,
+        "description": "扫码登录 确认登录 流程完成后，会同时设置以下 Cookie 值：\n- `SESSDATA`\n- `bili_jct`\n- `DedeUserID`\n- `DedeUserID__ckMd5`\n- `sid`",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "oauthKey": {
+                    "example": "c3bd5286a2b40a822f5f60e9bf3f602e",
+                    "type": "string"
+                  },
+                  "gourl": {
+                    "example": "http://www.bilibili.com",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "oauthKey"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "data",
+                    "message"
+                  ]
+                },
+                "example": {
+                  "status": false,
+                  "data": -4,
+                  "message": "Can't scan~"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/web/generic/country/list": {
+      "get": {
+        "summary": "获取国际冠字码",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Web"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "common": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "cname": {
+                                "type": "string"
+                              },
+                              "country_id": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "cname",
+                              "country_id"
+                            ]
+                          }
+                        },
+                        "others": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "cname": {
+                                "type": "string"
+                              },
+                              "country_id": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "cname",
+                              "country_id"
+                            ]
+                          }
+                        }
+                      },
+                      "required": [
+                        "common",
+                        "others"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "common": [
+                      {
+                        "id": 1,
+                        "cname": "中国大陆",
+                        "country_id": "86"
+                      },
+                      {
+                        "id": 5,
+                        "cname": "中国香港特别行政区",
+                        "country_id": "852"
+                      },
+                      {
+                        "id": 2,
+                        "cname": "中国澳门特别行政区",
+                        "country_id": "853"
+                      },
+                      {
+                        "id": 3,
+                        "cname": "中国台湾",
+                        "country_id": "886"
+                      },
+                      {
+                        "id": 4,
+                        "cname": "美国",
+                        "country_id": "1"
+                      },
+                      {
+                        "id": 6,
+                        "cname": "比利时",
+                        "country_id": "32"
+                      },
+                      {
+                        "id": 7,
+                        "cname": "澳大利亚",
+                        "country_id": "61"
+                      },
+                      {
+                        "id": 8,
+                        "cname": "法国",
+                        "country_id": "33"
+                      },
+                      {
+                        "id": 9,
+                        "cname": "加拿大",
+                        "country_id": "1"
+                      },
+                      {
+                        "id": 10,
+                        "cname": "日本",
+                        "country_id": "81"
+                      },
+                      {
+                        "id": 11,
+                        "cname": "新加坡",
+                        "country_id": "65"
+                      },
+                      {
+                        "id": 12,
+                        "cname": "韩国",
+                        "country_id": "82"
+                      },
+                      {
+                        "id": 13,
+                        "cname": "马来西亚",
+                        "country_id": "60"
+                      },
+                      {
+                        "id": 14,
+                        "cname": "英国",
+                        "country_id": "44"
+                      },
+                      {
+                        "id": 15,
+                        "cname": "意大利",
+                        "country_id": "39"
+                      },
+                      {
+                        "id": 16,
+                        "cname": "德国",
+                        "country_id": "49"
+                      },
+                      {
+                        "id": 18,
+                        "cname": "俄罗斯",
+                        "country_id": "7"
+                      },
+                      {
+                        "id": 19,
+                        "cname": "新西兰",
+                        "country_id": "64"
+                      }
+                    ],
+                    "others": [
+                      {
+                        "id": 153,
+                        "cname": "瓦利斯群岛和富图纳群岛",
+                        "country_id": "1681"
+                      },
+                      {
+                        "id": 152,
+                        "cname": "葡萄牙",
+                        "country_id": "351"
+                      },
+                      {
+                        "id": 151,
+                        "cname": "帕劳",
+                        "country_id": "680"
+                      },
+                      {
+                        "id": 150,
+                        "cname": "诺福克岛",
+                        "country_id": "672"
+                      },
+                      {
+                        "id": 149,
+                        "cname": "挪威",
+                        "country_id": "47"
+                      },
+                      {
+                        "id": 148,
+                        "cname": "纽埃岛",
+                        "country_id": "683"
+                      },
+                      {
+                        "id": 147,
+                        "cname": "尼日利亚",
+                        "country_id": "234"
+                      },
+                      {
+                        "id": 146,
+                        "cname": "尼日尔",
+                        "country_id": "227"
+                      },
+                      {
+                        "id": 145,
+                        "cname": "尼加拉瓜",
+                        "country_id": "505"
+                      },
+                      {
+                        "id": 144,
+                        "cname": "尼泊尔",
+                        "country_id": "977"
+                      },
+                      {
+                        "id": 143,
+                        "cname": "瑙鲁",
+                        "country_id": "674"
+                      },
+                      {
+                        "id": 154,
+                        "cname": "格鲁吉亚",
+                        "country_id": "995"
+                      },
+                      {
+                        "id": 155,
+                        "cname": "瑞典",
+                        "country_id": "46"
+                      },
+                      {
+                        "id": 165,
+                        "cname": "沙特阿拉伯",
+                        "country_id": "966"
+                      },
+                      {
+                        "id": 164,
+                        "cname": "桑给巴尔岛",
+                        "country_id": "259"
+                      },
+                      {
+                        "id": 163,
+                        "cname": "塞舌尔共和国",
+                        "country_id": "248"
+                      },
+                      {
+                        "id": 162,
+                        "cname": "塞浦路斯",
+                        "country_id": "357"
+                      },
+                      {
+                        "id": 161,
+                        "cname": "塞内加尔",
+                        "country_id": "221"
+                      },
+                      {
+                        "id": 160,
+                        "cname": "塞拉利昂",
+                        "country_id": "232"
+                      },
+                      {
+                        "id": 159,
+                        "cname": "萨摩亚，东部",
+                        "country_id": "684"
+                      },
+                      {
+                        "id": 158,
+                        "cname": "萨摩亚，西部",
+                        "country_id": "685"
+                      },
+                      {
+                        "id": 157,
+                        "cname": "萨尔瓦多",
+                        "country_id": "503"
+                      },
+                      {
+                        "id": 156,
+                        "cname": "瑞士",
+                        "country_id": "41"
+                      },
+                      {
+                        "id": 166,
+                        "cname": "圣多美和普林西比",
+                        "country_id": "239"
+                      },
+                      {
+                        "id": 142,
+                        "cname": "塞尔维亚",
+                        "country_id": "381"
+                      },
+                      {
+                        "id": 141,
+                        "cname": "南非",
+                        "country_id": "27"
+                      },
+                      {
+                        "id": 128,
+                        "cname": "毛里塔尼亚",
+                        "country_id": "222"
+                      },
+                      {
+                        "id": 127,
+                        "cname": "毛里求斯",
+                        "country_id": "230"
+                      },
+                      {
+                        "id": 126,
+                        "cname": "马歇尔岛",
+                        "country_id": "692"
+                      },
+                      {
+                        "id": 125,
+                        "cname": "马提尼克岛",
+                        "country_id": "596"
+                      },
+                      {
+                        "id": 124,
+                        "cname": "马其顿",
+                        "country_id": "389"
+                      },
+                      {
+                        "id": 123,
+                        "cname": "马里亚纳岛",
+                        "country_id": "1670"
+                      },
+                      {
+                        "id": 122,
+                        "cname": "马里",
+                        "country_id": "223"
+                      },
+                      {
+                        "id": 121,
+                        "cname": "马拉维",
+                        "country_id": "265"
+                      },
+                      {
+                        "id": 120,
+                        "cname": "马耳他",
+                        "country_id": "356"
+                      },
+                      {
+                        "id": 119,
+                        "cname": "马尔代夫",
+                        "country_id": "960"
+                      },
+                      {
+                        "id": 129,
+                        "cname": "蒙古",
+                        "country_id": "976"
+                      },
+                      {
+                        "id": 130,
+                        "cname": "蒙特塞拉特岛",
+                        "country_id": "1664"
+                      },
+                      {
+                        "id": 140,
+                        "cname": "纳米比亚",
+                        "country_id": "264"
+                      },
+                      {
+                        "id": 139,
+                        "cname": "墨西哥",
+                        "country_id": "52"
+                      },
+                      {
+                        "id": 138,
+                        "cname": "莫桑比克",
+                        "country_id": "258"
+                      },
+                      {
+                        "id": 137,
+                        "cname": "摩纳哥",
+                        "country_id": "377"
+                      },
+                      {
+                        "id": 136,
+                        "cname": "摩洛哥",
+                        "country_id": "212"
+                      },
+                      {
+                        "id": 135,
+                        "cname": "摩尔多瓦",
+                        "country_id": "373"
+                      },
+                      {
+                        "id": 134,
+                        "cname": "缅甸",
+                        "country_id": "95"
+                      },
+                      {
+                        "id": 133,
+                        "cname": "密克罗尼西亚",
+                        "country_id": "691"
+                      },
+                      {
+                        "id": 132,
+                        "cname": "秘鲁",
+                        "country_id": "51"
+                      },
+                      {
+                        "id": 131,
+                        "cname": "孟加拉国",
+                        "country_id": "880"
+                      },
+                      {
+                        "id": 118,
+                        "cname": "马达加斯加",
+                        "country_id": "261"
+                      },
+                      {
+                        "id": 167,
+                        "cname": "圣卢西亚",
+                        "country_id": "1784"
+                      },
+                      {
+                        "id": 216,
+                        "cname": "智利",
+                        "country_id": "56"
+                      },
+                      {
+                        "id": 203,
+                        "cname": "牙买加",
+                        "country_id": "1876"
+                      },
+                      {
+                        "id": 202,
+                        "cname": "叙利亚",
+                        "country_id": "963"
+                      },
+                      {
+                        "id": 201,
+                        "cname": "匈牙利",
+                        "country_id": "36"
+                      },
+                      {
+                        "id": 200,
+                        "cname": "科特迪瓦",
+                        "country_id": "225"
+                      },
+                      {
+                        "id": 199,
+                        "cname": "希腊",
+                        "country_id": "30"
+                      },
+                      {
+                        "id": 198,
+                        "cname": "西班牙",
+                        "country_id": "34"
+                      },
+                      {
+                        "id": 197,
+                        "cname": "乌兹别克斯坦",
+                        "country_id": "998"
+                      },
+                      {
+                        "id": 196,
+                        "cname": "乌拉圭",
+                        "country_id": "598"
+                      },
+                      {
+                        "id": 195,
+                        "cname": "乌克兰",
+                        "country_id": "380"
+                      },
+                      {
+                        "id": 194,
+                        "cname": "乌干达",
+                        "country_id": "256"
+                      },
+                      {
+                        "id": 204,
+                        "cname": "亚美尼亚",
+                        "country_id": "374"
+                      },
+                      {
+                        "id": 205,
+                        "cname": "也门",
+                        "country_id": "967"
+                      },
+                      {
+                        "id": 215,
+                        "cname": "直布罗陀",
+                        "country_id": "350"
+                      },
+                      {
+                        "id": 214,
+                        "cname": "乍得",
+                        "country_id": "235"
+                      },
+                      {
+                        "id": 213,
+                        "cname": "赞比亚",
+                        "country_id": "260"
+                      },
+                      {
+                        "id": 212,
+                        "cname": "越南",
+                        "country_id": "84"
+                      },
+                      {
+                        "id": 211,
+                        "cname": "约旦",
+                        "country_id": "962"
+                      },
+                      {
+                        "id": 210,
+                        "cname": "印尼",
+                        "country_id": "62"
+                      },
+                      {
+                        "id": 209,
+                        "cname": "印度",
+                        "country_id": "91"
+                      },
+                      {
+                        "id": 208,
+                        "cname": "以色列",
+                        "country_id": "972"
+                      },
+                      {
+                        "id": 207,
+                        "cname": "伊朗",
+                        "country_id": "98"
+                      },
+                      {
+                        "id": 206,
+                        "cname": "伊拉克",
+                        "country_id": "964"
+                      },
+                      {
+                        "id": 193,
+                        "cname": "文莱",
+                        "country_id": "673"
+                      },
+                      {
+                        "id": 192,
+                        "cname": "委内瑞拉",
+                        "country_id": "58"
+                      },
+                      {
+                        "id": 191,
+                        "cname": "维珍群岛(英属)",
+                        "country_id": "1284"
+                      },
+                      {
+                        "id": 178,
+                        "cname": "泰国",
+                        "country_id": "66"
+                      },
+                      {
+                        "id": 177,
+                        "cname": "索马里",
+                        "country_id": "252"
+                      },
+                      {
+                        "id": 176,
+                        "cname": "所罗门群岛",
+                        "country_id": "677"
+                      },
+                      {
+                        "id": 175,
+                        "cname": "苏里南",
+                        "country_id": "597"
+                      },
+                      {
+                        "id": 174,
+                        "cname": "苏丹",
+                        "country_id": "249"
+                      },
+                      {
+                        "id": 173,
+                        "cname": "斯威士兰",
+                        "country_id": "268"
+                      },
+                      {
+                        "id": 172,
+                        "cname": "斯洛文尼亚",
+                        "country_id": "386"
+                      },
+                      {
+                        "id": 171,
+                        "cname": "斯洛伐克",
+                        "country_id": "421"
+                      },
+                      {
+                        "id": 170,
+                        "cname": "斯里兰卡",
+                        "country_id": "94"
+                      },
+                      {
+                        "id": 169,
+                        "cname": "圣皮埃尔和密克隆群岛",
+                        "country_id": "508"
+                      },
+                      {
+                        "id": 179,
+                        "cname": "坦桑尼亚",
+                        "country_id": "255"
+                      },
+                      {
+                        "id": 180,
+                        "cname": "汤加",
+                        "country_id": "676"
+                      },
+                      {
+                        "id": 190,
+                        "cname": "维珍群岛(美属)",
+                        "country_id": "1340"
+                      },
+                      {
+                        "id": 189,
+                        "cname": "瓦努阿图",
+                        "country_id": "678"
+                      },
+                      {
+                        "id": 188,
+                        "cname": "托克劳岛",
+                        "country_id": "690"
+                      },
+                      {
+                        "id": 187,
+                        "cname": "土库曼斯坦",
+                        "country_id": "993"
+                      },
+                      {
+                        "id": 186,
+                        "cname": "土耳其",
+                        "country_id": "90"
+                      },
+                      {
+                        "id": 185,
+                        "cname": "图瓦卢",
+                        "country_id": "688"
+                      },
+                      {
+                        "id": 184,
+                        "cname": "突尼斯",
+                        "country_id": "216"
+                      },
+                      {
+                        "id": 183,
+                        "cname": "阿森松岛",
+                        "country_id": "247"
+                      },
+                      {
+                        "id": 182,
+                        "cname": "特立尼达和多巴哥",
+                        "country_id": "1868"
+                      },
+                      {
+                        "id": 181,
+                        "cname": "特克斯和凯科斯",
+                        "country_id": "1649"
+                      },
+                      {
+                        "id": 168,
+                        "cname": "圣马力诺",
+                        "country_id": "378"
+                      },
+                      {
+                        "id": 67,
+                        "cname": "法属圭亚那",
+                        "country_id": "594"
+                      },
+                      {
+                        "id": 54,
+                        "cname": "不丹",
+                        "country_id": "975"
+                      },
+                      {
+                        "id": 53,
+                        "cname": "博茨瓦纳",
+                        "country_id": "267"
+                      },
+                      {
+                        "id": 52,
+                        "cname": "伯利兹",
+                        "country_id": "501"
+                      },
+                      {
+                        "id": 51,
+                        "cname": "玻利维亚",
+                        "country_id": "591"
+                      },
+                      {
+                        "id": 50,
+                        "cname": "波兰",
+                        "country_id": "48"
+                      },
+                      {
+                        "id": 49,
+                        "cname": "波黑",
+                        "country_id": "387"
+                      },
+                      {
+                        "id": 48,
+                        "cname": "波多黎各",
+                        "country_id": "1787"
+                      },
+                      {
+                        "id": 47,
+                        "cname": "冰岛",
+                        "country_id": "354"
+                      },
+                      {
+                        "id": 46,
+                        "cname": "贝宁",
+                        "country_id": "229"
+                      },
+                      {
+                        "id": 45,
+                        "cname": "保加利亚",
+                        "country_id": "359"
+                      },
+                      {
+                        "id": 55,
+                        "cname": "布基纳法索",
+                        "country_id": "226"
+                      },
+                      {
+                        "id": 56,
+                        "cname": "布隆迪",
+                        "country_id": "257"
+                      },
+                      {
+                        "id": 66,
+                        "cname": "法属波利尼西亚",
+                        "country_id": "689"
+                      },
+                      {
+                        "id": 65,
+                        "cname": "法罗岛",
+                        "country_id": "298"
+                      },
+                      {
+                        "id": 64,
+                        "cname": "厄立特里亚",
+                        "country_id": "291"
+                      },
+                      {
+                        "id": 63,
+                        "cname": "厄瓜多尔",
+                        "country_id": "593"
+                      },
+                      {
+                        "id": 62,
+                        "cname": "多米尼加代表",
+                        "country_id": "1809"
+                      },
+                      {
+                        "id": 61,
+                        "cname": "多米尼加",
+                        "country_id": "1767"
+                      },
+                      {
+                        "id": 60,
+                        "cname": "多哥",
+                        "country_id": "228"
+                      },
+                      {
+                        "id": 59,
+                        "cname": "迪戈加西亚岛",
+                        "country_id": "246"
+                      },
+                      {
+                        "id": 58,
+                        "cname": "丹麦",
+                        "country_id": "45"
+                      },
+                      {
+                        "id": 57,
+                        "cname": "赤道几内亚",
+                        "country_id": "240"
+                      },
+                      {
+                        "id": 44,
+                        "cname": "百慕大群岛",
+                        "country_id": "1441"
+                      },
+                      {
+                        "id": 43,
+                        "cname": "白俄罗斯",
+                        "country_id": "375"
+                      },
+                      {
+                        "id": 42,
+                        "cname": "巴西",
+                        "country_id": "55"
+                      },
+                      {
+                        "id": 29,
+                        "cname": "爱尔兰",
+                        "country_id": "353"
+                      },
+                      {
+                        "id": 28,
+                        "cname": "埃塞俄比亚",
+                        "country_id": "251"
+                      },
+                      {
+                        "id": 27,
+                        "cname": "埃及",
+                        "country_id": "20"
+                      },
+                      {
+                        "id": 26,
+                        "cname": "阿塞拜疆",
+                        "country_id": "994"
+                      },
+                      {
+                        "id": 25,
+                        "cname": "阿曼",
+                        "country_id": "968"
+                      },
+                      {
+                        "id": 24,
+                        "cname": "阿联酋",
+                        "country_id": "971"
+                      },
+                      {
+                        "id": 23,
+                        "cname": "阿根廷",
+                        "country_id": "54"
+                      },
+                      {
+                        "id": 22,
+                        "cname": "阿富汗",
+                        "country_id": "93"
+                      },
+                      {
+                        "id": 21,
+                        "cname": "阿尔及利亚",
+                        "country_id": "213"
+                      },
+                      {
+                        "id": 20,
+                        "cname": "阿尔巴尼亚",
+                        "country_id": "355"
+                      },
+                      {
+                        "id": 30,
+                        "cname": "爱沙尼亚",
+                        "country_id": "372"
+                      },
+                      {
+                        "id": 31,
+                        "cname": "安道尔",
+                        "country_id": "376"
+                      },
+                      {
+                        "id": 41,
+                        "cname": "巴拿马",
+                        "country_id": "507"
+                      },
+                      {
+                        "id": 40,
+                        "cname": "巴林",
+                        "country_id": "973"
+                      },
+                      {
+                        "id": 39,
+                        "cname": "巴拉圭",
+                        "country_id": "595"
+                      },
+                      {
+                        "id": 38,
+                        "cname": "巴基斯坦",
+                        "country_id": "92"
+                      },
+                      {
+                        "id": 37,
+                        "cname": "巴哈马群岛",
+                        "country_id": "1242"
+                      },
+                      {
+                        "id": 36,
+                        "cname": "巴布亚新几内亚",
+                        "country_id": "675"
+                      },
+                      {
+                        "id": 35,
+                        "cname": "巴巴多斯",
+                        "country_id": "1246"
+                      },
+                      {
+                        "id": 34,
+                        "cname": "奥地利",
+                        "country_id": "43"
+                      },
+                      {
+                        "id": 33,
+                        "cname": "安提瓜岛和巴布达",
+                        "country_id": "1268"
+                      },
+                      {
+                        "id": 32,
+                        "cname": "安哥拉",
+                        "country_id": "244"
+                      },
+                      {
+                        "id": 68,
+                        "cname": "非洲中部",
+                        "country_id": "236"
+                      },
+                      {
+                        "id": 117,
+                        "cname": "罗马尼亚",
+                        "country_id": "40"
+                      },
+                      {
+                        "id": 104,
+                        "cname": "科威特",
+                        "country_id": "965"
+                      },
+                      {
+                        "id": 103,
+                        "cname": "科摩罗",
+                        "country_id": "269"
+                      },
+                      {
+                        "id": 102,
+                        "cname": "开曼群岛",
+                        "country_id": "1345"
+                      },
+                      {
+                        "id": 101,
+                        "cname": "卡塔尔",
+                        "country_id": "974"
+                      },
+                      {
+                        "id": 100,
+                        "cname": "喀麦隆",
+                        "country_id": "237"
+                      },
+                      {
+                        "id": 99,
+                        "cname": "聚会岛",
+                        "country_id": "262"
+                      },
+                      {
+                        "id": 98,
+                        "cname": "津巴布韦",
+                        "country_id": "263"
+                      },
+                      {
+                        "id": 97,
+                        "cname": "捷克",
+                        "country_id": "420"
+                      },
+                      {
+                        "id": 96,
+                        "cname": "柬埔寨",
+                        "country_id": "855"
+                      },
+                      {
+                        "id": 95,
+                        "cname": "加蓬",
+                        "country_id": "241"
+                      },
+                      {
+                        "id": 105,
+                        "cname": "克罗地亚",
+                        "country_id": "385"
+                      },
+                      {
+                        "id": 106,
+                        "cname": "肯尼亚",
+                        "country_id": "254"
+                      },
+                      {
+                        "id": 116,
+                        "cname": "卢旺达",
+                        "country_id": "250"
+                      },
+                      {
+                        "id": 115,
+                        "cname": "卢森堡",
+                        "country_id": "352"
+                      },
+                      {
+                        "id": 114,
+                        "cname": "利比亚",
+                        "country_id": "218"
+                      },
+                      {
+                        "id": 113,
+                        "cname": "利比里亚",
+                        "country_id": "231"
+                      },
+                      {
+                        "id": 112,
+                        "cname": "立陶宛",
+                        "country_id": "370"
+                      },
+                      {
+                        "id": 111,
+                        "cname": "黎巴嫩",
+                        "country_id": "961"
+                      },
+                      {
+                        "id": 110,
+                        "cname": "老挝",
+                        "country_id": "856"
+                      },
+                      {
+                        "id": 109,
+                        "cname": "莱索托",
+                        "country_id": "266"
+                      },
+                      {
+                        "id": 108,
+                        "cname": "拉脱维亚",
+                        "country_id": "371"
+                      },
+                      {
+                        "id": 107,
+                        "cname": "库克岛",
+                        "country_id": "682"
+                      },
+                      {
+                        "id": 94,
+                        "cname": "加纳",
+                        "country_id": "233"
+                      },
+                      {
+                        "id": 93,
+                        "cname": "几内亚比绍",
+                        "country_id": "245"
+                      },
+                      {
+                        "id": 92,
+                        "cname": "几内亚",
+                        "country_id": "224"
+                      },
+                      {
+                        "id": 79,
+                        "cname": "格林纳达",
+                        "country_id": "1473"
+                      },
+                      {
+                        "id": 78,
+                        "cname": "哥斯达黎加",
+                        "country_id": "506"
+                      },
+                      {
+                        "id": 77,
+                        "cname": "哥伦比亚",
+                        "country_id": "57"
+                      },
+                      {
+                        "id": 76,
+                        "cname": "刚果(金)",
+                        "country_id": "243"
+                      },
+                      {
+                        "id": 75,
+                        "cname": "刚果",
+                        "country_id": "242"
+                      },
+                      {
+                        "id": 74,
+                        "cname": "冈比亚",
+                        "country_id": "220"
+                      },
+                      {
+                        "id": 73,
+                        "cname": "福克兰岛",
+                        "country_id": "500"
+                      },
+                      {
+                        "id": 72,
+                        "cname": "佛得角",
+                        "country_id": "238"
+                      },
+                      {
+                        "id": 71,
+                        "cname": "芬兰",
+                        "country_id": "358"
+                      },
+                      {
+                        "id": 70,
+                        "cname": "斐济",
+                        "country_id": "679"
+                      },
+                      {
+                        "id": 80,
+                        "cname": "格陵兰岛",
+                        "country_id": "299"
+                      },
+                      {
+                        "id": 81,
+                        "cname": "古巴",
+                        "country_id": "53"
+                      },
+                      {
+                        "id": 91,
+                        "cname": "吉尔吉斯斯坦",
+                        "country_id": "996"
+                      },
+                      {
+                        "id": 90,
+                        "cname": "吉布提",
+                        "country_id": "253"
+                      },
+                      {
+                        "id": 89,
+                        "cname": "基里巴斯",
+                        "country_id": "686"
+                      },
+                      {
+                        "id": 88,
+                        "cname": "维克岛",
+                        "country_id": "1808"
+                      },
+                      {
+                        "id": 87,
+                        "cname": "洪都拉斯",
+                        "country_id": "504"
+                      },
+                      {
+                        "id": 86,
+                        "cname": "荷兰",
+                        "country_id": "31"
+                      },
+                      {
+                        "id": 85,
+                        "cname": "朝鲜",
+                        "country_id": "850"
+                      },
+                      {
+                        "id": 84,
+                        "cname": "海地",
+                        "country_id": "509"
+                      },
+                      {
+                        "id": 83,
+                        "cname": "关岛",
+                        "country_id": "1671"
+                      },
+                      {
+                        "id": 82,
+                        "cname": "瓜德罗普岛",
+                        "country_id": "590"
+                      },
+                      {
+                        "id": 69,
+                        "cname": "菲律宾",
+                        "country_id": "63"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/passport-login/sms/send": {
+      "post": {
+        "summary": "发送短信验证码",
+        "deprecated": false,
+        "description": "说明：\n第一次请求该接口时请不带验证码相关参数获取验证码url并自行过滑块码后获取返回参重新带参请求\n本接口不支持「申请验证码」接口获取的点字验证码数据，会报错-105",
+        "tags": [
+          "App"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "cid": {
+                    "example": "86",
+                    "type": "string"
+                  },
+                  "tel": {
+                    "example": "18888888888",
+                    "type": "string"
+                  },
+                  "login_session_id": {
+                    "description": "一般为32位十六进制",
+                    "example": "00000000000000000000000000000000",
+                    "type": "string"
+                  },
+                  "recaptcha_token": {
+                    "example": "928ce42af30f438088e0e58687e43739",
+                    "type": "string"
+                  },
+                  "gee_challenge": {
+                    "example": "3d85ee613e366c74e338c4b61d9c43d1hc",
+                    "type": "string"
+                  },
+                  "gee_validate": {
+                    "example": "e5b213877818c1cc33be42d218082a46",
+                    "type": "string"
+                  },
+                  "gee_seccode": {
+                    "example": "e5b213877818c1cc33be42d218082a46|jordan",
+                    "type": "string"
+                  },
+                  "channel": {
+                    "example": "bili",
+                    "type": "string"
+                  },
+                  "buvid": {
+                    "description": "若提供有效的BUVID，可能可以不需要传入极验相关参数",
+                    "example": "XUB12BCB16D20812E103A164ED829711BA789",
+                    "type": "string"
+                  },
+                  "local_id": {
+                    "example": "XUB12BCB16D20812E103A164ED829711BA789",
+                    "type": "string"
+                  },
+                  "statistics": {
+                    "example": "{\"appId\":1,\"platform\":3,\"version\":\"7.27.0\",\"abtest\":\"\"}",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "cid",
+                  "tel"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "需要验证码",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "is_new": false,
+                        "captcha_key": "",
+                        "recaptcha_url": "https://www.bilibili.com/h5/project-msg-auth/verify?ct=geetest&recaptcha_token=44baa04b074044f5b2ee4851d81d5a97&gee_gt=1c0ea7c7d47d8126dda19ee3431a5f38&gee_challenge=18c9ee28d1b69941aa75d81ac05fcf36&hash=cbd41c6103064d3f0af848208c20ece2"
+                      }
+                    }
+                  },
+                  "2": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "is_new": false,
+                        "captcha_key": "4292e63e4810ac74eba5f6f7729079b1",
+                        "recaptcha_url": ""
+                      }
+                    }
+                  },
+                  "3": {
+                    "summary": "验证码错误",
+                    "value": {
+                      "code": -105,
+                      "message": "验证码错误",
+                      "ttl": 1,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/login/exit/v2": {
+      "post": {
+        "summary": "退出登录",
+        "deprecated": false,
+        "description": "该流程成功完成后，以下 Cookie 将被 `Set-Cookie` 移除：\n- `DedeUserID`\n- `DedeUserID__ckMd5`\n- `SESSDATA`\n- `bili_jct`\n\n同时 `SESSDATA` 将在服务端注销，无法再次使用。",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "DedeUserID",
+            "in": "cookie",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "bili_jct",
+            "in": "cookie",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "SESSDATA",
+            "in": "cookie",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "biliCSRF": {
+                    "example": "",
+                    "type": "string"
+                  },
+                  "gourl": {
+                    "example": "javascript:history.go(-1)",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "biliCSRF"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "ts": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "redirectUrl": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "redirectUrl"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "status",
+                    "ts",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "status": true,
+                  "ts": 1663034005,
+                  "data": {
+                    "redirectUrl": "https://passport.biligame.com/crossDomain?DedeUserID=&DedeUserID__ckMd5=&SESSDATA=&bili_jct=&gourl=javascript%3Ahistory.go%28-1%29"
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/passport-login/web/cookie/info": {
+      "get": {
+        "summary": "检查是否需要刷新 Cookie",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "SESSDATA",
+            "in": "cookie",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "csrf",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer",
+                      "description": "`0`: 成功\n`-101`:`账号未登录"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "properties": {
+                        "refresh": {
+                          "type": "boolean",
+                          "description": "`true`: 需要刷新\n`false`: 不需要刷新"
+                        },
+                        "timestamp": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "refresh",
+                        "timestamp"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "refresh": false,
+                        "timestamp": 1684466082562
+                      }
+                    }
+                  },
+                  "2": {
+                    "summary": "账号未登录",
+                    "value": {
+                      "code": -101,
+                      "message": "账号未登录",
+                      "ttl": 1,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/passport-login/web/confirm/refresh": {
+      "get": {
+        "summary": "确认更新 Cookie",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "SESSDATA",
+            "in": "cookie",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "csrf": {
+                    "description": "从新的 cookie 中获取，位于 Cookie 中的bili_jct字段",
+                    "example": "",
+                    "type": "string"
+                  },
+                  "refresh_token": {
+                    "description": "在刷新前 localStorage 中的ac_time_value获取，并非刷新后返回的值",
+                    "example": "",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "csrf",
+                  "refresh_token"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer",
+                      "description": "`0`: 成功\n`-101`: 账号未登录\n`-111`: csrf 校验失败\n`-400`: 请求错误"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "默认为 0"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/passport-user/guest/reg": {
+      "post": {
+        "summary": "注册游客账号",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "App"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "device_info": {
+                    "description": "长得像16进制很长很长的字符串，不知道是什么",
+                    "example": "",
+                    "type": "string"
+                  },
+                  "dt": {
+                    "description": "长得像base64很长很长的字符串，不知道是什么",
+                    "example": "",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "device_info",
+                  "dt"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "guest_id": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "guest_id"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "guest_id": 25796063812466
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/passport-login/web/key": {
+      "get": {
+        "summary": "获取公钥&盐",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Web"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "hash": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "hash",
+                        "key"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "hash": "0b6938b77c503bc1",
+                    "key": "-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDjb4V7EidX/ym28t2ybo0U6t0n\n6p4ej8VjqKHg100va6jkNbNTrLQqMCQCAYtXMXXp2Fwkk6WR+12N9zknLjf+C9sx\n/+l48mjUU8RqahiFD1XT/u2e0m2EN029OhCgkHx3Fc/KlFSIbak93EH/XlYis0w+\nXl69GV6klzgxW6d2xQIDAQAB\n-----END PUBLIC KEY-----\n"
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/passport-login/web/login": {
+      "post": {
+        "summary": "密码登录",
+        "deprecated": false,
+        "description": "本接口需要先[申请验证码](apifox://link/endpoint/412263926)和[获取公钥&盐](apifox://link/endpoint/412887455)\n\n密码加密伪代码如下\n\n```\npubkey, salt = get_pubkey_and_salt()\npassword = base64_encode(RSA_encrypt(pubkey, salt+plain_password))\n```",
+        "tags": [
+          "Web"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "example": "",
+                    "type": "string"
+                  },
+                  "password": {
+                    "description": "加密后的base64值，加密方法请见说明",
+                    "example": "",
+                    "type": "string"
+                  },
+                  "validate": {
+                    "example": "b3e6e5c4062374b565d92454276129b2",
+                    "type": "string"
+                  },
+                  "token": {
+                    "example": "cc1478768283489aa548c8003e7b5ad1",
+                    "type": "string"
+                  },
+                  "seccode": {
+                    "example": "b3e6e5c4062374b565d92454276129b2|jordan",
+                    "type": "string"
+                  },
+                  "challenge": {
+                    "example": "6fe815503cd3daaf3faf67c655739906",
+                    "type": "string"
+                  },
+                  "go_url": {
+                    "example": "",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "username",
+                  "password",
+                  "validate",
+                  "token",
+                  "seccode",
+                  "challenge"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "integer"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string"
+                        },
+                        "refresh_token": {
+                          "type": "string"
+                        },
+                        "timestamp": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "status",
+                        "message",
+                        "url",
+                        "refresh_token",
+                        "timestamp"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "密码时间戳过期",
+                    "value": {
+                      "code": -662,
+                      "message": "密码时间戳过期",
+                      "ttl": 1,
+                      "data": null
+                    }
+                  },
+                  "2": {
+                    "summary": "验证码错误",
+                    "value": {
+                      "code": -105,
+                      "message": "验证码错误",
+                      "ttl": 1,
+                      "data": null
+                    }
+                  },
+                  "3": {
+                    "summary": "用户名或密码错误",
+                    "value": {
+                      "code": -629,
+                      "message": "用户名或密码错误",
+                      "ttl": 1,
+                      "data": null
+                    }
+                  },
+                  "4": {
+                    "summary": "需要手机号验证",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "is_new": false,
+                        "status": 2,
+                        "message": "本次登录环境存在风险, 需使用手机号进行验证或绑定",
+                        "url": "https://passport.bilibili.com/h5-app/passport/risk/verify?gourl=https%3A%2F%2Fwww.bilibili.com%2F&request_id=00000000000000000000000000000000&source=risk&tmp_token=00000000000000000000000000000000",
+                        "refresh_token": "",
+                        "timestamp": 0,
+                        "hint": "",
+                        "in_reg_audit": 0
+                      }
+                    }
+                  },
+                  "5": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "status": 0,
+                        "message": "",
+                        "url": "https://passport.biligame.com/crossDomain?DedeUserID=***&DedeUserID__ckMd5=***&Expires=***&SESSDATA=***&bili_jct=***&gourl=https%3A%2F%2Fwww.bilibili.com%2F",
+                        "refresh_token": "***",
+                        "timestamp": 1662452570273
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/passport-login/web/exchange_cookie": {
+      "post": {
+        "summary": "获取cookie",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "source": {
+                    "example": "",
+                    "type": "string"
+                  },
+                  "go_url": {
+                    "example": "",
+                    "type": "string"
+                  },
+                  "code": {
+                    "example": "",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "code"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "webhooks": {},
+  "components": {
+    "schemas": {},
+    "responses": {},
+    "securitySchemes": {}
+  },
+  "servers": [],
+  "security": []
+}
