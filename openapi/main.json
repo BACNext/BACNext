@@ -31,6 +31,9 @@
       "name": "关系"
     },
     {
+      "name": "关系/分组"
+    },
+    {
       "name": "Wbi"
     },
     {
@@ -3934,6 +3937,997 @@
                       "data": null
                     }
                   }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/relation/tag": {
+      "get": {
+        "summary": "查询关注分组明细",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "关系/分组"
+        ],
+        "parameters": [
+          {
+            "name": "tagid",
+            "in": "query",
+            "description": "0：默认分组\n-10：特别关注\n-20：所有",
+            "required": true,
+            "example": "-10",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "order_type",
+            "in": "query",
+            "description": "按照关注顺序排列：留空\n按照最常访问排列：attention",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ps",
+            "in": "query",
+            "description": "默认20",
+            "required": false,
+            "example": "50",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pn",
+            "in": "query",
+            "description": "默认1",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "mid",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "2",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "mid": {
+                            "type": "integer"
+                          },
+                          "attribute": {
+                            "type": "integer"
+                          },
+                          "tag": {
+                            "type": "null"
+                          },
+                          "special": {
+                            "type": "integer"
+                          },
+                          "contract_info": {
+                            "type": "object",
+                            "properties": {}
+                          },
+                          "uname": {
+                            "type": "string"
+                          },
+                          "face": {
+                            "type": "string"
+                          },
+                          "sign": {
+                            "type": "string"
+                          },
+                          "face_nft": {
+                            "type": "integer"
+                          },
+                          "handle": {
+                            "type": "string"
+                          },
+                          "official_verify": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "integer"
+                              },
+                              "desc": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "desc"
+                            ]
+                          },
+                          "vip": {
+                            "type": "object",
+                            "properties": {
+                              "vipType": {
+                                "type": "integer"
+                              },
+                              "vipDueDate": {
+                                "type": "integer"
+                              },
+                              "dueRemark": {
+                                "type": "string"
+                              },
+                              "accessStatus": {
+                                "type": "integer"
+                              },
+                              "vipStatus": {
+                                "type": "integer"
+                              },
+                              "vipStatusWarn": {
+                                "type": "string"
+                              },
+                              "themeType": {
+                                "type": "integer"
+                              },
+                              "label": {
+                                "type": "object",
+                                "properties": {
+                                  "path": {
+                                    "type": "string"
+                                  },
+                                  "text": {
+                                    "type": "string"
+                                  },
+                                  "label_theme": {
+                                    "type": "string"
+                                  },
+                                  "text_color": {
+                                    "type": "string"
+                                  },
+                                  "bg_style": {
+                                    "type": "integer"
+                                  },
+                                  "bg_color": {
+                                    "type": "string"
+                                  },
+                                  "border_color": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "path",
+                                  "text",
+                                  "label_theme",
+                                  "text_color",
+                                  "bg_style",
+                                  "bg_color",
+                                  "border_color"
+                                ]
+                              },
+                              "avatar_subscript": {
+                                "type": "integer"
+                              },
+                              "nickname_color": {
+                                "type": "string"
+                              },
+                              "avatar_subscript_url": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "vipType",
+                              "vipDueDate",
+                              "dueRemark",
+                              "accessStatus",
+                              "vipStatus",
+                              "vipStatusWarn",
+                              "themeType",
+                              "label",
+                              "avatar_subscript",
+                              "nickname_color",
+                              "avatar_subscript_url"
+                            ]
+                          },
+                          "name_render": {
+                            "type": "object",
+                            "properties": {}
+                          },
+                          "live": {
+                            "type": "object",
+                            "properties": {
+                              "live_status": {
+                                "type": "integer"
+                              },
+                              "jump_url": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "live_status",
+                              "jump_url"
+                            ]
+                          },
+                          "nft_icon": {
+                            "type": "string"
+                          },
+                          "rec_reason": {
+                            "type": "string"
+                          },
+                          "track_id": {
+                            "type": "string"
+                          },
+                          "follow_time": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": [
+                    {
+                      "mid": 305956876,
+                      "attribute": 0,
+                      "tag": null,
+                      "special": 0,
+                      "contract_info": {},
+                      "uname": "腥味猫罐",
+                      "face": "https://i1.hdslb.com/bfs/face/7553481382a5a338e2f6a6e153a22505e0face03.jpg",
+                      "sign": "✨猫罐不定期更新✨\n\n✧*｡٩(ˊωˋ*)و✧*｡困困猫罐提不起劲",
+                      "face_nft": 0,
+                      "handle": "",
+                      "official_verify": {
+                        "type": 0,
+                        "desc": "bilibili 知名UP主"
+                      },
+                      "vip": {
+                        "vipType": 2,
+                        "vipDueDate": 1773417600000,
+                        "dueRemark": "",
+                        "accessStatus": 0,
+                        "vipStatus": 1,
+                        "vipStatusWarn": "",
+                        "themeType": 0,
+                        "label": {
+                          "path": "http://i0.hdslb.com/bfs/vip/label_annual.png",
+                          "text": "年度大会员",
+                          "label_theme": "annual_vip",
+                          "text_color": "#FFFFFF",
+                          "bg_style": 1,
+                          "bg_color": "#FB7299",
+                          "border_color": ""
+                        },
+                        "avatar_subscript": 1,
+                        "nickname_color": "#FB7299",
+                        "avatar_subscript_url": ""
+                      },
+                      "name_render": {},
+                      "live": {
+                        "live_status": 0,
+                        "jump_url": ""
+                      },
+                      "nft_icon": "",
+                      "rec_reason": "",
+                      "track_id": "",
+                      "follow_time": ""
+                    }
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/relation/tag/user": {
+      "get": {
+        "summary": "查询目标用户所在的分组",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "关系/分组"
+        ],
+        "parameters": [
+          {
+            "name": "fid",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": "305956876",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "-10(target_tagid)": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "-10(target_tagid)"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "-10": "特别关注"
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/relation/tags": {
+      "get": {
+        "summary": "查询关注分组列表",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "关系/分组"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "tagid": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "count": {
+                            "type": "integer"
+                          },
+                          "tip": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "tagid",
+                          "name",
+                          "count",
+                          "tip"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/relation/tag/special": {
+      "get": {
+        "summary": "查询所有特别关注 mid",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "关系/分组"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": [
+                    305956876
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/relation/tag/create": {
+      "post": {
+        "summary": "创建分组",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "关系/分组"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tag": {
+                    "description": "分组名",
+                    "example": "男娘爸爸被女同妈妈抛弃女儿趁虚而",
+                    "type": "string"
+                  },
+                  "csrf": {
+                    "example": "5eeda577cfc2316c2e9c054e361ddc90",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "tag"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "tagid": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "tagid"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "tagid": 358409504
+                      }
+                    }
+                  },
+                  "2": {
+                    "summary": "分组名称长度超过限制",
+                    "value": {
+                      "code": 22103,
+                      "message": "分组名称长度超过限制",
+                      "ttl": 1
+                    }
+                  },
+                  "3": {
+                    "summary": "该分组已经存在",
+                    "value": {
+                      "code": 22106,
+                      "message": "该分组已经存在",
+                      "ttl": 1
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/relation/tag/update": {
+      "post": {
+        "summary": "重命名分组",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "关系/分组"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tagid": {
+                    "example": "358409520",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "新分组名",
+                    "example": "原神",
+                    "type": "string"
+                  },
+                  "csrf": {
+                    "example": "5eeda577cfc2316c2e9c054e361ddc90",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "tagid",
+                  "name"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1
+                    }
+                  },
+                  "2": {
+                    "summary": "分组名称长度超过限制",
+                    "value": {
+                      "code": 22103,
+                      "message": "分组名称长度超过限制",
+                      "ttl": 1
+                    }
+                  },
+                  "3": {
+                    "summary": "该分组已经存在",
+                    "value": {
+                      "code": 22106,
+                      "message": "该分组已经存在",
+                      "ttl": 1
+                    }
+                  },
+                  "4": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/relation/tag/del": {
+      "post": {
+        "summary": "删除分组",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "关系/分组"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tagid": {
+                    "example": "357495697",
+                    "type": "string"
+                  },
+                  "csrf": {
+                    "example": "5eeda577cfc2316c2e9c054e361ddc90",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "tagid"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/relation/tags/addUsers": {
+      "post": {
+        "summary": "修改分组成员",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "关系/分组"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fids": {
+                    "example": "305956876",
+                    "type": "string"
+                  },
+                  "tagids": {
+                    "example": "-10,114514",
+                    "type": "string"
+                  },
+                  "csrf": {
+                    "example": "5eeda577cfc2316c2e9c054e361ddc90",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "fids",
+                  "tagids"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/relation/tags/copyUsers": {
+      "post": {
+        "summary": "复制关注到分组",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "关系/分组"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fids": {
+                    "example": "305956876",
+                    "type": "string"
+                  },
+                  "tagids": {
+                    "example": "-10",
+                    "type": "string"
+                  },
+                  "csrf": {
+                    "example": "5eeda577cfc2316c2e9c054e361ddc90",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "fids",
+                  "tagids"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/relation/tags/moveUsers": {
+      "post": {
+        "summary": "移动关注到分组",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "关系/分组"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fids": {
+                    "example": "305956876",
+                    "type": "string"
+                  },
+                  "beforeTagids": {
+                    "example": "-10",
+                    "type": "string"
+                  },
+                  "afterTagids": {
+                    "example": "-10",
+                    "type": "string"
+                  },
+                  "csrf": {
+                    "example": "5eeda577cfc2316c2e9c054e361ddc90",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "fids",
+                  "beforeTagids"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1
                 }
               }
             },
@@ -12206,933 +13200,6 @@
                       "special": 0
                     }
                   }
-                }
-              }
-            },
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
-    "/x/relation/tags": {
-      "get": {
-        "summary": "查询关注分组列表",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "关系"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "integer"
-                    },
-                    "message": {
-                      "type": "string"
-                    },
-                    "ttl": {
-                      "type": "integer"
-                    },
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "tagid": {
-                            "type": "integer"
-                          },
-                          "name": {
-                            "type": "string"
-                          },
-                          "count": {
-                            "type": "integer"
-                          },
-                          "tip": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "tagid",
-                          "name",
-                          "count",
-                          "tip"
-                        ]
-                      }
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "message",
-                    "ttl",
-                    "data"
-                  ]
-                }
-              }
-            },
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
-    "/x/relation/tag": {
-      "get": {
-        "summary": "查询关注分组明细",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "关系"
-        ],
-        "parameters": [
-          {
-            "name": "tagid",
-            "in": "query",
-            "description": "0：默认分组\n-10：特别关注\n-20：所有",
-            "required": true,
-            "example": "-10",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "order_type",
-            "in": "query",
-            "description": "按照关注顺序排列：留空\n按照最常访问排列：attention",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "ps",
-            "in": "query",
-            "description": "默认20",
-            "required": false,
-            "example": "50",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "pn",
-            "in": "query",
-            "description": "默认1",
-            "required": false,
-            "example": "1",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "mid",
-            "in": "query",
-            "description": "",
-            "required": false,
-            "example": "2",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "integer"
-                    },
-                    "message": {
-                      "type": "string"
-                    },
-                    "ttl": {
-                      "type": "integer"
-                    },
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "mid": {
-                            "type": "integer"
-                          },
-                          "attribute": {
-                            "type": "integer"
-                          },
-                          "tag": {
-                            "type": "null"
-                          },
-                          "special": {
-                            "type": "integer"
-                          },
-                          "contract_info": {
-                            "type": "object",
-                            "properties": {}
-                          },
-                          "uname": {
-                            "type": "string"
-                          },
-                          "face": {
-                            "type": "string"
-                          },
-                          "sign": {
-                            "type": "string"
-                          },
-                          "face_nft": {
-                            "type": "integer"
-                          },
-                          "handle": {
-                            "type": "string"
-                          },
-                          "official_verify": {
-                            "type": "object",
-                            "properties": {
-                              "type": {
-                                "type": "integer"
-                              },
-                              "desc": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "type",
-                              "desc"
-                            ]
-                          },
-                          "vip": {
-                            "type": "object",
-                            "properties": {
-                              "vipType": {
-                                "type": "integer"
-                              },
-                              "vipDueDate": {
-                                "type": "integer"
-                              },
-                              "dueRemark": {
-                                "type": "string"
-                              },
-                              "accessStatus": {
-                                "type": "integer"
-                              },
-                              "vipStatus": {
-                                "type": "integer"
-                              },
-                              "vipStatusWarn": {
-                                "type": "string"
-                              },
-                              "themeType": {
-                                "type": "integer"
-                              },
-                              "label": {
-                                "type": "object",
-                                "properties": {
-                                  "path": {
-                                    "type": "string"
-                                  },
-                                  "text": {
-                                    "type": "string"
-                                  },
-                                  "label_theme": {
-                                    "type": "string"
-                                  },
-                                  "text_color": {
-                                    "type": "string"
-                                  },
-                                  "bg_style": {
-                                    "type": "integer"
-                                  },
-                                  "bg_color": {
-                                    "type": "string"
-                                  },
-                                  "border_color": {
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "path",
-                                  "text",
-                                  "label_theme",
-                                  "text_color",
-                                  "bg_style",
-                                  "bg_color",
-                                  "border_color"
-                                ]
-                              },
-                              "avatar_subscript": {
-                                "type": "integer"
-                              },
-                              "nickname_color": {
-                                "type": "string"
-                              },
-                              "avatar_subscript_url": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "vipType",
-                              "vipDueDate",
-                              "dueRemark",
-                              "accessStatus",
-                              "vipStatus",
-                              "vipStatusWarn",
-                              "themeType",
-                              "label",
-                              "avatar_subscript",
-                              "nickname_color",
-                              "avatar_subscript_url"
-                            ]
-                          },
-                          "name_render": {
-                            "type": "object",
-                            "properties": {}
-                          },
-                          "live": {
-                            "type": "object",
-                            "properties": {
-                              "live_status": {
-                                "type": "integer"
-                              },
-                              "jump_url": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "live_status",
-                              "jump_url"
-                            ]
-                          },
-                          "nft_icon": {
-                            "type": "string"
-                          },
-                          "rec_reason": {
-                            "type": "string"
-                          },
-                          "track_id": {
-                            "type": "string"
-                          },
-                          "follow_time": {
-                            "type": "string"
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "message",
-                    "ttl",
-                    "data"
-                  ]
-                },
-                "example": {
-                  "code": 0,
-                  "message": "0",
-                  "ttl": 1,
-                  "data": [
-                    {
-                      "mid": 305956876,
-                      "attribute": 0,
-                      "tag": null,
-                      "special": 0,
-                      "contract_info": {},
-                      "uname": "腥味猫罐",
-                      "face": "https://i1.hdslb.com/bfs/face/7553481382a5a338e2f6a6e153a22505e0face03.jpg",
-                      "sign": "✨猫罐不定期更新✨\n\n✧*｡٩(ˊωˋ*)و✧*｡困困猫罐提不起劲",
-                      "face_nft": 0,
-                      "handle": "",
-                      "official_verify": {
-                        "type": 0,
-                        "desc": "bilibili 知名UP主"
-                      },
-                      "vip": {
-                        "vipType": 2,
-                        "vipDueDate": 1773417600000,
-                        "dueRemark": "",
-                        "accessStatus": 0,
-                        "vipStatus": 1,
-                        "vipStatusWarn": "",
-                        "themeType": 0,
-                        "label": {
-                          "path": "http://i0.hdslb.com/bfs/vip/label_annual.png",
-                          "text": "年度大会员",
-                          "label_theme": "annual_vip",
-                          "text_color": "#FFFFFF",
-                          "bg_style": 1,
-                          "bg_color": "#FB7299",
-                          "border_color": ""
-                        },
-                        "avatar_subscript": 1,
-                        "nickname_color": "#FB7299",
-                        "avatar_subscript_url": ""
-                      },
-                      "name_render": {},
-                      "live": {
-                        "live_status": 0,
-                        "jump_url": ""
-                      },
-                      "nft_icon": "",
-                      "rec_reason": "",
-                      "track_id": "",
-                      "follow_time": ""
-                    }
-                  ]
-                }
-              }
-            },
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
-    "/x/relation/tag/user": {
-      "get": {
-        "summary": "查询目标用户所在的分组",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "关系"
-        ],
-        "parameters": [
-          {
-            "name": "fid",
-            "in": "query",
-            "description": "",
-            "required": true,
-            "example": "305956876",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "integer"
-                    },
-                    "message": {
-                      "type": "string"
-                    },
-                    "ttl": {
-                      "type": "integer"
-                    },
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "-10(target_tagid)": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "-10(target_tagid)"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "message",
-                    "ttl",
-                    "data"
-                  ]
-                },
-                "example": {
-                  "code": 0,
-                  "message": "0",
-                  "ttl": 1,
-                  "data": {
-                    "-10": "特别关注"
-                  }
-                }
-              }
-            },
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
-    "/x/relation/tag/special": {
-      "get": {
-        "summary": "查询所有特别关注 mid",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "关系"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "integer"
-                    },
-                    "message": {
-                      "type": "string"
-                    },
-                    "ttl": {
-                      "type": "integer"
-                    },
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "type": "integer"
-                      }
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "message",
-                    "ttl",
-                    "data"
-                  ]
-                },
-                "example": {
-                  "code": 0,
-                  "message": "0",
-                  "ttl": 1,
-                  "data": [
-                    305956876
-                  ]
-                }
-              }
-            },
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
-    "/x/relation/tag/create": {
-      "post": {
-        "summary": "创建分组",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "关系"
-        ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "description": "分组名",
-                    "example": "男娘爸爸被女同妈妈抛弃女儿趁虚而",
-                    "type": "string"
-                  },
-                  "csrf": {
-                    "example": "5eeda577cfc2316c2e9c054e361ddc90",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "tag"
-                ]
-              },
-              "examples": {}
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "integer"
-                    },
-                    "message": {
-                      "type": "string"
-                    },
-                    "ttl": {
-                      "type": "integer"
-                    },
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "tagid": {
-                          "type": "integer"
-                        }
-                      },
-                      "required": [
-                        "tagid"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "message",
-                    "ttl",
-                    "data"
-                  ]
-                },
-                "examples": {
-                  "1": {
-                    "summary": "成功示例",
-                    "value": {
-                      "code": 0,
-                      "message": "0",
-                      "ttl": 1,
-                      "data": {
-                        "tagid": 358409504
-                      }
-                    }
-                  },
-                  "2": {
-                    "summary": "分组名称长度超过限制",
-                    "value": {
-                      "code": 22103,
-                      "message": "分组名称长度超过限制",
-                      "ttl": 1
-                    }
-                  },
-                  "3": {
-                    "summary": "该分组已经存在",
-                    "value": {
-                      "code": 22106,
-                      "message": "该分组已经存在",
-                      "ttl": 1
-                    }
-                  }
-                }
-              }
-            },
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
-    "/x/relation/tag/update": {
-      "post": {
-        "summary": "重命名分组",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "关系"
-        ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "tagid": {
-                    "example": "358409520",
-                    "type": "string"
-                  },
-                  "name": {
-                    "description": "新分组名",
-                    "example": "原神",
-                    "type": "string"
-                  },
-                  "csrf": {
-                    "example": "5eeda577cfc2316c2e9c054e361ddc90",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "tagid",
-                  "name"
-                ]
-              },
-              "examples": {}
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "integer"
-                    },
-                    "message": {
-                      "type": "string"
-                    },
-                    "ttl": {
-                      "type": "integer"
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "message",
-                    "ttl"
-                  ]
-                },
-                "examples": {
-                  "1": {
-                    "summary": "成功示例",
-                    "value": {
-                      "code": 0,
-                      "message": "0",
-                      "ttl": 1
-                    }
-                  },
-                  "2": {
-                    "summary": "分组名称长度超过限制",
-                    "value": {
-                      "code": 22103,
-                      "message": "分组名称长度超过限制",
-                      "ttl": 1
-                    }
-                  },
-                  "3": {
-                    "summary": "该分组已经存在",
-                    "value": {
-                      "code": 22106,
-                      "message": "该分组已经存在",
-                      "ttl": 1
-                    }
-                  },
-                  "4": {
-                    "summary": "成功示例",
-                    "value": {
-                      "code": 0,
-                      "message": "0",
-                      "ttl": 1
-                    }
-                  }
-                }
-              }
-            },
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
-    "/x/relation/tag/del": {
-      "post": {
-        "summary": "删除分组",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "关系"
-        ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "tagid": {
-                    "example": "357495697",
-                    "type": "string"
-                  },
-                  "csrf": {
-                    "example": "5eeda577cfc2316c2e9c054e361ddc90",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "tagid"
-                ]
-              },
-              "examples": {}
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "integer"
-                    },
-                    "message": {
-                      "type": "string"
-                    },
-                    "ttl": {
-                      "type": "integer"
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "message",
-                    "ttl"
-                  ]
-                },
-                "example": {
-                  "code": 0,
-                  "message": "0",
-                  "ttl": 1
-                }
-              }
-            },
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
-    "/x/relation/tags/addUsers": {
-      "post": {
-        "summary": "修改分组成员",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "关系"
-        ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "fids": {
-                    "example": "305956876",
-                    "type": "string"
-                  },
-                  "tagids": {
-                    "example": "-10,114514",
-                    "type": "string"
-                  },
-                  "csrf": {
-                    "example": "5eeda577cfc2316c2e9c054e361ddc90",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "fids",
-                  "tagids"
-                ]
-              },
-              "examples": {}
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "integer"
-                    },
-                    "message": {
-                      "type": "string"
-                    },
-                    "ttl": {
-                      "type": "integer"
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "message",
-                    "ttl"
-                  ]
-                },
-                "example": {
-                  "code": 0,
-                  "message": "0",
-                  "ttl": 1
-                }
-              }
-            },
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
-    "/x/relation/tags/copyUsers": {
-      "post": {
-        "summary": "复制关注到分组 Copy",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "关系"
-        ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "fids": {
-                    "example": "305956876",
-                    "type": "string"
-                  },
-                  "tagids": {
-                    "example": "-10",
-                    "type": "string"
-                  },
-                  "csrf": {
-                    "example": "5eeda577cfc2316c2e9c054e361ddc90",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "fids",
-                  "tagids"
-                ]
-              },
-              "examples": {}
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {}
-                },
-                "example": {
-                  "code": 0,
-                  "message": "0",
-                  "ttl": 1
                 }
               }
             },
