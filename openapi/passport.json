@@ -468,7 +468,7 @@
     },
     "/x/passport-login/web/sns/authorize/url": {
       "post": {
-        "summary": "SNS授权URL",
+        "summary": "SNS 授权 URL",
         "deprecated": false,
         "description": "",
         "tags": [
@@ -540,7 +540,8 @@
                   }
                 }
               }
-            }
+            },
+            "headers": {}
           }
         },
         "security": []
@@ -548,7 +549,7 @@
     },
     "/x/passport-login/web/sns/state/generate": {
       "get": {
-        "summary": "获取csrf state",
+        "summary": "获取 CSRF state",
         "deprecated": false,
         "description": "",
         "tags": [
@@ -573,7 +574,8 @@
                   }
                 }
               }
-            }
+            },
+            "headers": {}
           }
         },
         "security": []
@@ -3177,7 +3179,7 @@
     },
     "/x/passport-login/web/exchange_cookie": {
       "post": {
-        "summary": "获取cookie",
+        "summary": "获取 Cookie",
         "deprecated": false,
         "description": "",
         "tags": [],
@@ -3220,7 +3222,8 @@
                   "properties": {}
                 }
               }
-            }
+            },
+            "headers": {}
           }
         },
         "security": []

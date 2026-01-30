@@ -5,8 +5,3463 @@
     "description": "",
     "version": "1.0.0"
   },
-  "tags": [],
-  "paths": {},
+  "tags": [
+    {
+      "name": "空间"
+    },
+    {
+      "name": "Web 界面"
+    },
+    {
+      "name": "客户端-PC"
+    },
+    {
+      "name": "Wbi"
+    },
+    {
+      "name": "Web"
+    }
+  ],
+  "paths": {
+    "/x/space/wbi/acc/info": {
+      "get": {
+        "summary": "用户空间详细信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "空间",
+          "Wbi",
+          "Web"
+        ],
+        "parameters": [
+          {
+            "name": "mid",
+            "in": "query",
+            "description": "目标用户mid",
+            "required": true,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{$internet.userAgent}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "mid": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "sex": {
+                          "type": "string"
+                        },
+                        "face": {
+                          "type": "string"
+                        },
+                        "face_nft": {
+                          "type": "integer"
+                        },
+                        "face_nft_type": {
+                          "type": "integer"
+                        },
+                        "sign": {
+                          "type": "string"
+                        },
+                        "rank": {
+                          "type": "integer"
+                        },
+                        "level": {
+                          "type": "integer"
+                        },
+                        "jointime": {
+                          "type": "integer"
+                        },
+                        "moral": {
+                          "type": "integer"
+                        },
+                        "silence": {
+                          "type": "integer"
+                        },
+                        "control": {
+                          "type": "integer"
+                        },
+                        "coins": {
+                          "type": "integer"
+                        },
+                        "fans_badge": {
+                          "type": "boolean"
+                        },
+                        "fans_medal": {
+                          "type": "object",
+                          "properties": {
+                            "show": {
+                              "type": "boolean"
+                            },
+                            "wear": {
+                              "type": "boolean"
+                            },
+                            "medal": {
+                              "type": "null"
+                            },
+                            "detail": {
+                              "type": "null"
+                            }
+                          },
+                          "required": [
+                            "show",
+                            "wear",
+                            "medal",
+                            "detail"
+                          ]
+                        },
+                        "official": {
+                          "type": "object",
+                          "properties": {
+                            "role": {
+                              "type": "integer"
+                            },
+                            "title": {
+                              "type": "string"
+                            },
+                            "desc": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "role",
+                            "title",
+                            "desc",
+                            "type"
+                          ]
+                        },
+                        "vip": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "integer"
+                            },
+                            "status": {
+                              "type": "integer"
+                            },
+                            "due_date": {
+                              "type": "integer"
+                            },
+                            "vip_pay_type": {
+                              "type": "integer"
+                            },
+                            "theme_type": {
+                              "type": "integer"
+                            },
+                            "label": {
+                              "type": "object",
+                              "properties": {
+                                "path": {
+                                  "type": "string"
+                                },
+                                "text": {
+                                  "type": "string"
+                                },
+                                "label_theme": {
+                                  "type": "string"
+                                },
+                                "text_color": {
+                                  "type": "string"
+                                },
+                                "bg_style": {
+                                  "type": "integer"
+                                },
+                                "bg_color": {
+                                  "type": "string"
+                                },
+                                "border_color": {
+                                  "type": "string"
+                                },
+                                "use_img_label": {
+                                  "type": "boolean"
+                                },
+                                "img_label_uri_hans": {
+                                  "type": "string"
+                                },
+                                "img_label_uri_hant": {
+                                  "type": "string"
+                                },
+                                "img_label_uri_hans_static": {
+                                  "type": "string"
+                                },
+                                "img_label_uri_hant_static": {
+                                  "type": "string"
+                                },
+                                "label_id": {
+                                  "type": "integer"
+                                },
+                                "label_goto": {
+                                  "type": "object",
+                                  "properties": {
+                                    "mobile": {
+                                      "type": "string"
+                                    },
+                                    "pc_web": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "mobile",
+                                    "pc_web"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "path",
+                                "text",
+                                "label_theme",
+                                "text_color",
+                                "bg_style",
+                                "bg_color",
+                                "border_color",
+                                "use_img_label",
+                                "img_label_uri_hans",
+                                "img_label_uri_hant",
+                                "img_label_uri_hans_static",
+                                "img_label_uri_hant_static",
+                                "label_id",
+                                "label_goto"
+                              ]
+                            },
+                            "avatar_subscript": {
+                              "type": "integer"
+                            },
+                            "nickname_color": {
+                              "type": "string"
+                            },
+                            "role": {
+                              "type": "integer"
+                            },
+                            "avatar_subscript_url": {
+                              "type": "string"
+                            },
+                            "tv_vip_status": {
+                              "type": "integer"
+                            },
+                            "tv_vip_pay_type": {
+                              "type": "integer"
+                            },
+                            "tv_due_date": {
+                              "type": "integer"
+                            },
+                            "avatar_icon": {
+                              "type": "object",
+                              "properties": {
+                                "icon_type": {
+                                  "type": "integer"
+                                },
+                                "icon_resource": {
+                                  "type": "object",
+                                  "properties": {}
+                                }
+                              },
+                              "required": [
+                                "icon_type",
+                                "icon_resource"
+                              ]
+                            },
+                            "ott_info": {
+                              "type": "object",
+                              "properties": {
+                                "vip_type": {
+                                  "type": "integer"
+                                },
+                                "pay_type": {
+                                  "type": "integer"
+                                },
+                                "pay_channel_id": {
+                                  "type": "string"
+                                },
+                                "status": {
+                                  "type": "integer"
+                                },
+                                "overdue_time": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "vip_type",
+                                "pay_type",
+                                "pay_channel_id",
+                                "status",
+                                "overdue_time"
+                              ]
+                            },
+                            "super_vip": {
+                              "type": "object",
+                              "properties": {
+                                "is_super_vip": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "is_super_vip"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "status",
+                            "due_date",
+                            "vip_pay_type",
+                            "theme_type",
+                            "label",
+                            "avatar_subscript",
+                            "nickname_color",
+                            "role",
+                            "avatar_subscript_url",
+                            "tv_vip_status",
+                            "tv_vip_pay_type",
+                            "tv_due_date",
+                            "avatar_icon",
+                            "ott_info",
+                            "super_vip"
+                          ]
+                        },
+                        "pendant": {
+                          "type": "object",
+                          "properties": {
+                            "pid": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "image": {
+                              "type": "string"
+                            },
+                            "expire": {
+                              "type": "integer"
+                            },
+                            "image_enhance": {
+                              "type": "string"
+                            },
+                            "image_enhance_frame": {
+                              "type": "string"
+                            },
+                            "n_pid": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "pid",
+                            "name",
+                            "image",
+                            "expire",
+                            "image_enhance",
+                            "image_enhance_frame",
+                            "n_pid"
+                          ]
+                        },
+                        "nameplate": {
+                          "type": "object",
+                          "properties": {
+                            "nid": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "image": {
+                              "type": "string"
+                            },
+                            "image_small": {
+                              "type": "string"
+                            },
+                            "level": {
+                              "type": "string"
+                            },
+                            "condition": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "nid",
+                            "name",
+                            "image",
+                            "image_small",
+                            "level",
+                            "condition"
+                          ]
+                        },
+                        "user_honour_info": {
+                          "type": "object",
+                          "properties": {
+                            "mid": {
+                              "type": "integer"
+                            },
+                            "colour": {
+                              "type": "null"
+                            },
+                            "tags": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "is_latest_100honour": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "mid",
+                            "colour",
+                            "tags",
+                            "is_latest_100honour"
+                          ]
+                        },
+                        "is_followed": {
+                          "type": "boolean"
+                        },
+                        "top_photo": {
+                          "type": "string"
+                        },
+                        "sys_notice": {
+                          "type": "object",
+                          "properties": {}
+                        },
+                        "live_room": {
+                          "type": "object",
+                          "properties": {
+                            "roomStatus": {
+                              "type": "integer"
+                            },
+                            "liveStatus": {
+                              "type": "integer"
+                            },
+                            "url": {
+                              "type": "string"
+                            },
+                            "title": {
+                              "type": "string"
+                            },
+                            "cover": {
+                              "type": "string"
+                            },
+                            "roomid": {
+                              "type": "integer"
+                            },
+                            "roundStatus": {
+                              "type": "integer"
+                            },
+                            "broadcast_type": {
+                              "type": "integer"
+                            },
+                            "watched_show": {
+                              "type": "object",
+                              "properties": {
+                                "switch": {
+                                  "type": "boolean"
+                                },
+                                "num": {
+                                  "type": "integer"
+                                },
+                                "text_small": {
+                                  "type": "string"
+                                },
+                                "text_large": {
+                                  "type": "string"
+                                },
+                                "icon": {
+                                  "type": "string"
+                                },
+                                "icon_location": {
+                                  "type": "string"
+                                },
+                                "icon_web": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "switch",
+                                "num",
+                                "text_small",
+                                "text_large",
+                                "icon",
+                                "icon_location",
+                                "icon_web"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "roomStatus",
+                            "liveStatus",
+                            "url",
+                            "title",
+                            "cover",
+                            "roomid",
+                            "roundStatus",
+                            "broadcast_type",
+                            "watched_show"
+                          ]
+                        },
+                        "birthday": {
+                          "type": "string"
+                        },
+                        "school": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "name"
+                          ]
+                        },
+                        "profession": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "department": {
+                              "type": "string"
+                            },
+                            "title": {
+                              "type": "string"
+                            },
+                            "is_show": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "department",
+                            "title",
+                            "is_show"
+                          ]
+                        },
+                        "tags": {
+                          "type": "null"
+                        },
+                        "series": {
+                          "type": "object",
+                          "properties": {
+                            "user_upgrade_status": {
+                              "type": "integer"
+                            },
+                            "show_upgrade_window": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "user_upgrade_status",
+                            "show_upgrade_window"
+                          ]
+                        },
+                        "is_senior_member": {
+                          "type": "integer"
+                        },
+                        "mcn_info": {
+                          "type": "null"
+                        },
+                        "gaia_res_type": {
+                          "type": "integer"
+                        },
+                        "gaia_data": {
+                          "type": "null"
+                        },
+                        "is_risk": {
+                          "type": "boolean"
+                        },
+                        "elec": {
+                          "type": "object",
+                          "properties": {
+                            "show_info": {
+                              "type": "object",
+                              "properties": {
+                                "show": {
+                                  "type": "boolean"
+                                },
+                                "state": {
+                                  "type": "integer"
+                                },
+                                "title": {
+                                  "type": "string"
+                                },
+                                "icon": {
+                                  "type": "string"
+                                },
+                                "jump_url": {
+                                  "type": "string"
+                                },
+                                "total": {
+                                  "type": "integer"
+                                },
+                                "list": {
+                                  "type": "null"
+                                },
+                                "upower_count_show": {
+                                  "type": "boolean"
+                                },
+                                "long_title": {
+                                  "type": "string"
+                                },
+                                "jump_url_web": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "show",
+                                "state",
+                                "title",
+                                "icon",
+                                "jump_url",
+                                "total",
+                                "list",
+                                "upower_count_show",
+                                "long_title",
+                                "jump_url_web"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "show_info"
+                          ]
+                        },
+                        "contract": {
+                          "type": "object",
+                          "properties": {
+                            "is_display": {
+                              "type": "boolean"
+                            },
+                            "is_follow_display": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "is_display",
+                            "is_follow_display"
+                          ]
+                        },
+                        "certificate_show": {
+                          "type": "boolean"
+                        },
+                        "name_render": {
+                          "type": "null"
+                        },
+                        "top_photo_v2": {
+                          "type": "object",
+                          "properties": {
+                            "sid": {
+                              "type": "integer"
+                            },
+                            "l_img": {
+                              "type": "string"
+                            },
+                            "l_200h_img": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "sid",
+                            "l_img",
+                            "l_200h_img"
+                          ]
+                        },
+                        "theme": {
+                          "type": "null"
+                        },
+                        "attestation": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "integer"
+                            },
+                            "common_info": {
+                              "type": "object",
+                              "properties": {
+                                "title": {
+                                  "type": "string"
+                                },
+                                "prefix": {
+                                  "type": "string"
+                                },
+                                "prefix_title": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "title",
+                                "prefix",
+                                "prefix_title"
+                              ]
+                            },
+                            "splice_info": {
+                              "type": "object",
+                              "properties": {
+                                "title": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "title"
+                              ]
+                            },
+                            "icon": {
+                              "type": "string"
+                            },
+                            "desc": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "common_info",
+                            "splice_info",
+                            "icon",
+                            "desc"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "mid",
+                        "name",
+                        "sex",
+                        "face",
+                        "face_nft",
+                        "face_nft_type",
+                        "sign",
+                        "rank",
+                        "level",
+                        "jointime",
+                        "moral",
+                        "silence",
+                        "control",
+                        "coins",
+                        "fans_badge",
+                        "fans_medal",
+                        "official",
+                        "vip",
+                        "pendant",
+                        "nameplate",
+                        "user_honour_info",
+                        "is_followed",
+                        "top_photo",
+                        "sys_notice",
+                        "live_room",
+                        "birthday",
+                        "school",
+                        "profession",
+                        "tags",
+                        "series",
+                        "is_senior_member",
+                        "mcn_info",
+                        "gaia_res_type",
+                        "gaia_data",
+                        "is_risk",
+                        "elec",
+                        "contract",
+                        "certificate_show",
+                        "name_render",
+                        "top_photo_v2",
+                        "theme",
+                        "attestation"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "mid": 1,
+                    "name": "bishi",
+                    "sex": "保密",
+                    "face": "https://i1.hdslb.com/bfs/face/34c5b30a990c7ce4a809626d8153fa7895ec7b63.gif",
+                    "face_nft": 0,
+                    "face_nft_type": 0,
+                    "sign": "",
+                    "rank": 10000,
+                    "level": 6,
+                    "jointime": 0,
+                    "moral": 0,
+                    "silence": 0,
+                    "control": 0,
+                    "coins": 0,
+                    "fans_badge": true,
+                    "fans_medal": {
+                      "show": false,
+                      "wear": false,
+                      "medal": null,
+                      "detail": null
+                    },
+                    "official": {
+                      "role": 0,
+                      "title": "",
+                      "desc": "",
+                      "type": -1
+                    },
+                    "vip": {
+                      "type": 2,
+                      "status": 1,
+                      "due_date": 1939305600000,
+                      "vip_pay_type": 1,
+                      "theme_type": 0,
+                      "label": {
+                        "path": "http://i0.hdslb.com/bfs/vip/label_annual.png",
+                        "text": "十年大会员",
+                        "label_theme": "ten_annual_vip",
+                        "text_color": "#FFFFFF",
+                        "bg_style": 1,
+                        "bg_color": "#FB7299",
+                        "border_color": "",
+                        "use_img_label": true,
+                        "img_label_uri_hans": "",
+                        "img_label_uri_hant": "",
+                        "img_label_uri_hans_static": "https://i0.hdslb.com/bfs/vip/adb599797dd171e2d3d6d012f448b49679258344.png",
+                        "img_label_uri_hant_static": "https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/sGu57N6pgK.png",
+                        "label_id": -22,
+                        "label_goto": {
+                          "mobile": "https://big.bilibili.com/mobile/index?navhide=1&from_spmid=vipicon",
+                          "pc_web": "https://account.bilibili.com/big?from_spmid=vipicon"
+                        }
+                      },
+                      "avatar_subscript": 1,
+                      "nickname_color": "#FB7299",
+                      "role": 7,
+                      "avatar_subscript_url": "",
+                      "tv_vip_status": 0,
+                      "tv_vip_pay_type": 0,
+                      "tv_due_date": 1633622400,
+                      "avatar_icon": {
+                        "icon_type": 1,
+                        "icon_resource": {}
+                      },
+                      "ott_info": {
+                        "vip_type": 1,
+                        "pay_type": 0,
+                        "pay_channel_id": "",
+                        "status": 0,
+                        "overdue_time": 1633622400
+                      },
+                      "super_vip": {
+                        "is_super_vip": false
+                      }
+                    },
+                    "pendant": {
+                      "pid": 0,
+                      "name": "",
+                      "image": "",
+                      "expire": 0,
+                      "image_enhance": "",
+                      "image_enhance_frame": "",
+                      "n_pid": 0
+                    },
+                    "nameplate": {
+                      "nid": 0,
+                      "name": "",
+                      "image": "",
+                      "image_small": "",
+                      "level": "",
+                      "condition": ""
+                    },
+                    "user_honour_info": {
+                      "mid": 0,
+                      "colour": null,
+                      "tags": [],
+                      "is_latest_100honour": 0
+                    },
+                    "is_followed": false,
+                    "top_photo": "bfs/space/cb1c3ef50e22b6096fde67febe863494caefebad.png",
+                    "sys_notice": {},
+                    "live_room": {
+                      "roomStatus": 1,
+                      "liveStatus": 0,
+                      "url": "https://live.bilibili.com/553241?broadcast_type=0&is_room_feed=0",
+                      "title": "bishi的直播间",
+                      "cover": "https://s1.hdslb.com/bfs/static/blive/live-assets/common/images/no-cover.png",
+                      "roomid": 553241,
+                      "roundStatus": 0,
+                      "broadcast_type": 0,
+                      "watched_show": {
+                        "switch": true,
+                        "num": 2,
+                        "text_small": "2",
+                        "text_large": "2人看过",
+                        "icon": "https://i0.hdslb.com/bfs/live/a725a9e61242ef44d764ac911691a7ce07f36c1d.png",
+                        "icon_location": "",
+                        "icon_web": "https://i0.hdslb.com/bfs/live/8d9d0f33ef8bf6f308742752d13dd0df731df19c.png"
+                      }
+                    },
+                    "birthday": "",
+                    "school": {
+                      "name": ""
+                    },
+                    "profession": {
+                      "name": "",
+                      "department": "",
+                      "title": "",
+                      "is_show": 0
+                    },
+                    "tags": null,
+                    "series": {
+                      "user_upgrade_status": 3,
+                      "show_upgrade_window": false
+                    },
+                    "is_senior_member": 0,
+                    "mcn_info": null,
+                    "gaia_res_type": 0,
+                    "gaia_data": null,
+                    "is_risk": false,
+                    "elec": {
+                      "show_info": {
+                        "show": false,
+                        "state": -1,
+                        "title": "",
+                        "icon": "",
+                        "jump_url": "?oid=1",
+                        "total": 0,
+                        "list": null,
+                        "upower_count_show": true,
+                        "long_title": "",
+                        "jump_url_web": ""
+                      }
+                    },
+                    "contract": {
+                      "is_display": false,
+                      "is_follow_display": false
+                    },
+                    "certificate_show": false,
+                    "name_render": null,
+                    "top_photo_v2": {
+                      "sid": 1,
+                      "l_img": "https://i0.hdslb.com/bfs/space/cb1c3ef50e22b6096fde67febe863494caefebad.png",
+                      "l_200h_img": "https://i1.hdslb.com/bfs/activity-plat/static/0977767b2e79d8ad0a36a731068a83d7/1sz3p8w2Sk.png"
+                    },
+                    "theme": null,
+                    "attestation": {
+                      "type": 0,
+                      "common_info": {
+                        "title": "",
+                        "prefix": "",
+                        "prefix_title": ""
+                      },
+                      "splice_info": {
+                        "title": ""
+                      },
+                      "icon": "",
+                      "desc": ""
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/space/myinfo": {
+      "get": {
+        "summary": "登录用户空间详细信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "空间"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "mid": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "sex": {
+                          "type": "string"
+                        },
+                        "face": {
+                          "type": "string"
+                        },
+                        "sign": {
+                          "type": "string"
+                        },
+                        "rank": {
+                          "type": "integer"
+                        },
+                        "level": {
+                          "type": "integer"
+                        },
+                        "jointime": {
+                          "type": "integer"
+                        },
+                        "moral": {
+                          "type": "integer"
+                        },
+                        "silence": {
+                          "type": "integer"
+                        },
+                        "email_status": {
+                          "type": "integer"
+                        },
+                        "tel_status": {
+                          "type": "integer"
+                        },
+                        "identification": {
+                          "type": "integer"
+                        },
+                        "vip": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "integer"
+                            },
+                            "status": {
+                              "type": "integer"
+                            },
+                            "due_date": {
+                              "type": "integer"
+                            },
+                            "vip_pay_type": {
+                              "type": "integer"
+                            },
+                            "theme_type": {
+                              "type": "integer"
+                            },
+                            "label": {
+                              "type": "object",
+                              "properties": {
+                                "path": {
+                                  "type": "string"
+                                },
+                                "text": {
+                                  "type": "string"
+                                },
+                                "label_theme": {
+                                  "type": "string"
+                                },
+                                "text_color": {
+                                  "type": "string"
+                                },
+                                "bg_style": {
+                                  "type": "integer"
+                                },
+                                "bg_color": {
+                                  "type": "string"
+                                },
+                                "border_color": {
+                                  "type": "string"
+                                },
+                                "use_img_label": {
+                                  "type": "boolean"
+                                },
+                                "img_label_uri_hans": {
+                                  "type": "string"
+                                },
+                                "img_label_uri_hant": {
+                                  "type": "string"
+                                },
+                                "img_label_uri_hans_static": {
+                                  "type": "string"
+                                },
+                                "img_label_uri_hant_static": {
+                                  "type": "string"
+                                },
+                                "label_id": {
+                                  "type": "integer"
+                                },
+                                "label_goto": {
+                                  "type": "object",
+                                  "properties": {
+                                    "mobile": {
+                                      "type": "string"
+                                    },
+                                    "pc_web": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "mobile",
+                                    "pc_web"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "path",
+                                "text",
+                                "label_theme",
+                                "text_color",
+                                "bg_style",
+                                "bg_color",
+                                "border_color",
+                                "use_img_label",
+                                "img_label_uri_hans",
+                                "img_label_uri_hant",
+                                "img_label_uri_hans_static",
+                                "img_label_uri_hant_static",
+                                "label_id",
+                                "label_goto"
+                              ]
+                            },
+                            "avatar_subscript": {
+                              "type": "integer"
+                            },
+                            "nickname_color": {
+                              "type": "string"
+                            },
+                            "role": {
+                              "type": "integer"
+                            },
+                            "avatar_subscript_url": {
+                              "type": "string"
+                            },
+                            "tv_vip_status": {
+                              "type": "integer"
+                            },
+                            "tv_vip_pay_type": {
+                              "type": "integer"
+                            },
+                            "tv_due_date": {
+                              "type": "integer"
+                            },
+                            "avatar_icon": {
+                              "type": "object",
+                              "properties": {
+                                "icon_type": {
+                                  "type": "integer"
+                                },
+                                "icon_resource": {
+                                  "type": "object",
+                                  "properties": {}
+                                }
+                              },
+                              "required": [
+                                "icon_type",
+                                "icon_resource"
+                              ]
+                            },
+                            "ott_info": {
+                              "type": "object",
+                              "properties": {
+                                "vip_type": {
+                                  "type": "integer"
+                                },
+                                "pay_type": {
+                                  "type": "integer"
+                                },
+                                "pay_channel_id": {
+                                  "type": "string"
+                                },
+                                "status": {
+                                  "type": "integer"
+                                },
+                                "overdue_time": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "vip_type",
+                                "pay_type",
+                                "pay_channel_id",
+                                "status",
+                                "overdue_time"
+                              ]
+                            },
+                            "super_vip": {
+                              "type": "object",
+                              "properties": {
+                                "is_super_vip": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "is_super_vip"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "status",
+                            "due_date",
+                            "vip_pay_type",
+                            "theme_type",
+                            "label",
+                            "avatar_subscript",
+                            "nickname_color",
+                            "role",
+                            "avatar_subscript_url",
+                            "tv_vip_status",
+                            "tv_vip_pay_type",
+                            "tv_due_date",
+                            "avatar_icon",
+                            "ott_info",
+                            "super_vip"
+                          ]
+                        },
+                        "pendant": {
+                          "type": "object",
+                          "properties": {
+                            "pid": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "image": {
+                              "type": "string"
+                            },
+                            "expire": {
+                              "type": "integer"
+                            },
+                            "image_enhance": {
+                              "type": "string"
+                            },
+                            "image_enhance_frame": {
+                              "type": "string"
+                            },
+                            "n_pid": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "pid",
+                            "name",
+                            "image",
+                            "expire",
+                            "image_enhance",
+                            "image_enhance_frame",
+                            "n_pid"
+                          ]
+                        },
+                        "nameplate": {
+                          "type": "object",
+                          "properties": {
+                            "nid": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "image": {
+                              "type": "string"
+                            },
+                            "image_small": {
+                              "type": "string"
+                            },
+                            "level": {
+                              "type": "string"
+                            },
+                            "condition": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "nid",
+                            "name",
+                            "image",
+                            "image_small",
+                            "level",
+                            "condition"
+                          ]
+                        },
+                        "official": {
+                          "type": "object",
+                          "properties": {
+                            "role": {
+                              "type": "integer"
+                            },
+                            "title": {
+                              "type": "string"
+                            },
+                            "desc": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "role",
+                            "title",
+                            "desc",
+                            "type"
+                          ]
+                        },
+                        "birthday": {
+                          "type": "integer"
+                        },
+                        "is_tourist": {
+                          "type": "integer"
+                        },
+                        "is_fake_account": {
+                          "type": "integer"
+                        },
+                        "pin_prompting": {
+                          "type": "integer"
+                        },
+                        "is_deleted": {
+                          "type": "integer"
+                        },
+                        "in_reg_audit": {
+                          "type": "integer"
+                        },
+                        "is_rip_user": {
+                          "type": "boolean"
+                        },
+                        "profession": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "show_name": {
+                              "type": "string"
+                            },
+                            "is_show": {
+                              "type": "integer"
+                            },
+                            "category_one": {
+                              "type": "string"
+                            },
+                            "realname": {
+                              "type": "string"
+                            },
+                            "title": {
+                              "type": "string"
+                            },
+                            "department": {
+                              "type": "string"
+                            },
+                            "certificate_no": {
+                              "type": "string"
+                            },
+                            "certificate_show": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name",
+                            "show_name",
+                            "is_show",
+                            "category_one",
+                            "realname",
+                            "title",
+                            "department",
+                            "certificate_no",
+                            "certificate_show"
+                          ]
+                        },
+                        "face_nft": {
+                          "type": "integer"
+                        },
+                        "face_nft_new": {
+                          "type": "integer"
+                        },
+                        "is_senior_member": {
+                          "type": "integer"
+                        },
+                        "honours": {
+                          "type": "object",
+                          "properties": {
+                            "mid": {
+                              "type": "integer"
+                            },
+                            "colour": {
+                              "type": "object",
+                              "properties": {
+                                "dark": {
+                                  "type": "string"
+                                },
+                                "normal": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "dark",
+                                "normal"
+                              ]
+                            },
+                            "tags": {
+                              "type": "null"
+                            },
+                            "is_latest_100honour": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "mid",
+                            "colour",
+                            "tags",
+                            "is_latest_100honour"
+                          ]
+                        },
+                        "digital_id": {
+                          "type": "string"
+                        },
+                        "digital_type": {
+                          "type": "integer"
+                        },
+                        "attestation": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "integer"
+                            },
+                            "common_info": {
+                              "type": "object",
+                              "properties": {
+                                "title": {
+                                  "type": "string"
+                                },
+                                "prefix": {
+                                  "type": "string"
+                                },
+                                "prefix_title": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "title",
+                                "prefix",
+                                "prefix_title"
+                              ]
+                            },
+                            "splice_info": {
+                              "type": "object",
+                              "properties": {
+                                "title": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "title"
+                              ]
+                            },
+                            "icon": {
+                              "type": "string"
+                            },
+                            "desc": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "common_info",
+                            "splice_info",
+                            "icon",
+                            "desc"
+                          ]
+                        },
+                        "expert_info": {
+                          "type": "object",
+                          "properties": {
+                            "title": {
+                              "type": "string"
+                            },
+                            "state": {
+                              "type": "integer"
+                            },
+                            "type": {
+                              "type": "integer"
+                            },
+                            "desc": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "title",
+                            "state",
+                            "type",
+                            "desc"
+                          ]
+                        },
+                        "name_render": {
+                          "type": "null"
+                        },
+                        "country_code": {
+                          "type": "string"
+                        },
+                        "handle": {
+                          "type": "string"
+                        },
+                        "level_exp": {
+                          "type": "object",
+                          "properties": {
+                            "current_level": {
+                              "type": "integer"
+                            },
+                            "current_min": {
+                              "type": "integer"
+                            },
+                            "current_exp": {
+                              "type": "integer"
+                            },
+                            "next_exp": {
+                              "type": "integer"
+                            },
+                            "level_up": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "current_level",
+                            "current_min",
+                            "current_exp",
+                            "next_exp",
+                            "level_up"
+                          ]
+                        },
+                        "coins": {
+                          "type": "number"
+                        },
+                        "following": {
+                          "type": "integer",
+                          "description": "不知道b站抽什么风，这里的参数值是粉丝数"
+                        },
+                        "follower": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "mid",
+                        "name",
+                        "sex",
+                        "face",
+                        "sign",
+                        "rank",
+                        "level",
+                        "jointime",
+                        "moral",
+                        "silence",
+                        "email_status",
+                        "tel_status",
+                        "identification",
+                        "vip",
+                        "pendant",
+                        "nameplate",
+                        "official",
+                        "birthday",
+                        "is_tourist",
+                        "is_fake_account",
+                        "pin_prompting",
+                        "is_deleted",
+                        "in_reg_audit",
+                        "is_rip_user",
+                        "profession",
+                        "face_nft",
+                        "face_nft_new",
+                        "is_senior_member",
+                        "honours",
+                        "digital_id",
+                        "digital_type",
+                        "attestation",
+                        "expert_info",
+                        "name_render",
+                        "country_code",
+                        "handle",
+                        "level_exp",
+                        "coins",
+                        "following",
+                        "follower"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "mid": 1,
+                    "name": "陈睿",
+                    "sex": "男",
+                    "face": "https://i1.hdslb.com/bfs/face/xxxxx.jpg",
+                    "sign": "转生成为蒙古上单",
+                    "rank": 10000,
+                    "level": 6,
+                    "jointime": 0,
+                    "moral": 70,
+                    "silence": 0,
+                    "email_status": 1,
+                    "tel_status": 1,
+                    "identification": 1,
+                    "vip": {
+                      "type": 2,
+                      "status": 1,
+                      "due_date": 1700000000000,
+                      "vip_pay_type": 0,
+                      "theme_type": 0,
+                      "label": {
+                        "path": "http://i0.hdslb.com/bfs/vip/label_annual.png",
+                        "text": "年度大会员",
+                        "label_theme": "annual_vip",
+                        "text_color": "#FFFFFF",
+                        "bg_style": 1,
+                        "bg_color": "#FB7299",
+                        "border_color": "",
+                        "use_img_label": true,
+                        "img_label_uri_hans": "",
+                        "img_label_uri_hant": "",
+                        "img_label_uri_hans_static": "https://i0.hdslb.com/bfs/vip/8d4f8bfc713826a5412a0a27eaaac4d6b9ede1d9.png",
+                        "img_label_uri_hant_static": "https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/VEW8fCC0hg.png",
+                        "label_id": -22,
+                        "label_goto": {
+                          "mobile": "https://big.bilibili.com/mobile/index?navhide=1&from_spmid=vipicon",
+                          "pc_web": "https://account.bilibili.com/big?from_spmid=vipicon"
+                        }
+                      },
+                      "avatar_subscript": 1,
+                      "nickname_color": "#FB7299",
+                      "role": 3,
+                      "avatar_subscript_url": "",
+                      "tv_vip_status": 0,
+                      "tv_vip_pay_type": 0,
+                      "tv_due_date": 1700000000,
+                      "avatar_icon": {
+                        "icon_type": 1,
+                        "icon_resource": {}
+                      },
+                      "ott_info": {
+                        "vip_type": 1,
+                        "pay_type": 0,
+                        "pay_channel_id": "",
+                        "status": 0,
+                        "overdue_time": 1700000000
+                      },
+                      "super_vip": {
+                        "is_super_vip": false
+                      }
+                    },
+                    "pendant": {
+                      "pid": 0,
+                      "name": "",
+                      "image": "",
+                      "expire": 0,
+                      "image_enhance": "",
+                      "image_enhance_frame": "",
+                      "n_pid": 0
+                    },
+                    "nameplate": {
+                      "nid": 90,
+                      "name": "有爱萌新",
+                      "image": "https://i2.hdslb.com/bfs/face/51ca16136e570938450bca360f28761ceb609f33.png",
+                      "image_small": "https://i1.hdslb.com/bfs/face/9abfa4769357f85937782c2dbc40fafda4f57217.png",
+                      "level": "普通勋章",
+                      "condition": "当前持有粉丝勋章最高等级>=5级"
+                    },
+                    "official": {
+                      "role": 0,
+                      "title": "",
+                      "desc": "",
+                      "type": -1
+                    },
+                    "birthday": 1700000000,
+                    "is_tourist": 0,
+                    "is_fake_account": 0,
+                    "pin_prompting": 0,
+                    "is_deleted": 0,
+                    "in_reg_audit": 0,
+                    "is_rip_user": false,
+                    "profession": {
+                      "id": 0,
+                      "name": "",
+                      "show_name": "",
+                      "is_show": 0,
+                      "category_one": "",
+                      "realname": "",
+                      "title": "",
+                      "department": "",
+                      "certificate_no": "",
+                      "certificate_show": false
+                    },
+                    "face_nft": 0,
+                    "face_nft_new": 0,
+                    "is_senior_member": 1,
+                    "honours": {
+                      "mid": 1,
+                      "colour": {
+                        "dark": "#CE8620",
+                        "normal": "#F0900B"
+                      },
+                      "tags": null,
+                      "is_latest_100honour": 0
+                    },
+                    "digital_id": "",
+                    "digital_type": -2,
+                    "attestation": {
+                      "type": 0,
+                      "common_info": {
+                        "title": "",
+                        "prefix": "",
+                        "prefix_title": ""
+                      },
+                      "splice_info": {
+                        "title": ""
+                      },
+                      "icon": "",
+                      "desc": ""
+                    },
+                    "expert_info": {
+                      "title": "",
+                      "state": 0,
+                      "type": 0,
+                      "desc": ""
+                    },
+                    "name_render": null,
+                    "country_code": "86",
+                    "handle": "",
+                    "level_exp": {
+                      "current_level": 6,
+                      "current_min": 28800,
+                      "current_exp": 114514,
+                      "next_exp": -1,
+                      "level_up": 1700000000
+                    },
+                    "coins": 1888.8,
+                    "following": 4255,
+                    "follower": 4255
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/web-interface/card": {
+      "get": {
+        "summary": "用户名片信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Web 界面"
+        ],
+        "parameters": [
+          {
+            "name": "mid",
+            "in": "query",
+            "description": "目标用户mid",
+            "required": true,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "photo",
+            "in": "query",
+            "description": "是否请求用户主页头图，默认为false",
+            "required": false,
+            "example": "true",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "card": {
+                          "type": "object",
+                          "properties": {
+                            "mid": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "approve": {
+                              "type": "boolean"
+                            },
+                            "sex": {
+                              "type": "string"
+                            },
+                            "rank": {
+                              "type": "string"
+                            },
+                            "face": {
+                              "type": "string"
+                            },
+                            "face_nft": {
+                              "type": "integer"
+                            },
+                            "face_nft_type": {
+                              "type": "integer"
+                            },
+                            "DisplayRank": {
+                              "type": "string"
+                            },
+                            "regtime": {
+                              "type": "integer"
+                            },
+                            "spacesta": {
+                              "type": "integer"
+                            },
+                            "birthday": {
+                              "type": "string"
+                            },
+                            "place": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "article": {
+                              "type": "integer"
+                            },
+                            "attentions": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "fans": {
+                              "type": "integer"
+                            },
+                            "friend": {
+                              "type": "integer"
+                            },
+                            "attention": {
+                              "type": "integer"
+                            },
+                            "sign": {
+                              "type": "string"
+                            },
+                            "level_info": {
+                              "type": "object",
+                              "properties": {
+                                "current_level": {
+                                  "type": "integer"
+                                },
+                                "current_min": {
+                                  "type": "integer"
+                                },
+                                "current_exp": {
+                                  "type": "integer"
+                                },
+                                "next_exp": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "current_level",
+                                "current_min",
+                                "current_exp",
+                                "next_exp"
+                              ]
+                            },
+                            "pendant": {
+                              "type": "object",
+                              "properties": {
+                                "pid": {
+                                  "type": "integer"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "image": {
+                                  "type": "string"
+                                },
+                                "expire": {
+                                  "type": "integer"
+                                },
+                                "image_enhance": {
+                                  "type": "string"
+                                },
+                                "image_enhance_frame": {
+                                  "type": "string"
+                                },
+                                "n_pid": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "pid",
+                                "name",
+                                "image",
+                                "expire",
+                                "image_enhance",
+                                "image_enhance_frame",
+                                "n_pid"
+                              ]
+                            },
+                            "nameplate": {
+                              "type": "object",
+                              "properties": {
+                                "nid": {
+                                  "type": "integer"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "image": {
+                                  "type": "string"
+                                },
+                                "image_small": {
+                                  "type": "string"
+                                },
+                                "level": {
+                                  "type": "string"
+                                },
+                                "condition": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "nid",
+                                "name",
+                                "image",
+                                "image_small",
+                                "level",
+                                "condition"
+                              ]
+                            },
+                            "Official": {
+                              "type": "object",
+                              "properties": {
+                                "role": {
+                                  "type": "integer"
+                                },
+                                "title": {
+                                  "type": "string"
+                                },
+                                "desc": {
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "role",
+                                "title",
+                                "desc",
+                                "type"
+                              ]
+                            },
+                            "official_verify": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "integer"
+                                },
+                                "desc": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "desc"
+                              ]
+                            },
+                            "vip": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "integer"
+                                },
+                                "status": {
+                                  "type": "integer"
+                                },
+                                "due_date": {
+                                  "type": "integer"
+                                },
+                                "vip_pay_type": {
+                                  "type": "integer"
+                                },
+                                "theme_type": {
+                                  "type": "integer"
+                                },
+                                "label": {
+                                  "type": "object",
+                                  "properties": {
+                                    "path": {
+                                      "type": "string"
+                                    },
+                                    "text": {
+                                      "type": "string"
+                                    },
+                                    "label_theme": {
+                                      "type": "string"
+                                    },
+                                    "text_color": {
+                                      "type": "string"
+                                    },
+                                    "bg_style": {
+                                      "type": "integer"
+                                    },
+                                    "bg_color": {
+                                      "type": "string"
+                                    },
+                                    "border_color": {
+                                      "type": "string"
+                                    },
+                                    "use_img_label": {
+                                      "type": "boolean"
+                                    },
+                                    "img_label_uri_hans": {
+                                      "type": "string"
+                                    },
+                                    "img_label_uri_hant": {
+                                      "type": "string"
+                                    },
+                                    "img_label_uri_hans_static": {
+                                      "type": "string"
+                                    },
+                                    "img_label_uri_hant_static": {
+                                      "type": "string"
+                                    },
+                                    "label_id": {
+                                      "type": "integer"
+                                    },
+                                    "label_goto": {
+                                      "type": "object",
+                                      "properties": {
+                                        "mobile": {
+                                          "type": "string"
+                                        },
+                                        "pc_web": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "mobile",
+                                        "pc_web"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "path",
+                                    "text",
+                                    "label_theme",
+                                    "text_color",
+                                    "bg_style",
+                                    "bg_color",
+                                    "border_color",
+                                    "use_img_label",
+                                    "img_label_uri_hans",
+                                    "img_label_uri_hant",
+                                    "img_label_uri_hans_static",
+                                    "img_label_uri_hant_static",
+                                    "label_id",
+                                    "label_goto"
+                                  ]
+                                },
+                                "avatar_subscript": {
+                                  "type": "integer"
+                                },
+                                "nickname_color": {
+                                  "type": "string"
+                                },
+                                "role": {
+                                  "type": "integer"
+                                },
+                                "avatar_subscript_url": {
+                                  "type": "string"
+                                },
+                                "tv_vip_status": {
+                                  "type": "integer"
+                                },
+                                "tv_vip_pay_type": {
+                                  "type": "integer"
+                                },
+                                "tv_due_date": {
+                                  "type": "integer"
+                                },
+                                "avatar_icon": {
+                                  "type": "object",
+                                  "properties": {
+                                    "icon_type": {
+                                      "type": "integer"
+                                    },
+                                    "icon_resource": {
+                                      "type": "object",
+                                      "properties": {}
+                                    }
+                                  },
+                                  "required": [
+                                    "icon_type",
+                                    "icon_resource"
+                                  ]
+                                },
+                                "ott_info": {
+                                  "type": "object",
+                                  "properties": {
+                                    "vip_type": {
+                                      "type": "integer"
+                                    },
+                                    "pay_type": {
+                                      "type": "integer"
+                                    },
+                                    "pay_channel_id": {
+                                      "type": "string"
+                                    },
+                                    "status": {
+                                      "type": "integer"
+                                    },
+                                    "overdue_time": {
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "required": [
+                                    "vip_type",
+                                    "pay_type",
+                                    "pay_channel_id",
+                                    "status",
+                                    "overdue_time"
+                                  ]
+                                },
+                                "super_vip": {
+                                  "type": "object",
+                                  "properties": {
+                                    "is_super_vip": {
+                                      "type": "boolean"
+                                    }
+                                  },
+                                  "required": [
+                                    "is_super_vip"
+                                  ]
+                                },
+                                "vipType": {
+                                  "type": "integer"
+                                },
+                                "vipStatus": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "status",
+                                "due_date",
+                                "vip_pay_type",
+                                "theme_type",
+                                "label",
+                                "avatar_subscript",
+                                "nickname_color",
+                                "role",
+                                "avatar_subscript_url",
+                                "tv_vip_status",
+                                "tv_vip_pay_type",
+                                "tv_due_date",
+                                "avatar_icon",
+                                "ott_info",
+                                "super_vip",
+                                "vipType",
+                                "vipStatus"
+                              ]
+                            },
+                            "is_senior_member": {
+                              "type": "integer"
+                            },
+                            "name_render": {
+                              "type": "null"
+                            }
+                          },
+                          "required": [
+                            "mid",
+                            "name",
+                            "approve",
+                            "sex",
+                            "rank",
+                            "face",
+                            "face_nft",
+                            "face_nft_type",
+                            "DisplayRank",
+                            "regtime",
+                            "spacesta",
+                            "birthday",
+                            "place",
+                            "description",
+                            "article",
+                            "attentions",
+                            "fans",
+                            "friend",
+                            "attention",
+                            "sign",
+                            "level_info",
+                            "pendant",
+                            "nameplate",
+                            "Official",
+                            "official_verify",
+                            "vip",
+                            "is_senior_member",
+                            "name_render"
+                          ]
+                        },
+                        "space": {
+                          "type": "object",
+                          "properties": {
+                            "s_img": {
+                              "type": "string"
+                            },
+                            "l_img": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "s_img",
+                            "l_img"
+                          ]
+                        },
+                        "following": {
+                          "type": "boolean"
+                        },
+                        "archive_count": {
+                          "type": "integer"
+                        },
+                        "article_count": {
+                          "type": "integer"
+                        },
+                        "follower": {
+                          "type": "integer"
+                        },
+                        "like_num": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "card",
+                        "following",
+                        "archive_count",
+                        "article_count",
+                        "follower",
+                        "like_num"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "card": {
+                      "mid": "1",
+                      "name": "bishi",
+                      "approve": false,
+                      "sex": "男",
+                      "rank": "10000",
+                      "face": "https://i1.hdslb.com/bfs/face/34c5b30a990c7ce4a809626d8153fa7895ec7b63.gif",
+                      "face_nft": 0,
+                      "face_nft_type": 0,
+                      "DisplayRank": "0",
+                      "regtime": 0,
+                      "spacesta": 0,
+                      "birthday": "",
+                      "place": "",
+                      "description": "",
+                      "article": 0,
+                      "attentions": [],
+                      "fans": 217101,
+                      "friend": 6,
+                      "attention": 6,
+                      "sign": "",
+                      "level_info": {
+                        "current_level": 6,
+                        "current_min": 0,
+                        "current_exp": 0,
+                        "next_exp": 0
+                      },
+                      "pendant": {
+                        "pid": 0,
+                        "name": "",
+                        "image": "",
+                        "expire": 0,
+                        "image_enhance": "",
+                        "image_enhance_frame": "",
+                        "n_pid": 0
+                      },
+                      "nameplate": {
+                        "nid": 0,
+                        "name": "",
+                        "image": "",
+                        "image_small": "",
+                        "level": "",
+                        "condition": ""
+                      },
+                      "Official": {
+                        "role": 0,
+                        "title": "",
+                        "desc": "",
+                        "type": -1
+                      },
+                      "official_verify": {
+                        "type": -1,
+                        "desc": ""
+                      },
+                      "vip": {
+                        "type": 2,
+                        "status": 1,
+                        "due_date": 1939305600000,
+                        "vip_pay_type": 1,
+                        "theme_type": 0,
+                        "label": {
+                          "path": "http://i0.hdslb.com/bfs/vip/label_annual.png",
+                          "text": "十年大会员",
+                          "label_theme": "ten_annual_vip",
+                          "text_color": "#FFFFFF",
+                          "bg_style": 1,
+                          "bg_color": "#FB7299",
+                          "border_color": "",
+                          "use_img_label": true,
+                          "img_label_uri_hans": "",
+                          "img_label_uri_hant": "",
+                          "img_label_uri_hans_static": "https://i0.hdslb.com/bfs/vip/adb599797dd171e2d3d6d012f448b49679258344.png",
+                          "img_label_uri_hant_static": "https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/sGu57N6pgK.png",
+                          "label_id": -22,
+                          "label_goto": {
+                            "mobile": "https://big.bilibili.com/mobile/index?navhide=1&from_spmid=vipicon",
+                            "pc_web": "https://account.bilibili.com/big?from_spmid=vipicon"
+                          }
+                        },
+                        "avatar_subscript": 1,
+                        "nickname_color": "#FB7299",
+                        "role": 7,
+                        "avatar_subscript_url": "",
+                        "tv_vip_status": 0,
+                        "tv_vip_pay_type": 0,
+                        "tv_due_date": 1633622400,
+                        "avatar_icon": {
+                          "icon_type": 1,
+                          "icon_resource": {}
+                        },
+                        "ott_info": {
+                          "vip_type": 1,
+                          "pay_type": 0,
+                          "pay_channel_id": "",
+                          "status": 0,
+                          "overdue_time": 1633622400
+                        },
+                        "super_vip": {
+                          "is_super_vip": false
+                        },
+                        "vipType": 2,
+                        "vipStatus": 1
+                      },
+                      "is_senior_member": 0,
+                      "name_render": null
+                    },
+                    "space": {
+                      "s_img": "https://i1.hdslb.com/bfs/activity-plat/static/LRjqHhi0wL.png",
+                      "l_img": "https://i1.hdslb.com/bfs/space/cb1c3ef50e22b6096fde67febe863494caefebad.png"
+                    },
+                    "following": false,
+                    "archive_count": 3,
+                    "article_count": 0,
+                    "follower": 217101,
+                    "like_num": 145892
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/web-interface/nav": {
+      "get": {
+        "summary": "导航栏",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Web 界面"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "isLogin": {
+                          "type": "boolean"
+                        },
+                        "email_verified": {
+                          "type": "integer"
+                        },
+                        "face": {
+                          "type": "string"
+                        },
+                        "face_nft": {
+                          "type": "integer"
+                        },
+                        "face_nft_type": {
+                          "type": "integer"
+                        },
+                        "level_info": {
+                          "type": "object",
+                          "properties": {
+                            "current_level": {
+                              "type": "integer"
+                            },
+                            "current_min": {
+                              "type": "integer"
+                            },
+                            "current_exp": {
+                              "type": "integer"
+                            },
+                            "next_exp": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "current_level",
+                            "current_min",
+                            "current_exp",
+                            "next_exp"
+                          ]
+                        },
+                        "mid": {
+                          "type": "integer"
+                        },
+                        "mobile_verified": {
+                          "type": "integer"
+                        },
+                        "money": {
+                          "type": "number"
+                        },
+                        "moral": {
+                          "type": "integer"
+                        },
+                        "official": {
+                          "type": "object",
+                          "properties": {
+                            "role": {
+                              "type": "integer"
+                            },
+                            "title": {
+                              "type": "string"
+                            },
+                            "desc": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "role",
+                            "title",
+                            "desc",
+                            "type"
+                          ]
+                        },
+                        "officialVerify": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "integer"
+                            },
+                            "desc": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "desc"
+                          ]
+                        },
+                        "pendant": {
+                          "type": "object",
+                          "properties": {
+                            "pid": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "image": {
+                              "type": "string"
+                            },
+                            "expire": {
+                              "type": "integer"
+                            },
+                            "image_enhance": {
+                              "type": "string"
+                            },
+                            "image_enhance_frame": {
+                              "type": "string"
+                            },
+                            "n_pid": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "pid",
+                            "name",
+                            "image",
+                            "expire",
+                            "image_enhance",
+                            "image_enhance_frame",
+                            "n_pid"
+                          ]
+                        },
+                        "scores": {
+                          "type": "integer"
+                        },
+                        "uname": {
+                          "type": "string"
+                        },
+                        "vipDueDate": {
+                          "type": "integer"
+                        },
+                        "vipStatus": {
+                          "type": "integer"
+                        },
+                        "vipType": {
+                          "type": "integer"
+                        },
+                        "vip_pay_type": {
+                          "type": "integer"
+                        },
+                        "vip_theme_type": {
+                          "type": "integer"
+                        },
+                        "vip_label": {
+                          "type": "object",
+                          "properties": {
+                            "path": {
+                              "type": "string"
+                            },
+                            "text": {
+                              "type": "string"
+                            },
+                            "label_theme": {
+                              "type": "string"
+                            },
+                            "text_color": {
+                              "type": "string"
+                            },
+                            "bg_style": {
+                              "type": "integer"
+                            },
+                            "bg_color": {
+                              "type": "string"
+                            },
+                            "border_color": {
+                              "type": "string"
+                            },
+                            "use_img_label": {
+                              "type": "boolean"
+                            },
+                            "img_label_uri_hans": {
+                              "type": "string"
+                            },
+                            "img_label_uri_hant": {
+                              "type": "string"
+                            },
+                            "img_label_uri_hans_static": {
+                              "type": "string"
+                            },
+                            "img_label_uri_hant_static": {
+                              "type": "string"
+                            },
+                            "label_id": {
+                              "type": "integer"
+                            },
+                            "label_goto": {
+                              "type": "object",
+                              "properties": {
+                                "mobile": {
+                                  "type": "string"
+                                },
+                                "pc_web": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "mobile",
+                                "pc_web"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "path",
+                            "text",
+                            "label_theme",
+                            "text_color",
+                            "bg_style",
+                            "bg_color",
+                            "border_color",
+                            "use_img_label",
+                            "img_label_uri_hans",
+                            "img_label_uri_hant",
+                            "img_label_uri_hans_static",
+                            "img_label_uri_hant_static",
+                            "label_id",
+                            "label_goto"
+                          ]
+                        },
+                        "vip_avatar_subscript": {
+                          "type": "integer"
+                        },
+                        "vip_nickname_color": {
+                          "type": "string"
+                        },
+                        "vip": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "integer"
+                            },
+                            "status": {
+                              "type": "integer"
+                            },
+                            "due_date": {
+                              "type": "integer"
+                            },
+                            "vip_pay_type": {
+                              "type": "integer"
+                            },
+                            "theme_type": {
+                              "type": "integer"
+                            },
+                            "label": {
+                              "type": "object",
+                              "properties": {
+                                "path": {
+                                  "type": "string"
+                                },
+                                "text": {
+                                  "type": "string"
+                                },
+                                "label_theme": {
+                                  "type": "string"
+                                },
+                                "text_color": {
+                                  "type": "string"
+                                },
+                                "bg_style": {
+                                  "type": "integer"
+                                },
+                                "bg_color": {
+                                  "type": "string"
+                                },
+                                "border_color": {
+                                  "type": "string"
+                                },
+                                "use_img_label": {
+                                  "type": "boolean"
+                                },
+                                "img_label_uri_hans": {
+                                  "type": "string"
+                                },
+                                "img_label_uri_hant": {
+                                  "type": "string"
+                                },
+                                "img_label_uri_hans_static": {
+                                  "type": "string"
+                                },
+                                "img_label_uri_hant_static": {
+                                  "type": "string"
+                                },
+                                "label_id": {
+                                  "type": "integer"
+                                },
+                                "label_goto": {
+                                  "type": "object",
+                                  "properties": {
+                                    "mobile": {
+                                      "type": "string"
+                                    },
+                                    "pc_web": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "mobile",
+                                    "pc_web"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "path",
+                                "text",
+                                "label_theme",
+                                "text_color",
+                                "bg_style",
+                                "bg_color",
+                                "border_color",
+                                "use_img_label",
+                                "img_label_uri_hans",
+                                "img_label_uri_hant",
+                                "img_label_uri_hans_static",
+                                "img_label_uri_hant_static",
+                                "label_id",
+                                "label_goto"
+                              ]
+                            },
+                            "avatar_subscript": {
+                              "type": "integer"
+                            },
+                            "nickname_color": {
+                              "type": "string"
+                            },
+                            "role": {
+                              "type": "integer"
+                            },
+                            "avatar_subscript_url": {
+                              "type": "string"
+                            },
+                            "tv_vip_status": {
+                              "type": "integer"
+                            },
+                            "tv_vip_pay_type": {
+                              "type": "integer"
+                            },
+                            "tv_due_date": {
+                              "type": "integer"
+                            },
+                            "avatar_icon": {
+                              "type": "object",
+                              "properties": {
+                                "icon_type": {
+                                  "type": "integer"
+                                },
+                                "icon_resource": {
+                                  "type": "object",
+                                  "properties": {}
+                                }
+                              },
+                              "required": [
+                                "icon_type",
+                                "icon_resource"
+                              ]
+                            },
+                            "ott_info": {
+                              "type": "object",
+                              "properties": {
+                                "vip_type": {
+                                  "type": "integer"
+                                },
+                                "pay_type": {
+                                  "type": "integer"
+                                },
+                                "pay_channel_id": {
+                                  "type": "string"
+                                },
+                                "status": {
+                                  "type": "integer"
+                                },
+                                "overdue_time": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "vip_type",
+                                "pay_type",
+                                "pay_channel_id",
+                                "status",
+                                "overdue_time"
+                              ]
+                            },
+                            "super_vip": {
+                              "type": "object",
+                              "properties": {
+                                "is_super_vip": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "is_super_vip"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "status",
+                            "due_date",
+                            "vip_pay_type",
+                            "theme_type",
+                            "label",
+                            "avatar_subscript",
+                            "nickname_color",
+                            "role",
+                            "avatar_subscript_url",
+                            "tv_vip_status",
+                            "tv_vip_pay_type",
+                            "tv_due_date",
+                            "avatar_icon",
+                            "ott_info",
+                            "super_vip"
+                          ]
+                        },
+                        "wallet": {
+                          "type": "object",
+                          "properties": {
+                            "mid": {
+                              "type": "integer"
+                            },
+                            "bcoin_balance": {
+                              "type": "integer"
+                            },
+                            "coupon_balance": {
+                              "type": "integer"
+                            },
+                            "coupon_due_time": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "mid",
+                            "bcoin_balance",
+                            "coupon_balance",
+                            "coupon_due_time"
+                          ]
+                        },
+                        "has_shop": {
+                          "type": "boolean"
+                        },
+                        "shop_url": {
+                          "type": "string"
+                        },
+                        "answer_status": {
+                          "type": "integer"
+                        },
+                        "is_senior_member": {
+                          "type": "integer"
+                        },
+                        "wbi_img": {
+                          "type": "object",
+                          "properties": {
+                            "img_url": {
+                              "type": "string"
+                            },
+                            "sub_url": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "img_url",
+                            "sub_url"
+                          ]
+                        },
+                        "is_jury": {
+                          "type": "boolean"
+                        },
+                        "name_render": {
+                          "type": "null"
+                        },
+                        "legal_region": {
+                          "type": "string"
+                        },
+                        "ip_region": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "isLogin",
+                        "email_verified",
+                        "face",
+                        "face_nft",
+                        "face_nft_type",
+                        "level_info",
+                        "mid",
+                        "mobile_verified",
+                        "money",
+                        "moral",
+                        "official",
+                        "officialVerify",
+                        "pendant",
+                        "scores",
+                        "uname",
+                        "vipDueDate",
+                        "vipStatus",
+                        "vipType",
+                        "vip_pay_type",
+                        "vip_theme_type",
+                        "vip_label",
+                        "vip_avatar_subscript",
+                        "vip_nickname_color",
+                        "vip",
+                        "wallet",
+                        "has_shop",
+                        "shop_url",
+                        "answer_status",
+                        "is_senior_member",
+                        "wbi_img",
+                        "is_jury",
+                        "name_render",
+                        "legal_region",
+                        "ip_region"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "isLogin": true,
+                    "email_verified": 1,
+                    "face": "https://i1.hdslb.com/bfs/face/xxxxx.jpg",
+                    "face_nft": 0,
+                    "face_nft_type": 0,
+                    "level_info": {
+                      "current_level": 6,
+                      "current_min": 28800,
+                      "current_exp": 114514,
+                      "next_exp": "--"
+                    },
+                    "mid": 1,
+                    "mobile_verified": 1,
+                    "money": 1888.8,
+                    "moral": 70,
+                    "official": {
+                      "role": 0,
+                      "title": "",
+                      "desc": "",
+                      "type": -1
+                    },
+                    "officialVerify": {
+                      "type": -1,
+                      "desc": ""
+                    },
+                    "pendant": {
+                      "pid": 0,
+                      "name": "",
+                      "image": "",
+                      "expire": 0,
+                      "image_enhance": "",
+                      "image_enhance_frame": "",
+                      "n_pid": 0
+                    },
+                    "scores": 0,
+                    "uname": "陈睿",
+                    "vipDueDate": 1700000000000,
+                    "vipStatus": 1,
+                    "vipType": 2,
+                    "vip_pay_type": 0,
+                    "vip_theme_type": 0,
+                    "vip_label": {
+                      "path": "http://i0.hdslb.com/bfs/vip/label_annual.png",
+                      "text": "年度大会员",
+                      "label_theme": "annual_vip",
+                      "text_color": "#FFFFFF",
+                      "bg_style": 1,
+                      "bg_color": "#FB7299",
+                      "border_color": "",
+                      "use_img_label": true,
+                      "img_label_uri_hans": "",
+                      "img_label_uri_hant": "",
+                      "img_label_uri_hans_static": "https://i0.hdslb.com/bfs/vip/8d4f8bfc713826a5412a0a27eaaac4d6b9ede1d9.png",
+                      "img_label_uri_hant_static": "https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/VEW8fCC0hg.png",
+                      "label_id": -22,
+                      "label_goto": {
+                        "mobile": "https://big.bilibili.com/mobile/index?navhide=1&from_spmid=vipicon",
+                        "pc_web": "https://account.bilibili.com/big?from_spmid=vipicon"
+                      }
+                    },
+                    "vip_avatar_subscript": 1,
+                    "vip_nickname_color": "#FB7299",
+                    "vip": {
+                      "type": 2,
+                      "status": 1,
+                      "due_date": 1700000000000,
+                      "vip_pay_type": 0,
+                      "theme_type": 0,
+                      "label": {
+                        "path": "http://i0.hdslb.com/bfs/vip/label_annual.png",
+                        "text": "年度大会员",
+                        "label_theme": "annual_vip",
+                        "text_color": "#FFFFFF",
+                        "bg_style": 1,
+                        "bg_color": "#FB7299",
+                        "border_color": "",
+                        "use_img_label": true,
+                        "img_label_uri_hans": "",
+                        "img_label_uri_hant": "",
+                        "img_label_uri_hans_static": "https://i0.hdslb.com/bfs/vip/8d4f8bfc713826a5412a0a27eaaac4d6b9ede1d9.png",
+                        "img_label_uri_hant_static": "https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/VEW8fCC0hg.png",
+                        "label_id": -22,
+                        "label_goto": {
+                          "mobile": "https://big.bilibili.com/mobile/index?navhide=1&from_spmid=vipicon",
+                          "pc_web": "https://account.bilibili.com/big?from_spmid=vipicon"
+                        }
+                      },
+                      "avatar_subscript": 1,
+                      "nickname_color": "#FB7299",
+                      "role": 3,
+                      "avatar_subscript_url": "",
+                      "tv_vip_status": 0,
+                      "tv_vip_pay_type": 0,
+                      "tv_due_date": 1700000000,
+                      "avatar_icon": {
+                        "icon_type": 1,
+                        "icon_resource": {}
+                      },
+                      "ott_info": {
+                        "vip_type": 1,
+                        "pay_type": 0,
+                        "pay_channel_id": "",
+                        "status": 0,
+                        "overdue_time": 1700000000
+                      },
+                      "super_vip": {
+                        "is_super_vip": false
+                      }
+                    },
+                    "wallet": {
+                      "mid": 1,
+                      "bcoin_balance": 5,
+                      "coupon_balance": 5,
+                      "coupon_due_time": 0
+                    },
+                    "has_shop": false,
+                    "shop_url": "",
+                    "answer_status": 0,
+                    "is_senior_member": 1,
+                    "wbi_img": {
+                      "img_url": "https://i0.hdslb.com/bfs/wbi/7cd084941338484aae1ad9425b84077c.png",
+                      "sub_url": "https://i0.hdslb.com/bfs/wbi/4932caff0ff746eab6f01bf08b70ac45.png"
+                    },
+                    "is_jury": false,
+                    "name_render": null,
+                    "legal_region": "CN",
+                    "ip_region": "JP"
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/polymer/pc-electron/v1/user/cards": {
+      "get": {
+        "summary": "多用户详细信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "客户端-PC"
+        ],
+        "parameters": [
+          {
+            "name": "uids",
+            "in": "query",
+            "description": "每个成员间用,分隔，最多50个成员",
+            "required": false,
+            "example": "1,2,3",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "1(your_uid_inputed)": {
+                          "type": "object",
+                          "properties": {
+                            "mid": {
+                              "type": "string"
+                            },
+                            "face": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "official": {
+                              "type": "object",
+                              "properties": {
+                                "desc": {
+                                  "type": "string"
+                                },
+                                "role": {
+                                  "type": "integer"
+                                },
+                                "title": {
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "desc",
+                                "role",
+                                "title",
+                                "type"
+                              ]
+                            },
+                            "vip": {
+                              "type": "object",
+                              "properties": {
+                                "avatar_subscript": {
+                                  "type": "integer"
+                                },
+                                "avatar_subscript_url": {
+                                  "type": "string"
+                                },
+                                "due_date": {
+                                  "type": "string"
+                                },
+                                "nickname_color": {
+                                  "type": "string"
+                                },
+                                "role": {
+                                  "type": "string"
+                                },
+                                "status": {
+                                  "type": "integer"
+                                },
+                                "theme_type": {
+                                  "type": "integer"
+                                },
+                                "type": {
+                                  "type": "integer"
+                                },
+                                "label": {
+                                  "type": "object",
+                                  "properties": {
+                                    "bg_color": {
+                                      "type": "string"
+                                    },
+                                    "bg_style": {
+                                      "type": "integer"
+                                    },
+                                    "border_color": {
+                                      "type": "string"
+                                    },
+                                    "img_label_uri_hans": {
+                                      "type": "string"
+                                    },
+                                    "img_label_uri_hans_static": {
+                                      "type": "string"
+                                    },
+                                    "img_label_uri_hant": {
+                                      "type": "string"
+                                    },
+                                    "img_label_uri_hant_static": {
+                                      "type": "string"
+                                    },
+                                    "label_theme": {
+                                      "type": "string"
+                                    },
+                                    "path": {
+                                      "type": "string"
+                                    },
+                                    "text": {
+                                      "type": "string"
+                                    },
+                                    "text_color": {
+                                      "type": "string"
+                                    },
+                                    "use_img_label": {
+                                      "type": "boolean"
+                                    }
+                                  },
+                                  "required": [
+                                    "bg_color",
+                                    "bg_style",
+                                    "border_color",
+                                    "img_label_uri_hans",
+                                    "img_label_uri_hans_static",
+                                    "img_label_uri_hant",
+                                    "img_label_uri_hant_static",
+                                    "label_theme",
+                                    "path",
+                                    "text",
+                                    "text_color",
+                                    "use_img_label"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "avatar_subscript",
+                                "avatar_subscript_url",
+                                "due_date",
+                                "nickname_color",
+                                "role",
+                                "status",
+                                "theme_type",
+                                "type",
+                                "label"
+                              ]
+                            },
+                            "name_render": {
+                              "type": "null"
+                            }
+                          },
+                          "required": [
+                            "mid",
+                            "face",
+                            "name",
+                            "official",
+                            "vip",
+                            "name_render"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "1(your_uid_inputed)"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "1": {
+                      "mid": "1",
+                      "face": "https://i1.hdslb.com/bfs/face/34c5b30a990c7ce4a809626d8153fa7895ec7b63.gif",
+                      "name": "bishi",
+                      "official": {
+                        "desc": "",
+                        "role": 0,
+                        "title": "",
+                        "type": -1
+                      },
+                      "vip": {
+                        "avatar_subscript": 1,
+                        "avatar_subscript_url": "",
+                        "due_date": "1939305600000",
+                        "nickname_color": "#FB7299",
+                        "role": "7",
+                        "status": 1,
+                        "theme_type": 0,
+                        "type": 2,
+                        "label": {
+                          "bg_color": "#FB7299",
+                          "bg_style": 1,
+                          "border_color": "",
+                          "img_label_uri_hans": "",
+                          "img_label_uri_hans_static": "https://i0.hdslb.com/bfs/vip/adb599797dd171e2d3d6d012f448b49679258344.png",
+                          "img_label_uri_hant": "",
+                          "img_label_uri_hant_static": "https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/sGu57N6pgK.png",
+                          "label_theme": "ten_annual_vip",
+                          "path": "http://i0.hdslb.com/bfs/vip/label_annual.png",
+                          "text": "十年大会员",
+                          "text_color": "#FFFFFF",
+                          "use_img_label": true
+                        }
+                      },
+                      "name_render": null
+                    },
+                    "2": {
+                      "mid": "2",
+                      "face": "https://i2.hdslb.com/bfs/face/ef0457addb24141e15dfac6fbf45293ccf1e32ab.jpg",
+                      "name": "碧诗",
+                      "official": {
+                        "desc": "",
+                        "role": 2,
+                        "title": "bilibili创始人（站长）",
+                        "type": 0
+                      },
+                      "vip": {
+                        "avatar_subscript": 1,
+                        "avatar_subscript_url": "",
+                        "due_date": "4019731200000",
+                        "nickname_color": "#FB7299",
+                        "role": "7",
+                        "status": 1,
+                        "theme_type": 0,
+                        "type": 2,
+                        "label": {
+                          "bg_color": "#FB7299",
+                          "bg_style": 1,
+                          "border_color": "",
+                          "img_label_uri_hans": "https://i0.hdslb.com/bfs/activity-plat/static/20220608/e369244d0b14644f5e1a06431e22a4d5/wltavwHAkL.gif",
+                          "img_label_uri_hans_static": "https://i0.hdslb.com/bfs/vip/802418ff03911645648b63aa193ba67997b5a0bc.png",
+                          "img_label_uri_hant": "",
+                          "img_label_uri_hant_static": "https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/8u7iRTPE7N.png",
+                          "label_theme": "ten_annual_vip",
+                          "path": "http://i0.hdslb.com/bfs/vip/label_annual.png",
+                          "text": "十年大会员",
+                          "text_color": "#FFFFFF",
+                          "use_img_label": true
+                        }
+                      },
+                      "name_render": null
+                    },
+                    "3": {
+                      "mid": "3",
+                      "face": "http://i0.hdslb.com/bfs/face/d4de6a84557eea8f18510a3f61115d96832aa071.jpg",
+                      "name": "囧囧倉",
+                      "official": {
+                        "desc": "",
+                        "role": 0,
+                        "title": "",
+                        "type": -1
+                      },
+                      "vip": {
+                        "avatar_subscript": 0,
+                        "avatar_subscript_url": "",
+                        "due_date": "0",
+                        "nickname_color": "",
+                        "role": "0",
+                        "status": 0,
+                        "theme_type": 0,
+                        "type": 0,
+                        "label": {
+                          "bg_color": "",
+                          "bg_style": 0,
+                          "border_color": "",
+                          "img_label_uri_hans": "",
+                          "img_label_uri_hans_static": "https://i0.hdslb.com/bfs/vip/d7b702ef65a976b20ed854cbd04cb9e27341bb79.png",
+                          "img_label_uri_hant": "",
+                          "img_label_uri_hant_static": "https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/KJunwh19T5.png",
+                          "label_theme": "",
+                          "path": "",
+                          "text": "",
+                          "text_color": "",
+                          "use_img_label": true
+                        }
+                      },
+                      "name_render": null
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    }
+  },
   "webhooks": {},
   "components": {
     "schemas": {},
