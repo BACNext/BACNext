@@ -12724,6 +12724,423 @@
         },
         "security": []
       }
+    },
+    "/x/relation/tag/create": {
+      "post": {
+        "summary": "创建分组",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "关系"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tag": {
+                    "description": "分组名",
+                    "example": "男娘爸爸被女同妈妈抛弃女儿趁虚而",
+                    "type": "string"
+                  },
+                  "csrf": {
+                    "example": "5eeda577cfc2316c2e9c054e361ddc90",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "tag"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "tagid": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "tagid"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "tagid": 358409504
+                      }
+                    }
+                  },
+                  "2": {
+                    "summary": "分组名称长度超过限制",
+                    "value": {
+                      "code": 22103,
+                      "message": "分组名称长度超过限制",
+                      "ttl": 1
+                    }
+                  },
+                  "3": {
+                    "summary": "该分组已经存在",
+                    "value": {
+                      "code": 22106,
+                      "message": "该分组已经存在",
+                      "ttl": 1
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/relation/tag/update": {
+      "post": {
+        "summary": "重命名分组",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "关系"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tagid": {
+                    "example": "358409520",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "新分组名",
+                    "example": "原神",
+                    "type": "string"
+                  },
+                  "csrf": {
+                    "example": "5eeda577cfc2316c2e9c054e361ddc90",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "tagid",
+                  "name"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1
+                    }
+                  },
+                  "2": {
+                    "summary": "分组名称长度超过限制",
+                    "value": {
+                      "code": 22103,
+                      "message": "分组名称长度超过限制",
+                      "ttl": 1
+                    }
+                  },
+                  "3": {
+                    "summary": "该分组已经存在",
+                    "value": {
+                      "code": 22106,
+                      "message": "该分组已经存在",
+                      "ttl": 1
+                    }
+                  },
+                  "4": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/relation/tag/del": {
+      "post": {
+        "summary": "删除分组",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "关系"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tagid": {
+                    "example": "357495697",
+                    "type": "string"
+                  },
+                  "csrf": {
+                    "example": "5eeda577cfc2316c2e9c054e361ddc90",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "tagid"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/relation/tags/addUsers": {
+      "post": {
+        "summary": "修改分组成员",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "关系"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fids": {
+                    "example": "305956876",
+                    "type": "string"
+                  },
+                  "tagids": {
+                    "example": "-10,114514",
+                    "type": "string"
+                  },
+                  "csrf": {
+                    "example": "5eeda577cfc2316c2e9c054e361ddc90",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "fids",
+                  "tagids"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/relation/tags/copyUsers": {
+      "post": {
+        "summary": "复制关注到分组 Copy",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "关系"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fids": {
+                    "example": "305956876",
+                    "type": "string"
+                  },
+                  "tagids": {
+                    "example": "-10",
+                    "type": "string"
+                  },
+                  "csrf": {
+                    "example": "5eeda577cfc2316c2e9c054e361ddc90",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "fids",
+                  "tagids"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
     }
   },
   "webhooks": {},
