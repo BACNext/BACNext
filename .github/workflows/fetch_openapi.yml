@@ -1,0 +1,33 @@
+name: Fetch OpenAPI From Apifox
+
+on:
+  workflow_dispatch:
+  schedule:
+     - cron: '10 * * * *' 
+
+jobs:
+    fetch-openapi:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                python-version: '3.14'
+
+            - name: Install dependencies
+              run: |
+                pip install -r scripts/requirements.txt
+
+            - name: Fetch OpenAPI Spec
+              run: |
+                python scripts/fetch_openapi.py
+              env: 
+                APIFOX_API_KEY: ${{ secrets.APIFOX_API_KEY }}
+
+            - name: Commit & Push changes
+              uses: actions-js/push@master
+              with:
+                github_token: ${{ secrets.GITHUB_TOKEN }}
