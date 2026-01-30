@@ -32,10 +32,15 @@ for moduleId in moduleIds:
         }
     )
     response.raise_for_status()
+    error_occured = False
     try:
         with open(f"openapi/{moduleId_to_filename[moduleId]}", "w", encoding="utf-8") as f:
             f.write(response.text)
     except Exception as e:
+        error_occured = True
         print(f"Failed to write file for moduleId {moduleId}: {e}")
     else:
         print(f"Successfully wrote file for moduleId {moduleId}")
+
+if error_occured:
+    exit(1)
