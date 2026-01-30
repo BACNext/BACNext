@@ -1,0 +1,1882 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "VC接口",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [],
+  "paths": {
+    "/account/v1/user/cards": {
+      "get": {
+        "summary": "多用户详细信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "uids",
+            "in": "query",
+            "description": "每个成员间用,分隔，最多50个成员",
+            "required": true,
+            "example": "1,2,3",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "mid": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "face": {
+                            "type": "string"
+                          },
+                          "sign": {
+                            "type": "string"
+                          },
+                          "rank": {
+                            "type": "integer"
+                          },
+                          "level": {
+                            "type": "integer"
+                          },
+                          "silence": {
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "mid",
+                          "name",
+                          "face",
+                          "sign",
+                          "rank",
+                          "level",
+                          "silence"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": [
+                    {
+                      "mid": 1,
+                      "name": "bishi",
+                      "face": "https://i1.hdslb.com/bfs/face/34c5b30a990c7ce4a809626d8153fa7895ec7b63.gif",
+                      "sign": "",
+                      "rank": 10000,
+                      "level": 6,
+                      "silence": 0
+                    },
+                    {
+                      "mid": 3,
+                      "name": "囧囧倉",
+                      "face": "http://i0.hdslb.com/bfs/face/d4de6a84557eea8f18510a3f61115d96832aa071.jpg",
+                      "sign": "富强、民主、文明、和谐、自由、平等、公正、法治、爱国、敬业、诚信、友善。",
+                      "rank": 10000,
+                      "level": 6,
+                      "silence": 0
+                    },
+                    {
+                      "mid": 2,
+                      "name": "碧诗",
+                      "face": "https://i2.hdslb.com/bfs/face/ef0457addb24141e15dfac6fbf45293ccf1e32ab.jpg",
+                      "sign": "https://kami.im 直男过气网红 #  We Are Star Dust",
+                      "rank": 20000,
+                      "level": 6,
+                      "silence": 0
+                    }
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/im/user_infos": {
+      "get": {
+        "summary": "多用户详细信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "uids",
+            "in": "query",
+            "description": "用,分隔",
+            "required": true,
+            "example": "1,2,3",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "msg": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "mid": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "sex": {
+                            "type": "string"
+                          },
+                          "face": {
+                            "type": "string"
+                          },
+                          "sign": {
+                            "type": "string"
+                          },
+                          "rank": {
+                            "type": "integer"
+                          },
+                          "level": {
+                            "type": "integer"
+                          },
+                          "silence": {
+                            "type": "integer"
+                          },
+                          "vip": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "integer"
+                              },
+                              "status": {
+                                "type": "integer"
+                              },
+                              "due_date": {
+                                "type": "integer"
+                              },
+                              "vip_pay_type": {
+                                "type": "integer"
+                              },
+                              "theme_type": {
+                                "type": "integer"
+                              },
+                              "label": {
+                                "type": "object",
+                                "properties": {
+                                  "path": {
+                                    "type": "string"
+                                  },
+                                  "text": {
+                                    "type": "string"
+                                  },
+                                  "label_theme": {
+                                    "type": "string"
+                                  },
+                                  "text_color": {
+                                    "type": "string"
+                                  },
+                                  "bg_style": {
+                                    "type": "integer"
+                                  },
+                                  "bg_color": {
+                                    "type": "string"
+                                  },
+                                  "border_color": {
+                                    "type": "string"
+                                  },
+                                  "use_img_label": {
+                                    "type": "boolean"
+                                  },
+                                  "img_label_uri_hans": {
+                                    "type": "string"
+                                  },
+                                  "img_label_uri_hant": {
+                                    "type": "string"
+                                  },
+                                  "img_label_uri_hans_static": {
+                                    "type": "string"
+                                  },
+                                  "img_label_uri_hant_static": {
+                                    "type": "string"
+                                  },
+                                  "label_id": {
+                                    "type": "integer"
+                                  },
+                                  "label_goto": {
+                                    "type": [
+                                      "object",
+                                      "null"
+                                    ],
+                                    "properties": {
+                                      "mobile": {
+                                        "type": "string"
+                                      },
+                                      "pc_web": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "mobile",
+                                      "pc_web"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "path",
+                                  "text",
+                                  "label_theme",
+                                  "text_color",
+                                  "bg_style",
+                                  "bg_color",
+                                  "border_color",
+                                  "use_img_label",
+                                  "img_label_uri_hans",
+                                  "img_label_uri_hant",
+                                  "img_label_uri_hans_static",
+                                  "img_label_uri_hant_static",
+                                  "label_id",
+                                  "label_goto"
+                                ]
+                              },
+                              "avatar_subscript": {
+                                "type": "integer"
+                              },
+                              "nickname_color": {
+                                "type": "string"
+                              },
+                              "role": {
+                                "type": "integer"
+                              },
+                              "avatar_subscript_url": {
+                                "type": "string"
+                              },
+                              "tv_vip_status": {
+                                "type": "integer"
+                              },
+                              "tv_vip_pay_type": {
+                                "type": "integer"
+                              },
+                              "tv_due_date": {
+                                "type": "integer"
+                              },
+                              "avatar_icon": {
+                                "type": "object",
+                                "properties": {
+                                  "icon_type": {
+                                    "type": "integer"
+                                  },
+                                  "icon_resource": {
+                                    "type": "object",
+                                    "properties": {}
+                                  }
+                                },
+                                "required": [
+                                  "icon_resource"
+                                ]
+                              },
+                              "ott_info": {
+                                "type": "object",
+                                "properties": {
+                                  "vip_type": {
+                                    "type": "integer"
+                                  },
+                                  "pay_type": {
+                                    "type": "integer"
+                                  },
+                                  "pay_channel_id": {
+                                    "type": "string"
+                                  },
+                                  "status": {
+                                    "type": "integer"
+                                  },
+                                  "overdue_time": {
+                                    "type": "integer"
+                                  }
+                                },
+                                "required": [
+                                  "vip_type",
+                                  "pay_type",
+                                  "pay_channel_id",
+                                  "status",
+                                  "overdue_time"
+                                ]
+                              },
+                              "super_vip": {
+                                "type": "object",
+                                "properties": {
+                                  "is_super_vip": {
+                                    "type": "boolean"
+                                  }
+                                },
+                                "required": [
+                                  "is_super_vip"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "status",
+                              "due_date",
+                              "vip_pay_type",
+                              "theme_type",
+                              "label",
+                              "avatar_subscript",
+                              "nickname_color",
+                              "role",
+                              "avatar_subscript_url",
+                              "tv_vip_status",
+                              "tv_vip_pay_type",
+                              "tv_due_date",
+                              "avatar_icon",
+                              "ott_info",
+                              "super_vip"
+                            ]
+                          },
+                          "pendant": {
+                            "type": "object",
+                            "properties": {
+                              "pid": {
+                                "type": "integer"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "image": {
+                                "type": "string"
+                              },
+                              "expire": {
+                                "type": "integer"
+                              },
+                              "image_enhance": {
+                                "type": "string"
+                              },
+                              "image_enhance_frame": {
+                                "type": "string"
+                              },
+                              "n_pid": {
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "pid",
+                              "name",
+                              "image",
+                              "expire",
+                              "image_enhance",
+                              "image_enhance_frame",
+                              "n_pid"
+                            ]
+                          },
+                          "nameplate": {
+                            "type": "object",
+                            "properties": {
+                              "nid": {
+                                "type": "integer"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "image": {
+                                "type": "string"
+                              },
+                              "image_small": {
+                                "type": "string"
+                              },
+                              "level": {
+                                "type": "string"
+                              },
+                              "condition": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "nid",
+                              "name",
+                              "image",
+                              "image_small",
+                              "level",
+                              "condition"
+                            ]
+                          },
+                          "official": {
+                            "type": "object",
+                            "properties": {
+                              "role": {
+                                "type": "integer"
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "desc": {
+                                "type": "string"
+                              },
+                              "type": {
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "role",
+                              "title",
+                              "desc",
+                              "type"
+                            ]
+                          },
+                          "birthday": {
+                            "type": "integer"
+                          },
+                          "is_fake_account": {
+                            "type": "integer"
+                          },
+                          "is_deleted": {
+                            "type": "integer"
+                          },
+                          "in_reg_audit": {
+                            "type": "integer"
+                          },
+                          "face_nft": {
+                            "type": "integer"
+                          },
+                          "face_nft_new": {
+                            "type": "integer"
+                          },
+                          "is_senior_member": {
+                            "type": "integer"
+                          },
+                          "digital_id": {
+                            "type": "string"
+                          },
+                          "digital_type": {
+                            "type": "integer"
+                          },
+                          "attestation": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "integer"
+                              },
+                              "common_info": {
+                                "type": "object",
+                                "properties": {
+                                  "title": {
+                                    "type": "string"
+                                  },
+                                  "prefix": {
+                                    "type": "string"
+                                  },
+                                  "prefix_title": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "title",
+                                  "prefix",
+                                  "prefix_title"
+                                ]
+                              },
+                              "splice_info": {
+                                "type": "object",
+                                "properties": {
+                                  "title": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "title"
+                                ]
+                              },
+                              "icon": {
+                                "type": "string"
+                              },
+                              "desc": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "common_info",
+                              "splice_info",
+                              "icon",
+                              "desc"
+                            ]
+                          },
+                          "expert_info": {
+                            "type": "object",
+                            "properties": {
+                              "title": {
+                                "type": "string"
+                              },
+                              "state": {
+                                "type": "integer"
+                              },
+                              "type": {
+                                "type": "integer"
+                              },
+                              "desc": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "title",
+                              "state",
+                              "type",
+                              "desc"
+                            ]
+                          },
+                          "honours": {
+                            "type": "object",
+                            "properties": {
+                              "mid": {
+                                "type": "integer"
+                              },
+                              "colour": {
+                                "type": "object",
+                                "properties": {
+                                  "dark": {
+                                    "type": "string"
+                                  },
+                                  "normal": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "dark",
+                                  "normal"
+                                ]
+                              },
+                              "tags": {
+                                "type": "null"
+                              },
+                              "is_latest_100honour": {
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "mid",
+                              "colour",
+                              "tags",
+                              "is_latest_100honour"
+                            ]
+                          },
+                          "name_render": {
+                            "type": "null"
+                          },
+                          "handle": {
+                            "type": "string"
+                          },
+                          "json_ava": {
+                            "type": "object",
+                            "properties": {
+                              "container_size": {
+                                "type": "object",
+                                "properties": {
+                                  "width": {
+                                    "type": "number"
+                                  },
+                                  "height": {
+                                    "type": "number"
+                                  }
+                                },
+                                "required": [
+                                  "width",
+                                  "height"
+                                ]
+                              },
+                              "fallback_layers": {
+                                "type": "object",
+                                "properties": {
+                                  "layers": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "visible": {
+                                          "type": "boolean"
+                                        },
+                                        "general_spec": {
+                                          "type": "object",
+                                          "properties": {
+                                            "pos_spec": {
+                                              "type": "object",
+                                              "properties": {
+                                                "coordinate_pos": {
+                                                  "type": "integer"
+                                                },
+                                                "axis_x": {
+                                                  "type": "number"
+                                                },
+                                                "axis_y": {
+                                                  "type": "number"
+                                                }
+                                              },
+                                              "required": [
+                                                "coordinate_pos",
+                                                "axis_x",
+                                                "axis_y"
+                                              ]
+                                            },
+                                            "size_spec": {
+                                              "type": "object",
+                                              "properties": {
+                                                "width": {
+                                                  "type": [
+                                                    "integer",
+                                                    "number"
+                                                  ]
+                                                },
+                                                "height": {
+                                                  "type": [
+                                                    "integer",
+                                                    "number"
+                                                  ]
+                                                }
+                                              },
+                                              "required": [
+                                                "width",
+                                                "height"
+                                              ]
+                                            },
+                                            "render_spec": {
+                                              "type": "object",
+                                              "properties": {
+                                                "opacity": {
+                                                  "type": "integer"
+                                                }
+                                              },
+                                              "required": [
+                                                "opacity"
+                                              ]
+                                            }
+                                          },
+                                          "required": [
+                                            "pos_spec",
+                                            "size_spec",
+                                            "render_spec"
+                                          ]
+                                        },
+                                        "layer_config": {
+                                          "type": "object",
+                                          "properties": {
+                                            "tags": {
+                                              "type": "object",
+                                              "properties": {
+                                                "AVATAR_LAYER": {
+                                                  "type": "object",
+                                                  "properties": {}
+                                                },
+                                                "ICON_LAYER": {
+                                                  "type": "object",
+                                                  "properties": {}
+                                                },
+                                                "PENDENT_LAYER": {
+                                                  "type": "object",
+                                                  "properties": {}
+                                                }
+                                              },
+                                              "required": [
+                                                "AVATAR_LAYER"
+                                              ]
+                                            },
+                                            "is_critical": {
+                                              "type": "boolean"
+                                            },
+                                            "layer_mask": {
+                                              "type": "object",
+                                              "properties": {
+                                                "general_spec": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "pos_spec": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "coordinate_pos": {
+                                                          "type": "integer"
+                                                        },
+                                                        "axis_x": {
+                                                          "type": "number"
+                                                        },
+                                                        "axis_y": {
+                                                          "type": "number"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "coordinate_pos",
+                                                        "axis_x",
+                                                        "axis_y"
+                                                      ]
+                                                    },
+                                                    "size_spec": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "width": {
+                                                          "type": [
+                                                            "integer",
+                                                            "number"
+                                                          ]
+                                                        },
+                                                        "height": {
+                                                          "type": [
+                                                            "integer",
+                                                            "number"
+                                                          ]
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "width",
+                                                        "height"
+                                                      ]
+                                                    },
+                                                    "render_spec": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "opacity": {
+                                                          "type": "integer"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "opacity"
+                                                      ]
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "pos_spec",
+                                                    "size_spec",
+                                                    "render_spec"
+                                                  ]
+                                                },
+                                                "mask_src": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "src_type": {
+                                                      "type": "integer"
+                                                    },
+                                                    "draw": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "draw_type": {
+                                                          "type": "integer"
+                                                        },
+                                                        "fill_mode": {
+                                                          "type": "integer"
+                                                        },
+                                                        "color_config": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "day": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "argb": {
+                                                                  "type": "string"
+                                                                }
+                                                              },
+                                                              "required": [
+                                                                "argb"
+                                                              ]
+                                                            }
+                                                          },
+                                                          "required": [
+                                                            "day"
+                                                          ]
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "draw_type",
+                                                        "fill_mode",
+                                                        "color_config"
+                                                      ]
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "src_type",
+                                                    "draw"
+                                                  ]
+                                                }
+                                              },
+                                              "required": [
+                                                "general_spec",
+                                                "mask_src"
+                                              ]
+                                            }
+                                          },
+                                          "required": [
+                                            "tags",
+                                            "is_critical",
+                                            "layer_mask"
+                                          ]
+                                        },
+                                        "resource": {
+                                          "type": "object",
+                                          "properties": {
+                                            "res_type": {
+                                              "type": "integer"
+                                            },
+                                            "res_animation": {
+                                              "type": "object",
+                                              "properties": {
+                                                "webp_src": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "src_type": {
+                                                      "type": "integer"
+                                                    },
+                                                    "placeholder": {
+                                                      "type": "integer"
+                                                    },
+                                                    "remote": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "url": {
+                                                          "type": "string"
+                                                        },
+                                                        "bfs_style": {
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "url",
+                                                        "bfs_style"
+                                                      ]
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "src_type",
+                                                    "placeholder",
+                                                    "remote"
+                                                  ]
+                                                }
+                                              },
+                                              "required": [
+                                                "webp_src"
+                                              ]
+                                            },
+                                            "res_native_draw": {
+                                              "type": "object",
+                                              "properties": {
+                                                "draw_src": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "src_type": {
+                                                      "type": "integer"
+                                                    },
+                                                    "draw": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "draw_type": {
+                                                          "type": "integer"
+                                                        },
+                                                        "fill_mode": {
+                                                          "type": "integer"
+                                                        },
+                                                        "color_config": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "is_dark_mode_aware": {
+                                                              "type": "boolean"
+                                                            },
+                                                            "day": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "argb": {
+                                                                  "type": "string"
+                                                                }
+                                                              },
+                                                              "required": [
+                                                                "argb"
+                                                              ]
+                                                            },
+                                                            "night": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "argb": {
+                                                                  "type": "string"
+                                                                }
+                                                              },
+                                                              "required": [
+                                                                "argb"
+                                                              ]
+                                                            }
+                                                          },
+                                                          "required": [
+                                                            "is_dark_mode_aware",
+                                                            "day",
+                                                            "night"
+                                                          ]
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "draw_type",
+                                                        "fill_mode",
+                                                        "color_config"
+                                                      ]
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "src_type",
+                                                    "draw"
+                                                  ]
+                                                }
+                                              },
+                                              "required": [
+                                                "draw_src"
+                                              ]
+                                            },
+                                            "res_image": {
+                                              "type": "object",
+                                              "properties": {
+                                                "image_src": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "src_type": {
+                                                      "type": "integer"
+                                                    },
+                                                    "local": {
+                                                      "type": "integer"
+                                                    },
+                                                    "placeholder": {
+                                                      "type": "integer"
+                                                    },
+                                                    "remote": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "url": {
+                                                          "type": "string"
+                                                        },
+                                                        "bfs_style": {
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "url",
+                                                        "bfs_style"
+                                                      ]
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "src_type",
+                                                    "placeholder",
+                                                    "remote"
+                                                  ]
+                                                }
+                                              },
+                                              "required": [
+                                                "image_src"
+                                              ]
+                                            }
+                                          },
+                                          "required": [
+                                            "res_type",
+                                            "res_image"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "visible",
+                                        "general_spec",
+                                        "layer_config",
+                                        "resource"
+                                      ]
+                                    }
+                                  },
+                                  "is_critical_group": {
+                                    "type": "boolean"
+                                  }
+                                },
+                                "required": [
+                                  "layers",
+                                  "is_critical_group"
+                                ]
+                              },
+                              "mid": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "container_size",
+                              "fallback_layers",
+                              "mid"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "mid",
+                          "name",
+                          "sex",
+                          "face",
+                          "sign",
+                          "rank",
+                          "level",
+                          "silence",
+                          "vip",
+                          "pendant",
+                          "nameplate",
+                          "official",
+                          "birthday",
+                          "is_fake_account",
+                          "is_deleted",
+                          "in_reg_audit",
+                          "face_nft",
+                          "face_nft_new",
+                          "is_senior_member",
+                          "digital_id",
+                          "digital_type",
+                          "attestation",
+                          "expert_info",
+                          "honours",
+                          "name_render",
+                          "handle",
+                          "json_ava"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "msg",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "msg": "0",
+                  "message": "0",
+                  "ttl": 1,
+                  "data": [
+                    {
+                      "mid": 1,
+                      "name": "bishi",
+                      "sex": "男",
+                      "face": "https://i1.hdslb.com/bfs/face/34c5b30a990c7ce4a809626d8153fa7895ec7b63.gif",
+                      "sign": "",
+                      "rank": 10000,
+                      "level": 6,
+                      "silence": 0,
+                      "vip": {
+                        "type": 2,
+                        "status": 1,
+                        "due_date": 1939305600000,
+                        "vip_pay_type": 1,
+                        "theme_type": 0,
+                        "label": {
+                          "path": "http://i0.hdslb.com/bfs/vip/label_annual.png",
+                          "text": "十年大会员",
+                          "label_theme": "ten_annual_vip",
+                          "text_color": "#FFFFFF",
+                          "bg_style": 1,
+                          "bg_color": "#FB7299",
+                          "border_color": "",
+                          "use_img_label": true,
+                          "img_label_uri_hans": "",
+                          "img_label_uri_hant": "",
+                          "img_label_uri_hans_static": "https://i0.hdslb.com/bfs/vip/adb599797dd171e2d3d6d012f448b49679258344.png",
+                          "img_label_uri_hant_static": "https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/sGu57N6pgK.png",
+                          "label_id": -22,
+                          "label_goto": {
+                            "mobile": "https://big.bilibili.com/mobile/index?navhide=1&from_spmid=vipicon",
+                            "pc_web": "https://account.bilibili.com/big?from_spmid=vipicon"
+                          }
+                        },
+                        "avatar_subscript": 1,
+                        "nickname_color": "#FB7299",
+                        "role": 7,
+                        "avatar_subscript_url": "",
+                        "tv_vip_status": 0,
+                        "tv_vip_pay_type": 0,
+                        "tv_due_date": 1633622400,
+                        "avatar_icon": {
+                          "icon_type": 1,
+                          "icon_resource": {}
+                        },
+                        "ott_info": {
+                          "vip_type": 1,
+                          "pay_type": 0,
+                          "pay_channel_id": "",
+                          "status": 0,
+                          "overdue_time": 1633622400
+                        },
+                        "super_vip": {
+                          "is_super_vip": false
+                        }
+                      },
+                      "pendant": {
+                        "pid": 0,
+                        "name": "",
+                        "image": "",
+                        "expire": 0,
+                        "image_enhance": "",
+                        "image_enhance_frame": "",
+                        "n_pid": 0
+                      },
+                      "nameplate": {
+                        "nid": 0,
+                        "name": "",
+                        "image": "",
+                        "image_small": "",
+                        "level": "",
+                        "condition": ""
+                      },
+                      "official": {
+                        "role": 0,
+                        "title": "",
+                        "desc": "",
+                        "type": -1
+                      },
+                      "birthday": 0,
+                      "is_fake_account": 0,
+                      "is_deleted": 0,
+                      "in_reg_audit": 0,
+                      "face_nft": 0,
+                      "face_nft_new": 0,
+                      "is_senior_member": 0,
+                      "digital_id": "",
+                      "digital_type": -2,
+                      "attestation": {
+                        "type": 0,
+                        "common_info": {
+                          "title": "",
+                          "prefix": "",
+                          "prefix_title": ""
+                        },
+                        "splice_info": {
+                          "title": ""
+                        },
+                        "icon": "",
+                        "desc": ""
+                      },
+                      "expert_info": {
+                        "title": "",
+                        "state": 0,
+                        "type": 0,
+                        "desc": ""
+                      },
+                      "honours": {
+                        "mid": 1,
+                        "colour": {
+                          "dark": "#CE8620",
+                          "normal": "#F0900B"
+                        },
+                        "tags": null,
+                        "is_latest_100honour": 0
+                      },
+                      "name_render": null,
+                      "handle": "",
+                      "json_ava": {
+                        "container_size": {
+                          "width": 1.35,
+                          "height": 1.35
+                        },
+                        "fallback_layers": {
+                          "layers": [
+                            {
+                              "visible": true,
+                              "general_spec": {
+                                "pos_spec": {
+                                  "coordinate_pos": 2,
+                                  "axis_x": 0.675,
+                                  "axis_y": 0.675
+                                },
+                                "size_spec": {
+                                  "width": 1,
+                                  "height": 1
+                                },
+                                "render_spec": {
+                                  "opacity": 1
+                                }
+                              },
+                              "layer_config": {
+                                "tags": {
+                                  "AVATAR_LAYER": {}
+                                },
+                                "is_critical": true,
+                                "layer_mask": {
+                                  "general_spec": {
+                                    "pos_spec": {
+                                      "coordinate_pos": 2,
+                                      "axis_x": 0.675,
+                                      "axis_y": 0.675
+                                    },
+                                    "size_spec": {
+                                      "width": 1,
+                                      "height": 1
+                                    },
+                                    "render_spec": {
+                                      "opacity": 1
+                                    }
+                                  },
+                                  "mask_src": {
+                                    "src_type": 3,
+                                    "draw": {
+                                      "draw_type": 1,
+                                      "fill_mode": 1,
+                                      "color_config": {
+                                        "day": {
+                                          "argb": "#FF000000"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "resource": {
+                                "res_type": 4,
+                                "res_animation": {
+                                  "webp_src": {
+                                    "src_type": 1,
+                                    "placeholder": 6,
+                                    "remote": {
+                                      "url": "https://i1.hdslb.com/bfs/face/34c5b30a990c7ce4a809626d8153fa7895ec7b63.gif",
+                                      "bfs_style": "widget-layer-avatar"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "visible": true,
+                              "general_spec": {
+                                "pos_spec": {
+                                  "coordinate_pos": 1,
+                                  "axis_x": 0.85,
+                                  "axis_y": 0.85
+                                },
+                                "size_spec": {
+                                  "width": 0.35,
+                                  "height": 0.35
+                                },
+                                "render_spec": {
+                                  "opacity": 1
+                                }
+                              },
+                              "layer_config": {
+                                "tags": {
+                                  "ICON_LAYER": {}
+                                }
+                              },
+                              "resource": {
+                                "res_type": 5,
+                                "res_native_draw": {
+                                  "draw_src": {
+                                    "src_type": 3,
+                                    "draw": {
+                                      "draw_type": 1,
+                                      "fill_mode": 1,
+                                      "color_config": {
+                                        "is_dark_mode_aware": true,
+                                        "day": {
+                                          "argb": "#FFFFFFFF"
+                                        },
+                                        "night": {
+                                          "argb": "#FF17181A"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "visible": true,
+                              "general_spec": {
+                                "pos_spec": {
+                                  "coordinate_pos": 1,
+                                  "axis_x": 0.875,
+                                  "axis_y": 0.875
+                                },
+                                "size_spec": {
+                                  "width": 0.3,
+                                  "height": 0.3
+                                },
+                                "render_spec": {
+                                  "opacity": 1
+                                }
+                              },
+                              "layer_config": {
+                                "tags": {
+                                  "ICON_LAYER": {}
+                                }
+                              },
+                              "resource": {
+                                "res_type": 3,
+                                "res_image": {
+                                  "image_src": {
+                                    "src_type": 2,
+                                    "local": 1
+                                  }
+                                }
+                              }
+                            }
+                          ],
+                          "is_critical_group": true
+                        },
+                        "mid": "1"
+                      }
+                    },
+                    {
+                      "mid": 2,
+                      "name": "碧诗",
+                      "sex": "男",
+                      "face": "https://i2.hdslb.com/bfs/face/ef0457addb24141e15dfac6fbf45293ccf1e32ab.jpg",
+                      "sign": "https://kami.im 直男过气网红 #  We Are Star Dust",
+                      "rank": 20000,
+                      "level": 6,
+                      "silence": 0,
+                      "vip": {
+                        "type": 2,
+                        "status": 1,
+                        "due_date": 4019731200000,
+                        "vip_pay_type": 0,
+                        "theme_type": 0,
+                        "label": {
+                          "path": "http://i0.hdslb.com/bfs/vip/label_annual.png",
+                          "text": "十年大会员",
+                          "label_theme": "ten_annual_vip",
+                          "text_color": "#FFFFFF",
+                          "bg_style": 1,
+                          "bg_color": "#FB7299",
+                          "border_color": "",
+                          "use_img_label": true,
+                          "img_label_uri_hans": "https://i0.hdslb.com/bfs/activity-plat/static/20220608/e369244d0b14644f5e1a06431e22a4d5/wltavwHAkL.gif",
+                          "img_label_uri_hant": "",
+                          "img_label_uri_hans_static": "https://i0.hdslb.com/bfs/vip/802418ff03911645648b63aa193ba67997b5a0bc.png",
+                          "img_label_uri_hant_static": "https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/8u7iRTPE7N.png",
+                          "label_id": -22,
+                          "label_goto": {
+                            "mobile": "https://big.bilibili.com/mobile/index?navhide=1&from_spmid=vipicon",
+                            "pc_web": "https://account.bilibili.com/big?from_spmid=vipicon"
+                          }
+                        },
+                        "avatar_subscript": 1,
+                        "nickname_color": "#FB7299",
+                        "role": 7,
+                        "avatar_subscript_url": "",
+                        "tv_vip_status": 1,
+                        "tv_vip_pay_type": 1,
+                        "tv_due_date": 2003500800,
+                        "avatar_icon": {
+                          "icon_type": 1,
+                          "icon_resource": {}
+                        },
+                        "ott_info": {
+                          "vip_type": 1,
+                          "pay_type": 1,
+                          "pay_channel_id": "wechat",
+                          "status": 1,
+                          "overdue_time": 2003500800
+                        },
+                        "super_vip": {
+                          "is_super_vip": true
+                        }
+                      },
+                      "pendant": {
+                        "pid": -338454175,
+                        "name": "箱庭少女之梦头像",
+                        "image": "https://i2.hdslb.com/bfs/garb/open/efe5e579cbb95a404c2ba289f37c5965dee7a3a2.png",
+                        "expire": 0,
+                        "image_enhance": "https://i2.hdslb.com/bfs/garb/open/efe5e579cbb95a404c2ba289f37c5965dee7a3a2.png",
+                        "image_enhance_frame": "",
+                        "n_pid": 1743418268001
+                      },
+                      "nameplate": {
+                        "nid": 10,
+                        "name": "见习偶像",
+                        "image": "https://i0.hdslb.com/bfs/face/e93dd9edfa7b9e18bf46fd8d71862327a2350923.png",
+                        "image_small": "https://i0.hdslb.com/bfs/face/275b468b043ec246737ab8580a2075bee0b1263b.png",
+                        "level": "普通勋章",
+                        "condition": "所有自制视频总播放数>=10万，数据次日更新"
+                      },
+                      "official": {
+                        "role": 2,
+                        "title": "bilibili创始人（站长）",
+                        "desc": "",
+                        "type": 0
+                      },
+                      "birthday": 0,
+                      "is_fake_account": 0,
+                      "is_deleted": 0,
+                      "in_reg_audit": 0,
+                      "face_nft": 0,
+                      "face_nft_new": 0,
+                      "is_senior_member": 0,
+                      "digital_id": "",
+                      "digital_type": -2,
+                      "attestation": {
+                        "type": 2,
+                        "common_info": {
+                          "title": "bilibili创始人（站长）",
+                          "prefix": "bilibili UP主认证",
+                          "prefix_title": "bilibili UP主认证：bilibili创始人（站长）"
+                        },
+                        "splice_info": {
+                          "title": "bilibili创始人（站长）"
+                        },
+                        "icon": "https://i0.hdslb.com/bfs/activity-plat/static/20230828/e3b8ebec8e86f060b930a2c0536bb88b/72wejSxl9Z.png",
+                        "desc": ""
+                      },
+                      "expert_info": {
+                        "title": "",
+                        "state": 0,
+                        "type": 0,
+                        "desc": ""
+                      },
+                      "honours": {
+                        "mid": 2,
+                        "colour": {
+                          "dark": "#CE8620",
+                          "normal": "#F0900B"
+                        },
+                        "tags": null,
+                        "is_latest_100honour": 0
+                      },
+                      "name_render": null,
+                      "handle": "",
+                      "json_ava": {
+                        "container_size": {
+                          "width": 1.375,
+                          "height": 1.375
+                        },
+                        "fallback_layers": {
+                          "layers": [
+                            {
+                              "visible": true,
+                              "general_spec": {
+                                "pos_spec": {
+                                  "coordinate_pos": 2,
+                                  "axis_x": 0.6875,
+                                  "axis_y": 0.6875
+                                },
+                                "size_spec": {
+                                  "width": 0.787,
+                                  "height": 0.787
+                                },
+                                "render_spec": {
+                                  "opacity": 1
+                                }
+                              },
+                              "layer_config": {
+                                "tags": {
+                                  "AVATAR_LAYER": {}
+                                },
+                                "is_critical": true,
+                                "layer_mask": {
+                                  "general_spec": {
+                                    "pos_spec": {
+                                      "coordinate_pos": 2,
+                                      "axis_x": 0.6875,
+                                      "axis_y": 0.6875
+                                    },
+                                    "size_spec": {
+                                      "width": 0.787,
+                                      "height": 0.787
+                                    },
+                                    "render_spec": {
+                                      "opacity": 1
+                                    }
+                                  },
+                                  "mask_src": {
+                                    "src_type": 3,
+                                    "draw": {
+                                      "draw_type": 1,
+                                      "fill_mode": 1,
+                                      "color_config": {
+                                        "day": {
+                                          "argb": "#FF000000"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "resource": {
+                                "res_type": 3,
+                                "res_image": {
+                                  "image_src": {
+                                    "src_type": 1,
+                                    "placeholder": 6,
+                                    "remote": {
+                                      "url": "https://i2.hdslb.com/bfs/face/ef0457addb24141e15dfac6fbf45293ccf1e32ab.jpg",
+                                      "bfs_style": "widget-layer-avatar"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "visible": true,
+                              "general_spec": {
+                                "pos_spec": {
+                                  "coordinate_pos": 2,
+                                  "axis_x": 0.6875,
+                                  "axis_y": 0.6875
+                                },
+                                "size_spec": {
+                                  "width": 1.375,
+                                  "height": 1.375
+                                },
+                                "render_spec": {
+                                  "opacity": 1
+                                }
+                              },
+                              "layer_config": {
+                                "tags": {
+                                  "PENDENT_LAYER": {}
+                                }
+                              },
+                              "resource": {
+                                "res_type": 3,
+                                "res_image": {
+                                  "image_src": {
+                                    "src_type": 1,
+                                    "remote": {
+                                      "url": "https://i2.hdslb.com/bfs/garb/open/efe5e579cbb95a404c2ba289f37c5965dee7a3a2.png",
+                                      "bfs_style": "widget-layer-avatar"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "visible": true,
+                              "general_spec": {
+                                "pos_spec": {
+                                  "coordinate_pos": 1,
+                                  "axis_x": 0.8059999999999999,
+                                  "axis_y": 0.8226666666666665
+                                },
+                                "size_spec": {
+                                  "width": 0.35,
+                                  "height": 0.35
+                                },
+                                "render_spec": {
+                                  "opacity": 1
+                                }
+                              },
+                              "layer_config": {
+                                "tags": {
+                                  "ICON_LAYER": {}
+                                }
+                              },
+                              "resource": {
+                                "res_type": 5,
+                                "res_native_draw": {
+                                  "draw_src": {
+                                    "src_type": 3,
+                                    "draw": {
+                                      "draw_type": 1,
+                                      "fill_mode": 1,
+                                      "color_config": {
+                                        "is_dark_mode_aware": true,
+                                        "day": {
+                                          "argb": "#FFFFFFFF"
+                                        },
+                                        "night": {
+                                          "argb": "#FF17181A"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "visible": true,
+                              "general_spec": {
+                                "pos_spec": {
+                                  "coordinate_pos": 1,
+                                  "axis_x": 0.831,
+                                  "axis_y": 0.8476666666666666
+                                },
+                                "size_spec": {
+                                  "width": 0.3,
+                                  "height": 0.3
+                                },
+                                "render_spec": {
+                                  "opacity": 1
+                                }
+                              },
+                              "layer_config": {
+                                "tags": {
+                                  "ICON_LAYER": {}
+                                }
+                              },
+                              "resource": {
+                                "res_type": 3,
+                                "res_image": {
+                                  "image_src": {
+                                    "src_type": 2,
+                                    "local": 3
+                                  }
+                                }
+                              }
+                            }
+                          ],
+                          "is_critical_group": true
+                        },
+                        "mid": "2"
+                      }
+                    },
+                    {
+                      "mid": 3,
+                      "name": "囧囧倉",
+                      "sex": "男",
+                      "face": "http://i0.hdslb.com/bfs/face/d4de6a84557eea8f18510a3f61115d96832aa071.jpg",
+                      "sign": "富强、民主、文明、和谐、自由、平等、公正、法治、爱国、敬业、诚信、友善。",
+                      "rank": 10000,
+                      "level": 6,
+                      "silence": 0,
+                      "vip": {
+                        "type": 0,
+                        "status": 0,
+                        "due_date": 0,
+                        "vip_pay_type": 0,
+                        "theme_type": 0,
+                        "label": {
+                          "path": "",
+                          "text": "",
+                          "label_theme": "",
+                          "text_color": "",
+                          "bg_style": 0,
+                          "bg_color": "",
+                          "border_color": "",
+                          "use_img_label": true,
+                          "img_label_uri_hans": "",
+                          "img_label_uri_hant": "",
+                          "img_label_uri_hans_static": "https://i0.hdslb.com/bfs/vip/d7b702ef65a976b20ed854cbd04cb9e27341bb79.png",
+                          "img_label_uri_hant_static": "https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/KJunwh19T5.png",
+                          "label_id": 0,
+                          "label_goto": null
+                        },
+                        "avatar_subscript": 0,
+                        "nickname_color": "",
+                        "role": 0,
+                        "avatar_subscript_url": "",
+                        "tv_vip_status": 0,
+                        "tv_vip_pay_type": 0,
+                        "tv_due_date": 0,
+                        "avatar_icon": {
+                          "icon_resource": {}
+                        },
+                        "ott_info": {
+                          "vip_type": 0,
+                          "pay_type": 0,
+                          "pay_channel_id": "",
+                          "status": 0,
+                          "overdue_time": 0
+                        },
+                        "super_vip": {
+                          "is_super_vip": false
+                        }
+                      },
+                      "pendant": {
+                        "pid": 0,
+                        "name": "",
+                        "image": "",
+                        "expire": 0,
+                        "image_enhance": "",
+                        "image_enhance_frame": "",
+                        "n_pid": 0
+                      },
+                      "nameplate": {
+                        "nid": 0,
+                        "name": "",
+                        "image": "",
+                        "image_small": "",
+                        "level": "",
+                        "condition": ""
+                      },
+                      "official": {
+                        "role": 0,
+                        "title": "",
+                        "desc": "",
+                        "type": -1
+                      },
+                      "birthday": 0,
+                      "is_fake_account": 0,
+                      "is_deleted": 0,
+                      "in_reg_audit": 0,
+                      "face_nft": 0,
+                      "face_nft_new": 0,
+                      "is_senior_member": 0,
+                      "digital_id": "",
+                      "digital_type": -2,
+                      "attestation": {
+                        "type": 0,
+                        "common_info": {
+                          "title": "",
+                          "prefix": "",
+                          "prefix_title": ""
+                        },
+                        "splice_info": {
+                          "title": ""
+                        },
+                        "icon": "",
+                        "desc": ""
+                      },
+                      "expert_info": {
+                        "title": "",
+                        "state": 0,
+                        "type": 0,
+                        "desc": ""
+                      },
+                      "honours": {
+                        "mid": 3,
+                        "colour": {
+                          "dark": "#CE8620",
+                          "normal": "#F0900B"
+                        },
+                        "tags": null,
+                        "is_latest_100honour": 0
+                      },
+                      "name_render": null,
+                      "handle": "",
+                      "json_ava": {
+                        "container_size": {
+                          "width": 1.35,
+                          "height": 1.35
+                        },
+                        "fallback_layers": {
+                          "layers": [
+                            {
+                              "visible": true,
+                              "general_spec": {
+                                "pos_spec": {
+                                  "coordinate_pos": 2,
+                                  "axis_x": 0.675,
+                                  "axis_y": 0.675
+                                },
+                                "size_spec": {
+                                  "width": 1,
+                                  "height": 1
+                                },
+                                "render_spec": {
+                                  "opacity": 1
+                                }
+                              },
+                              "layer_config": {
+                                "tags": {
+                                  "AVATAR_LAYER": {}
+                                },
+                                "is_critical": true,
+                                "layer_mask": {
+                                  "general_spec": {
+                                    "pos_spec": {
+                                      "coordinate_pos": 2,
+                                      "axis_x": 0.675,
+                                      "axis_y": 0.675
+                                    },
+                                    "size_spec": {
+                                      "width": 1,
+                                      "height": 1
+                                    },
+                                    "render_spec": {
+                                      "opacity": 1
+                                    }
+                                  },
+                                  "mask_src": {
+                                    "src_type": 3,
+                                    "draw": {
+                                      "draw_type": 1,
+                                      "fill_mode": 1,
+                                      "color_config": {
+                                        "day": {
+                                          "argb": "#FF000000"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "resource": {
+                                "res_type": 3,
+                                "res_image": {
+                                  "image_src": {
+                                    "src_type": 1,
+                                    "placeholder": 6,
+                                    "remote": {
+                                      "url": "http://i0.hdslb.com/bfs/face/d4de6a84557eea8f18510a3f61115d96832aa071.jpg",
+                                      "bfs_style": "widget-layer-avatar"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ],
+                          "is_critical_group": true
+                        },
+                        "mid": "3"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "webhooks": {},
+  "components": {
+    "schemas": {},
+    "responses": {},
+    "securitySchemes": {}
+  },
+  "servers": [],
+  "security": []
+}
