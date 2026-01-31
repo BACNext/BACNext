@@ -1887,6 +1887,1113 @@
         "security": []
       }
     },
+    "/x/space/upstat": {
+      "get": {
+        "summary": "UP状态数",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "空间"
+        ],
+        "parameters": [
+          {
+            "name": "mid",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": "305956876",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "archive": {
+                          "type": "object",
+                          "properties": {
+                            "enable_vt": {
+                              "type": "integer"
+                            },
+                            "view": {
+                              "type": "integer"
+                            },
+                            "vt": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "enable_vt",
+                            "view",
+                            "vt"
+                          ]
+                        },
+                        "article": {
+                          "type": "object",
+                          "properties": {
+                            "view": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "view"
+                          ]
+                        },
+                        "likes": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "archive",
+                        "article",
+                        "likes"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "archive": {
+                      "enable_vt": 0,
+                      "view": 144322014,
+                      "vt": 0
+                    },
+                    "article": {
+                      "view": 0
+                    },
+                    "likes": 15747898
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/space/navnum": {
+      "get": {
+        "summary": "导航栏状态数",
+        "deprecated": false,
+        "description": "本接口被412具体原因待查",
+        "tags": [
+          "空间"
+        ],
+        "parameters": [
+          {
+            "name": "mid",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "305956876",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/space/top/arc": {
+      "get": {
+        "summary": "查询用户置顶视频",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "空间"
+        ],
+        "parameters": [
+          {
+            "name": "vmid",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "aid": {
+                          "type": "integer"
+                        },
+                        "videos": {
+                          "type": "integer"
+                        },
+                        "tid": {
+                          "type": "integer"
+                        },
+                        "tname": {
+                          "type": "string"
+                        },
+                        "copyright": {
+                          "type": "integer"
+                        },
+                        "pic": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "pubdate": {
+                          "type": "integer"
+                        },
+                        "ctime": {
+                          "type": "integer"
+                        },
+                        "desc": {
+                          "type": "string"
+                        },
+                        "state": {
+                          "type": "integer"
+                        },
+                        "duration": {
+                          "type": "integer"
+                        },
+                        "rights": {
+                          "type": "object",
+                          "properties": {
+                            "bp": {
+                              "type": "integer"
+                            },
+                            "elec": {
+                              "type": "integer"
+                            },
+                            "download": {
+                              "type": "integer"
+                            },
+                            "movie": {
+                              "type": "integer"
+                            },
+                            "pay": {
+                              "type": "integer"
+                            },
+                            "hd5": {
+                              "type": "integer"
+                            },
+                            "no_reprint": {
+                              "type": "integer"
+                            },
+                            "autoplay": {
+                              "type": "integer"
+                            },
+                            "ugc_pay": {
+                              "type": "integer"
+                            },
+                            "is_cooperation": {
+                              "type": "integer"
+                            },
+                            "ugc_pay_preview": {
+                              "type": "integer"
+                            },
+                            "no_background": {
+                              "type": "integer"
+                            },
+                            "arc_pay": {
+                              "type": "integer"
+                            },
+                            "pay_free_watch": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "bp",
+                            "elec",
+                            "download",
+                            "movie",
+                            "pay",
+                            "hd5",
+                            "no_reprint",
+                            "autoplay",
+                            "ugc_pay",
+                            "is_cooperation",
+                            "ugc_pay_preview",
+                            "no_background",
+                            "arc_pay",
+                            "pay_free_watch"
+                          ]
+                        },
+                        "owner": {
+                          "type": "object",
+                          "properties": {
+                            "mid": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "face": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "mid",
+                            "name",
+                            "face"
+                          ]
+                        },
+                        "stat": {
+                          "type": "object",
+                          "properties": {
+                            "aid": {
+                              "type": "integer"
+                            },
+                            "view": {
+                              "type": "integer"
+                            },
+                            "danmaku": {
+                              "type": "integer"
+                            },
+                            "reply": {
+                              "type": "integer"
+                            },
+                            "favorite": {
+                              "type": "integer"
+                            },
+                            "coin": {
+                              "type": "integer"
+                            },
+                            "share": {
+                              "type": "integer"
+                            },
+                            "now_rank": {
+                              "type": "integer"
+                            },
+                            "his_rank": {
+                              "type": "integer"
+                            },
+                            "like": {
+                              "type": "integer"
+                            },
+                            "dislike": {
+                              "type": "integer"
+                            },
+                            "vt": {
+                              "type": "integer"
+                            },
+                            "vv": {
+                              "type": "integer"
+                            },
+                            "fav_g": {
+                              "type": "integer"
+                            },
+                            "like_g": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "aid",
+                            "view",
+                            "danmaku",
+                            "reply",
+                            "favorite",
+                            "coin",
+                            "share",
+                            "now_rank",
+                            "his_rank",
+                            "like",
+                            "dislike",
+                            "vt",
+                            "vv",
+                            "fav_g",
+                            "like_g"
+                          ]
+                        },
+                        "dynamic": {
+                          "type": "string"
+                        },
+                        "cid": {
+                          "type": "integer"
+                        },
+                        "dimension": {
+                          "type": "object",
+                          "properties": {
+                            "width": {
+                              "type": "integer"
+                            },
+                            "height": {
+                              "type": "integer"
+                            },
+                            "rotate": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "width",
+                            "height",
+                            "rotate"
+                          ]
+                        },
+                        "season_id": {
+                          "type": "integer"
+                        },
+                        "short_link_v2": {
+                          "type": "string"
+                        },
+                        "cover43": {
+                          "type": "string"
+                        },
+                        "tidv2": {
+                          "type": "integer"
+                        },
+                        "tnamev2": {
+                          "type": "string"
+                        },
+                        "pid_v2": {
+                          "type": "integer"
+                        },
+                        "pid_name_v2": {
+                          "type": "string"
+                        },
+                        "bvid": {
+                          "type": "string"
+                        },
+                        "reason": {
+                          "type": "string"
+                        },
+                        "inter_video": {
+                          "type": "boolean"
+                        },
+                        "is_charging_arc": {
+                          "type": "boolean"
+                        },
+                        "elec_arc_type": {
+                          "type": "integer"
+                        },
+                        "elec_arc_badge": {
+                          "type": "string"
+                        },
+                        "enable_vt": {
+                          "type": "integer"
+                        },
+                        "playback_position": {
+                          "type": "integer"
+                        },
+                        "is_self_view": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "aid",
+                        "videos",
+                        "tid",
+                        "tname",
+                        "copyright",
+                        "pic",
+                        "title",
+                        "pubdate",
+                        "ctime",
+                        "desc",
+                        "state",
+                        "duration",
+                        "rights",
+                        "owner",
+                        "stat",
+                        "dynamic",
+                        "cid",
+                        "dimension",
+                        "season_id",
+                        "short_link_v2",
+                        "cover43",
+                        "tidv2",
+                        "tnamev2",
+                        "pid_v2",
+                        "pid_name_v2",
+                        "bvid",
+                        "reason",
+                        "inter_video",
+                        "is_charging_arc",
+                        "elec_arc_type",
+                        "elec_arc_badge",
+                        "enable_vt",
+                        "playback_position",
+                        "is_self_view"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 0,
+                      "message": "OK",
+                      "ttl": 1,
+                      "data": {
+                        "aid": 37896701,
+                        "videos": 1,
+                        "tid": 28,
+                        "tname": "原创音乐",
+                        "copyright": 1,
+                        "pic": "http://i2.hdslb.com/bfs/archive/cc9e72822d68fffdd0406144f1b5348a13c89652.jpg",
+                        "title": "燃烧吧！铃声！把主流手机铃声编成一首曲子",
+                        "pubdate": 1544469671,
+                        "ctime": 1544469671,
+                        "desc": "各品牌的手机铃声大合奏，毫无违和感~",
+                        "state": 0,
+                        "duration": 208,
+                        "rights": {
+                          "bp": 0,
+                          "elec": 0,
+                          "download": 0,
+                          "movie": 0,
+                          "pay": 0,
+                          "hd5": 1,
+                          "no_reprint": 1,
+                          "autoplay": 1,
+                          "ugc_pay": 0,
+                          "is_cooperation": 0,
+                          "ugc_pay_preview": 0,
+                          "no_background": 0,
+                          "arc_pay": 0,
+                          "pay_free_watch": 0
+                        },
+                        "owner": {
+                          "mid": 23215368,
+                          "name": "Wayjon冰冰酱",
+                          "face": "https://i0.hdslb.com/bfs/face/f6fc19c25d1758a955a1d9f749411843320e1312.jpg"
+                        },
+                        "stat": {
+                          "aid": 37896701,
+                          "view": 1889619,
+                          "danmaku": 32493,
+                          "reply": 4485,
+                          "favorite": 94821,
+                          "coin": 120107,
+                          "share": 19682,
+                          "now_rank": 0,
+                          "his_rank": 0,
+                          "like": 129836,
+                          "dislike": 0,
+                          "vt": 0,
+                          "vv": 1889619,
+                          "fav_g": 65,
+                          "like_g": 27
+                        },
+                        "dynamic": "#编曲##FL##纯音乐#",
+                        "cid": 66621209,
+                        "dimension": {
+                          "width": 1920,
+                          "height": 1080,
+                          "rotate": 0
+                        },
+                        "season_id": 477195,
+                        "short_link_v2": "https://b23.tv/BV18t411q7zz",
+                        "cover43": "",
+                        "tidv2": 2016,
+                        "tnamev2": "原创音乐",
+                        "pid_v2": 1003,
+                        "pid_name_v2": "音乐",
+                        "bvid": "BV18t411q7zz",
+                        "reason": "",
+                        "inter_video": false,
+                        "is_charging_arc": false,
+                        "elec_arc_type": 0,
+                        "elec_arc_badge": "",
+                        "enable_vt": 0,
+                        "playback_position": 0,
+                        "is_self_view": false
+                      }
+                    }
+                  },
+                  "2": {
+                    "summary": "没有置顶视频",
+                    "value": {
+                      "code": 53016,
+                      "message": "没有置顶视频",
+                      "ttl": 1,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/space/top/arc/set": {
+      "post": {
+        "summary": "设置置顶视频",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "空间"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "aid": {
+                    "description": "aid bvid二选一",
+                    "example": "2",
+                    "type": "string"
+                  },
+                  "bvid": {
+                    "description": "aid bvid二选一",
+                    "example": "",
+                    "type": "string"
+                  },
+                  "reason": {
+                    "description": "可选，最大40字符",
+                    "example": "",
+                    "type": "string"
+                  },
+                  "csrf": {
+                    "example": "7476965f555292846afcf52686c75fca",
+                    "type": "string"
+                  }
+                }
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 0,
+                      "message": "OK",
+                      "ttl": 1
+                    }
+                  },
+                  "2": {
+                    "summary": "该稿件已失效",
+                    "value": {
+                      "code": 53014,
+                      "message": "该稿件已失效",
+                      "ttl": 1
+                    }
+                  },
+                  "3": {
+                    "summary": "只能操作自己的稿件",
+                    "value": {
+                      "code": 53017,
+                      "message": "只能操作自己的稿件",
+                      "ttl": 1
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/space/top/arc/cancel": {
+      "post": {
+        "summary": "取消置顶视频",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "空间"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "csrf": {
+                    "example": "7476965f555292846afcf52686c75fca",
+                    "type": "string"
+                  }
+                }
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl"
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/space/masterpiece": {
+      "get": {
+        "summary": "查询用户代表作",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "空间"
+        ],
+        "parameters": [
+          {
+            "name": "vmid",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "23215368",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "aid": {
+                            "type": "integer"
+                          },
+                          "videos": {
+                            "type": "integer"
+                          },
+                          "tid": {
+                            "type": "integer"
+                          },
+                          "tname": {
+                            "type": "string"
+                          },
+                          "copyright": {
+                            "type": "integer"
+                          },
+                          "pic": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "pubdate": {
+                            "type": "integer"
+                          },
+                          "ctime": {
+                            "type": "integer"
+                          },
+                          "desc": {
+                            "type": "string"
+                          },
+                          "state": {
+                            "type": "integer"
+                          },
+                          "duration": {
+                            "type": "integer"
+                          },
+                          "rights": {
+                            "type": "object",
+                            "properties": {
+                              "bp": {
+                                "type": "integer"
+                              },
+                              "elec": {
+                                "type": "integer"
+                              },
+                              "download": {
+                                "type": "integer"
+                              },
+                              "movie": {
+                                "type": "integer"
+                              },
+                              "pay": {
+                                "type": "integer"
+                              },
+                              "hd5": {
+                                "type": "integer"
+                              },
+                              "no_reprint": {
+                                "type": "integer"
+                              },
+                              "autoplay": {
+                                "type": "integer"
+                              },
+                              "ugc_pay": {
+                                "type": "integer"
+                              },
+                              "is_cooperation": {
+                                "type": "integer"
+                              },
+                              "ugc_pay_preview": {
+                                "type": "integer"
+                              },
+                              "no_background": {
+                                "type": "integer"
+                              },
+                              "arc_pay": {
+                                "type": "integer"
+                              },
+                              "pay_free_watch": {
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "bp",
+                              "elec",
+                              "download",
+                              "movie",
+                              "pay",
+                              "hd5",
+                              "no_reprint",
+                              "autoplay",
+                              "ugc_pay",
+                              "is_cooperation",
+                              "ugc_pay_preview",
+                              "no_background",
+                              "arc_pay",
+                              "pay_free_watch"
+                            ]
+                          },
+                          "owner": {
+                            "type": "object",
+                            "properties": {
+                              "mid": {
+                                "type": "integer"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "face": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "mid",
+                              "name",
+                              "face"
+                            ]
+                          },
+                          "stat": {
+                            "type": "object",
+                            "properties": {
+                              "aid": {
+                                "type": "integer"
+                              },
+                              "view": {
+                                "type": "integer"
+                              },
+                              "danmaku": {
+                                "type": "integer"
+                              },
+                              "reply": {
+                                "type": "integer"
+                              },
+                              "favorite": {
+                                "type": "integer"
+                              },
+                              "coin": {
+                                "type": "integer"
+                              },
+                              "share": {
+                                "type": "integer"
+                              },
+                              "now_rank": {
+                                "type": "integer"
+                              },
+                              "his_rank": {
+                                "type": "integer"
+                              },
+                              "like": {
+                                "type": "integer"
+                              },
+                              "dislike": {
+                                "type": "integer"
+                              },
+                              "vt": {
+                                "type": "integer"
+                              },
+                              "vv": {
+                                "type": "integer"
+                              },
+                              "fav_g": {
+                                "type": "integer"
+                              },
+                              "like_g": {
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "aid",
+                              "view",
+                              "danmaku",
+                              "reply",
+                              "favorite",
+                              "coin",
+                              "share",
+                              "now_rank",
+                              "his_rank",
+                              "like",
+                              "dislike",
+                              "vt",
+                              "vv",
+                              "fav_g",
+                              "like_g"
+                            ]
+                          },
+                          "dynamic": {
+                            "type": "string"
+                          },
+                          "cid": {
+                            "type": "integer"
+                          },
+                          "dimension": {
+                            "type": "object",
+                            "properties": {
+                              "width": {
+                                "type": "integer"
+                              },
+                              "height": {
+                                "type": "integer"
+                              },
+                              "rotate": {
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "width",
+                              "height",
+                              "rotate"
+                            ]
+                          },
+                          "season_id": {
+                            "type": "integer"
+                          },
+                          "short_link_v2": {
+                            "type": "string"
+                          },
+                          "cover43": {
+                            "type": "string"
+                          },
+                          "tidv2": {
+                            "type": "integer"
+                          },
+                          "tnamev2": {
+                            "type": "string"
+                          },
+                          "pid_v2": {
+                            "type": "integer"
+                          },
+                          "pid_name_v2": {
+                            "type": "string"
+                          },
+                          "bvid": {
+                            "type": "string"
+                          },
+                          "reason": {
+                            "type": "string"
+                          },
+                          "inter_video": {
+                            "type": "boolean"
+                          },
+                          "is_charging_arc": {
+                            "type": "boolean"
+                          },
+                          "elec_arc_type": {
+                            "type": "integer"
+                          },
+                          "elec_arc_badge": {
+                            "type": "string"
+                          },
+                          "enable_vt": {
+                            "type": "integer"
+                          },
+                          "playback_position": {
+                            "type": "integer"
+                          },
+                          "is_self_view": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "aid",
+                          "videos",
+                          "tid",
+                          "tname",
+                          "copyright",
+                          "pic",
+                          "title",
+                          "pubdate",
+                          "ctime",
+                          "desc",
+                          "state",
+                          "duration",
+                          "rights",
+                          "owner",
+                          "stat",
+                          "dynamic",
+                          "cid",
+                          "dimension",
+                          "season_id",
+                          "short_link_v2",
+                          "cover43",
+                          "tidv2",
+                          "tnamev2",
+                          "pid_v2",
+                          "pid_name_v2",
+                          "bvid",
+                          "reason",
+                          "inter_video",
+                          "is_charging_arc",
+                          "elec_arc_type",
+                          "elec_arc_badge",
+                          "enable_vt",
+                          "playback_position",
+                          "is_self_view"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
     "/x/web-interface/card": {
       "get": {
         "summary": "用户名片信息",
@@ -13270,6 +14377,57 @@
         "security": []
       }
     },
+    "/x/relation/stat": {
+      "get": {
+        "summary": "数量状态",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "关系"
+        ],
+        "parameters": [
+          {
+            "name": "vmid",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": "305956876",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "mid": 305956876,
+                    "following": 151,
+                    "whisper": 0,
+                    "black": 0,
+                    "follower": 1985799,
+                    "fans_medal_toast": null,
+                    "fans_effect": null
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
     "/x/credit/labour/getQs": {
       "get": {
         "summary": "获取问卷",
@@ -14060,6 +15218,32 @@
                     "ttl",
                     "data"
                   ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "count": 14,
+                    "list": [
+                      {
+                        "ip": "124.77.*.*",
+                        "time": 1788888888,
+                        "time_at": "2026-02-01 11:45:14",
+                        "status": true,
+                        "type": 0,
+                        "geo": "中国上海电信"
+                      },
+                      {
+                        "ip": "240e:*:*:*:*:*:*:*",
+                        "time": 1766666666,
+                        "time_at": "2026-01-19 19:08:10",
+                        "status": true,
+                        "type": 0,
+                        "geo": "中国上海电信"
+                      }
+                    ]
+                  }
                 }
               }
             },

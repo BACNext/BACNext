@@ -1869,6 +1869,91 @@
         },
         "security": []
       }
+    },
+    "/link_draw/v1/doc/upload_count": {
+      "get": {
+        "summary": "相簿投稿数",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "all_count": {
+                          "type": "integer"
+                        },
+                        "draw_count": {
+                          "type": "integer"
+                        },
+                        "photo_count": {
+                          "type": "integer"
+                        },
+                        "daily_count": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "all_count",
+                        "draw_count",
+                        "photo_count",
+                        "daily_count"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "all_count": 1,
+                    "draw_count": 0,
+                    "photo_count": 0,
+                    "daily_count": 1
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
     }
   },
   "webhooks": {},
