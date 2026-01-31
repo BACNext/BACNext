@@ -34,6 +34,12 @@
       "name": "关系/分组"
     },
     {
+      "name": "信誉"
+    },
+    {
+      "name": "信誉/答题解控"
+    },
+    {
       "name": "Wbi"
     },
     {
@@ -13204,6 +13210,46 @@
               }
             },
             "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/credit/labour/getQs": {
+      "get": {
+        "summary": "获取问卷",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "信誉/答题解控"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl"
+                  ]
+                }
+              }
+            }
           }
         },
         "security": []
