@@ -3228,6 +3228,180 @@
         },
         "security": []
       }
+    },
+    "/web/site/user/info": {
+      "get": {
+        "summary": "查询账号安全情况",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "account_info": {
+                          "type": "object",
+                          "properties": {
+                            "hide_tel": {
+                              "type": "string"
+                            },
+                            "hide_mail": {
+                              "type": "string"
+                            },
+                            "bind_tel": {
+                              "type": "boolean"
+                            },
+                            "bind_mail": {
+                              "type": "boolean"
+                            },
+                            "tel_verify": {
+                              "type": "boolean"
+                            },
+                            "mail_verify": {
+                              "type": "boolean"
+                            },
+                            "unneeded_check": {
+                              "type": "boolean"
+                            },
+                            "realname_certified": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "hide_tel",
+                            "hide_mail",
+                            "bind_tel",
+                            "bind_mail",
+                            "tel_verify",
+                            "mail_verify",
+                            "unneeded_check",
+                            "realname_certified"
+                          ]
+                        },
+                        "account_safe": {
+                          "type": "object",
+                          "properties": {
+                            "Score": {
+                              "type": "integer"
+                            },
+                            "score_new": {
+                              "type": "integer"
+                            },
+                            "pwd_level": {
+                              "type": "integer"
+                            },
+                            "security": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "Score",
+                            "score_new",
+                            "pwd_level",
+                            "security"
+                          ]
+                        },
+                        "account_sns": {
+                          "type": "object",
+                          "properties": {
+                            "weibo_bind": {
+                              "type": "integer"
+                            },
+                            "qq_bind": {
+                              "type": "integer"
+                            },
+                            "wechat_bind": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "weibo_bind",
+                            "qq_bind",
+                            "wechat_bind"
+                          ]
+                        },
+                        "account_other": {
+                          "type": "object",
+                          "properties": {
+                            "skipVerify": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "skipVerify"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "account_info",
+                        "account_safe",
+                        "account_sns",
+                        "account_other"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "account_info": {
+                      "hide_tel": "1xx*****xxx",
+                      "hide_mail": "xxx*****qq.com",
+                      "bind_tel": true,
+                      "bind_mail": true,
+                      "tel_verify": true,
+                      "mail_verify": true,
+                      "unneeded_check": false,
+                      "realname_certified": true
+                    },
+                    "account_safe": {
+                      "Score": 85,
+                      "score_new": 85,
+                      "pwd_level": 3,
+                      "security": false
+                    },
+                    "account_sns": {
+                      "weibo_bind": 0,
+                      "qq_bind": 1,
+                      "wechat_bind": 0
+                    },
+                    "account_other": {
+                      "skipVerify": false
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
     }
   },
   "webhooks": {},

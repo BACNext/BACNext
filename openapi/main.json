@@ -40,6 +40,15 @@
       "name": "信誉/答题解控"
     },
     {
+      "name": "个人中心"
+    },
+    {
+      "name": "大会员"
+    },
+    {
+      "name": "安全中心"
+    },
+    {
       "name": "Wbi"
     },
     {
@@ -3272,6 +3281,52 @@
                       "mtime": 1767000860,
                       "tag": null,
                       "special": 0
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/web-interface/coin/today/exp": {
+      "get": {
+        "summary": "每日硬币经验",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Web 界面"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功",
+                    "value": {
+                      "code": 0,
+                      "message": "OK",
+                      "ttl": 1,
+                      "data": 10
+                    }
+                  },
+                  "2": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 0,
+                      "message": "OK",
+                      "ttl": 1,
+                      "data": 10
                     }
                   }
                 }
@@ -13249,7 +13304,1127 @@
                   ]
                 }
               }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/credit/labour/commitQs": {
+      "post": {
+        "summary": "提交问卷",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "信誉/答题解控"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "description": "answerid 逗号隔开",
+                    "example": "",
+                    "type": "string"
+                  },
+                  "ans": {
+                    "description": "answer值 逗号隔开",
+                    "example": "",
+                    "type": "string"
+                  },
+                  "csrf": {
+                    "example": "7476965f555292846afcf52686c75fca",
+                    "type": "string"
+                  },
+                  "buvid": {
+                    "description": "buvid3",
+                    "example": "",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "csrf"
+                ]
+              },
+              "examples": {}
             }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "code": 25101,
+                  "message": "无需参与解禁答题",
+                  "ttl": 1
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/member/web/account": {
+      "get": {
+        "summary": "本账号信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "个人中心"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "mid": {
+                          "type": "integer"
+                        },
+                        "uname": {
+                          "type": "string"
+                        },
+                        "userid": {
+                          "type": "string"
+                        },
+                        "sign": {
+                          "type": "string"
+                        },
+                        "birthday": {
+                          "type": "string"
+                        },
+                        "sex": {
+                          "type": "string"
+                        },
+                        "nick_free": {
+                          "type": "boolean"
+                        },
+                        "rank": {
+                          "type": "string"
+                        },
+                        "handle": {
+                          "type": "string"
+                        },
+                        "user_field_settings": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "field": {
+                                "type": "string"
+                              },
+                              "visible": {
+                                "type": "boolean"
+                              },
+                              "editable": {
+                                "type": "boolean"
+                              },
+                              "rule_message": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "mid",
+                        "uname",
+                        "userid",
+                        "sign",
+                        "birthday",
+                        "sex",
+                        "nick_free",
+                        "rank",
+                        "handle",
+                        "user_field_settings"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "mid": 1,
+                    "uname": "蒙古上单",
+                    "userid": "bili_58950376624",
+                    "sign": "真是热热又爱爱啊",
+                    "birthday": "1979-10-01",
+                    "sex": "男",
+                    "nick_free": false,
+                    "rank": "正式会员",
+                    "handle": "",
+                    "user_field_settings": [
+                      {
+                        "field": "handle",
+                        "visible": false,
+                        "editable": false,
+                        "rule_message": ""
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/member/web/exp/reward": {
+      "get": {
+        "summary": "经验奖励状态",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "个人中心"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "login": true,
+                    "watch": false,
+                    "coins": 0,
+                    "share": true,
+                    "email": true,
+                    "tel": true,
+                    "safe_question": false,
+                    "identify_card": true
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/member/realname/status": {
+      "get": {
+        "summary": "实名状态",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "个人中心"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "status": 1
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/member/realname/apply/status": {
+      "get": {
+        "summary": "实名详细",
+        "deprecated": false,
+        "description": "这里的脱敏分两种：\n\n- 留最后两位\n- 留第一和最后一位\n\n可能与认证时间有关",
+        "tags": [
+          "个人中心"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "integer"
+                        },
+                        "remark": {
+                          "type": "string"
+                        },
+                        "realname": {
+                          "type": "string"
+                        },
+                        "card": {
+                          "type": "string"
+                        },
+                        "card_type": {
+                          "type": "integer"
+                        },
+                        "lock_original": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "status",
+                        "remark",
+                        "realname",
+                        "card",
+                        "card_type",
+                        "lock_original"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "status": 1,
+                    "remark": "",
+                    "realname": "***",
+                    "card": "****************66",
+                    "card_type": 0,
+                    "lock_original": false
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/member/web/coin/log": {
+      "get": {
+        "summary": "硬币记录",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "个人中心"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "list": [
+                      {
+                        "time": "2026-02-01 01:23:16",
+                        "delta": -1,
+                        "reason": "给视频 BV1qF6iB8Ex8 打赏"
+                      },
+                      {
+                        "time": "2026-01-26 01:25:32",
+                        "delta": -2,
+                        "reason": "给视频 BV1abz6BAEz5 打赏"
+                      },
+                      {
+                        "time": "2026-01-26 03:48:09",
+                        "delta": 1,
+                        "reason": "登录奖励"
+                      },
+                      {
+                        "time": "2026-01-25 21:22:03",
+                        "delta": 1,
+                        "reason": "登录奖励"
+                      }
+                    ],
+                    "count": 18
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/member/web/sign/update": {
+      "post": {
+        "summary": "个人签名修改",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "个人中心"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_sign": {
+                    "description": "最多70字符",
+                    "example": "",
+                    "type": "string"
+                  },
+                  "csrf": {
+                    "example": "",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "user_sign",
+                  "csrf"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/member/web/exp/log": {
+      "get": {
+        "summary": "经验记录",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "个人中心"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "list": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "delta": {
+                                "type": "integer"
+                              },
+                              "time": {
+                                "type": "string"
+                              },
+                              "reason": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "delta",
+                              "time",
+                              "reason"
+                            ]
+                          }
+                        },
+                        "count": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "list",
+                        "count"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "list": [
+                      {
+                        "delta": 5,
+                        "time": "2026-02-01 04:14:35",
+                        "reason": "观看视频奖励"
+                      },
+                      {
+                        "delta": 10,
+                        "time": "2026-02-01 02:10:26",
+                        "reason": "视频投币奖励"
+                      },
+                      {
+                        "delta": 5,
+                        "time": "2026-02-01 01:47:42",
+                        "reason": "登录奖励"
+                      },
+                      {
+                        "delta": 5,
+                        "time": "2026-02-01 00:48:09",
+                        "reason": "分享视频奖励"
+                      },
+                      {
+                        "delta": 2,
+                        "time": "2026-02-01 00:13:57",
+                        "reason": "12.25-1.24视频av114514投币获得奖励"
+                      }
+                    ],
+                    "count": 5
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/member/web/moral/log": {
+      "get": {
+        "summary": "节操记录",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "个人中心"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "moral": {
+                          "type": "integer"
+                        },
+                        "list": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "count": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "moral",
+                        "list",
+                        "count"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "moral": 70,
+                    "list": [],
+                    "count": 0
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/member/web/login/log": {
+      "get": {
+        "summary": "登录记录",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "个人中心"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer"
+                        },
+                        "list": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "ip": {
+                                "type": "string"
+                              },
+                              "time": {
+                                "type": "integer"
+                              },
+                              "time_at": {
+                                "type": "string"
+                              },
+                              "status": {
+                                "type": "boolean"
+                              },
+                              "type": {
+                                "type": "integer"
+                              },
+                              "geo": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "ip",
+                              "time",
+                              "time_at",
+                              "status",
+                              "type",
+                              "geo"
+                            ]
+                          }
+                        }
+                      },
+                      "required": [
+                        "count",
+                        "list"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/vip/web/user/info": {
+      "get": {
+        "summary": "大会员状态",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "大会员"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "mid": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "vip_type": {
+                          "type": "integer"
+                        },
+                        "vip_status": {
+                          "type": "integer"
+                        },
+                        "vip_due_date": {
+                          "type": "integer"
+                        },
+                        "vip_pay_type": {
+                          "type": "integer"
+                        },
+                        "theme_type": {
+                          "type": "integer"
+                        },
+                        "label": {
+                          "type": "object",
+                          "properties": {
+                            "text": {
+                              "type": "string"
+                            },
+                            "label_theme": {
+                              "type": "string"
+                            },
+                            "text_color": {
+                              "type": "string"
+                            },
+                            "bg_style": {
+                              "type": "integer"
+                            },
+                            "bg_color": {
+                              "type": "string"
+                            },
+                            "border_color": {
+                              "type": "string"
+                            },
+                            "use_img_label": {
+                              "type": "boolean"
+                            },
+                            "img_label_uri_hans": {
+                              "type": "string"
+                            },
+                            "img_label_uri_hant": {
+                              "type": "string"
+                            },
+                            "img_label_uri_hans_static": {
+                              "type": "string"
+                            },
+                            "img_label_uri_hant_static": {
+                              "type": "string"
+                            },
+                            "label_id": {
+                              "type": "integer"
+                            },
+                            "label_goto": {
+                              "type": "object",
+                              "properties": {
+                                "mobile": {
+                                  "type": "string"
+                                },
+                                "pc_web": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "mobile",
+                                "pc_web"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "text",
+                            "label_theme",
+                            "text_color",
+                            "bg_style",
+                            "bg_color",
+                            "border_color",
+                            "use_img_label",
+                            "img_label_uri_hans",
+                            "img_label_uri_hant",
+                            "img_label_uri_hans_static",
+                            "img_label_uri_hant_static",
+                            "label_id",
+                            "label_goto"
+                          ]
+                        },
+                        "avatar_subscript": {
+                          "type": "integer"
+                        },
+                        "avatar_subscript_url": {
+                          "type": "string"
+                        },
+                        "nickname_color": {
+                          "type": "string"
+                        },
+                        "is_new_user": {
+                          "type": "boolean"
+                        },
+                        "tip_material": {
+                          "type": "object",
+                          "properties": {
+                            "white_tip": {
+                              "type": "string"
+                            },
+                            "link": {
+                              "type": "string"
+                            },
+                            "subscript": {
+                              "type": "string"
+                            },
+                            "order_track_params": {
+                              "type": "null"
+                            }
+                          },
+                          "required": [
+                            "white_tip",
+                            "link",
+                            "subscript",
+                            "order_track_params"
+                          ]
+                        },
+                        "vip_is_annual": {
+                          "type": "boolean"
+                        },
+                        "vip_is_month": {
+                          "type": "boolean"
+                        },
+                        "is_auto_renew": {
+                          "type": "boolean"
+                        },
+                        "vip_is_valid": {
+                          "type": "boolean"
+                        },
+                        "vip_is_overdue": {
+                          "type": "boolean"
+                        },
+                        "vip_keep_time": {
+                          "type": "integer"
+                        },
+                        "vip_expire_days": {
+                          "type": "integer"
+                        },
+                        "is_tv_vip": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "mid",
+                        "name",
+                        "vip_type",
+                        "vip_status",
+                        "vip_due_date",
+                        "vip_pay_type",
+                        "theme_type",
+                        "label",
+                        "avatar_subscript",
+                        "avatar_subscript_url",
+                        "nickname_color",
+                        "is_new_user",
+                        "tip_material",
+                        "vip_is_annual",
+                        "vip_is_month",
+                        "is_auto_renew",
+                        "vip_is_valid",
+                        "vip_is_overdue",
+                        "vip_keep_time",
+                        "vip_expire_days",
+                        "is_tv_vip"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "mid": 1,
+                    "name": "蒙古上单",
+                    "vip_type": 2,
+                    "vip_status": 1,
+                    "vip_due_date": 1900000000000,
+                    "vip_pay_type": 0,
+                    "theme_type": 0,
+                    "label": {
+                      "text": "年度大会员",
+                      "label_theme": "annual_vip",
+                      "text_color": "#FFFFFF",
+                      "bg_style": 1,
+                      "bg_color": "#FB7299",
+                      "border_color": "",
+                      "use_img_label": true,
+                      "img_label_uri_hans": "",
+                      "img_label_uri_hant": "",
+                      "img_label_uri_hans_static": "https://i0.hdslb.com/bfs/vip/8d4f8bfc713826a5412a0a27eaaac4d6b9ede1d9.png",
+                      "img_label_uri_hant_static": "https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/VEW8fCC0hg.png",
+                      "label_id": -22,
+                      "label_goto": {
+                        "mobile": "https://big.bilibili.com/mobile/index?navhide=1&from_spmid=vipicon",
+                        "pc_web": "https://account.bilibili.com/big?from_spmid=vipicon"
+                      }
+                    },
+                    "avatar_subscript": 1,
+                    "avatar_subscript_url": "https://i0.hdslb.com/bfs/activity-plat/static/20231122/a5480f18ac08c1e30876e3fde84db784/r9dln6E2Uo.png",
+                    "nickname_color": "#FB7299",
+                    "is_new_user": false,
+                    "tip_material": {
+                      "white_tip": "",
+                      "link": "",
+                      "subscript": "",
+                      "order_track_params": null
+                    },
+                    "vip_is_annual": true,
+                    "vip_is_month": false,
+                    "is_auto_renew": false,
+                    "vip_is_valid": true,
+                    "vip_is_overdue": false,
+                    "vip_keep_time": 0,
+                    "vip_expire_days": 114514,
+                    "is_tv_vip": false
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/safecenter/login_notice": {
+      "get": {
+        "summary": "查询登录记录",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "安全中心"
+        ],
+        "parameters": [
+          {
+            "name": "mid",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "mid": {
+                          "type": "integer"
+                        },
+                        "device_name": {
+                          "type": "string"
+                        },
+                        "login_type": {
+                          "type": "string"
+                        },
+                        "login_time": {
+                          "type": "string"
+                        },
+                        "location": {
+                          "type": "string"
+                        },
+                        "ip": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "mid",
+                        "device_name",
+                        "login_type",
+                        "login_time",
+                        "location",
+                        "ip"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": -403,
+                  "message": "访问权限不足",
+                  "ttl": 1,
+                  "data": null
+                }
+              }
+            },
+            "headers": {}
           }
         },
         "security": []
