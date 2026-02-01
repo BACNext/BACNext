@@ -61,6 +61,12 @@
       "name": "Web 展示"
     },
     {
+      "name": "活动"
+    },
+    {
+      "name": "转正答题"
+    },
+    {
       "name": "Wbi"
     },
     {
@@ -19436,7 +19442,7 @@
       "post": {
         "summary": "大会员每日经验",
         "deprecated": false,
-        "description": "待查，提示非有效大会员",
+        "description": "",
         "tags": [
           "大会员"
         ],
@@ -21371,11 +21377,1515 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {}
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "pic": {
+                          "type": "string"
+                        },
+                        "litpic": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string"
+                        },
+                        "is_split_layer": {
+                          "type": "integer"
+                        },
+                        "split_layer": {
+                          "type": "string"
+                        },
+                        "request_id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "pic",
+                        "litpic",
+                        "url",
+                        "is_split_layer",
+                        "split_layer",
+                        "request_id"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "name": "",
+                    "pic": "http://i0.hdslb.com/bfs/archive/9e2d4862c9a4e137514c0fac8794405ff9d61a0f.png",
+                    "litpic": "http://i0.hdslb.com/bfs/archive/c8fd97a40bf79f03e7b76cbc87236f612caef7b2.png",
+                    "url": "",
+                    "is_split_layer": 1,
+                    "split_layer": "{\"version\":\"1\",\"layers\":[{\"resources\":[{\"src\":\"https://i0.hdslb.com/bfs/vc/5598c26a3d090ba7cdf1d99de1e7d76561d56e78.png\",\"id\":0}],\"scale\":{\"initial\":0.87},\"rotate\":{},\"translate\":{},\"blur\":{},\"opacity\":{\"wrap\":\"clamp\"},\"id\":0,\"name\":\"17_天空\"},{\"resources\":[{\"src\":\"https://i0.hdslb.com/bfs/vc/556c868c5b003f3f167cf1e63e6e3aa27b74bdc7.png\",\"id\":0}],\"scale\":{\"initial\":0.87},\"rotate\":{},\"translate\":{\"offset\":[3,0]},\"blur\":{},\"opacity\":{\"wrap\":\"clamp\"},\"id\":2,\"name\":\"16_云\"},{\"resources\":[{\"src\":\"https://i0.hdslb.com/bfs/vc/b1b6ebe5d3def015132105fe7a8253eced9b563c.png\",\"id\":0}],\"scale\":{},\"rotate\":{},\"translate\":{\"initial\":[0,5],\"offset\":[20,10]},\"blur\":{},\"opacity\":{\"wrap\":\"clamp\"},\"id\":4,\"name\":\"14_33\"},{\"resources\":[{\"src\":\"https://i0.hdslb.com/bfs/vc/59a63bc51e049fd01d7e567b9759727888d0de43.png\",\"id\":0}],\"scale\":{\"initial\":0.87},\"rotate\":{},\"translate\":{\"offset\":[5,0]},\"blur\":{},\"opacity\":{\"wrap\":\"clamp\"},\"id\":5,\"name\":\"13左侧垫底\"},{\"resources\":[{\"src\":\"https://i0.hdslb.com/bfs/vc/2e5a5407987125451f4401e1f80da8aa6c9ec74e.png\",\"id\":0}],\"scale\":{\"initial\":0.87},\"rotate\":{},\"translate\":{\"initial\":[-270,-20],\"offset\":[20,0]},\"blur\":{},\"opacity\":{\"wrap\":\"clamp\"},\"id\":6,\"name\":\"12车子\"},{\"resources\":[{\"src\":\"https://i0.hdslb.com/bfs/vc/96151dfbace0750a4a590e9fac92211ce7c28b82.png\",\"id\":0}],\"scale\":{\"initial\":0.95},\"rotate\":{},\"translate\":{\"initial\":[-50,0],\"offset\":[15,-5]},\"blur\":{},\"opacity\":{\"wrap\":\"clamp\"},\"id\":7,\"name\":\"11左侧建筑\"},{\"resources\":[{\"src\":\"https://i0.hdslb.com/bfs/vc/f272c9c3125afec158fe4c4e0540a271cd75dfb4.png\",\"id\":0}],\"scale\":{},\"rotate\":{\"offset\":10},\"translate\":{\"initial\":[-250,-20],\"offset\":[30,0]},\"blur\":{},\"opacity\":{\"wrap\":\"clamp\"},\"id\":3,\"name\":\"15_22\"},{\"resources\":[{\"src\":\"https://i0.hdslb.com/bfs/vc/598389b103a4c89592706b9a426c1dd5c9fbdb96.png\",\"id\":0}],\"scale\":{},\"rotate\":{},\"translate\":{\"offset\":[30,5]},\"blur\":{},\"opacity\":{\"wrap\":\"clamp\"},\"id\":8,\"name\":\"10中间花田\"},{\"resources\":[{\"src\":\"https://i0.hdslb.com/bfs/vc/3dd93e33d7e9bb6b74b7e2c577cb4a61cd7876bf.png\",\"id\":0}],\"scale\":{\"initial\":0.87},\"rotate\":{},\"translate\":{\"offset\":[50,10]},\"blur\":{},\"opacity\":{\"wrap\":\"clamp\"},\"id\":9,\"name\":\"09兔子\"},{\"resources\":[{\"src\":\"https://i0.hdslb.com/bfs/vc/2ec5703e20135d578a4d31a9d40dd9deb23c326e.png\",\"id\":0}],\"scale\":{\"initial\":0.95},\"rotate\":{},\"translate\":{\"offset\":[20,5]},\"blur\":{},\"opacity\":{\"wrap\":\"clamp\"},\"id\":10,\"name\":\"08右侧草3\"},{\"resources\":[{\"src\":\"https://i0.hdslb.com/bfs/vc/48d675bee7f2b20af495ddcfa2051d1e42eeb526.png\",\"id\":0}],\"scale\":{},\"rotate\":{},\"translate\":{\"offset\":[40,10]},\"blur\":{},\"opacity\":{\"wrap\":\"clamp\"},\"id\":11,\"name\":\"07右侧草2\"},{\"resources\":[{\"src\":\"https://i0.hdslb.com/bfs/vc/e35035fb17abb07d80c1749988bc938c9a5919dc.png\",\"id\":0}],\"scale\":{\"initial\":1.1},\"rotate\":{},\"translate\":{\"offset\":[70,15]},\"blur\":{},\"opacity\":{\"wrap\":\"clamp\"},\"id\":12,\"name\":\"06左下花草\"},{\"resources\":[{\"src\":\"https://i0.hdslb.com/bfs/vc/5cbcbeb21c079264f78e63c411f09334126a11d3.png\",\"id\":0}],\"scale\":{\"initial\":1.1},\"rotate\":{},\"translate\":{\"offset\":[80,15]},\"blur\":{},\"opacity\":{\"wrap\":\"clamp\"},\"id\":13,\"name\":\"05左上树叶\"},{\"resources\":[{\"src\":\"https://i0.hdslb.com/bfs/vc/c9ef0b13e5ec27cc6e9fa1516e79a8ab8f5c5b38.png\",\"id\":0}],\"scale\":{\"initial\":1.1},\"rotate\":{},\"translate\":{\"offset\":[90,15]},\"blur\":{},\"opacity\":{\"wrap\":\"clamp\"},\"id\":14,\"name\":\"04右上树叶\"},{\"resources\":[{\"src\":\"https://i0.hdslb.com/bfs/vc/5a97b3d3f84e4ce0e77988a8a0d5744a2a2fd8b9.png\",\"id\":0}],\"scale\":{\"initial\":0.87},\"rotate\":{},\"translate\":{},\"blur\":{},\"opacity\":{\"wrap\":\"clamp\"},\"id\":15,\"name\":\"03垃圾\"},{\"resources\":[{\"src\":\"https://i0.hdslb.com/bfs/vc/679c3bb077504de3379100c688770d94d97778cf.png\",\"id\":0}],\"scale\":{},\"rotate\":{},\"translate\":{\"offset\":[70,8]},\"blur\":{},\"opacity\":{\"wrap\":\"clamp\"},\"id\":16,\"name\":\"02右侧草1\"},{\"resources\":[{\"src\":\"https://i0.hdslb.com/bfs/vc/add3317b33f371b4ce4391b5169dbd6455065ed4.png\",\"id\":0}],\"scale\":{},\"rotate\":{},\"translate\":{\"offset\":[60,10]},\"blur\":{},\"opacity\":{\"wrap\":\"clamp\"},\"id\":17,\"name\":\"01前景草1\"},{\"resources\":[{\"src\":\"https://i0.hdslb.com/bfs/vc/c4807a30a39d8d5df2692c8fb40797d51652dbc6.webm\",\"id\":0}],\"scale\":{},\"rotate\":{},\"translate\":{\"offset\":[60,0]},\"blur\":{\"initial\":1},\"opacity\":{\"initial\":0.5,\"wrap\":\"clamp\"},\"id\":18,\"name\":\"图层18\"}]}",
+                    "request_id": "1769967491"
+                  }
                 }
               }
             },
             "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/web-show/region/banner": {
+      "get": {
+        "summary": "分区轮播图",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Web 展示"
+        ],
+        "parameters": [
+          {
+            "name": "region_id",
+            "in": "query",
+            "description": "目标分区",
+            "required": true,
+            "example": "1005",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "region_banner_list": [
+                      {
+                        "image": "http://i0.hdslb.com/bfs/app/a114be12c69b20d60081506dde2566897f55c16b.png",
+                        "title": "安利动画赢现金，AI创作激励加码",
+                        "sub_title": "",
+                        "url": "https://www.bilibili.com/blackboard/era/wLVxuh3WJwMyCOcy.html",
+                        "rid": 1005
+                      },
+                      {
+                        "image": "http://i0.hdslb.com/bfs/app/b1d4dd6c62941ec4418ed4facf496627c0a0b5ff.jpg",
+                        "title": "《乐乐便利店》2月4日正式播出，暖心开业~！",
+                        "sub_title": "",
+                        "url": "https://www.bilibili.com/bangumi/play/ep2879862",
+                        "rid": 1005
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/activity/operation/list": {
+      "get": {
+        "summary": "运营资源列表",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "活动"
+        ],
+        "parameters": [
+          {
+            "name": "source_id",
+            "in": "query",
+            "description": "资源id",
+            "required": true,
+            "example": "630edcfddbd0b39ca7371ad2",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ps",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pn",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "list": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "source_id": {
+                                "type": "string"
+                              },
+                              "object_id": {
+                                "type": "string"
+                              },
+                              "object_type": {
+                                "type": "integer"
+                              },
+                              "properties": {
+                                "type": "null"
+                              },
+                              "children": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "order_id": {
+                                "type": "integer"
+                              },
+                              "object": {
+                                "type": "null"
+                              },
+                              "state": {
+                                "type": "integer"
+                              },
+                              "ctime": {
+                                "type": "integer"
+                              },
+                              "mtime": {
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "source_id",
+                              "object_id",
+                              "object_type",
+                              "properties",
+                              "children",
+                              "order_id",
+                              "object",
+                              "state",
+                              "ctime",
+                              "mtime"
+                            ]
+                          }
+                        },
+                        "page": {
+                          "type": "object",
+                          "properties": {
+                            "num": {
+                              "type": "integer"
+                            },
+                            "ps": {
+                              "type": "integer"
+                            },
+                            "total": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "num",
+                            "ps",
+                            "total"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "list",
+                        "page"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "list": [
+                      {
+                        "id": "30ERAmwloghvnvm00",
+                        "source_id": "29ERAmwloghvx7600",
+                        "object_id": "https://i0.hdslb.com/bfs/activity-plat/static/2cf2b9af5d3c5781d611d6e36f405144/0Wp3GSTqa2.png",
+                        "object_type": 5,
+                        "properties": null,
+                        "children": [],
+                        "order_id": 100,
+                        "object": null,
+                        "state": 1,
+                        "ctime": 1754361029,
+                        "mtime": 1754361029
+                      },
+                      {
+                        "id": "30ERAmwloghvnxf00",
+                        "source_id": "29ERAmwloghvx7600",
+                        "object_id": "https://i0.hdslb.com/bfs/activity-plat/static/2cf2b9af5d3c5781d611d6e36f405144/HtPXYfpuXU.png",
+                        "object_type": 5,
+                        "properties": null,
+                        "children": [],
+                        "order_id": 100,
+                        "object": null,
+                        "state": 1,
+                        "ctime": 1754361030,
+                        "mtime": 1754361030
+                      },
+                      {
+                        "id": "30ERAmwloghvbrx00",
+                        "source_id": "29ERAmwloghvx7600",
+                        "object_id": "https://i0.hdslb.com/bfs/activity-plat/static/2cf2b9af5d3c5781d611d6e36f405144/00FlTw9i50.png",
+                        "object_type": 5,
+                        "properties": null,
+                        "children": [],
+                        "order_id": 100,
+                        "object": null,
+                        "state": 1,
+                        "ctime": 1754361030,
+                        "mtime": 1754361030
+                      },
+                      {
+                        "id": "30ERAmwloghvnln00",
+                        "source_id": "29ERAmwloghvx7600",
+                        "object_id": "https://i0.hdslb.com/bfs/activity-plat/static/2cf2b9af5d3c5781d611d6e36f405144/wqP0BMH8vp.png",
+                        "object_type": 5,
+                        "properties": null,
+                        "children": [],
+                        "order_id": 100,
+                        "object": null,
+                        "state": 1,
+                        "ctime": 1754361030,
+                        "mtime": 1754361030
+                      },
+                      {
+                        "id": "30ERAmwloghvba800",
+                        "source_id": "29ERAmwloghvx7600",
+                        "object_id": "https://i0.hdslb.com/bfs/activity-plat/static/2cf2b9af5d3c5781d611d6e36f405144/XHhqvtddUA.png",
+                        "object_type": 5,
+                        "properties": null,
+                        "children": [],
+                        "order_id": 100,
+                        "object": null,
+                        "state": 1,
+                        "ctime": 1754361030,
+                        "mtime": 1754361030
+                      },
+                      {
+                        "id": "30ERAmwloghvbju00",
+                        "source_id": "29ERAmwloghvx7600",
+                        "object_id": "https://i0.hdslb.com/bfs/activity-plat/static/2cf2b9af5d3c5781d611d6e36f405144/dtYHFq8LIq.png",
+                        "object_type": 5,
+                        "properties": null,
+                        "children": [],
+                        "order_id": 100,
+                        "object": null,
+                        "state": 1,
+                        "ctime": 1754361030,
+                        "mtime": 1754361030
+                      },
+                      {
+                        "id": "30ERAmwloghvnkd00",
+                        "source_id": "29ERAmwloghvx7600",
+                        "object_id": "https://i0.hdslb.com/bfs/activity-plat/static/2cf2b9af5d3c5781d611d6e36f405144/egQQvfxwvY.png",
+                        "object_type": 5,
+                        "properties": null,
+                        "children": [],
+                        "order_id": 100,
+                        "object": null,
+                        "state": 1,
+                        "ctime": 1754361030,
+                        "mtime": 1754361030
+                      },
+                      {
+                        "id": "30ERAmwloghvbtm00",
+                        "source_id": "29ERAmwloghvx7600",
+                        "object_id": "https://i0.hdslb.com/bfs/activity-plat/static/2cf2b9af5d3c5781d611d6e36f405144/vocgKB4Bjl.png",
+                        "object_type": 5,
+                        "properties": null,
+                        "children": [],
+                        "order_id": 100,
+                        "object": null,
+                        "state": 1,
+                        "ctime": 1754361030,
+                        "mtime": 1754361030
+                      },
+                      {
+                        "id": "30ERAmwloghvbrt00",
+                        "source_id": "29ERAmwloghvx7600",
+                        "object_id": "https://i0.hdslb.com/bfs/activity-plat/static/2cf2b9af5d3c5781d611d6e36f405144/GI167h1ubu.png",
+                        "object_type": 5,
+                        "properties": null,
+                        "children": [],
+                        "order_id": 100,
+                        "object": null,
+                        "state": 1,
+                        "ctime": 1754361030,
+                        "mtime": 1754361030
+                      },
+                      {
+                        "id": "30ERAmwloghvbrs00",
+                        "source_id": "29ERAmwloghvx7600",
+                        "object_id": "https://i0.hdslb.com/bfs/activity-plat/static/2cf2b9af5d3c5781d611d6e36f405144/HKynZO2AxL.png",
+                        "object_type": 5,
+                        "properties": null,
+                        "children": [],
+                        "order_id": 100,
+                        "object": null,
+                        "state": 1,
+                        "ctime": 1754361030,
+                        "mtime": 1754361030
+                      },
+                      {
+                        "id": "30ERAmwloghvnsh00",
+                        "source_id": "29ERAmwloghvx7600",
+                        "object_id": "https://i0.hdslb.com/bfs/activity-plat/static/2cf2b9af5d3c5781d611d6e36f405144/JGrXDA8RKH.png",
+                        "object_type": 5,
+                        "properties": null,
+                        "children": [],
+                        "order_id": 100,
+                        "object": null,
+                        "state": 1,
+                        "ctime": 1754361030,
+                        "mtime": 1754361030
+                      },
+                      {
+                        "id": "30ERAmwloghvbia00",
+                        "source_id": "29ERAmwloghvx7600",
+                        "object_id": "https://i0.hdslb.com/bfs/activity-plat/static/2cf2b9af5d3c5781d611d6e36f405144/I2ep6rPv8i.png",
+                        "object_type": 5,
+                        "properties": null,
+                        "children": [],
+                        "order_id": 100,
+                        "object": null,
+                        "state": 1,
+                        "ctime": 1754361030,
+                        "mtime": 1754361030
+                      },
+                      {
+                        "id": "30ERAmwloghvbtn00",
+                        "source_id": "29ERAmwloghvx7600",
+                        "object_id": "https://i0.hdslb.com/bfs/activity-plat/static/2cf2b9af5d3c5781d611d6e36f405144/0gu9qonH7t.png",
+                        "object_type": 5,
+                        "properties": null,
+                        "children": [],
+                        "order_id": 100,
+                        "object": null,
+                        "state": 1,
+                        "ctime": 1754361030,
+                        "mtime": 1754361030
+                      },
+                      {
+                        "id": "30ERAmwloghvbp000",
+                        "source_id": "29ERAmwloghvx7600",
+                        "object_id": "https://i0.hdslb.com/bfs/activity-plat/static/2cf2b9af5d3c5781d611d6e36f405144/Wwzw0XTwUl.png",
+                        "object_type": 5,
+                        "properties": null,
+                        "children": [],
+                        "order_id": 100,
+                        "object": null,
+                        "state": 1,
+                        "ctime": 1754361030,
+                        "mtime": 1754361030
+                      },
+                      {
+                        "id": "30ERAmwloghvben00",
+                        "source_id": "29ERAmwloghvx7600",
+                        "object_id": "https://i0.hdslb.com/bfs/activity-plat/static/2cf2b9af5d3c5781d611d6e36f405144/hr97jf0KpZ.png",
+                        "object_type": 5,
+                        "properties": null,
+                        "children": [],
+                        "order_id": 100,
+                        "object": null,
+                        "state": 1,
+                        "ctime": 1754361030,
+                        "mtime": 1754361030
+                      },
+                      {
+                        "id": "30ERAmwloghvnxd00",
+                        "source_id": "29ERAmwloghvx7600",
+                        "object_id": "https://i0.hdslb.com/bfs/activity-plat/static/2cf2b9af5d3c5781d611d6e36f405144/XywNN8KlpA.png",
+                        "object_type": 5,
+                        "properties": null,
+                        "children": [],
+                        "order_id": 100,
+                        "object": null,
+                        "state": 1,
+                        "ctime": 1754361030,
+                        "mtime": 1754361030
+                      },
+                      {
+                        "id": "30ERAmwloghvnk100",
+                        "source_id": "29ERAmwloghvx7600",
+                        "object_id": "https://i0.hdslb.com/bfs/activity-plat/static/2cf2b9af5d3c5781d611d6e36f405144/VZkCQV3H8N.png",
+                        "object_type": 5,
+                        "properties": null,
+                        "children": [],
+                        "order_id": 100,
+                        "object": null,
+                        "state": 1,
+                        "ctime": 1754361030,
+                        "mtime": 1754361030
+                      },
+                      {
+                        "id": "30ERAmwloghvnkm00",
+                        "source_id": "29ERAmwloghvx7600",
+                        "object_id": "https://i0.hdslb.com/bfs/activity-plat/static/2cf2b9af5d3c5781d611d6e36f405144/h4ytfrWZID.png",
+                        "object_type": 5,
+                        "properties": null,
+                        "children": [],
+                        "order_id": 100,
+                        "object": null,
+                        "state": 1,
+                        "ctime": 1754361030,
+                        "mtime": 1754361030
+                      },
+                      {
+                        "id": "30ERAmwloghvnz900",
+                        "source_id": "29ERAmwloghvx7600",
+                        "object_id": "https://i0.hdslb.com/bfs/activity-plat/static/2cf2b9af5d3c5781d611d6e36f405144/J8BB0k7uKM.png",
+                        "object_type": 5,
+                        "properties": null,
+                        "children": [],
+                        "order_id": 100,
+                        "object": null,
+                        "state": 1,
+                        "ctime": 1754361030,
+                        "mtime": 1754361030
+                      },
+                      {
+                        "id": "30ERAmwloghvnvn00",
+                        "source_id": "29ERAmwloghvx7600",
+                        "object_id": "https://i0.hdslb.com/bfs/activity-plat/static/2cf2b9af5d3c5781d611d6e36f405144/E738vcDvd3.png",
+                        "object_type": 5,
+                        "properties": null,
+                        "children": [],
+                        "order_id": 100,
+                        "object": null,
+                        "state": 1,
+                        "ctime": 1754361030,
+                        "mtime": 1754361030
+                      }
+                    ],
+                    "page": {
+                      "num": 1,
+                      "ps": 20,
+                      "total": 69
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/answer/v4/status": {
+      "get": {
+        "summary": "查询答题状态",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "转正答题"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "hid": {
+                          "type": "integer"
+                        },
+                        "mid": {
+                          "type": "integer"
+                        },
+                        "score": {
+                          "type": "integer"
+                        },
+                        "status": {
+                          "type": "integer"
+                        },
+                        "number": {
+                          "type": "integer"
+                        },
+                        "result": {
+                          "type": "string"
+                        },
+                        "stage": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "string"
+                        },
+                        "start_time": {
+                          "type": "integer"
+                        },
+                        "first_answer": {
+                          "type": "integer"
+                        },
+                        "progress": {
+                          "type": "string"
+                        },
+                        "text": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string"
+                        },
+                        "in_reg_audit": {
+                          "type": "boolean"
+                        },
+                        "edition": {
+                          "type": "integer"
+                        },
+                        "rewards": {
+                          "type": "null"
+                        },
+                        "captcha": {
+                          "type": "integer"
+                        },
+                        "must_right_num": {
+                          "type": "integer"
+                        },
+                        "base_err_num": {
+                          "type": "integer"
+                        },
+                        "only_member_passed": {
+                          "type": "boolean"
+                        },
+                        "score_tip": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "hid",
+                        "mid",
+                        "score",
+                        "status",
+                        "number",
+                        "result",
+                        "stage",
+                        "version",
+                        "start_time",
+                        "first_answer",
+                        "progress",
+                        "text",
+                        "url",
+                        "in_reg_audit",
+                        "edition",
+                        "rewards",
+                        "captcha",
+                        "must_right_num",
+                        "base_err_num",
+                        "only_member_passed",
+                        "score_tip"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "答题完成",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "hid": 1589271594114514,
+                        "mid": 1,
+                        "score": 100,
+                        "status": 3,
+                        "number": 100,
+                        "result": "upgrade",
+                        "stage": "complete",
+                        "version": "v4",
+                        "start_time": 1500000000,
+                        "first_answer": 1,
+                        "progress": "100",
+                        "text": "答题完成",
+                        "url": "https://www.bilibili.com/h5/newbie/entry?navhide=1",
+                        "in_reg_audit": false,
+                        "edition": 0,
+                        "rewards": null,
+                        "captcha": 1,
+                        "must_right_num": 60,
+                        "base_err_num": 2,
+                        "only_member_passed": false,
+                        "score_tip": ""
+                      }
+                    }
+                  },
+                  "2": {
+                    "summary": "答题中",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "hid": 1769970151919810,
+                        "mid": 1,
+                        "score": 0,
+                        "status": 2,
+                        "number": 1,
+                        "result": "failed",
+                        "stage": "base",
+                        "version": "v4",
+                        "start_time": 1769970156,
+                        "first_answer": 1,
+                        "progress": "0",
+                        "text": "未答题",
+                        "url": "https://www.bilibili.com/h5/newbie/entry?navhide=1",
+                        "in_reg_audit": false,
+                        "edition": 2,
+                        "rewards": null,
+                        "must_right_num": 60,
+                        "base_err_num": 0,
+                        "only_member_passed": false,
+                        "score_tip": ""
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/answer/v4/pro/type": {
+      "get": {
+        "summary": "自选题分类",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "转正答题"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "fields": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "integer"
+                                },
+                                "name": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "name"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name",
+                          "fields"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": [
+                    {
+                      "id": 1,
+                      "name": "游戏",
+                      "fields": [
+                        {
+                          "id": 1,
+                          "name": "游戏"
+                        }
+                      ]
+                    },
+                    {
+                      "id": 2,
+                      "name": "影视",
+                      "fields": [
+                        {
+                          "id": 2,
+                          "name": "影视"
+                        }
+                      ]
+                    },
+                    {
+                      "id": 3,
+                      "name": "科教/知识",
+                      "fields": [
+                        {
+                          "id": 3,
+                          "name": "科教/知识"
+                        }
+                      ]
+                    },
+                    {
+                      "id": 4,
+                      "name": "动画/动漫",
+                      "fields": [
+                        {
+                          "id": 4,
+                          "name": "动画/动漫"
+                        }
+                      ]
+                    },
+                    {
+                      "id": 5,
+                      "name": "音乐/舞蹈",
+                      "fields": [
+                        {
+                          "id": 5,
+                          "name": "音乐/舞蹈"
+                        }
+                      ]
+                    },
+                    {
+                      "id": 32,
+                      "name": "明星/娱乐",
+                      "fields": [
+                        {
+                          "id": 32,
+                          "name": "明星/娱乐"
+                        }
+                      ]
+                    },
+                    {
+                      "id": 35,
+                      "name": "鬼畜",
+                      "fields": [
+                        {
+                          "id": 35,
+                          "name": "鬼畜"
+                        }
+                      ]
+                    },
+                    {
+                      "id": 42,
+                      "name": "时尚/健身",
+                      "fields": [
+                        {
+                          "id": 42,
+                          "name": "时尚/健身"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/answer/v4/result": {
+      "get": {
+        "summary": "答题结果",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "转正答题"
+        ],
+        "parameters": [
+          {
+            "name": "hid",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "hid": {
+                          "type": "integer"
+                        },
+                        "mid": {
+                          "type": "integer"
+                        },
+                        "member": {
+                          "type": "integer"
+                        },
+                        "score": {
+                          "type": "integer"
+                        },
+                        "level": {
+                          "type": "integer"
+                        },
+                        "first_pass": {
+                          "type": "integer"
+                        },
+                        "uname": {
+                          "type": "string"
+                        },
+                        "face": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "question_types": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "name": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "name"
+                            ]
+                          }
+                        },
+                        "power": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "score": {
+                                "type": "integer"
+                              },
+                              "name": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "score",
+                              "name"
+                            ]
+                          }
+                        },
+                        "start_time": {
+                          "type": "integer"
+                        },
+                        "share": {
+                          "type": "object",
+                          "properties": {
+                            "content": {
+                              "type": "string"
+                            },
+                            "short_content": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "content",
+                            "short_content"
+                          ]
+                        },
+                        "can_show_rank_btn": {
+                          "type": "boolean"
+                        },
+                        "is_same_user": {
+                          "type": "boolean"
+                        },
+                        "view_more": {
+                          "type": "string"
+                        },
+                        "video_info": {
+                          "type": "object",
+                          "properties": {
+                            "url": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "img": {
+                              "type": "string"
+                            },
+                            "watch_num": {
+                              "type": "string"
+                            },
+                            "up_num": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "url",
+                            "name",
+                            "img",
+                            "watch_num",
+                            "up_num"
+                          ]
+                        },
+                        "main_tids": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer"
+                          }
+                        },
+                        "sub_tids": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer"
+                          }
+                        },
+                        "power_result": {
+                          "type": "null"
+                        },
+                        "score_rate": {
+                          "type": "integer"
+                        },
+                        "permission": {
+                          "type": "object",
+                          "properties": {
+                            "reply": {
+                              "type": "boolean"
+                            },
+                            "color_dm": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "reply",
+                            "color_dm"
+                          ]
+                        },
+                        "rewards": {
+                          "type": "null"
+                        }
+                      },
+                      "required": [
+                        "hid",
+                        "mid",
+                        "member",
+                        "score",
+                        "level",
+                        "first_pass",
+                        "uname",
+                        "face",
+                        "status",
+                        "question_types",
+                        "power",
+                        "start_time",
+                        "share",
+                        "can_show_rank_btn",
+                        "is_same_user",
+                        "view_more",
+                        "video_info",
+                        "main_tids",
+                        "sub_tids",
+                        "power_result",
+                        "score_rate",
+                        "permission",
+                        "rewards"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "hid": 1581919810114514,
+                    "mid": 1,
+                    "member": 74114514,
+                    "score": 100,
+                    "level": 6,
+                    "first_pass": 1,
+                    "uname": "牛逼",
+                    "face": "https://i1.hdslb.com/bfs/face/1.jpg",
+                    "status": "upgrade",
+                    "question_types": [
+                      {
+                        "id": 26,
+                        "name": "数码科技"
+                      },
+                      {
+                        "id": 30,
+                        "name": "三次元音乐"
+                      },
+                      {
+                        "id": 16,
+                        "name": "电影"
+                      }
+                    ],
+                    "power": [
+                      {
+                        "score": 0,
+                        "name": "鬼畜"
+                      },
+                      {
+                        "score": 0,
+                        "name": "游戏"
+                      },
+                      {
+                        "score": 6,
+                        "name": "影视"
+                      },
+                      {
+                        "score": 7,
+                        "name": "科技"
+                      },
+                      {
+                        "score": 0,
+                        "name": "动画"
+                      },
+                      {
+                        "score": 9,
+                        "name": "艺术"
+                      }
+                    ],
+                    "start_time": 1500000004,
+                    "share": {
+                      "content": "",
+                      "short_content": ""
+                    },
+                    "can_show_rank_btn": false,
+                    "is_same_user": true,
+                    "view_more": "",
+                    "video_info": {
+                      "url": "",
+                      "name": "",
+                      "img": "",
+                      "watch_num": "",
+                      "up_num": ""
+                    },
+                    "main_tids": [
+                      3
+                    ],
+                    "sub_tids": [
+                      129,
+                      119
+                    ],
+                    "power_result": null,
+                    "score_rate": 99,
+                    "permission": {
+                      "reply": true,
+                      "color_dm": true
+                    },
+                    "rewards": null
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/answer/v4/base": {
+      "get": {
+        "summary": "拉取基础题",
+        "deprecated": false,
+        "description": "如需解密题数据，请按以下流程操作：\n\n1. base64解码\n2. AES解密：CBC模式，Key: 2b72cc3d14qwe5sc481a16e13f6a249c（UTF-8） IV: 1033567590123790（UTF-8）",
+        "tags": [
+          "转正答题"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "question": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "number": {
+                              "type": "integer"
+                            },
+                            "q_height": {
+                              "type": "number"
+                            },
+                            "q_coord_y": {
+                              "type": "integer"
+                            },
+                            "image": {
+                              "type": "string"
+                            },
+                            "from": {
+                              "type": "string"
+                            },
+                            "options": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "number": {
+                                    "type": "integer"
+                                  },
+                                  "high": {
+                                    "type": "integer"
+                                  },
+                                  "coord_y": {
+                                    "type": "number"
+                                  },
+                                  "hash": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "number",
+                                  "high",
+                                  "coord_y",
+                                  "hash"
+                                ]
+                              }
+                            },
+                            "type_id": {
+                              "type": "integer"
+                            },
+                            "type_name": {
+                              "type": "string"
+                            },
+                            "type_image": {
+                              "type": "string"
+                            },
+                            "question": {
+                              "type": "object",
+                              "properties": {
+                                "title": {
+                                  "type": "string"
+                                },
+                                "ans": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "key": {
+                                        "type": "string"
+                                      },
+                                      "title": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "key",
+                                      "title"
+                                    ]
+                                  }
+                                }
+                              },
+                              "required": [
+                                "title",
+                                "ans"
+                              ]
+                            },
+                            "decision_ctx": {
+                              "type": "object",
+                              "properties": {}
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "number",
+                            "q_height",
+                            "q_coord_y",
+                            "image",
+                            "from",
+                            "options",
+                            "type_id",
+                            "type_name",
+                            "type_image",
+                            "question",
+                            "decision_ctx"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "question"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/answer/v4/extra": {
+      "get": {
+        "summary": "拉取附加题",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "转正答题"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/answer/v4/pro": {
+      "get": {
+        "summary": "拉取自选题",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "转正答题"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/answer/v4/base/check": {
+      "post": {
+        "summary": "提交基础题",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "转正答题"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "question_id": {
+                    "example": "1423",
+                    "type": "string"
+                  },
+                  "ans_hash": {
+                    "example": "e1ce155d84daf54e445deb03553da879",
+                    "type": "string"
+                  },
+                  "csrf": {
+                    "example": "7476965f555292846afcf52686c75fca",
+                    "type": "string"
+                  }
+                }
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "passed": false,
+                    "is_right": false,
+                    "ans_right": "1f0cc1580b2fdf82bd8a345a4092403d"
+                  }
+                }
+              }
+            }
           }
         },
         "security": []
