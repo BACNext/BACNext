@@ -18,6 +18,8 @@ body:
         - 会员购
         - 直播
         - Passport
+        - APP
+        - 游戏
         - 其他/都不符合
       default: 0
     validations:
