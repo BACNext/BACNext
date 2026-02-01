@@ -4864,6 +4864,349 @@
         "security": []
       }
     },
+    "/x/polymer/web-dynamic/v1/detail": {
+      "get": {
+        "summary": "获取动态详情",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Polymer接口/网页动态"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "动态id",
+            "required": true,
+            "example": 1164087045252972500,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "timezone_offset",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": -480,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "platform",
+            "in": "query",
+            "description": "平台",
+            "required": false,
+            "example": "web",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "features",
+            "in": "query",
+            "description": "功能",
+            "required": true,
+            "example": "itemOpusStyle,opusBigCover,onlyfansVote,endFooterHidden,decorationCard,onlyfansAssetsV2,ugcDelete,onlyfansQaCard,commentsNewVersion",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "description": "需要一个看起来正常的ua",
+            "required": true,
+            "example": "Mozilla/5.0 (Macintosh; Intel Mac OS X 12_0_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number",
+                      "description": "0: 成功\n-352: 风控校验失败\n500: 服务器错误\n4101139: 4101139",
+                      "title": "响应码"
+                    },
+                    "message": {
+                      "type": "string",
+                      "title": "消息"
+                    },
+                    "ttl": {
+                      "type": "number"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "item": {
+                          "$ref": "#/components/schemas/DynamicDetail"
+                        }
+                      },
+                      "required": [
+                        "item"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "item": {
+                      "basic": {
+                        "comment_id_str": "383127023",
+                        "comment_type": 11,
+                        "jump_url": "//www.bilibili.com/opus/1164087045252972544",
+                        "like_icon": {
+                          "action_url": "",
+                          "end_url": "",
+                          "id": 0,
+                          "start_url": ""
+                        },
+                        "rid_str": "383127023"
+                      },
+                      "id_str": "1164087045252972544",
+                      "modules": {
+                        "module_author": {
+                          "avatar": {
+                            "container_size": {
+                              "height": 1.35,
+                              "width": 1.35
+                            },
+                            "fallback_layers": {
+                              "is_critical_group": true,
+                              "layers": [
+                                {
+                                  "general_spec": {
+                                    "pos_spec": {
+                                      "axis_x": 0.675,
+                                      "axis_y": 0.675,
+                                      "coordinate_pos": 2
+                                    },
+                                    "render_spec": {
+                                      "opacity": 1
+                                    },
+                                    "size_spec": {
+                                      "height": 1,
+                                      "width": 1
+                                    }
+                                  },
+                                  "layer_config": {
+                                    "is_critical": true,
+                                    "tags": {
+                                      "AVATAR_LAYER": {},
+                                      "GENERAL_CFG": {
+                                        "config_type": 1,
+                                        "general_config": {
+                                          "web_css_style": {
+                                            "borderRadius": "50%"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "resource": {
+                                    "res_image": {
+                                      "image_src": {
+                                        "placeholder": 6,
+                                        "remote": {
+                                          "bfs_style": "widget-layer-avatar",
+                                          "url": "https://i1.hdslb.com/bfs/face/1e17ed6e7c3fe0c46d9d0d22a85b169e6b4179ef.jpg"
+                                        },
+                                        "src_type": 1
+                                      }
+                                    },
+                                    "res_type": 3
+                                  },
+                                  "visible": true
+                                },
+                                {
+                                  "general_spec": {
+                                    "pos_spec": {
+                                      "axis_x": 0.8000000000000002,
+                                      "axis_y": 0.8000000000000002,
+                                      "coordinate_pos": 1
+                                    },
+                                    "render_spec": {
+                                      "opacity": 1
+                                    },
+                                    "size_spec": {
+                                      "height": 0.41666666666666663,
+                                      "width": 0.41666666666666663
+                                    }
+                                  },
+                                  "layer_config": {
+                                    "tags": {
+                                      "GENERAL_CFG": {
+                                        "config_type": 1,
+                                        "general_config": {
+                                          "web_css_style": {
+                                            "background-color": "rgb(255,255,255)",
+                                            "border": "2px solid rgba(255,255,255,1)",
+                                            "borderRadius": "50%",
+                                            "boxSizing": "border-box"
+                                          }
+                                        }
+                                      },
+                                      "ICON_LAYER": {}
+                                    }
+                                  },
+                                  "resource": {
+                                    "res_image": {
+                                      "image_src": {
+                                        "local": 3,
+                                        "src_type": 2
+                                      }
+                                    },
+                                    "res_type": 3
+                                  },
+                                  "visible": true
+                                }
+                              ]
+                            },
+                            "mid": "1344099355"
+                          },
+                          "decoration_card": {
+                            "big_card_url": "https://i0.hdslb.com/bfs/garb/dbd73096fa7403ebd7b22aee24e0b7a5f569ae35.png",
+                            "card_type": 2,
+                            "card_type_name": "免费",
+                            "card_url": "https://i0.hdslb.com/bfs/garb/dbd73096fa7403ebd7b22aee24e0b7a5f569ae35.png",
+                            "fan": {},
+                            "id": 1689315522001,
+                            "image_enhance": "https://i0.hdslb.com/bfs/garb/dbd73096fa7403ebd7b22aee24e0b7a5f569ae35.png",
+                            "item_id": 1689315522001,
+                            "jump_url": "https://www.bilibili.com/h5/mall/equity-link/collect-home?item_id=1689315522001&isdiy=0&part=card&from=post&f_source=garb&vmid=1344099355&native.theme=1&navhide=1",
+                            "name": "系统预警"
+                          },
+                          "face": "https://i1.hdslb.com/bfs/face/1e17ed6e7c3fe0c46d9d0d22a85b169e6b4179ef.jpg",
+                          "face_nft": false,
+                          "following": true,
+                          "jump_url": "//space.bilibili.com/1344099355/dynamic",
+                          "label": "",
+                          "mid": 1344099355,
+                          "name": "略nd",
+                          "official_verify": {
+                            "desc": "",
+                            "type": 0
+                          },
+                          "pendant": {
+                            "expire": 0,
+                            "image": "",
+                            "image_enhance": "",
+                            "image_enhance_frame": "",
+                            "n_pid": 0,
+                            "name": "",
+                            "pid": 0
+                          },
+                          "pub_action": "",
+                          "pub_location_text": "",
+                          "pub_time": "2026年01月31日 23:32",
+                          "pub_ts": 1769873536,
+                          "type": "AUTHOR_TYPE_NORMAL",
+                          "vip": {
+                            "avatar_subscript": 1,
+                            "avatar_subscript_url": "",
+                            "due_date": 1771516800000,
+                            "label": {
+                              "bg_color": "#FB7299",
+                              "bg_style": 1,
+                              "border_color": "",
+                              "img_label_uri_hans": "https://i0.hdslb.com/bfs/activity-plat/static/20220608/e369244d0b14644f5e1a06431e22a4d5/0DFy9BHgwE.gif",
+                              "img_label_uri_hans_static": "https://i0.hdslb.com/bfs/vip/8d7e624d13d3e134251e4174a7318c19a8edbd71.png",
+                              "img_label_uri_hant": "",
+                              "img_label_uri_hant_static": "https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/uckjAv3Npy.png",
+                              "label_theme": "annual_vip",
+                              "path": "http://i0.hdslb.com/bfs/vip/label_annual.png",
+                              "text": "年度大会员",
+                              "text_color": "#FFFFFF",
+                              "use_img_label": true
+                            },
+                            "nickname_color": "#FB7299",
+                            "status": 1,
+                            "theme_type": 0,
+                            "type": 2
+                          }
+                        },
+                        "module_dynamic": {
+                          "additional": null,
+                          "desc": null,
+                          "major": {
+                            "opus": {
+                              "fold_action": [
+                                "展开",
+                                "收起"
+                              ],
+                              "jump_url": "//www.bilibili.com/opus/1164087045252972544",
+                              "pics": [],
+                              "summary": {
+                                "rich_text_nodes": [
+                                  {
+                                    "orig_text": "(。•́︿•̀。)",
+                                    "text": "(。•́︿•̀。)",
+                                    "type": "RICH_TEXT_NODE_TYPE_TEXT"
+                                  }
+                                ],
+                                "text": "(。•́︿•̀。)"
+                              },
+                              "title": null
+                            },
+                            "type": "MAJOR_TYPE_OPUS"
+                          },
+                          "topic": null
+                        },
+                        "module_more": {
+                          "three_point_items": [
+                            {
+                              "label": "举报",
+                              "type": "THREE_POINT_REPORT"
+                            }
+                          ]
+                        },
+                        "module_stat": {
+                          "comment": {
+                            "count": 149,
+                            "forbidden": false
+                          },
+                          "forward": {
+                            "count": 2,
+                            "forbidden": false
+                          },
+                          "like": {
+                            "count": 1467,
+                            "forbidden": false,
+                            "status": false
+                          }
+                        }
+                      },
+                      "type": "DYNAMIC_TYPE_DRAW",
+                      "visible": true
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
     "/x/v1/contract/add_contract": {
       "post": {
         "summary": "加入老粉计划",
@@ -15524,6 +15867,805 @@
         "security": []
       }
     },
+    "/x/vip/privilege/my": {
+      "get": {
+        "summary": "权益记录",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "大会员"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "list": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "integer"
+                              },
+                              "state": {
+                                "type": "integer"
+                              },
+                              "expire_time": {
+                                "type": "integer"
+                              },
+                              "vip_type": {
+                                "type": "integer"
+                              },
+                              "next_receive_days": {
+                                "type": "integer"
+                              },
+                              "period_end_unix": {
+                                "type": "integer"
+                              },
+                              "is_count": {
+                                "type": "boolean"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "coupon_code": {
+                                "type": "string"
+                              },
+                              "app_describe": {
+                                "type": "string"
+                              },
+                              "recive_state": {
+                                "type": "integer"
+                              },
+                              "salary_type": {
+                                "type": "integer"
+                              },
+                              "exp_params": {
+                                "type": "object",
+                                "properties": {
+                                  "exp_group_tag": {
+                                    "type": "string"
+                                  },
+                                  "hit_value": {
+                                    "type": "integer"
+                                  }
+                                },
+                                "required": [
+                                  "exp_group_tag",
+                                  "hit_value"
+                                ]
+                              },
+                              "extra_params": {
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "is_allowe_receive": {
+                                    "type": "string"
+                                  },
+                                  "is_show": {
+                                    "type": "string"
+                                  },
+                                  "last_salary_time": {
+                                    "type": "string"
+                                  },
+                                  "now": {
+                                    "type": "string"
+                                  },
+                                  "comic_show_coupon_prop_info": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "comic_show_coupon_prop_info"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "state",
+                              "expire_time",
+                              "vip_type",
+                              "next_receive_days",
+                              "period_end_unix",
+                              "is_count",
+                              "name",
+                              "coupon_code",
+                              "app_describe",
+                              "recive_state",
+                              "salary_type",
+                              "exp_params",
+                              "extra_params"
+                            ]
+                          }
+                        },
+                        "is_short_vip": {
+                          "type": "boolean"
+                        },
+                        "is_freight_open": {
+                          "type": "boolean"
+                        },
+                        "level": {
+                          "type": "integer"
+                        },
+                        "cur_exp": {
+                          "type": "integer"
+                        },
+                        "next_exp": {
+                          "type": "integer"
+                        },
+                        "is_vip": {
+                          "type": "boolean"
+                        },
+                        "is_senior_member": {
+                          "type": "integer"
+                        },
+                        "format060102": {
+                          "type": "integer"
+                        },
+                        "is_overdue_vip": {
+                          "type": "boolean"
+                        },
+                        "vip_status": {
+                          "type": "integer"
+                        },
+                        "vip_type": {
+                          "type": "integer"
+                        },
+                        "keeptime_end": {
+                          "type": "integer"
+                        },
+                        "vip_due_date": {
+                          "type": "integer"
+                        },
+                        "vip_is_annual": {
+                          "type": "boolean"
+                        },
+                        "vip_is_month": {
+                          "type": "boolean"
+                        },
+                        "vip_is_new_user": {
+                          "type": "boolean"
+                        },
+                        "bind_phone": {
+                          "type": "string"
+                        },
+                        "taobao_account": {
+                          "type": "null"
+                        },
+                        "is_tv_vip": {
+                          "type": "boolean"
+                        },
+                        "keeptime_start": {
+                          "type": "integer"
+                        },
+                        "comic_show_coupon": {
+                          "type": "object",
+                          "properties": {
+                            "hide": {
+                              "type": "boolean"
+                            },
+                            "state": {
+                              "type": "integer"
+                            },
+                            "count": {
+                              "type": "integer"
+                            },
+                            "title": {
+                              "type": "string"
+                            },
+                            "sub_title": {
+                              "type": "string"
+                            },
+                            "coupons": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "amount": {
+                                    "type": "integer"
+                                  },
+                                  "payment_threshold": {
+                                    "type": "string"
+                                  },
+                                  "title": {
+                                    "type": "string"
+                                  },
+                                  "sub_title": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "amount",
+                                  "payment_threshold",
+                                  "title",
+                                  "sub_title"
+                                ]
+                              }
+                            },
+                            "promotion_rules": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "hide_v2": {
+                              "type": "boolean"
+                            },
+                            "expire_tip": {
+                              "type": "string"
+                            },
+                            "expire_time": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "hide",
+                            "state",
+                            "count",
+                            "title",
+                            "sub_title",
+                            "coupons",
+                            "promotion_rules",
+                            "hide_v2",
+                            "expire_tip",
+                            "expire_time"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "list",
+                        "is_short_vip",
+                        "is_freight_open",
+                        "level",
+                        "cur_exp",
+                        "next_exp",
+                        "is_vip",
+                        "is_senior_member",
+                        "format060102",
+                        "is_overdue_vip",
+                        "vip_status",
+                        "vip_type",
+                        "keeptime_end",
+                        "vip_due_date",
+                        "vip_is_annual",
+                        "vip_is_month",
+                        "vip_is_new_user",
+                        "bind_phone",
+                        "taobao_account",
+                        "is_tv_vip",
+                        "keeptime_start",
+                        "comic_show_coupon"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "list": [
+                      {
+                        "type": 1,
+                        "state": 1,
+                        "expire_time": 1770739200,
+                        "vip_type": 2,
+                        "next_receive_days": 10,
+                        "period_end_unix": 1770739200,
+                        "is_count": true,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 2,
+                        "salary_type": 0,
+                        "exp_params": {
+                          "exp_group_tag": "45476",
+                          "hit_value": 2
+                        },
+                        "extra_params": null
+                      },
+                      {
+                        "type": 2,
+                        "state": 1,
+                        "expire_time": 0,
+                        "vip_type": 2,
+                        "next_receive_days": 10,
+                        "period_end_unix": 1770739200,
+                        "is_count": true,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 2,
+                        "salary_type": 0,
+                        "exp_params": {
+                          "exp_group_tag": "",
+                          "hit_value": 0
+                        },
+                        "extra_params": null
+                      },
+                      {
+                        "type": 3,
+                        "state": 1,
+                        "expire_time": 0,
+                        "vip_type": 2,
+                        "next_receive_days": 10,
+                        "period_end_unix": 1770739200,
+                        "is_count": true,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 2,
+                        "salary_type": 0,
+                        "exp_params": {
+                          "exp_group_tag": "",
+                          "hit_value": 0
+                        },
+                        "extra_params": null
+                      },
+                      {
+                        "type": 4,
+                        "state": 1,
+                        "expire_time": 0,
+                        "vip_type": 2,
+                        "next_receive_days": 10,
+                        "period_end_unix": 1770739200,
+                        "is_count": true,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 2,
+                        "salary_type": 0,
+                        "exp_params": {
+                          "exp_group_tag": "",
+                          "hit_value": 0
+                        },
+                        "extra_params": null
+                      },
+                      {
+                        "type": 5,
+                        "state": 1,
+                        "expire_time": 0,
+                        "vip_type": 2,
+                        "next_receive_days": 10,
+                        "period_end_unix": 1770739200,
+                        "is_count": true,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 2,
+                        "salary_type": 0,
+                        "exp_params": {
+                          "exp_group_tag": "",
+                          "hit_value": 0
+                        },
+                        "extra_params": null
+                      },
+                      {
+                        "type": 6,
+                        "state": 1,
+                        "expire_time": 0,
+                        "vip_type": 2,
+                        "next_receive_days": 10,
+                        "period_end_unix": 1770739200,
+                        "is_count": true,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 2,
+                        "salary_type": 0,
+                        "exp_params": {
+                          "exp_group_tag": "",
+                          "hit_value": 0
+                        },
+                        "extra_params": null
+                      },
+                      {
+                        "type": 7,
+                        "state": 1,
+                        "expire_time": 0,
+                        "vip_type": 2,
+                        "next_receive_days": 10,
+                        "period_end_unix": 1770739200,
+                        "is_count": true,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 2,
+                        "salary_type": 0,
+                        "exp_params": {
+                          "exp_group_tag": "",
+                          "hit_value": 0
+                        },
+                        "extra_params": null
+                      },
+                      {
+                        "type": 14,
+                        "state": 0,
+                        "expire_time": 0,
+                        "vip_type": 2,
+                        "next_receive_days": 10,
+                        "period_end_unix": 1770739200,
+                        "is_count": true,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 1,
+                        "salary_type": 0,
+                        "exp_params": {
+                          "exp_group_tag": "45476",
+                          "hit_value": 2
+                        },
+                        "extra_params": null
+                      },
+                      {
+                        "type": 16,
+                        "state": 0,
+                        "expire_time": 0,
+                        "vip_type": 2,
+                        "next_receive_days": 10,
+                        "period_end_unix": 1770739200,
+                        "is_count": true,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 1,
+                        "salary_type": 0,
+                        "exp_params": {
+                          "exp_group_tag": "",
+                          "hit_value": 0
+                        },
+                        "extra_params": null
+                      },
+                      {
+                        "type": 17,
+                        "state": 0,
+                        "expire_time": 0,
+                        "vip_type": 2,
+                        "next_receive_days": 10,
+                        "period_end_unix": 1770739200,
+                        "is_count": true,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 1,
+                        "salary_type": 0,
+                        "exp_params": {
+                          "exp_group_tag": "",
+                          "hit_value": 0
+                        },
+                        "extra_params": null
+                      },
+                      {
+                        "type": 18,
+                        "state": 0,
+                        "expire_time": 0,
+                        "vip_type": 2,
+                        "next_receive_days": 0,
+                        "period_end_unix": 0,
+                        "is_count": true,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 1,
+                        "salary_type": 1,
+                        "exp_params": {
+                          "exp_group_tag": "",
+                          "hit_value": 0
+                        },
+                        "extra_params": null
+                      },
+                      {
+                        "type": 19,
+                        "state": 0,
+                        "expire_time": 0,
+                        "vip_type": 2,
+                        "next_receive_days": 0,
+                        "period_end_unix": 0,
+                        "is_count": false,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 1,
+                        "salary_type": 1,
+                        "exp_params": {
+                          "exp_group_tag": "",
+                          "hit_value": 0
+                        },
+                        "extra_params": {
+                          "is_allowe_receive": "true",
+                          "is_show": "true",
+                          "last_salary_time": "0",
+                          "now": "1769960112"
+                        }
+                      },
+                      {
+                        "type": 20,
+                        "state": 0,
+                        "expire_time": 0,
+                        "vip_type": 2,
+                        "next_receive_days": 0,
+                        "period_end_unix": 0,
+                        "is_count": false,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 1,
+                        "salary_type": 1,
+                        "exp_params": {
+                          "exp_group_tag": "",
+                          "hit_value": 0
+                        },
+                        "extra_params": {
+                          "is_allowe_receive": "false",
+                          "is_show": "false",
+                          "last_salary_time": "0",
+                          "now": "1769960112"
+                        }
+                      },
+                      {
+                        "type": 21,
+                        "state": 0,
+                        "expire_time": 0,
+                        "vip_type": 2,
+                        "next_receive_days": 0,
+                        "period_end_unix": 0,
+                        "is_count": false,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 1,
+                        "salary_type": 1,
+                        "exp_params": {
+                          "exp_group_tag": "",
+                          "hit_value": 0
+                        },
+                        "extra_params": {
+                          "is_allowe_receive": "true",
+                          "is_show": "false",
+                          "last_salary_time": "0",
+                          "now": "1769960112"
+                        }
+                      },
+                      {
+                        "type": 8,
+                        "state": 1,
+                        "expire_time": 1769961600,
+                        "vip_type": 2,
+                        "next_receive_days": 1,
+                        "period_end_unix": 1769961600,
+                        "is_count": true,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 2,
+                        "salary_type": 1,
+                        "exp_params": {
+                          "exp_group_tag": "",
+                          "hit_value": 0
+                        },
+                        "extra_params": null
+                      },
+                      {
+                        "type": 9,
+                        "state": 0,
+                        "expire_time": 1769961600,
+                        "vip_type": 2,
+                        "next_receive_days": 1,
+                        "period_end_unix": 1769961600,
+                        "is_count": false,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 1,
+                        "salary_type": 0,
+                        "exp_params": {
+                          "exp_group_tag": "",
+                          "hit_value": 0
+                        },
+                        "extra_params": null
+                      },
+                      {
+                        "type": 22,
+                        "state": 1,
+                        "expire_time": 1769961600,
+                        "vip_type": 2,
+                        "next_receive_days": 1,
+                        "period_end_unix": 1769961600,
+                        "is_count": true,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 2,
+                        "salary_type": 1,
+                        "exp_params": {
+                          "exp_group_tag": "",
+                          "hit_value": 0
+                        },
+                        "extra_params": null
+                      },
+                      {
+                        "type": 24,
+                        "state": 0,
+                        "expire_time": 0,
+                        "vip_type": 2,
+                        "next_receive_days": 10,
+                        "period_end_unix": 1770739200,
+                        "is_count": true,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 1,
+                        "salary_type": 0,
+                        "exp_params": {
+                          "exp_group_tag": "",
+                          "hit_value": 0
+                        },
+                        "extra_params": null
+                      },
+                      {
+                        "type": 25,
+                        "state": 0,
+                        "expire_time": 0,
+                        "vip_type": 2,
+                        "next_receive_days": 10,
+                        "period_end_unix": 1770739200,
+                        "is_count": true,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 1,
+                        "salary_type": 0,
+                        "exp_params": {
+                          "exp_group_tag": "",
+                          "hit_value": 0
+                        },
+                        "extra_params": null
+                      },
+                      {
+                        "type": 26,
+                        "state": 0,
+                        "expire_time": 0,
+                        "vip_type": 2,
+                        "next_receive_days": 10,
+                        "period_end_unix": 1770739200,
+                        "is_count": true,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 1,
+                        "salary_type": 1,
+                        "exp_params": {
+                          "exp_group_tag": "",
+                          "hit_value": 0
+                        },
+                        "extra_params": {
+                          "comic_show_coupon_prop_info": "{\"prop_id\":239690779,\"prop_name\":\"26 漫展-大会员专属票务优惠券立减2元\",\"start_time\":\"2025-12-29 14:22:42\",\"end_time\":\"2026-12-31 23:59:59\",\"prop_type\":\"ASSET_COUPON\",\"leftStock\":36763,\"totalStock\":150000,\"prop_param\":{\"description\":\"立减\",\"discountAmount\":\"2\",\"kind\":\"BUSINESS\",\"params\":\"s_11e63386f904121a925a;2e44d2dab7becbad9e71\",\"promotionRule\":\"立减2元\",\"title\":\"大会员专享票务优惠券\",\"type\":\"ASSET_COUPON\",\"validPeriod\":\"领取后15天内可用\",\"validPeriodHour\":\"360\"},\"person_limit\":20}"
+                        }
+                      },
+                      {
+                        "type": 27,
+                        "state": 0,
+                        "expire_time": 0,
+                        "vip_type": 2,
+                        "next_receive_days": 10,
+                        "period_end_unix": 1770739200,
+                        "is_count": true,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 1,
+                        "salary_type": 1,
+                        "exp_params": {
+                          "exp_group_tag": "",
+                          "hit_value": 0
+                        },
+                        "extra_params": {
+                          "comic_show_coupon_prop_info": "{\"prop_id\":1101713184,\"prop_name\":\"26 漫展-大会员专属票务优惠券120减5元\",\"start_time\":\"2025-12-29 14:19:25\",\"end_time\":\"2026-12-31 23:59:59\",\"prop_type\":\"ASSET_COUPON\",\"leftStock\":36770,\"totalStock\":150000,\"prop_param\":{\"description\":\"满120可用\",\"discountAmount\":\"5\",\"kind\":\"BUSINESS\",\"minimumAmount\":\"120\",\"params\":\"s_11e63386f904121a925a;691c7c397f5b93b580ff\",\"promotionRule\":\"满120减5\",\"title\":\"大会员专享票务优惠券\",\"type\":\"ASSET_COUPON\",\"validPeriod\":\"领取后15天内可用\",\"validPeriodHour\":\"360\"},\"person_limit\":20}"
+                        }
+                      },
+                      {
+                        "type": 28,
+                        "state": 1,
+                        "expire_time": 1769961600,
+                        "vip_type": 2,
+                        "next_receive_days": 1,
+                        "period_end_unix": 1769961600,
+                        "is_count": true,
+                        "name": "",
+                        "coupon_code": "",
+                        "app_describe": "",
+                        "recive_state": 2,
+                        "salary_type": 1,
+                        "exp_params": {
+                          "exp_group_tag": "",
+                          "hit_value": 0
+                        },
+                        "extra_params": null
+                      }
+                    ],
+                    "is_short_vip": false,
+                    "is_freight_open": true,
+                    "level": 6,
+                    "cur_exp": 37788,
+                    "next_exp": -1,
+                    "is_vip": true,
+                    "is_senior_member": 1,
+                    "format060102": 260111,
+                    "is_overdue_vip": false,
+                    "vip_status": 1,
+                    "vip_type": 2,
+                    "keeptime_end": 1770739200,
+                    "vip_due_date": 1931702400,
+                    "vip_is_annual": true,
+                    "vip_is_month": false,
+                    "vip_is_new_user": false,
+                    "bind_phone": "189****8316",
+                    "taobao_account": null,
+                    "is_tv_vip": false,
+                    "keeptime_start": 1768060800,
+                    "comic_show_coupon": {
+                      "hide": false,
+                      "state": 0,
+                      "count": 2,
+                      "title": "大会员专属票务优惠券",
+                      "sub_title": "立减2元 | 满120减5",
+                      "coupons": [
+                        {
+                          "amount": 200,
+                          "payment_threshold": "立减",
+                          "title": "大会员专享票务优惠券",
+                          "sub_title": "领取后15天内可用"
+                        },
+                        {
+                          "amount": 500,
+                          "payment_threshold": "满120可用",
+                          "title": "大会员专享票务优惠券",
+                          "sub_title": "领取后15天内可用"
+                        }
+                      ],
+                      "promotion_rules": [
+                        "立减2元",
+                        "满120减5"
+                      ],
+                      "hide_v2": false,
+                      "expire_tip": "",
+                      "expire_time": 0
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
     "/x/safecenter/login_notice": {
       "get": {
         "summary": "查询登录记录",
@@ -15617,7 +16759,1187 @@
   },
   "webhooks": {},
   "components": {
-    "schemas": {},
+    "schemas": {
+      "DynamicDetail": {
+        "type": "object",
+        "properties": {
+          "basic": {
+            "type": "object",
+            "properties": {
+              "comment_id_str": {
+                "type": "string"
+              },
+              "comment_type": {
+                "type": "integer"
+              },
+              "jump_url": {
+                "type": "string"
+              },
+              "like_icon": {
+                "type": "object",
+                "properties": {
+                  "action_url": {
+                    "type": "string"
+                  },
+                  "end_url": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "start_url": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "action_url",
+                  "end_url",
+                  "id",
+                  "start_url"
+                ]
+              },
+              "rid_str": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "comment_id_str",
+              "comment_type",
+              "jump_url",
+              "like_icon",
+              "rid_str"
+            ]
+          },
+          "id_str": {
+            "type": "string"
+          },
+          "modules": {
+            "type": "object",
+            "properties": {
+              "module_author": {
+                "type": "object",
+                "properties": {
+                  "avatar": {
+                    "type": "object",
+                    "properties": {
+                      "container_size": {
+                        "type": "object",
+                        "properties": {
+                          "height": {
+                            "type": "number"
+                          },
+                          "width": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "height",
+                          "width"
+                        ]
+                      },
+                      "fallback_layers": {
+                        "type": "object",
+                        "properties": {
+                          "is_critical_group": {
+                            "type": "boolean"
+                          },
+                          "layers": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "general_spec": {
+                                  "type": "object",
+                                  "properties": {
+                                    "pos_spec": {
+                                      "type": "object",
+                                      "properties": {
+                                        "axis_x": {
+                                          "type": "number"
+                                        },
+                                        "axis_y": {
+                                          "type": "number"
+                                        },
+                                        "coordinate_pos": {
+                                          "type": "integer"
+                                        }
+                                      },
+                                      "required": [
+                                        "axis_x",
+                                        "axis_y",
+                                        "coordinate_pos"
+                                      ]
+                                    },
+                                    "render_spec": {
+                                      "type": "object",
+                                      "properties": {
+                                        "opacity": {
+                                          "type": "integer"
+                                        }
+                                      },
+                                      "required": [
+                                        "opacity"
+                                      ]
+                                    },
+                                    "size_spec": {
+                                      "type": "object",
+                                      "properties": {
+                                        "height": {
+                                          "type": [
+                                            "integer",
+                                            "number"
+                                          ]
+                                        },
+                                        "width": {
+                                          "type": [
+                                            "integer",
+                                            "number"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "height",
+                                        "width"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "pos_spec",
+                                    "render_spec",
+                                    "size_spec"
+                                  ]
+                                },
+                                "layer_config": {
+                                  "type": "object",
+                                  "properties": {
+                                    "is_critical": {
+                                      "type": "boolean"
+                                    },
+                                    "tags": {
+                                      "type": "object",
+                                      "properties": {
+                                        "AVATAR_LAYER": {
+                                          "type": "object",
+                                          "properties": {}
+                                        },
+                                        "GENERAL_CFG": {
+                                          "type": "object",
+                                          "properties": {
+                                            "config_type": {
+                                              "type": "integer"
+                                            },
+                                            "general_config": {
+                                              "type": "object",
+                                              "properties": {
+                                                "web_css_style": {
+                                                  "type": "object",
+                                                  "properties": {}
+                                                }
+                                              },
+                                              "required": [
+                                                "web_css_style"
+                                              ]
+                                            }
+                                          },
+                                          "required": [
+                                            "config_type",
+                                            "general_config"
+                                          ]
+                                        },
+                                        "ICON_LAYER": {
+                                          "type": "object",
+                                          "properties": {}
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "required": [
+                                    "tags"
+                                  ]
+                                },
+                                "resource": {
+                                  "type": "object",
+                                  "properties": {
+                                    "res_image": {
+                                      "type": "object",
+                                      "properties": {
+                                        "image_src": {
+                                          "type": "object",
+                                          "properties": {
+                                            "placeholder": {
+                                              "type": "integer"
+                                            },
+                                            "remote": {
+                                              "type": "object",
+                                              "properties": {
+                                                "bfs_style": {
+                                                  "type": "string"
+                                                },
+                                                "url": {
+                                                  "type": "string"
+                                                }
+                                              },
+                                              "required": [
+                                                "bfs_style",
+                                                "url"
+                                              ]
+                                            },
+                                            "src_type": {
+                                              "type": "integer"
+                                            },
+                                            "local": {
+                                              "type": "integer"
+                                            }
+                                          },
+                                          "required": [
+                                            "src_type"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "image_src"
+                                      ]
+                                    },
+                                    "res_type": {
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "required": [
+                                    "res_image",
+                                    "res_type"
+                                  ]
+                                },
+                                "visible": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "general_spec",
+                                "layer_config",
+                                "resource",
+                                "visible"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "is_critical_group",
+                          "layers"
+                        ]
+                      },
+                      "mid": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "container_size",
+                      "fallback_layers",
+                      "mid"
+                    ]
+                  },
+                  "decoration_card": {
+                    "type": "object",
+                    "properties": {
+                      "big_card_url": {
+                        "type": "string"
+                      },
+                      "card_type": {
+                        "type": "integer"
+                      },
+                      "card_type_name": {
+                        "type": "string"
+                      },
+                      "card_url": {
+                        "type": "string"
+                      },
+                      "fan": {
+                        "type": "object",
+                        "properties": {}
+                      },
+                      "id": {
+                        "type": "integer"
+                      },
+                      "image_enhance": {
+                        "type": "string"
+                      },
+                      "item_id": {
+                        "type": "integer"
+                      },
+                      "jump_url": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "big_card_url",
+                      "card_type",
+                      "card_type_name",
+                      "card_url",
+                      "fan",
+                      "id",
+                      "image_enhance",
+                      "item_id",
+                      "jump_url",
+                      "name"
+                    ]
+                  },
+                  "face": {
+                    "type": "string"
+                  },
+                  "face_nft": {
+                    "type": "boolean"
+                  },
+                  "following": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "jump_url": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "mid": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "official_verify": {
+                    "type": "object",
+                    "properties": {
+                      "desc": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "desc",
+                      "type"
+                    ]
+                  },
+                  "pendant": {
+                    "type": "object",
+                    "properties": {
+                      "expire": {
+                        "type": "integer"
+                      },
+                      "image": {
+                        "type": "string"
+                      },
+                      "image_enhance": {
+                        "type": "string"
+                      },
+                      "image_enhance_frame": {
+                        "type": "string"
+                      },
+                      "n_pid": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "pid": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "expire",
+                      "image",
+                      "image_enhance",
+                      "image_enhance_frame",
+                      "n_pid",
+                      "name",
+                      "pid"
+                    ]
+                  },
+                  "pub_action": {
+                    "type": "string"
+                  },
+                  "pub_location_text": {
+                    "type": "string"
+                  },
+                  "pub_time": {
+                    "type": "string"
+                  },
+                  "pub_ts": {
+                    "type": "integer"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "vip": {
+                    "type": "object",
+                    "properties": {
+                      "avatar_subscript": {
+                        "type": "integer"
+                      },
+                      "avatar_subscript_url": {
+                        "type": "string"
+                      },
+                      "due_date": {
+                        "type": "integer"
+                      },
+                      "label": {
+                        "type": "object",
+                        "properties": {
+                          "bg_color": {
+                            "type": "string"
+                          },
+                          "bg_style": {
+                            "type": "integer"
+                          },
+                          "border_color": {
+                            "type": "string"
+                          },
+                          "img_label_uri_hans": {
+                            "type": "string"
+                          },
+                          "img_label_uri_hans_static": {
+                            "type": "string"
+                          },
+                          "img_label_uri_hant": {
+                            "type": "string"
+                          },
+                          "img_label_uri_hant_static": {
+                            "type": "string"
+                          },
+                          "label_theme": {
+                            "type": "string"
+                          },
+                          "path": {
+                            "type": "string"
+                          },
+                          "text": {
+                            "type": "string"
+                          },
+                          "text_color": {
+                            "type": "string"
+                          },
+                          "use_img_label": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "bg_color",
+                          "bg_style",
+                          "border_color",
+                          "img_label_uri_hans",
+                          "img_label_uri_hans_static",
+                          "img_label_uri_hant",
+                          "img_label_uri_hant_static",
+                          "label_theme",
+                          "path",
+                          "text",
+                          "text_color",
+                          "use_img_label"
+                        ]
+                      },
+                      "nickname_color": {
+                        "type": "string"
+                      },
+                      "status": {
+                        "type": "integer"
+                      },
+                      "theme_type": {
+                        "type": "integer"
+                      },
+                      "type": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "avatar_subscript",
+                      "avatar_subscript_url",
+                      "due_date",
+                      "label",
+                      "nickname_color",
+                      "status",
+                      "theme_type",
+                      "type"
+                    ]
+                  }
+                },
+                "required": [
+                  "avatar",
+                  "decoration_card",
+                  "face",
+                  "face_nft",
+                  "following",
+                  "jump_url",
+                  "label",
+                  "mid",
+                  "name",
+                  "official_verify",
+                  "pendant",
+                  "pub_action",
+                  "pub_location_text",
+                  "pub_time",
+                  "pub_ts",
+                  "type",
+                  "vip"
+                ]
+              },
+              "module_dynamic": {
+                "type": "object",
+                "properties": {
+                  "additional": {
+                    "type": "null"
+                  },
+                  "desc": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/RichTextNodes"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "major": {
+                    "type": "object",
+                    "properties": {
+                      "opus": {
+                        "type": "object",
+                        "properties": {
+                          "fold_action": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "jump_url": {
+                            "type": "string"
+                          },
+                          "pics": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "summary": {
+                            "type": "object",
+                            "properties": {
+                              "rich_text_nodes": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "orig_text": {
+                                      "type": "string"
+                                    },
+                                    "text": {
+                                      "type": "string"
+                                    },
+                                    "type": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              },
+                              "text": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "rich_text_nodes",
+                              "text"
+                            ]
+                          },
+                          "title": {
+                            "type": "null"
+                          }
+                        },
+                        "required": [
+                          "fold_action",
+                          "jump_url",
+                          "pics",
+                          "summary",
+                          "title"
+                        ]
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "description": "当`type.DYNAMIC_TYPE_FORWARD`时，此处为空",
+                    "required": [
+                      "opus",
+                      "type"
+                    ]
+                  },
+                  "topic": {
+                    "type": "null"
+                  }
+                },
+                "required": [
+                  "additional",
+                  "desc",
+                  "topic"
+                ]
+              },
+              "module_more": {
+                "type": "object",
+                "properties": {
+                  "three_point_items": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "label": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "three_point_items"
+                ]
+              },
+              "module_stat": {
+                "type": "object",
+                "properties": {
+                  "comment": {
+                    "type": "object",
+                    "properties": {
+                      "count": {
+                        "type": "integer"
+                      },
+                      "forbidden": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "count",
+                      "forbidden"
+                    ]
+                  },
+                  "forward": {
+                    "type": "object",
+                    "properties": {
+                      "count": {
+                        "type": "integer"
+                      },
+                      "forbidden": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "count",
+                      "forbidden"
+                    ]
+                  },
+                  "like": {
+                    "type": "object",
+                    "properties": {
+                      "count": {
+                        "type": "integer"
+                      },
+                      "forbidden": {
+                        "type": "boolean"
+                      },
+                      "status": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "count",
+                      "forbidden",
+                      "status"
+                    ]
+                  }
+                },
+                "required": [
+                  "comment",
+                  "forward",
+                  "like"
+                ]
+              }
+            },
+            "required": [
+              "module_author",
+              "module_dynamic",
+              "module_more",
+              "module_stat"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "DYNAMIC_TYPE_NONE",
+              "DYNAMIC_TYPE_FORWARD",
+              "DYNAMIC_TYPE_AV",
+              "DYNAMIC_TYPE_PGC",
+              "DYNAMIC_TYPE_COURSES",
+              "DYNAMIC_TYPE_WORD",
+              "DYNAMIC_TYPE_DRAW",
+              "DYNAMIC_TYPE_ARTICLE",
+              "DYNAMIC_TYPE_MUSIC",
+              "DYNAMIC_TYPE_COMMON_SQUARE",
+              "DYNAMIC_TYPE_COMMON_VERTICAL",
+              "DYNAMIC_TYPE_LIVE",
+              "DYNAMIC_TYPE_MEDIALIST",
+              "DYNAMIC_TYPE_COURSES_SEASON",
+              "DYNAMIC_TYPE_COURSES_BATCH",
+              "DYNAMIC_TYPE_AD",
+              "DYNAMIC_TYPE_APPLET",
+              "DYNAMIC_TYPE_SUBSCRIPTION",
+              "DYNAMIC_TYPE_LIVE_RCMD",
+              "DYNAMIC_TYPE_BANNER",
+              "DYNAMIC_TYPE_UGC_SEASON",
+              "DYNAMIC_TYPE_SUBSCRIPTION_NEW"
+            ]
+          },
+          "visible": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "basic",
+          "id_str",
+          "modules",
+          "type",
+          "visible"
+        ]
+      },
+      "RichTextNodes": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "RICH_TEXT_NODE_TYPE_NONE",
+                "RICH_TEXT_NODE_TYPE_TEXT",
+                "RICH_TEXT_NODE_TYPE_AT",
+                "RICH_TEXT_NODE_TYPE_LOTTERY",
+                "RICH_TEXT_NODE_TYPE_VOTE",
+                "RICH_TEXT_NODE_TYPE_TOPIC",
+                "RICH_TEXT_NODE_TYPE_GOODS",
+                "RICH_TEXT_NODE_TYPE_BV",
+                "RICH_TEXT_NODE_TYPE_AV",
+                "RICH_TEXT_NODE_TYPE_EMOJI",
+                "RICH_TEXT_NODE_TYPE_CV",
+                "RICH_TEXT_NODE_TYPE_VIEW_PICTURE",
+                "RICH_TEXT_NODE_TYPE_WEB",
+                "RICH_TEXT_NODE_TYPE_TAOBAO",
+                "RICH_TEXT_NODE_TYPE_MAIL",
+                "RICH_TEXT_NODE_TYPE_OGV_SEASON",
+                "RICH_TEXT_NODE_TYPE_OGV_EP"
+              ]
+            },
+            "orig_text": {
+              "type": "string",
+              "description": "原始文本"
+            },
+            "text": {
+              "type": "string",
+              "description": "显示文本"
+            }
+          },
+          "title": "RichTextNode",
+          "description": "富文本节点列表",
+          "required": [
+            "type",
+            "orig_text",
+            "text"
+          ],
+          "oneOf": [
+            {
+              "description": "NONE：未知节点，无字段要求。",
+              "properties": {
+                "type": {
+                  "const": "RICH_TEXT_NODE_TYPE_NONE"
+                }
+              },
+              "type": "object"
+            },
+            {
+              "description": "TEXT：文字节点。",
+              "properties": {
+                "type": {
+                  "const": "RICH_TEXT_NODE_TYPE_TEXT"
+                }
+              },
+              "type": "object"
+            },
+            {
+              "description": "AT：@用户节点。",
+              "properties": {
+                "type": {
+                  "const": "RICH_TEXT_NODE_TYPE_AT"
+                },
+                "rid": {
+                  "type": "string",
+                  "description": "用户 mid (UID)"
+                }
+              },
+              "required": [
+                "rid"
+              ],
+              "type": "object"
+            },
+            {
+              "description": "LOTTERY：互动抽奖。",
+              "properties": {
+                "type": {
+                  "const": "RICH_TEXT_NODE_TYPE_LOTTERY"
+                },
+                "rid": {
+                  "type": "string",
+                  "description": "抽奖 id"
+                }
+              },
+              "required": [
+                "rid"
+              ],
+              "type": "object"
+            },
+            {
+              "description": "VOTE：投票。",
+              "properties": {
+                "type": {
+                  "const": "RICH_TEXT_NODE_TYPE_VOTE"
+                },
+                "rid": {
+                  "type": "string",
+                  "description": "投票 id"
+                }
+              },
+              "required": [
+                "rid"
+              ],
+              "type": "object"
+            },
+            {
+              "description": "TOPIC：话题。",
+              "properties": {
+                "type": {
+                  "const": "RICH_TEXT_NODE_TYPE_TOPIC"
+                },
+                "jump_url": {
+                  "type": "string",
+                  "description": "跳转url"
+                }
+              },
+              "required": [
+                "jump_url"
+              ],
+              "type": "object"
+            },
+            {
+              "description": "GOODS：商品链接。",
+              "properties": {
+                "type": {
+                  "const": "RICH_TEXT_NODE_TYPE_GOODS"
+                },
+                "goods": {
+                  "type": "object",
+                  "description": "商品信息",
+                  "properties": {
+                    "jump_url": {
+                      "type": "string",
+                      "description": "跳转url"
+                    },
+                    "type": {
+                      "type": "number",
+                      "const": 1
+                    }
+                  },
+                  "required": [
+                    "jump_url",
+                    "type"
+                  ]
+                },
+                "icon_name": {
+                  "type": "string",
+                  "description": "图标名称(shop taobao)"
+                },
+                "jump_url": {
+                  "type": "string",
+                  "description": "跳转url"
+                },
+                "rid": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "goods",
+                "jump_url",
+                "rid"
+              ],
+              "type": "object"
+            },
+            {
+              "description": "BV：视频链接（BV号）。",
+              "properties": {
+                "type": {
+                  "const": "RICH_TEXT_NODE_TYPE_BV"
+                },
+                "jump_url": {
+                  "type": "string",
+                  "description": "跳转url"
+                },
+                "rid": {
+                  "type": "string",
+                  "description": "视频bvid"
+                }
+              },
+              "required": [
+                "jump_url",
+                "rid"
+              ],
+              "type": "object"
+            },
+            {
+              "description": "AV：视频链接（AV号）",
+              "properties": {
+                "type": {
+                  "const": "RICH_TEXT_NODE_TYPE_AV"
+                },
+                "jump_url": {
+                  "type": "string",
+                  "description": "跳转url"
+                },
+                "rid": {
+                  "type": "string",
+                  "description": "视频bvid"
+                }
+              },
+              "required": [
+                "jump_url",
+                "rid"
+              ],
+              "type": "object"
+            },
+            {
+              "description": "EMOJI：表情节点。",
+              "properties": {
+                "type": {
+                  "const": "RICH_TEXT_NODE_TYPE_EMOJI"
+                },
+                "emoji": {
+                  "type": "object",
+                  "description": "表情信息",
+                  "properties": {
+                    "icon_url": {
+                      "type": "string",
+                      "description": "表情信息url"
+                    },
+                    "size": {
+                      "type": "number",
+                      "description": "表情尺寸(1,small;2,middle)"
+                    },
+                    "text": {
+                      "type": "string",
+                      "description": "表情的文字代码"
+                    },
+                    "type": {
+                      "type": "number",
+                      "description": "表情类型(1,2,3)"
+                    }
+                  },
+                  "required": [
+                    "icon_url",
+                    "size",
+                    "text",
+                    "type"
+                  ]
+                }
+              },
+              "required": [
+                "emoji"
+              ],
+              "type": "object"
+            },
+            {
+              "description": "CV：专栏链接。",
+              "properties": {
+                "type": {
+                  "const": "RICH_TEXT_NODE_TYPE_CV"
+                },
+                "jump_url": {
+                  "type": "string",
+                  "description": "跳转url(无协议头)"
+                },
+                "rid": {
+                  "type": "string",
+                  "description": "专栏cv号"
+                }
+              },
+              "required": [
+                "jump_url",
+                "rid"
+              ],
+              "type": "object"
+            },
+            {
+              "description": "VIEW_PICTURE：查看图片。",
+              "properties": {
+                "type": {
+                  "const": "RICH_TEXT_NODE_TYPE_VIEW_PICTURE"
+                },
+                "jump_url": {
+                  "type": "string"
+                },
+                "rid": {
+                  "type": "string",
+                  "description": "本条动态id"
+                },
+                "pics": {
+                  "type": "array",
+                  "description": "图片信息",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "height": {
+                        "type": "number",
+                        "description": "高度"
+                      },
+                      "width": {
+                        "type": "number",
+                        "description": "宽度"
+                      },
+                      "size": {
+                        "type": "number",
+                        "description": "大小(单位K)"
+                      },
+                      "src": {
+                        "type": "string",
+                        "description": "图片链接"
+                      }
+                    },
+                    "required": [
+                      "height",
+                      "width",
+                      "size",
+                      "src"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "jump_url",
+                "rid",
+                "pics"
+              ],
+              "type": "object"
+            },
+            {
+              "description": "WEB：网页链接。",
+              "properties": {
+                "type": {
+                  "const": "RICH_TEXT_NODE_TYPE_WEB"
+                },
+                "jump_url": {
+                  "type": "string",
+                  "description": "跳转url"
+                },
+                "style": {
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "description": "样式信息",
+                  "properties": {
+                    "font_level": {
+                      "type": "string",
+                      "description": "字体等级(regular)"
+                    },
+                    "font_size": {
+                      "type": "number",
+                      "description": "字体大小(17)"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "jump_url"
+              ],
+              "type": "object"
+            },
+            {
+              "description": "TAOBAO：淘宝链接",
+              "properties": {
+                "type": {
+                  "const": "RICH_TEXT_NODE_TYPE_TAOBAO"
+                },
+                "jump_url": {
+                  "type": "string",
+                  "description": "跳转url"
+                }
+              },
+              "required": [
+                "jump_url"
+              ],
+              "type": "object"
+            },
+            {
+              "description": "MAIL：邮箱地址。",
+              "properties": {
+                "type": {
+                  "const": "RICH_TEXT_NODE_TYPE_MAIL"
+                }
+              },
+              "type": "object"
+            },
+            {
+              "description": "OGV_SEASON：剧集（季）链接",
+              "properties": {
+                "type": {
+                  "const": "RICH_TEXT_NODE_TYPE_OGV_SEASON"
+                },
+                "jump_url": {
+                  "type": "string",
+                  "description": "跳转url"
+                },
+                "rid": {
+                  "type": "string",
+                  "description": "视频bvid"
+                }
+              },
+              "required": [
+                "jump_url",
+                "rid"
+              ],
+              "type": "object"
+            },
+            {
+              "description": "OGV_EP：剧集（分集）链接",
+              "properties": {
+                "type": {
+                  "const": "RICH_TEXT_NODE_TYPE_OGV_EP"
+                },
+                "jump_url": {
+                  "type": "string",
+                  "description": "跳转url"
+                },
+                "rid": {
+                  "type": "string",
+                  "description": "视频bvid"
+                }
+              },
+              "required": [
+                "jump_url",
+                "rid"
+              ],
+              "type": "object"
+            }
+          ]
+        }
+      }
+    },
     "responses": {},
     "securitySchemes": {}
   },
