@@ -58,6 +58,9 @@
       "name": "PCG/活动"
     },
     {
+      "name": "Web 展示"
+    },
+    {
       "name": "Wbi"
     },
     {
@@ -4443,6 +4446,243 @@
                       "message": "OK",
                       "ttl": 1,
                       "data": 10
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/web-interface/zone": {
+      "get": {
+        "summary": "IP属地",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Web 界面"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "addr": "124.xx.xxx.xxx",
+                    "country": "中国",
+                    "province": "上海",
+                    "isp": "电信",
+                    "latitude": 31,
+                    "longitude": 121,
+                    "zone_id": 4308992,
+                    "country_code": 86
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/web-interface/online": {
+      "get": {
+        "summary": "各分区当日投稿稿件数",
+        "deprecated": false,
+        "description": "| 字段 | 类型 | 内容                      | \n| ---- | ---- | ------------------------- |\n| 1    | num  | 当日投稿稿件数-动画（主分区）   |\n| 13   | num  | 当日投稿稿件数-番剧（主分区）   |\n| 167  | num  | 当日投稿稿件数-国创（主分区）   |\n| 3    | num  | 当日投稿稿件数-音乐（主分区）   |\n| 129  | num  | 当日投稿稿件数-舞蹈（主分区）   |\n| 4    | num  | 当日投稿稿件数-游戏（主分区）   |\n| 17   | num  | 当日投稿稿件数-单机游戏         |\n| 36   | num  | 当日投稿稿件数-知识（主分区）   |\n| 188  | num  | 当日投稿稿件数-数码（主分区）   |\n| 160  | num  | 当日投稿稿件数-生活（主分区）   |\n| 138  | num  | 当日投稿稿件数-搞笑             |\n| 76   | num  | 当日投稿稿件数-美食圈           |\n| 75   | num  | 当日投稿稿件数-动物圈           |\n| 119  | num  | 当日投稿稿件数-鬼畜（主分区）   |\n| 155  | num  | 当日投稿稿件数-时尚（主分区）   |\n| 202  | num  | 当日投稿稿件数-资讯（主分区）   |\n| 165  | num  | 当日投稿稿件数-广告（主分区）   |\n| 5    | num  | 当日投稿稿件数-娱乐（主分区）   |\n| 181  | num  | 当日投稿稿件数-影视（主分区）   |\n| 177  | num  | 当日投稿稿件数-纪录片（主分区） |\n| 23   | num  | 当日投稿稿件数-电影（主分区）   |\n| 11   | num  | 当日投稿稿件数-电视剧（主分区） |",
+        "tags": [
+          "Web 界面"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "region_count": {
+                          "type": "object",
+                          "properties": {
+                            "1": {
+                              "type": "integer"
+                            },
+                            "3": {
+                              "type": "integer"
+                            },
+                            "4": {
+                              "type": "integer"
+                            },
+                            "5": {
+                              "type": "integer"
+                            },
+                            "11": {
+                              "type": "integer"
+                            },
+                            "13": {
+                              "type": "integer"
+                            },
+                            "17": {
+                              "type": "integer"
+                            },
+                            "23": {
+                              "type": "integer"
+                            },
+                            "36": {
+                              "type": "integer"
+                            },
+                            "75": {
+                              "type": "integer"
+                            },
+                            "76": {
+                              "type": "integer"
+                            },
+                            "119": {
+                              "type": "integer"
+                            },
+                            "129": {
+                              "type": "integer"
+                            },
+                            "138": {
+                              "type": "integer"
+                            },
+                            "155": {
+                              "type": "integer"
+                            },
+                            "160": {
+                              "type": "integer"
+                            },
+                            "165": {
+                              "type": "integer"
+                            },
+                            "167": {
+                              "type": "integer"
+                            },
+                            "177": {
+                              "type": "integer"
+                            },
+                            "181": {
+                              "type": "integer"
+                            },
+                            "188": {
+                              "type": "integer"
+                            },
+                            "202": {
+                              "type": "integer"
+                            },
+                            "211": {
+                              "type": "integer"
+                            },
+                            "217": {
+                              "type": "integer"
+                            },
+                            "223": {
+                              "type": "integer"
+                            },
+                            "234": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "1",
+                            "3",
+                            "4",
+                            "5",
+                            "11",
+                            "13",
+                            "17",
+                            "23",
+                            "36",
+                            "75",
+                            "76",
+                            "119",
+                            "129",
+                            "138",
+                            "155",
+                            "160",
+                            "165",
+                            "167",
+                            "177",
+                            "181",
+                            "188",
+                            "202",
+                            "211",
+                            "217",
+                            "223",
+                            "234"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "region_count"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "region_count": {
+                      "1": 1783,
+                      "3": 1948,
+                      "4": 9898,
+                      "5": 2723,
+                      "11": 0,
+                      "13": 27,
+                      "17": 1870,
+                      "23": 0,
+                      "36": 1501,
+                      "75": 8,
+                      "76": 37,
+                      "119": 34,
+                      "129": 525,
+                      "138": 397,
+                      "155": 478,
+                      "160": 17373,
+                      "165": 0,
+                      "167": 544,
+                      "177": 1,
+                      "181": 1594,
+                      "188": 1659,
+                      "202": 3,
+                      "211": 410,
+                      "217": 307,
+                      "223": 252,
+                      "234": 799
                     }
                   }
                 }
@@ -19210,8 +19450,52 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "device",
+            "in": "cookie",
+            "description": "",
+            "required": false,
+            "example": "phone",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Referer",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "https://www.bilibili.com",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "device": {
+                    "example": "phone",
+                    "type": "string"
+                  },
+                  "csrf": {
+                    "example": "7476965f555292846afcf52686c75fca",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "csrf"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "",
@@ -19219,7 +19503,64 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {}
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "integer"
+                        },
+                        "is_grant": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "is_grant"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "type": 1,
+                        "is_grant": true
+                      }
+                    }
+                  },
+                  "2": {
+                    "summary": "用户经验已经领取",
+                    "value": {
+                      "code": 69198,
+                      "message": "用户经验已经领取",
+                      "ttl": 1,
+                      "data": {
+                        "type": 0,
+                        "is_grant": false
+                      }
+                    }
+                  }
                 }
               }
             },
@@ -20994,6 +21335,43 @@
                     "vipStatus": 1
                   },
                   "message": "success"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/web-show/page/header": {
+      "get": {
+        "summary": "获取首页头图",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Web 展示"
+        ],
+        "parameters": [
+          {
+            "name": "resource_id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": "142",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
                 }
               }
             },
