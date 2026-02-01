@@ -1,0 +1,49 @@
+name: API 请求
+description: 请求新增/更新API
+title: "[API]: "
+assignees:
+  - BACNext-Contributor
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢您对本项目的支持，请填写以下表单，我们会尽快处理。
+  - type: dropdown
+    id: module
+    attributes:
+      label: 模块
+      description: 您需要新增/更新的 API 位于 B站 哪个模块？如果不确定或都不符合请选择其他
+      options:
+        - 主站
+        - 会员购
+        - 直播
+        - Passport
+        - 其他/都不符合
+      default: 0
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: 业务名称
+      description: 您需要新增/更新的 API 属于什么业务？
+      placeholder: ex. 大会员
+    validations:
+      required: true
+  - type: textarea
+    id: content
+    attributes:
+      label: 详细说明
+      description: 请详细说明您需要新增/更新的 API，或给出 API 路径。
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: 页面链接
+      description: 如果可能，请提供该业务的入口链接，手机端通过分享形式复制链接（最好不使用b23短链）
+  - type: textarea
+    id: info
+    attributes:
+      label: 已知信息
+      description: 如果有已知的其他信息，请在这里给出
