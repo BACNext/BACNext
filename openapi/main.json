@@ -21942,6 +21942,839 @@
         "security": []
       }
     },
+    "/x/activity/page/list": {
+      "get": {
+        "summary": "活动页列表",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "活动"
+        ],
+        "parameters": [
+          {
+            "name": "plat",
+            "in": "query",
+            "description": "可为1,2,3逗号隔开，3无活动",
+            "required": false,
+            "example": "1,2,3",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ps",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pn",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "list": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "state": {
+                                "type": "integer"
+                              },
+                              "stime": {
+                                "type": "integer"
+                              },
+                              "etime": {
+                                "type": "integer"
+                              },
+                              "ctime": {
+                                "type": "integer"
+                              },
+                              "mtime": {
+                                "type": "integer"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "author": {
+                                "type": "string"
+                              },
+                              "pc_url": {
+                                "type": "string"
+                              },
+                              "rank": {
+                                "type": "integer"
+                              },
+                              "h5_url": {
+                                "type": "string"
+                              },
+                              "pc_cover": {
+                                "type": "string"
+                              },
+                              "h5_cover": {
+                                "type": "string"
+                              },
+                              "page_name": {
+                                "type": "string"
+                              },
+                              "plat": {
+                                "type": "integer"
+                              },
+                              "desc": {
+                                "type": "string"
+                              },
+                              "click": {
+                                "type": "integer"
+                              },
+                              "type": {
+                                "type": "integer"
+                              },
+                              "mold": {
+                                "type": "integer"
+                              },
+                              "series": {
+                                "type": "integer"
+                              },
+                              "dept": {
+                                "type": "integer"
+                              },
+                              "reply_id": {
+                                "type": "integer"
+                              },
+                              "tp_id": {
+                                "type": "integer"
+                              },
+                              "ptime": {
+                                "type": "integer"
+                              },
+                              "catalog": {
+                                "type": "integer"
+                              },
+                              "creator": {
+                                "type": "string"
+                              },
+                              "spm_id": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "state",
+                              "stime",
+                              "etime",
+                              "ctime",
+                              "mtime",
+                              "name",
+                              "author",
+                              "pc_url",
+                              "rank",
+                              "h5_url",
+                              "pc_cover",
+                              "h5_cover",
+                              "page_name",
+                              "plat",
+                              "desc",
+                              "click",
+                              "type",
+                              "mold",
+                              "series",
+                              "dept",
+                              "reply_id",
+                              "tp_id",
+                              "ptime",
+                              "catalog",
+                              "creator",
+                              "spm_id"
+                            ]
+                          }
+                        },
+                        "num": {
+                          "type": "integer"
+                        },
+                        "size": {
+                          "type": "integer"
+                        },
+                        "total": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "list",
+                        "num",
+                        "size",
+                        "total"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "list": [
+                      {
+                        "id": 1398,
+                        "state": 1,
+                        "stime": 1748966400,
+                        "etime": 1783007999,
+                        "ctime": 0,
+                        "mtime": 0,
+                        "name": "无畏契约赛事激励企划10.0",
+                        "author": "",
+                        "pc_url": "",
+                        "rank": 0,
+                        "h5_url": "https://www.bilibili.com/blackboard/era/PPhbrbqavXfVpspU.html",
+                        "pc_cover": "",
+                        "h5_cover": "https://i0.hdslb.com/bfs/activity-plat/static/d41d8cd98f00b204e9800998ecf8427e/WXF7kp19Ev.jpg",
+                        "page_name": "无畏契约赛事激励企划10.0",
+                        "plat": 2,
+                        "desc": "",
+                        "click": 0,
+                        "type": 0,
+                        "mold": 0,
+                        "series": 0,
+                        "dept": 0,
+                        "reply_id": 0,
+                        "tp_id": 0,
+                        "ptime": 0,
+                        "catalog": 0,
+                        "creator": "",
+                        "spm_id": ""
+                      },
+                      {
+                        "id": 1383,
+                        "state": 1,
+                        "stime": 1748880000,
+                        "etime": 1751299199,
+                        "ctime": 0,
+                        "mtime": 0,
+                        "name": "二次元副本大作战3.0",
+                        "author": "",
+                        "pc_url": "",
+                        "rank": 0,
+                        "h5_url": "https://www.bilibili.com/blackboard/era/KCRTqOK0h87tB6fP.html",
+                        "pc_cover": "",
+                        "h5_cover": "https://i0.hdslb.com/bfs/activity-plat/static/d41d8cd98f00b204e9800998ecf8427e/EWhCdepoEK.png",
+                        "page_name": "二次元副本大作战3.0",
+                        "plat": 2,
+                        "desc": "",
+                        "click": 0,
+                        "type": 0,
+                        "mold": 0,
+                        "series": 0,
+                        "dept": 0,
+                        "reply_id": 0,
+                        "tp_id": 0,
+                        "ptime": 0,
+                        "catalog": 0,
+                        "creator": "",
+                        "spm_id": ""
+                      },
+                      {
+                        "id": 1382,
+                        "state": 1,
+                        "stime": 1748880000,
+                        "etime": 1751299199,
+                        "ctime": 0,
+                        "mtime": 0,
+                        "name": "二次元副本大作战3.0",
+                        "author": "",
+                        "pc_url": "",
+                        "rank": 0,
+                        "h5_url": "https://www.bilibili.com/blackboard/era/ITKaQOJ0muLIMDgo.html",
+                        "pc_cover": "",
+                        "h5_cover": "https://i0.hdslb.com/bfs/activity-plat/static/d41d8cd98f00b204e9800998ecf8427e/uZrxbsYYUw.png",
+                        "page_name": "二次元副本大作战3.0",
+                        "plat": 2,
+                        "desc": "",
+                        "click": 0,
+                        "type": 0,
+                        "mold": 0,
+                        "series": 0,
+                        "dept": 0,
+                        "reply_id": 0,
+                        "tp_id": 0,
+                        "ptime": 0,
+                        "catalog": 0,
+                        "creator": "",
+                        "spm_id": ""
+                      },
+                      {
+                        "id": 1390,
+                        "state": 1,
+                        "stime": 1748750400,
+                        "etime": 1751299199,
+                        "ctime": 0,
+                        "mtime": 0,
+                        "name": "漫威争锋S2下半赛季创作激励",
+                        "author": "",
+                        "pc_url": "",
+                        "rank": 0,
+                        "h5_url": "https://www.bilibili.com/blackboard/era/MgCG8R3UsMuaocC8.html",
+                        "pc_cover": "",
+                        "h5_cover": "https://i0.hdslb.com/bfs/activity-plat/static/d41d8cd98f00b204e9800998ecf8427e/i9i9mrHZhW.png",
+                        "page_name": "漫威争锋S2下半赛季创作激励",
+                        "plat": 2,
+                        "desc": "",
+                        "click": 0,
+                        "type": 0,
+                        "mold": 0,
+                        "series": 0,
+                        "dept": 0,
+                        "reply_id": 0,
+                        "tp_id": 0,
+                        "ptime": 0,
+                        "catalog": 0,
+                        "creator": "",
+                        "spm_id": ""
+                      },
+                      {
+                        "id": 1394,
+                        "state": 1,
+                        "stime": 1748707200,
+                        "etime": 1751299199,
+                        "ctime": 0,
+                        "mtime": 0,
+                        "name": "轻舞蹈创作激励计划-毕业季",
+                        "author": "",
+                        "pc_url": "",
+                        "rank": 0,
+                        "h5_url": "https://www.bilibili.com/blackboard/era/Uj1RQMuaNAnoARIM.html",
+                        "pc_cover": "",
+                        "h5_cover": "https://i0.hdslb.com/bfs/activity-plat/static/d41d8cd98f00b204e9800998ecf8427e/8cqLY6D3Tn.jpg",
+                        "page_name": "轻舞蹈创作激励计划-毕业季",
+                        "plat": 2,
+                        "desc": "",
+                        "click": 0,
+                        "type": 0,
+                        "mold": 0,
+                        "series": 0,
+                        "dept": 0,
+                        "reply_id": 0,
+                        "tp_id": 0,
+                        "ptime": 0,
+                        "catalog": 0,
+                        "creator": "",
+                        "spm_id": ""
+                      },
+                      {
+                        "id": 1374,
+                        "state": 1,
+                        "stime": 1748588400,
+                        "etime": 1751299200,
+                        "ctime": 0,
+                        "mtime": 0,
+                        "name": "哔哩哔哩公益X美丽中国支教老师招募",
+                        "author": "",
+                        "pc_url": "",
+                        "rank": 0,
+                        "h5_url": "https://www.bilibili.com/blackboard/era/p8VntCMCRXFXWAL7.html",
+                        "pc_cover": "",
+                        "h5_cover": "https://i0.hdslb.com/bfs/activity-plat/static/d41d8cd98f00b204e9800998ecf8427e/NMHiq3iQwh.jpg",
+                        "page_name": "哔哩哔哩公益X美丽中国支教老师招募",
+                        "plat": 2,
+                        "desc": "",
+                        "click": 0,
+                        "type": 0,
+                        "mold": 0,
+                        "series": 0,
+                        "dept": 0,
+                        "reply_id": 0,
+                        "tp_id": 0,
+                        "ptime": 0,
+                        "catalog": 0,
+                        "creator": "",
+                        "spm_id": ""
+                      },
+                      {
+                        "id": 1372,
+                        "state": 1,
+                        "stime": 1748577600,
+                        "etime": 1750953599,
+                        "ctime": 0,
+                        "mtime": 0,
+                        "name": "逆水寒手游权威版激励计划",
+                        "author": "",
+                        "pc_url": "",
+                        "rank": 0,
+                        "h5_url": "https://www.bilibili.com/blackboard/era/VTNHuT5jWfQakQlx.html",
+                        "pc_cover": "",
+                        "h5_cover": "https://i0.hdslb.com/bfs/activity-plat/static/d41d8cd98f00b204e9800998ecf8427e/WANW0IhBAK.jpg",
+                        "page_name": "逆水寒手游权威版激励计划",
+                        "plat": 2,
+                        "desc": "",
+                        "click": 0,
+                        "type": 0,
+                        "mold": 0,
+                        "series": 0,
+                        "dept": 0,
+                        "reply_id": 0,
+                        "tp_id": 0,
+                        "ptime": 0,
+                        "catalog": 0,
+                        "creator": "",
+                        "spm_id": ""
+                      },
+                      {
+                        "id": 1360,
+                        "state": 1,
+                        "stime": 1748570400,
+                        "etime": 1751299199,
+                        "ctime": 0,
+                        "mtime": 0,
+                        "name": "七日世界6月激励计划",
+                        "author": "",
+                        "pc_url": "",
+                        "rank": 0,
+                        "h5_url": "https://www.bilibili.com/blackboard/era/5421yyVDpljnPcns.html",
+                        "pc_cover": "",
+                        "h5_cover": "https://i0.hdslb.com/bfs/activity-plat/static/d41d8cd98f00b204e9800998ecf8427e/uJznPxkzzP.jpg",
+                        "page_name": "七日世界6月激励计划",
+                        "plat": 2,
+                        "desc": "",
+                        "click": 0,
+                        "type": 0,
+                        "mold": 0,
+                        "series": 0,
+                        "dept": 0,
+                        "reply_id": 0,
+                        "tp_id": 0,
+                        "ptime": 0,
+                        "catalog": 0,
+                        "creator": "",
+                        "spm_id": ""
+                      },
+                      {
+                        "id": 1371,
+                        "state": 1,
+                        "stime": 1748534400,
+                        "etime": 2066572800,
+                        "ctime": 0,
+                        "mtime": 0,
+                        "name": "三谋×知识区创作者激励计划",
+                        "author": "",
+                        "pc_url": "",
+                        "rank": 0,
+                        "h5_url": "https://www.bilibili.com/blackboard/era/OZgur8LT1WNkKcwy.html",
+                        "pc_cover": "",
+                        "h5_cover": "https://i0.hdslb.com/bfs/activity-plat/static/d41d8cd98f00b204e9800998ecf8427e/ZBbrmxDyJi.png",
+                        "page_name": "三谋×知识区创作者激励计划",
+                        "plat": 2,
+                        "desc": "",
+                        "click": 0,
+                        "type": 0,
+                        "mold": 0,
+                        "series": 0,
+                        "dept": 0,
+                        "reply_id": 0,
+                        "tp_id": 0,
+                        "ptime": 0,
+                        "catalog": 0,
+                        "creator": "",
+                        "spm_id": ""
+                      },
+                      {
+                        "id": 1368,
+                        "state": 1,
+                        "stime": 1748534400,
+                        "etime": 2066572800,
+                        "ctime": 0,
+                        "mtime": 0,
+                        "name": "三谋×时尚区创作者激励计划",
+                        "author": "",
+                        "pc_url": "",
+                        "rank": 0,
+                        "h5_url": "https://www.bilibili.com/blackboard/era/k42Ljtff2RSnA6sA.html",
+                        "pc_cover": "",
+                        "h5_cover": "https://i0.hdslb.com/bfs/activity-plat/static/d41d8cd98f00b204e9800998ecf8427e/pXfZ79sbFC.png",
+                        "page_name": "三谋×时尚区创作者激励计划",
+                        "plat": 2,
+                        "desc": "",
+                        "click": 0,
+                        "type": 0,
+                        "mold": 0,
+                        "series": 0,
+                        "dept": 0,
+                        "reply_id": 0,
+                        "tp_id": 0,
+                        "ptime": 0,
+                        "catalog": 0,
+                        "creator": "",
+                        "spm_id": ""
+                      },
+                      {
+                        "id": 1367,
+                        "state": 1,
+                        "stime": 1748534400,
+                        "etime": 2066572800,
+                        "ctime": 0,
+                        "mtime": 0,
+                        "name": "三谋×鬼畜区创作者激励计划",
+                        "author": "",
+                        "pc_url": "",
+                        "rank": 0,
+                        "h5_url": "https://www.bilibili.com/blackboard/era/5x5VV7tTu02xoWkT.html",
+                        "pc_cover": "",
+                        "h5_cover": "https://i0.hdslb.com/bfs/activity-plat/static/d41d8cd98f00b204e9800998ecf8427e/ai59AaebzV.png",
+                        "page_name": "三谋×鬼畜区创作者激励计划",
+                        "plat": 2,
+                        "desc": "",
+                        "click": 0,
+                        "type": 0,
+                        "mold": 0,
+                        "series": 0,
+                        "dept": 0,
+                        "reply_id": 0,
+                        "tp_id": 0,
+                        "ptime": 0,
+                        "catalog": 0,
+                        "creator": "",
+                        "spm_id": ""
+                      },
+                      {
+                        "id": 1363,
+                        "state": 1,
+                        "stime": 1748534400,
+                        "etime": 2066572800,
+                        "ctime": 0,
+                        "mtime": 0,
+                        "name": "三谋周年庆创作者激励计划",
+                        "author": "",
+                        "pc_url": "",
+                        "rank": 0,
+                        "h5_url": "https://www.bilibili.com/blackboard/era/dwtOuDmeSSsqyv2R.html",
+                        "pc_cover": "",
+                        "h5_cover": "https://i0.hdslb.com/bfs/activity-plat/static/d41d8cd98f00b204e9800998ecf8427e/wgweTXRF7H.png",
+                        "page_name": "三谋周年庆创作者激励计划",
+                        "plat": 2,
+                        "desc": "",
+                        "click": 0,
+                        "type": 0,
+                        "mold": 0,
+                        "series": 0,
+                        "dept": 0,
+                        "reply_id": 0,
+                        "tp_id": 0,
+                        "ptime": 0,
+                        "catalog": 0,
+                        "creator": "",
+                        "spm_id": ""
+                      },
+                      {
+                        "id": 1359,
+                        "state": 1,
+                        "stime": 1748491200,
+                        "etime": 1750867199,
+                        "ctime": 0,
+                        "mtime": 0,
+                        "name": "《银与绯》绯月之下创作激励计划",
+                        "author": "",
+                        "pc_url": "",
+                        "rank": 0,
+                        "h5_url": "https://www.bilibili.com/blackboard/era/kOaHyLPqxirD6lcs.html",
+                        "pc_cover": "",
+                        "h5_cover": "https://i0.hdslb.com/bfs/activity-plat/static/d41d8cd98f00b204e9800998ecf8427e/cDAI2U4MuB.jpg",
+                        "page_name": "《银与绯》绯月之下创作激励计划",
+                        "plat": 2,
+                        "desc": "",
+                        "click": 0,
+                        "type": 0,
+                        "mold": 0,
+                        "series": 0,
+                        "dept": 0,
+                        "reply_id": 0,
+                        "tp_id": 0,
+                        "ptime": 0,
+                        "catalog": 0,
+                        "creator": "",
+                        "spm_id": ""
+                      },
+                      {
+                        "id": 1356,
+                        "state": 1,
+                        "stime": 1748448000,
+                        "etime": 1752163199,
+                        "ctime": 0,
+                        "mtime": 0,
+                        "name": "尘白禁区-2.8版本激励计划",
+                        "author": "",
+                        "pc_url": "",
+                        "rank": 0,
+                        "h5_url": "https://www.bilibili.com/blackboard/era/D7qJQR7FSseNFaH2.html",
+                        "pc_cover": "",
+                        "h5_cover": "https://i0.hdslb.com/bfs/activity-plat/static/d41d8cd98f00b204e9800998ecf8427e/HsyMe3IpL2.jpg",
+                        "page_name": "尘白禁区-2.8版本激励计划",
+                        "plat": 2,
+                        "desc": "",
+                        "click": 0,
+                        "type": 0,
+                        "mold": 0,
+                        "series": 0,
+                        "dept": 0,
+                        "reply_id": 0,
+                        "tp_id": 0,
+                        "ptime": 0,
+                        "catalog": 0,
+                        "creator": "",
+                        "spm_id": ""
+                      },
+                      {
+                        "id": 1354,
+                        "state": 1,
+                        "stime": 1748448000,
+                        "etime": 1753286399,
+                        "ctime": 0,
+                        "mtime": 0,
+                        "name": "鬼畜星探企划第二十二期",
+                        "author": "",
+                        "pc_url": "",
+                        "rank": 0,
+                        "h5_url": "https://www.bilibili.com/blackboard/era/gXIRSlaeqGqMkSQk.html",
+                        "pc_cover": "",
+                        "h5_cover": "https://i0.hdslb.com/bfs/activity-plat/static/d41d8cd98f00b204e9800998ecf8427e/aEJ5OrMV2J.jpg",
+                        "page_name": "鬼畜星探企划第二十二期",
+                        "plat": 2,
+                        "desc": "",
+                        "click": 0,
+                        "type": 0,
+                        "mold": 0,
+                        "series": 0,
+                        "dept": 0,
+                        "reply_id": 0,
+                        "tp_id": 0,
+                        "ptime": 0,
+                        "catalog": 0,
+                        "creator": "",
+                        "spm_id": ""
+                      }
+                    ],
+                    "num": 1,
+                    "size": 15,
+                    "total": 5986
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/activity/subject/info": {
+      "get": {
+        "summary": "活动主体信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "活动"
+        ],
+        "parameters": [
+          {
+            "name": "sid",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": "4017552",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "bvid",
+            "in": "query",
+            "description": "来源视频id",
+            "required": false,
+            "example": "BV1mKY4e8ELy",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "oid": {
+                          "type": "integer"
+                        },
+                        "type": {
+                          "type": "integer"
+                        },
+                        "state": {
+                          "type": "integer"
+                        },
+                        "stime": {
+                          "type": "integer"
+                        },
+                        "etime": {
+                          "type": "integer"
+                        },
+                        "ctime": {
+                          "type": "integer"
+                        },
+                        "mtime": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "act_url": {
+                          "type": "string"
+                        },
+                        "lstime": {
+                          "type": "integer"
+                        },
+                        "letime": {
+                          "type": "integer"
+                        },
+                        "cover": {
+                          "type": "string"
+                        },
+                        "dic": {
+                          "type": "string"
+                        },
+                        "h5_cover": {
+                          "type": "string"
+                        },
+                        "android_url": {
+                          "type": "string"
+                        },
+                        "ios_url": {
+                          "type": "string"
+                        },
+                        "child_sids": {
+                          "type": "string"
+                        },
+                        "calendar": {
+                          "type": "string"
+                        },
+                        "lid": {
+                          "type": "integer",
+                          "description": "bvid传入时存在"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "oid",
+                        "type",
+                        "state",
+                        "stime",
+                        "etime",
+                        "ctime",
+                        "mtime",
+                        "name",
+                        "act_url",
+                        "lstime",
+                        "letime",
+                        "cover",
+                        "dic",
+                        "h5_cover",
+                        "android_url",
+                        "ios_url",
+                        "child_sids",
+                        "calendar"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "id": 4017552,
+                    "oid": 0,
+                    "type": 13,
+                    "state": 1,
+                    "stime": 1720540800,
+                    "etime": 1728575999,
+                    "ctime": 1720439769,
+                    "mtime": 1724644931,
+                    "name": "科技猎手2024第2季",
+                    "act_url": "https://www.bilibili.com/blackboard/era/kejilieshou2PC.html",
+                    "lstime": 1720540800,
+                    "letime": 1728575999,
+                    "cover": "https://i0.hdslb.com/bfs/activity-plat/static/98bc38873cc71e154019070975cd20a0/fLOEOStVUV.jpg",
+                    "dic": "科技猎手召集中！投稿赢奖金>>",
+                    "h5_cover": "https://i0.hdslb.com/bfs/activity-plat/static/98bc38873cc71e154019070975cd20a0/PTIFsXkV0o.jpg",
+                    "android_url": "https://www.bilibili.com/blackboard/era/kejilieshou2H5.html",
+                    "ios_url": "https://www.bilibili.com/blackboard/era/kejilieshou2H5.html",
+                    "child_sids": "",
+                    "calendar": "",
+                    "lid": 294258214
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
     "/x/answer/v4/status": {
       "get": {
         "summary": "查询答题状态",
@@ -22851,7 +23684,7 @@
                     "type": "string"
                   },
                   "ans_hash": {
-                    "example": "e1ce155d84daf54e445deb03553da879",
+                    "example": "1f0cc1580b2fdf82bd8a345a4092403d",
                     "type": "string"
                   },
                   "csrf": {
@@ -22874,15 +23707,352 @@
                   "type": "object",
                   "properties": {}
                 },
-                "example": {
-                  "code": 0,
-                  "message": "0",
-                  "ttl": 1,
-                  "data": {
-                    "passed": false,
-                    "is_right": false,
-                    "ans_right": "1f0cc1580b2fdf82bd8a345a4092403d"
+                "examples": {
+                  "1": {
+                    "summary": "成功",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "passed": false,
+                        "is_right": false,
+                        "ans_right": "1f0cc1580b2fdf82bd8a345a4092403d"
+                      }
+                    }
+                  },
+                  "2": {
+                    "summary": "题目重复",
+                    "value": {
+                      "code": 41032,
+                      "message": "题目重复，请刷新或退出重试",
+                      "ttl": 1,
+                      "data": null
+                    }
                   }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/answer/v4/extra/check": {
+      "post": {
+        "summary": "提交附加题",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "转正答题"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "question_id": {
+                    "example": "1423",
+                    "type": "string"
+                  },
+                  "ans_hash": {
+                    "example": "1f0cc1580b2fdf82bd8a345a4092403d",
+                    "type": "string"
+                  },
+                  "csrf": {
+                    "example": "7476965f555292846afcf52686c75fca",
+                    "type": "string"
+                  }
+                }
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "passed": false,
+                        "is_right": false,
+                        "ans_right": "1f0cc1580b2fdf82bd8a345a4092403d"
+                      }
+                    }
+                  },
+                  "2": {
+                    "summary": "题目重复",
+                    "value": {
+                      "code": 41032,
+                      "message": "题目重复，请刷新或退出重试",
+                      "ttl": 1,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/answer/v4/pro/check": {
+      "post": {
+        "summary": "提交自选题",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "转正答题"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "question_id": {
+                    "example": "1423",
+                    "type": "string"
+                  },
+                  "ans_hash": {
+                    "example": "1f0cc1580b2fdf82bd8a345a4092403d",
+                    "type": "string"
+                  },
+                  "csrf": {
+                    "example": "7476965f555292846afcf52686c75fca",
+                    "type": "string"
+                  }
+                }
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功",
+                    "value": {
+                      "code": 0,
+                      "message": "0",
+                      "ttl": 1,
+                      "data": {
+                        "passed": false,
+                        "is_right": false,
+                        "ans_right": "1f0cc1580b2fdf82bd8a345a4092403d"
+                      }
+                    }
+                  },
+                  "2": {
+                    "summary": "题目重复",
+                    "value": {
+                      "code": 41032,
+                      "message": "题目重复，请刷新或退出重试",
+                      "ttl": 1,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/answer/v4/captcha": {
+      "get": {
+        "summary": "获取验证码",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "转正答题"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/answer/v4/captcha/check": {
+      "post": {
+        "summary": "提交验证码",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "转正答题"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "example": "geetest",
+                    "type": "string"
+                  },
+                  "geetest_challenge": {
+                    "example": "",
+                    "type": "string"
+                  },
+                  "geetest_seccode": {
+                    "example": "",
+                    "type": "string"
+                  },
+                  "geetest_validate": {
+                    "example": "",
+                    "type": "string"
+                  },
+                  "csrf": {
+                    "example": "",
+                    "type": "string"
+                  }
+                }
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/answer/v4/pro/type/check": {
+      "post": {
+        "summary": "提交自选题分类",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "转正答题"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "types": {
+                    "type": "number",
+                    "example": 0
+                  },
+                  "csrf": {
+                    "example": "",
+                    "type": "string"
+                  }
+                }
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/answer/v4/submit": {
+      "post": {
+        "summary": "提前提交",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "转正答题"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "csrf": {
+                    "example": "",
+                    "type": "string"
+                  }
+                }
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
                 }
               }
             }
