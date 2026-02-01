@@ -67,6 +67,12 @@
       "name": "转正答题"
     },
     {
+      "name": "PUGV"
+    },
+    {
+      "name": "收藏"
+    },
+    {
       "name": "Wbi"
     },
     {
@@ -24056,6 +24062,2717 @@
                 }
               }
             }
+          }
+        },
+        "security": []
+      }
+    },
+    "/pugv/view/web/season": {
+      "get": {
+        "summary": "获取课程基本信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "PUGV"
+        ],
+        "parameters": [
+          {
+            "name": "season_id",
+            "in": "query",
+            "description": "season_id ep_id 任选其一",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ep_id",
+            "in": "query",
+            "description": "season_id ep_id 任选其一",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "abtest_info": {
+                          "type": "object",
+                          "properties": {
+                            "style_abtest": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "style_abtest"
+                          ]
+                        },
+                        "activity_list": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "be_subscription": {
+                          "type": "boolean"
+                        },
+                        "brief": {
+                          "type": "object",
+                          "properties": {
+                            "content": {
+                              "type": "string"
+                            },
+                            "img": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "aspect_ratio": {
+                                    "type": "number"
+                                  },
+                                  "url": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "aspect_ratio",
+                                  "url"
+                                ]
+                              }
+                            },
+                            "title": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "content",
+                            "img",
+                            "title",
+                            "type"
+                          ]
+                        },
+                        "consulting": {
+                          "type": "object",
+                          "properties": {
+                            "consulting_flag": {
+                              "type": "boolean"
+                            },
+                            "consulting_url": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "consulting_flag",
+                            "consulting_url"
+                          ]
+                        },
+                        "cooperation": {
+                          "type": "object",
+                          "properties": {
+                            "link": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "link"
+                          ]
+                        },
+                        "cooperators": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "course_content": {
+                          "type": "string"
+                        },
+                        "courses": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "cover": {
+                          "type": "string"
+                        },
+                        "ep_catalogue": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "ep_count": {
+                          "type": "integer"
+                        },
+                        "episode_page": {
+                          "type": "object",
+                          "properties": {
+                            "next": {
+                              "type": "boolean"
+                            },
+                            "num": {
+                              "type": "integer"
+                            },
+                            "size": {
+                              "type": "integer"
+                            },
+                            "total": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "next",
+                            "num",
+                            "size",
+                            "total"
+                          ]
+                        },
+                        "episode_sort": {
+                          "type": "integer"
+                        },
+                        "episode_tag": {
+                          "type": "object",
+                          "properties": {
+                            "part_preview_tag": {
+                              "type": "string"
+                            },
+                            "pay_tag": {
+                              "type": "string"
+                            },
+                            "preview_tag": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "part_preview_tag",
+                            "pay_tag",
+                            "preview_tag"
+                          ]
+                        },
+                        "episodes": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "aid": {
+                                "type": "integer"
+                              },
+                              "catalogue_index": {
+                                "type": "integer"
+                              },
+                              "cid": {
+                                "type": "integer"
+                              },
+                              "cover": {
+                                "type": "string"
+                              },
+                              "duration": {
+                                "type": "integer"
+                              },
+                              "ep_status": {
+                                "type": "integer"
+                              },
+                              "episode_can_view": {
+                                "type": "boolean"
+                              },
+                              "from": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "integer"
+                              },
+                              "index": {
+                                "type": "integer"
+                              },
+                              "page": {
+                                "type": "integer"
+                              },
+                              "play": {
+                                "type": "integer"
+                              },
+                              "play_way": {
+                                "type": "integer"
+                              },
+                              "playable": {
+                                "type": "boolean"
+                              },
+                              "release_date": {
+                                "type": "integer"
+                              },
+                              "show_vt": {
+                                "type": "boolean"
+                              },
+                              "status": {
+                                "type": "integer"
+                              },
+                              "subtitle": {
+                                "type": "string"
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "watched": {
+                                "type": "boolean"
+                              },
+                              "watchedHistory": {
+                                "type": "integer"
+                              },
+                              "label": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "aid",
+                              "catalogue_index",
+                              "cid",
+                              "cover",
+                              "duration",
+                              "ep_status",
+                              "episode_can_view",
+                              "from",
+                              "id",
+                              "index",
+                              "page",
+                              "play",
+                              "play_way",
+                              "playable",
+                              "release_date",
+                              "show_vt",
+                              "status",
+                              "subtitle",
+                              "title",
+                              "watched",
+                              "watchedHistory"
+                            ]
+                          }
+                        },
+                        "expiry_day": {
+                          "type": "integer"
+                        },
+                        "expiry_info_content": {
+                          "type": "string"
+                        },
+                        "faq": {
+                          "type": "object",
+                          "properties": {
+                            "content": {
+                              "type": "string"
+                            },
+                            "link": {
+                              "type": "string"
+                            },
+                            "title": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "content",
+                            "link",
+                            "title"
+                          ]
+                        },
+                        "faq1": {
+                          "type": "object",
+                          "properties": {
+                            "items": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "answer": {
+                                    "type": "string"
+                                  },
+                                  "question": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "answer",
+                                  "question"
+                                ]
+                              }
+                            },
+                            "title": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "items",
+                            "title"
+                          ]
+                        },
+                        "is_enable_cash": {
+                          "type": "boolean"
+                        },
+                        "is_series": {
+                          "type": "boolean"
+                        },
+                        "live_ep_count": {
+                          "type": "integer"
+                        },
+                        "notice": {
+                          "type": "object",
+                          "properties": {}
+                        },
+                        "opened_ep_count": {
+                          "type": "integer"
+                        },
+                        "pack_info": {
+                          "type": "object",
+                          "properties": {
+                            "pack_item_list": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "pack_notice2": {
+                              "type": "string"
+                            },
+                            "show_packs_right": {
+                              "type": "boolean"
+                            },
+                            "title": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "pack_item_list",
+                            "pack_notice2",
+                            "show_packs_right",
+                            "title"
+                          ]
+                        },
+                        "paid_jump": {
+                          "type": "object",
+                          "properties": {
+                            "jump_url_for_app": {
+                              "type": "string"
+                            },
+                            "url": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "jump_url_for_app",
+                            "url"
+                          ]
+                        },
+                        "paid_view": {
+                          "type": "boolean"
+                        },
+                        "payment": {
+                          "type": "object",
+                          "properties": {
+                            "bp_enough": {
+                              "type": "integer"
+                            },
+                            "desc": {
+                              "type": "string"
+                            },
+                            "my_bp": {
+                              "type": "integer"
+                            },
+                            "pay_shade": {
+                              "type": "string"
+                            },
+                            "price": {
+                              "type": "number"
+                            },
+                            "price_format": {
+                              "type": "string"
+                            },
+                            "price_unit": {
+                              "type": "string"
+                            },
+                            "refresh_text": {
+                              "type": "string"
+                            },
+                            "select_text": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "bp_enough",
+                            "desc",
+                            "my_bp",
+                            "pay_shade",
+                            "price",
+                            "price_format",
+                            "price_unit",
+                            "refresh_text",
+                            "select_text"
+                          ]
+                        },
+                        "previewed_purchase_note": {
+                          "type": "object",
+                          "properties": {
+                            "long_watch_text": {
+                              "type": "string"
+                            },
+                            "pay_text": {
+                              "type": "string"
+                            },
+                            "price_format": {
+                              "type": "string"
+                            },
+                            "watch_text": {
+                              "type": "string"
+                            },
+                            "watching_text": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "long_watch_text",
+                            "pay_text",
+                            "price_format",
+                            "watch_text",
+                            "watching_text"
+                          ]
+                        },
+                        "purchase_format_note": {
+                          "type": "object",
+                          "properties": {
+                            "content_list": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "bold": {
+                                    "type": "boolean"
+                                  },
+                                  "content": {
+                                    "type": "string"
+                                  },
+                                  "number": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "bold",
+                                  "content",
+                                  "number"
+                                ]
+                              }
+                            },
+                            "link": {
+                              "type": "string"
+                            },
+                            "title": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "content_list",
+                            "link",
+                            "title"
+                          ]
+                        },
+                        "purchase_note": {
+                          "type": "object",
+                          "properties": {
+                            "content": {
+                              "type": "string"
+                            },
+                            "link": {
+                              "type": "string"
+                            },
+                            "title": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "content",
+                            "link",
+                            "title"
+                          ]
+                        },
+                        "purchase_protocol": {
+                          "type": "object",
+                          "properties": {
+                            "link": {
+                              "type": "string"
+                            },
+                            "title": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "link",
+                            "title"
+                          ]
+                        },
+                        "recommend_seasons": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "release_bottom_info": {
+                          "type": "string"
+                        },
+                        "release_info": {
+                          "type": "string"
+                        },
+                        "release_info2": {
+                          "type": "string"
+                        },
+                        "release_status": {
+                          "type": "string"
+                        },
+                        "season_id": {
+                          "type": "integer"
+                        },
+                        "season_tag": {
+                          "type": "integer"
+                        },
+                        "share_url": {
+                          "type": "string"
+                        },
+                        "short_link": {
+                          "type": "string"
+                        },
+                        "show_watermark": {
+                          "type": "boolean"
+                        },
+                        "stat": {
+                          "type": "object",
+                          "properties": {
+                            "play": {
+                              "type": "integer"
+                            },
+                            "play_desc": {
+                              "type": "string"
+                            },
+                            "show_vt": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "play",
+                            "play_desc",
+                            "show_vt"
+                          ]
+                        },
+                        "status": {
+                          "type": "integer"
+                        },
+                        "stop_sell": {
+                          "type": "boolean"
+                        },
+                        "subscription_update_count_cycle_text": {
+                          "type": "string"
+                        },
+                        "subtitle": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "up_info": {
+                          "type": "object",
+                          "properties": {
+                            "avatar": {
+                              "type": "string"
+                            },
+                            "brief": {
+                              "type": "string"
+                            },
+                            "follower": {
+                              "type": "integer"
+                            },
+                            "is_follow": {
+                              "type": "integer"
+                            },
+                            "is_living": {
+                              "type": "boolean"
+                            },
+                            "link": {
+                              "type": "string"
+                            },
+                            "mid": {
+                              "type": "integer"
+                            },
+                            "pendant": {
+                              "type": "object",
+                              "properties": {
+                                "image": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "pid": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "image",
+                                "name",
+                                "pid"
+                              ]
+                            },
+                            "season_count": {
+                              "type": "integer"
+                            },
+                            "uname": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "avatar",
+                            "brief",
+                            "follower",
+                            "is_follow",
+                            "is_living",
+                            "link",
+                            "mid",
+                            "pendant",
+                            "season_count",
+                            "uname"
+                          ]
+                        },
+                        "update_status": {
+                          "type": "integer"
+                        },
+                        "user_status": {
+                          "type": "object",
+                          "properties": {
+                            "bp": {
+                              "type": "integer"
+                            },
+                            "expire_at": {
+                              "type": "integer"
+                            },
+                            "favored": {
+                              "type": "integer"
+                            },
+                            "favored_count": {
+                              "type": "integer"
+                            },
+                            "is_expired": {
+                              "type": "boolean"
+                            },
+                            "is_first_paid": {
+                              "type": "boolean"
+                            },
+                            "payed": {
+                              "type": "integer"
+                            },
+                            "user_expiry_content": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "bp",
+                            "expire_at",
+                            "favored",
+                            "favored_count",
+                            "is_expired",
+                            "is_first_paid",
+                            "payed",
+                            "user_expiry_content"
+                          ]
+                        },
+                        "watermark_interval": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "abtest_info",
+                        "activity_list",
+                        "be_subscription",
+                        "brief",
+                        "consulting",
+                        "cooperation",
+                        "cooperators",
+                        "course_content",
+                        "courses",
+                        "cover",
+                        "ep_catalogue",
+                        "ep_count",
+                        "episode_page",
+                        "episode_sort",
+                        "episode_tag",
+                        "episodes",
+                        "expiry_day",
+                        "expiry_info_content",
+                        "faq",
+                        "faq1",
+                        "is_enable_cash",
+                        "is_series",
+                        "live_ep_count",
+                        "notice",
+                        "opened_ep_count",
+                        "pack_info",
+                        "paid_jump",
+                        "paid_view",
+                        "payment",
+                        "previewed_purchase_note",
+                        "purchase_format_note",
+                        "purchase_note",
+                        "purchase_protocol",
+                        "recommend_seasons",
+                        "release_bottom_info",
+                        "release_info",
+                        "release_info2",
+                        "release_status",
+                        "season_id",
+                        "season_tag",
+                        "share_url",
+                        "short_link",
+                        "show_watermark",
+                        "stat",
+                        "status",
+                        "stop_sell",
+                        "subscription_update_count_cycle_text",
+                        "subtitle",
+                        "title",
+                        "up_info",
+                        "update_status",
+                        "user_status",
+                        "watermark_interval"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "data",
+                    "message"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "data": {
+                    "abtest_info": {
+                      "style_abtest": 0
+                    },
+                    "activity_list": [],
+                    "be_subscription": false,
+                    "brief": {
+                      "content": "",
+                      "img": [
+                        {
+                          "aspect_ratio": 0.5912240184757506,
+                          "url": "http://i0.hdslb.com/bfs/archive/ceabf64ddcd92fd4162f1e27c185df66c331393b.jpg"
+                        },
+                        {
+                          "aspect_ratio": 1.4096916299559472,
+                          "url": "http://i0.hdslb.com/bfs/archive/acb164287c79ffef6425f7eb67aaf26e8e7ebcda.jpg"
+                        },
+                        {
+                          "aspect_ratio": 0.625,
+                          "url": "http://i0.hdslb.com/bfs/archive/8804d549d2f734cf79b6d47b9b02696dffd5a362.jpg"
+                        }
+                      ],
+                      "title": "课程概述",
+                      "type": 2
+                    },
+                    "consulting": {
+                      "consulting_flag": false,
+                      "consulting_url": ""
+                    },
+                    "cooperation": {
+                      "link": "https://www.bilibili.com/cheese/cooperate?from=web_detail"
+                    },
+                    "cooperators": [],
+                    "course_content": "本课程附赠随堂练习，点击下载",
+                    "courses": [],
+                    "cover": "http://i0.hdslb.com/bfs/archive/d03dc9f2db4948f1f27f2cbeefd34fc3912e6d4e.jpg",
+                    "ep_catalogue": [],
+                    "ep_count": 14,
+                    "episode_page": {
+                      "next": false,
+                      "num": 1,
+                      "size": 15,
+                      "total": 15
+                    },
+                    "episode_sort": 1,
+                    "episode_tag": {
+                      "part_preview_tag": "部分试看",
+                      "pay_tag": "付费",
+                      "preview_tag": "全集试看"
+                    },
+                    "episodes": [
+                      {
+                        "aid": 66936645,
+                        "catalogue_index": 0,
+                        "cid": 116076153,
+                        "cover": "http://i0.hdslb.com/bfs/archive/ed350a78e2ab5b7782379b04082fe89c637d7000.jpg",
+                        "duration": 759,
+                        "ep_status": 0,
+                        "episode_can_view": true,
+                        "from": "pugv",
+                        "id": 9,
+                        "index": 1,
+                        "page": 1,
+                        "play": 333,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 1567851011,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 12分39秒",
+                        "title": "10分钟test",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 66928416,
+                        "catalogue_index": 0,
+                        "cid": 116062427,
+                        "cover": "http://i0.hdslb.com/bfs/archive/ed350a78e2ab5b7782379b04082fe89c637d7000.jpg",
+                        "duration": 76,
+                        "ep_status": 0,
+                        "episode_can_view": true,
+                        "from": "pugv",
+                        "id": 3,
+                        "index": 2,
+                        "label": "全集试看",
+                        "page": 1,
+                        "play": 606,
+                        "play_way": 1,
+                        "playable": true,
+                        "release_date": 1567846373,
+                        "show_vt": false,
+                        "status": 1,
+                        "subtitle": "视频课 · 1分16秒",
+                        "title": "test_2。",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 0,
+                        "catalogue_index": 0,
+                        "cid": 123,
+                        "cover": "http://i0.hdslb.com/bfs/archive/76a4cff6be6ea78711649e0139a8215743254b94.jpg",
+                        "duration": 0,
+                        "ep_status": -2,
+                        "episode_can_view": false,
+                        "from": "pugv",
+                        "id": 2,
+                        "index": 3,
+                        "page": 1,
+                        "play": 182,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 0,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 待上线",
+                        "title": "天空~哈哈",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 0,
+                        "catalogue_index": 0,
+                        "cid": 123,
+                        "cover": "http://i0.hdslb.com/bfs/archive/76a4cff6be6ea78711649e0139a8215743254b94.jpg",
+                        "duration": 0,
+                        "ep_status": -1,
+                        "episode_can_view": false,
+                        "from": "pugv",
+                        "id": 1,
+                        "index": 4,
+                        "page": 1,
+                        "play": 0,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 0,
+                        "show_vt": false,
+                        "status": 1,
+                        "subtitle": "视频课 · 待上线",
+                        "title": "小兔子真可爱哈哈",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 66928417,
+                        "catalogue_index": 0,
+                        "cid": 116062567,
+                        "cover": "http://i0.hdslb.com/bfs/archive/f0cd7a7dc883fa5c36e740f7bbbb65918d5fdcaa.jpg",
+                        "duration": 11,
+                        "ep_status": 0,
+                        "episode_can_view": true,
+                        "from": "pugv",
+                        "id": 4,
+                        "index": 5,
+                        "page": 1,
+                        "play": 334,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 1567846068,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 11秒",
+                        "title": "test_3",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 0,
+                        "catalogue_index": 0,
+                        "cid": 123,
+                        "cover": "http://i0.hdslb.com/bfs/archive/f0cd7a7dc883fa5c36e740f7bbbb65918d5fdcaa.jpg",
+                        "duration": 0,
+                        "ep_status": -4,
+                        "episode_can_view": false,
+                        "from": "pugv",
+                        "id": 5,
+                        "index": 6,
+                        "page": 1,
+                        "play": 106,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 0,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 待上线",
+                        "title": "test_4",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 0,
+                        "catalogue_index": 0,
+                        "cid": 123,
+                        "cover": "http://i0.hdslb.com/bfs/archive/848daad089abd4df1ec544afedd254bedd64d8e4.jpg",
+                        "duration": 0,
+                        "ep_status": -2,
+                        "episode_can_view": false,
+                        "from": "pugv",
+                        "id": 39,
+                        "index": 7,
+                        "page": 1,
+                        "play": 0,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 0,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 待上线",
+                        "title": "qweqwewqeqweqweqwe123321",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 67342086,
+                        "catalogue_index": 0,
+                        "cid": 116763731,
+                        "cover": "http://i0.hdslb.com/bfs/archive/76a4cff6be6ea78711649e0139a8215743254b94.jpg",
+                        "duration": 11,
+                        "ep_status": -6,
+                        "episode_can_view": true,
+                        "from": "pugv",
+                        "id": 40,
+                        "index": 8,
+                        "page": 1,
+                        "play": 134,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 1568178304,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 11秒",
+                        "title": "TEST_请勿打回",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 73121919,
+                        "catalogue_index": 0,
+                        "cid": 125068694,
+                        "cover": "http://i0.hdslb.com/bfs/archive/f645597d8987b40730b564a848cbe399cc7eb33d.jpg",
+                        "duration": 11,
+                        "ep_status": 0,
+                        "episode_can_view": true,
+                        "from": "pugv",
+                        "id": 735,
+                        "index": 9,
+                        "page": 1,
+                        "play": 39,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 1571803710,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 11秒",
+                        "title": "天空～～",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 0,
+                        "catalogue_index": 0,
+                        "cid": 123,
+                        "cover": "http://i0.hdslb.com/bfs/archive/25e9807380337fb96e132bf727977029bd653103.jpg",
+                        "duration": 0,
+                        "ep_status": -1,
+                        "episode_can_view": false,
+                        "from": "pugv",
+                        "id": 736,
+                        "index": 10,
+                        "page": 1,
+                        "play": 0,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 0,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 待上线",
+                        "title": "小兔子呀",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 0,
+                        "catalogue_index": 0,
+                        "cid": 123,
+                        "cover": "http://i0.hdslb.com/bfs/archive/b34da5491745aef508908c2feeb3ddbfbbb1aae3.jpg",
+                        "duration": 0,
+                        "ep_status": -4,
+                        "episode_can_view": false,
+                        "from": "pugv",
+                        "id": 737,
+                        "index": 11,
+                        "page": 1,
+                        "play": 0,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 0,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 待上线",
+                        "title": "test，请帮忙过审",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 73706646,
+                        "catalogue_index": 0,
+                        "cid": 126071332,
+                        "cover": "http://i0.hdslb.com/bfs/archive/b1b5782e64ba4ada7b6495bc263e5ddfa38ab1b5.jpg",
+                        "duration": 19,
+                        "ep_status": 0,
+                        "episode_can_view": true,
+                        "from": "pugv",
+                        "id": 741,
+                        "index": 12,
+                        "page": 1,
+                        "play": 51,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 1572236931,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 19秒",
+                        "title": "重新传个济州岛海鸥",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 73854326,
+                        "catalogue_index": 0,
+                        "cid": 126333151,
+                        "cover": "http://i0.hdslb.com/bfs/archive/b34da5491745aef508908c2feeb3ddbfbbb1aae3.jpg",
+                        "duration": 25,
+                        "ep_status": 0,
+                        "episode_can_view": true,
+                        "from": "pugv",
+                        "id": 746,
+                        "index": 13,
+                        "page": 1,
+                        "play": 44,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 1572354775,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 25秒",
+                        "title": "重新投放一遍，请勿处理成撞车内容",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 73856877,
+                        "catalogue_index": 0,
+                        "cid": 126337667,
+                        "cover": "http://i0.hdslb.com/bfs/archive/10050ccb2dc2bcf214837ad39f9e45b408ffbf5c.jpg",
+                        "duration": 12,
+                        "ep_status": 0,
+                        "episode_can_view": true,
+                        "from": "pugv",
+                        "id": 747,
+                        "index": 14,
+                        "page": 1,
+                        "play": 71,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 1572354514,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 12秒",
+                        "title": "过过过过过过过过过过",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 0,
+                        "catalogue_index": 0,
+                        "cid": 123,
+                        "cover": "http://i0.hdslb.com/bfs/archive/b34da5491745aef508908c2feeb3ddbfbbb1aae3.jpg",
+                        "duration": 0,
+                        "ep_status": -1,
+                        "episode_can_view": false,
+                        "from": "pugv",
+                        "id": 748,
+                        "index": 15,
+                        "page": 1,
+                        "play": 0,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 0,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 待上线",
+                        "title": "测试稿件，请勿锁定，谢谢",
+                        "watched": false,
+                        "watchedHistory": 0
+                      }
+                    ],
+                    "expiry_day": 0,
+                    "expiry_info_content": "长期有效",
+                    "faq": {
+                      "content": "Q：课程在什么时间更新？\nA：课程更新频次以页面前端展示为准。购买成功后，课程更新将通过账号动态提示，方便及时观看。\n\nQ：课程购买后有收看时间限制吗？\nA：购买后除不可抗力因素外，本课程长期有效，请您放心购买。\n\nQ：原价购买课程后，如遇到优惠折扣，是否可以退还差价或重新购买？\nA：虚拟商品付款后无法返还，请您随时留意各类课程折扣信息，按需购买。\n\nQ：购买课程后是否可以加入老师的粉丝群或者用户群？\nA：如老师设置用户群，我们将邀您加入，但我们无法承诺所有老师均提供用户群服务，感谢理解。",
+                      "link": "http://m.bilibili.com",
+                      "title": "常见问题"
+                    },
+                    "faq1": {
+                      "items": [
+                        {
+                          "answer": "课程更新频次以页面前端展示为准。购买成功后，课程更新将通过账号动态提示，方便及时观看。",
+                          "question": "课程在什么时间更新？"
+                        },
+                        {
+                          "answer": "购买后除不可抗力因素外，本课程长期有效，请您放心购买。",
+                          "question": "课程购买后有收看时间限制吗？"
+                        },
+                        {
+                          "answer": "虚拟商品付款后无法返还，请您随时留意各类课程折扣信息，按需购买。",
+                          "question": "原价购买课程后，如遇到优惠折扣，是否可以退还差价或重新购买？"
+                        },
+                        {
+                          "answer": "如老师设置用户群，我们将邀您加入，但我们无法承诺所有老师均提供用户群服务，感谢理解。",
+                          "question": "购买课程后是否可以加入老师的粉丝群或者用户群？"
+                        }
+                      ],
+                      "title": "常见问题"
+                    },
+                    "is_enable_cash": false,
+                    "is_series": false,
+                    "live_ep_count": 0,
+                    "notice": {},
+                    "opened_ep_count": 8,
+                    "pack_info": {
+                      "pack_item_list": [],
+                      "pack_notice2": "联报限时折上折",
+                      "show_packs_right": false,
+                      "title": "套餐优惠"
+                    },
+                    "paid_jump": {
+                      "jump_url_for_app": "bilibili://cheese/pay-guide?season_id=1",
+                      "url": ""
+                    },
+                    "paid_view": true,
+                    "payment": {
+                      "bp_enough": 0,
+                      "desc": "0.1",
+                      "my_bp": 0,
+                      "pay_shade": "支付 0.1 B币即可观看所有视频",
+                      "price": 0.1,
+                      "price_format": "0.1",
+                      "price_unit": "B币",
+                      "refresh_text": "立即购买",
+                      "select_text": "立即购买"
+                    },
+                    "previewed_purchase_note": {
+                      "long_watch_text": "试看5分钟，购买后即可观看完整内容",
+                      "pay_text": "支付",
+                      "price_format": " 0.1 B币",
+                      "watch_text": "即可观看所有视频",
+                      "watching_text": "试看中，购买即可观看完整内容"
+                    },
+                    "purchase_format_note": {
+                      "content_list": [
+                        {
+                          "bold": false,
+                          "content": "本内容为付费内容，购买成功后方可观看。",
+                          "number": "1."
+                        },
+                        {
+                          "bold": true,
+                          "content": "本内容为虚拟服务，已购买内容不支持退款，敬请谅解。",
+                          "number": "2."
+                        },
+                        {
+                          "bold": false,
+                          "content": "实际购买价格以页面展示的价格及订单结算页显示价格为准。",
+                          "number": "3."
+                        }
+                      ],
+                      "link": "https://www.bilibili.com/blackboard/agreement-class-pc.html",
+                      "title": "购买须知"
+                    },
+                    "purchase_note": {
+                      "content": "1. 本内容为付费内容，购买成功后方可观看。<br/>2. 本内容为虚拟服务，已购买内容不支持退款，敬请谅解。<br/>3. 实际购买价格以页面展示的价格及订单结算页显示价格为准。",
+                      "link": "https://www.bilibili.com/blackboard/agreement-class-pc.html",
+                      "title": "购买须知"
+                    },
+                    "purchase_protocol": {
+                      "link": "https://www.bilibili.com/blackboard/agreement-class-pc.html",
+                      "title": "付费内容购买协议"
+                    },
+                    "recommend_seasons": [],
+                    "release_bottom_info": "火速更新中~",
+                    "release_info": "已更新8课时 | 共14课时",
+                    "release_info2": "已更新8课时 | 共14课时",
+                    "release_status": "更新中",
+                    "season_id": 1,
+                    "season_tag": 0,
+                    "share_url": "https://m.bilibili.com/cheese/play/ss1",
+                    "short_link": "bilibili://cheese/season/1",
+                    "show_watermark": true,
+                    "stat": {
+                      "play": 1612,
+                      "play_desc": "1612播放",
+                      "show_vt": false
+                    },
+                    "status": -10,
+                    "stop_sell": true,
+                    "subscription_update_count_cycle_text": "",
+                    "subtitle": "TEST",
+                    "title": "TEST",
+                    "up_info": {
+                      "avatar": "https://i1.hdslb.com/bfs/face/6dd7252593af379b4e5b2c0cb23b5222cea910cf.jpg",
+                      "brief": "TEST",
+                      "follower": 147,
+                      "is_follow": 0,
+                      "is_living": false,
+                      "link": "https://space.bilibili.com/75379114/pugv?defaultTab=cheese",
+                      "mid": 75379114,
+                      "pendant": {
+                        "image": "",
+                        "name": "",
+                        "pid": 0
+                      },
+                      "season_count": 278,
+                      "uname": "嘻嘻嘻嘻嘻嘻啦哈哈"
+                    },
+                    "update_status": 1,
+                    "user_status": {
+                      "bp": 0,
+                      "expire_at": 0,
+                      "favored": 0,
+                      "favored_count": 0,
+                      "is_expired": false,
+                      "is_first_paid": true,
+                      "payed": 0,
+                      "user_expiry_content": "长期有效"
+                    },
+                    "watermark_interval": 300
+                  },
+                  "message": "success"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/pugv/view/web/ep/list": {
+      "get": {
+        "summary": "获取课程分集列表",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "PUGV"
+        ],
+        "parameters": [
+          {
+            "name": "season_id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ps",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pn",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "aid": {
+                                "type": "integer"
+                              },
+                              "catalogue_index": {
+                                "type": "integer"
+                              },
+                              "cid": {
+                                "type": "integer"
+                              },
+                              "cover": {
+                                "type": "string"
+                              },
+                              "duration": {
+                                "type": "integer"
+                              },
+                              "ep_status": {
+                                "type": "integer"
+                              },
+                              "episode_can_view": {
+                                "type": "boolean"
+                              },
+                              "from": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "integer"
+                              },
+                              "index": {
+                                "type": "integer"
+                              },
+                              "page": {
+                                "type": "integer"
+                              },
+                              "play": {
+                                "type": "integer"
+                              },
+                              "play_way": {
+                                "type": "integer"
+                              },
+                              "playable": {
+                                "type": "boolean"
+                              },
+                              "release_date": {
+                                "type": "integer"
+                              },
+                              "show_vt": {
+                                "type": "boolean"
+                              },
+                              "status": {
+                                "type": "integer"
+                              },
+                              "subtitle": {
+                                "type": "string"
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "watched": {
+                                "type": "boolean"
+                              },
+                              "watchedHistory": {
+                                "type": "integer"
+                              },
+                              "label": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "aid",
+                              "catalogue_index",
+                              "cid",
+                              "cover",
+                              "duration",
+                              "ep_status",
+                              "episode_can_view",
+                              "from",
+                              "id",
+                              "index",
+                              "page",
+                              "play",
+                              "play_way",
+                              "playable",
+                              "release_date",
+                              "show_vt",
+                              "status",
+                              "subtitle",
+                              "title",
+                              "watched",
+                              "watchedHistory"
+                            ]
+                          }
+                        },
+                        "page": {
+                          "type": "object",
+                          "properties": {
+                            "next": {
+                              "type": "boolean"
+                            },
+                            "num": {
+                              "type": "integer"
+                            },
+                            "size": {
+                              "type": "integer"
+                            },
+                            "total": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "next",
+                            "num",
+                            "size",
+                            "total"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "items",
+                        "page"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "data",
+                    "message"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "data": {
+                    "items": [
+                      {
+                        "aid": 66936645,
+                        "catalogue_index": 0,
+                        "cid": 116076153,
+                        "cover": "http://i0.hdslb.com/bfs/archive/ed350a78e2ab5b7782379b04082fe89c637d7000.jpg",
+                        "duration": 759,
+                        "ep_status": 0,
+                        "episode_can_view": true,
+                        "from": "pugv",
+                        "id": 9,
+                        "index": 1,
+                        "page": 1,
+                        "play": 333,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 1567851011,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 12分39秒",
+                        "title": "10分钟test",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 66928416,
+                        "catalogue_index": 0,
+                        "cid": 116062427,
+                        "cover": "http://i0.hdslb.com/bfs/archive/ed350a78e2ab5b7782379b04082fe89c637d7000.jpg",
+                        "duration": 76,
+                        "ep_status": 0,
+                        "episode_can_view": true,
+                        "from": "pugv",
+                        "id": 3,
+                        "index": 2,
+                        "label": "全集试看",
+                        "page": 1,
+                        "play": 606,
+                        "play_way": 1,
+                        "playable": true,
+                        "release_date": 1567846373,
+                        "show_vt": false,
+                        "status": 1,
+                        "subtitle": "视频课 · 1分16秒",
+                        "title": "test_2。",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 0,
+                        "catalogue_index": 0,
+                        "cid": 123,
+                        "cover": "http://i0.hdslb.com/bfs/archive/76a4cff6be6ea78711649e0139a8215743254b94.jpg",
+                        "duration": 0,
+                        "ep_status": -2,
+                        "episode_can_view": false,
+                        "from": "pugv",
+                        "id": 2,
+                        "index": 3,
+                        "page": 1,
+                        "play": 182,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 0,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 待上线",
+                        "title": "天空~哈哈",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 0,
+                        "catalogue_index": 0,
+                        "cid": 123,
+                        "cover": "http://i0.hdslb.com/bfs/archive/76a4cff6be6ea78711649e0139a8215743254b94.jpg",
+                        "duration": 0,
+                        "ep_status": -1,
+                        "episode_can_view": false,
+                        "from": "pugv",
+                        "id": 1,
+                        "index": 4,
+                        "page": 1,
+                        "play": 0,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 0,
+                        "show_vt": false,
+                        "status": 1,
+                        "subtitle": "视频课 · 待上线",
+                        "title": "小兔子真可爱哈哈",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 66928417,
+                        "catalogue_index": 0,
+                        "cid": 116062567,
+                        "cover": "http://i0.hdslb.com/bfs/archive/f0cd7a7dc883fa5c36e740f7bbbb65918d5fdcaa.jpg",
+                        "duration": 11,
+                        "ep_status": 0,
+                        "episode_can_view": true,
+                        "from": "pugv",
+                        "id": 4,
+                        "index": 5,
+                        "page": 1,
+                        "play": 334,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 1567846068,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 11秒",
+                        "title": "test_3",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 0,
+                        "catalogue_index": 0,
+                        "cid": 123,
+                        "cover": "http://i0.hdslb.com/bfs/archive/f0cd7a7dc883fa5c36e740f7bbbb65918d5fdcaa.jpg",
+                        "duration": 0,
+                        "ep_status": -4,
+                        "episode_can_view": false,
+                        "from": "pugv",
+                        "id": 5,
+                        "index": 6,
+                        "page": 1,
+                        "play": 106,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 0,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 待上线",
+                        "title": "test_4",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 0,
+                        "catalogue_index": 0,
+                        "cid": 123,
+                        "cover": "http://i0.hdslb.com/bfs/archive/848daad089abd4df1ec544afedd254bedd64d8e4.jpg",
+                        "duration": 0,
+                        "ep_status": -2,
+                        "episode_can_view": false,
+                        "from": "pugv",
+                        "id": 39,
+                        "index": 7,
+                        "page": 1,
+                        "play": 0,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 0,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 待上线",
+                        "title": "qweqwewqeqweqweqwe123321",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 67342086,
+                        "catalogue_index": 0,
+                        "cid": 116763731,
+                        "cover": "http://i0.hdslb.com/bfs/archive/76a4cff6be6ea78711649e0139a8215743254b94.jpg",
+                        "duration": 11,
+                        "ep_status": -6,
+                        "episode_can_view": true,
+                        "from": "pugv",
+                        "id": 40,
+                        "index": 8,
+                        "page": 1,
+                        "play": 134,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 1568178304,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 11秒",
+                        "title": "TEST_请勿打回",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 73121919,
+                        "catalogue_index": 0,
+                        "cid": 125068694,
+                        "cover": "http://i0.hdslb.com/bfs/archive/f645597d8987b40730b564a848cbe399cc7eb33d.jpg",
+                        "duration": 11,
+                        "ep_status": 0,
+                        "episode_can_view": true,
+                        "from": "pugv",
+                        "id": 735,
+                        "index": 9,
+                        "page": 1,
+                        "play": 39,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 1571803710,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 11秒",
+                        "title": "天空～～",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 0,
+                        "catalogue_index": 0,
+                        "cid": 123,
+                        "cover": "http://i0.hdslb.com/bfs/archive/25e9807380337fb96e132bf727977029bd653103.jpg",
+                        "duration": 0,
+                        "ep_status": -1,
+                        "episode_can_view": false,
+                        "from": "pugv",
+                        "id": 736,
+                        "index": 10,
+                        "page": 1,
+                        "play": 0,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 0,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 待上线",
+                        "title": "小兔子呀",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 0,
+                        "catalogue_index": 0,
+                        "cid": 123,
+                        "cover": "http://i0.hdslb.com/bfs/archive/b34da5491745aef508908c2feeb3ddbfbbb1aae3.jpg",
+                        "duration": 0,
+                        "ep_status": -4,
+                        "episode_can_view": false,
+                        "from": "pugv",
+                        "id": 737,
+                        "index": 11,
+                        "page": 1,
+                        "play": 0,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 0,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 待上线",
+                        "title": "test，请帮忙过审",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 73706646,
+                        "catalogue_index": 0,
+                        "cid": 126071332,
+                        "cover": "http://i0.hdslb.com/bfs/archive/b1b5782e64ba4ada7b6495bc263e5ddfa38ab1b5.jpg",
+                        "duration": 19,
+                        "ep_status": 0,
+                        "episode_can_view": true,
+                        "from": "pugv",
+                        "id": 741,
+                        "index": 12,
+                        "page": 1,
+                        "play": 51,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 1572236931,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 19秒",
+                        "title": "重新传个济州岛海鸥",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 73854326,
+                        "catalogue_index": 0,
+                        "cid": 126333151,
+                        "cover": "http://i0.hdslb.com/bfs/archive/b34da5491745aef508908c2feeb3ddbfbbb1aae3.jpg",
+                        "duration": 25,
+                        "ep_status": 0,
+                        "episode_can_view": true,
+                        "from": "pugv",
+                        "id": 746,
+                        "index": 13,
+                        "page": 1,
+                        "play": 44,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 1572354775,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 25秒",
+                        "title": "重新投放一遍，请勿处理成撞车内容",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 73856877,
+                        "catalogue_index": 0,
+                        "cid": 126337667,
+                        "cover": "http://i0.hdslb.com/bfs/archive/10050ccb2dc2bcf214837ad39f9e45b408ffbf5c.jpg",
+                        "duration": 12,
+                        "ep_status": 0,
+                        "episode_can_view": true,
+                        "from": "pugv",
+                        "id": 747,
+                        "index": 14,
+                        "page": 1,
+                        "play": 71,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 1572354514,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 12秒",
+                        "title": "过过过过过过过过过过",
+                        "watched": false,
+                        "watchedHistory": 0
+                      },
+                      {
+                        "aid": 0,
+                        "catalogue_index": 0,
+                        "cid": 123,
+                        "cover": "http://i0.hdslb.com/bfs/archive/b34da5491745aef508908c2feeb3ddbfbbb1aae3.jpg",
+                        "duration": 0,
+                        "ep_status": -1,
+                        "episode_can_view": false,
+                        "from": "pugv",
+                        "id": 748,
+                        "index": 15,
+                        "page": 1,
+                        "play": 0,
+                        "play_way": 1,
+                        "playable": false,
+                        "release_date": 0,
+                        "show_vt": false,
+                        "status": 2,
+                        "subtitle": "视频课 · 待上线",
+                        "title": "测试稿件，请勿锁定，谢谢",
+                        "watched": false,
+                        "watchedHistory": 0
+                      }
+                    ],
+                    "page": {
+                      "next": false,
+                      "num": 1,
+                      "size": 50,
+                      "total": 15
+                    }
+                  },
+                  "message": "success"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/pugv/player/web/playurl": {
+      "get": {
+        "summary": "播放地址",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "PUGV"
+        ],
+        "parameters": [
+          {
+            "name": "avid",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "941363390",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cid",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "783349274",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "qn",
+            "in": "query",
+            "description": "视频清晰度选择",
+            "required": false,
+            "example": "0",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fnver",
+            "in": "query",
+            "description": "视频流版本",
+            "required": false,
+            "example": "0",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fnval",
+            "in": "query",
+            "description": "视频流类型",
+            "required": false,
+            "example": "16",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fourk",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "season_id",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "941",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ep_id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": "37811",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "accept_format": {
+                          "type": "string"
+                        },
+                        "code": {
+                          "type": "integer"
+                        },
+                        "seek_param": {
+                          "type": "string"
+                        },
+                        "is_preview": {
+                          "type": "integer"
+                        },
+                        "fnval": {
+                          "type": "integer"
+                        },
+                        "video_project": {
+                          "type": "boolean"
+                        },
+                        "fnver": {
+                          "type": "integer"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "result": {
+                          "type": "string"
+                        },
+                        "seek_type": {
+                          "type": "string"
+                        },
+                        "from": {
+                          "type": "string"
+                        },
+                        "video_codecid": {
+                          "type": "integer"
+                        },
+                        "durl": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "size": {
+                                "type": "integer"
+                              },
+                              "ahead": {
+                                "type": "string"
+                              },
+                              "length": {
+                                "type": "integer"
+                              },
+                              "vhead": {
+                                "type": "string"
+                              },
+                              "backup_url": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "url": {
+                                "type": "string"
+                              },
+                              "order": {
+                                "type": "integer"
+                              },
+                              "md5": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "no_rexcode": {
+                          "type": "integer"
+                        },
+                        "format": {
+                          "type": "string"
+                        },
+                        "support_formats": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "display_desc": {
+                                "type": "string"
+                              },
+                              "superscript": {
+                                "type": "string"
+                              },
+                              "need_login": {
+                                "type": "boolean"
+                              },
+                              "codecs": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "format": {
+                                "type": "string"
+                              },
+                              "description": {
+                                "type": "string"
+                              },
+                              "quality": {
+                                "type": "integer"
+                              },
+                              "new_description": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "display_desc",
+                              "superscript",
+                              "need_login",
+                              "codecs",
+                              "format",
+                              "description",
+                              "quality",
+                              "new_description"
+                            ]
+                          }
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "accept_quality": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer"
+                          }
+                        },
+                        "quality": {
+                          "type": "integer"
+                        },
+                        "timelength": {
+                          "type": "integer"
+                        },
+                        "durls": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "durl": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "size": {
+                                      "type": "integer"
+                                    },
+                                    "ahead": {
+                                      "type": "string"
+                                    },
+                                    "length": {
+                                      "type": "integer"
+                                    },
+                                    "vhead": {
+                                      "type": "string"
+                                    },
+                                    "backup_url": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "url": {
+                                      "type": "string"
+                                    },
+                                    "order": {
+                                      "type": "integer"
+                                    },
+                                    "md5": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "size",
+                                    "ahead",
+                                    "length",
+                                    "vhead",
+                                    "backup_url",
+                                    "url",
+                                    "order",
+                                    "md5"
+                                  ]
+                                }
+                              },
+                              "quality": {
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "durl",
+                              "quality"
+                            ]
+                          }
+                        },
+                        "has_paid": {
+                          "type": "boolean"
+                        },
+                        "fragment_videos": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "accept_description": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "status": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "accept_format",
+                        "code",
+                        "seek_param",
+                        "is_preview",
+                        "fnval",
+                        "video_project",
+                        "fnver",
+                        "type",
+                        "result",
+                        "seek_type",
+                        "from",
+                        "video_codecid",
+                        "durl",
+                        "no_rexcode",
+                        "format",
+                        "support_formats",
+                        "message",
+                        "accept_quality",
+                        "quality",
+                        "timelength",
+                        "durls",
+                        "has_paid",
+                        "fragment_videos",
+                        "accept_description",
+                        "status"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "data",
+                    "message"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "data": {
+                    "accept_format": "mp4,mp4,mp4",
+                    "code": 0,
+                    "seek_param": "start",
+                    "is_preview": 1,
+                    "fnval": 1,
+                    "video_project": true,
+                    "fnver": 0,
+                    "type": "MP4",
+                    "result": "suee",
+                    "seek_type": "second",
+                    "from": "local",
+                    "video_codecid": 7,
+                    "durl": [
+                      {
+                        "size": 1091473,
+                        "ahead": "",
+                        "length": 4900,
+                        "vhead": "",
+                        "backup_url": [
+                          "https://upos-sz-mirrorcos.bilivideo.com/upgcxcode/74/92/783349274/783349274_x1-1-448.mp4?e=ig8euxZM2rNcNbNghbdVhwdlhbNghwdVhoNvNC8BqJIzNbfqXBvEqxTEto8BTrNvN0GvT90W5JZMkX_YN0MvXg8gNEV4NC8xNEV4N03eN0B5tZlqNxTEto8BTrNvNeZVuJ10Kj_g2UB02J0mN0B5tZlqNCNEto8BTrNvNC7MTX502C8f2jmMQJ6mqF2fka1mqx6gqj0eN0B599M=&mid=0&oi=2085477495&platform=pc&deadline=1769984609&trid=32e8e103dcae46c8a6bb047e104bf51u&gen=playurlv3&nbs=1&uipk=5&os=cosbv&og=cos&upsig=cd2c60e469b789be0b9f921c2a6641fb&uparams=e,mid,oi,platform,deadline,trid,gen,nbs,uipk,os,og&bvc=vod&nettype=0&bw=2182946&agrr=1&buvid=&build=0&dl=0&f=u_0_0&orderid=1,3",
+                          "https://upos-sz-mirrorcosb.bilivideo.com/upgcxcode/74/92/783349274/783349274_x1-1-448.mp4?e=ig8euxZM2rNcNbNghbdVhwdlhbNghwdVhoNvNC8BqJIzNbfqXBvEqxTEto8BTrNvN0GvT90W5JZMkX_YN0MvXg8gNEV4NC8xNEV4N03eN0B5tZlqNxTEto8BTrNvNeZVuJ10Kj_g2UB02J0mN0B5tZlqNCNEto8BTrNvNC7MTX502C8f2jmMQJ6mqF2fka1mqx6gqj0eN0B599M=&mid=0&oi=2085477495&uipk=5&deadline=1769984609&gen=playurlv3&og=cos&nbs=1&platform=pc&trid=32e8e103dcae46c8a6bb047e104bf51u&os=cosbbv&upsig=eee70a535ef1f7030d4a94dcc2009c73&uparams=e,mid,oi,uipk,deadline,gen,og,nbs,platform,trid,os&bvc=vod&nettype=0&bw=2182946&agrr=1&buvid=&build=0&dl=0&f=u_0_0&orderid=2,3"
+                        ],
+                        "url": "https://upos-sz-estgcos.bilivideo.com/upgcxcode/74/92/783349274/783349274_x1-1-448.mp4?e=ig8euxZM2rNcNbNghbdVhwdlhbNghwdVhoNvNC8BqJIzNbfqXBvEqxTEto8BTrNvN0GvT90W5JZMkX_YN0MvXg8gNEV4NC8xNEV4N03eN0B5tZlqNxTEto8BTrNvNeZVuJ10Kj_g2UB02J0mN0B5tZlqNCNEto8BTrNvNC7MTX502C8f2jmMQJ6mqF2fka1mqx6gqj0eN0B599M=&mid=0&nbs=1&platform=pc&deadline=1769984609&og=cos&trid=32e8e103dcae46c8a6bb047e104bf51u&oi=2085477495&uipk=5&gen=playurlv3&os=estgcos&upsig=cff4bc0ae138988379dd30f80086a7cb&uparams=e,mid,nbs,platform,deadline,og,trid,oi,uipk,gen,os&bvc=vod&nettype=0&bw=2182946&agrr=1&buvid=&build=0&dl=0&f=u_0_0&orderid=0,3",
+                        "order": 1,
+                        "md5": "84fc80de0c93a7a33d7652fe05d4ec4a"
+                      }
+                    ],
+                    "no_rexcode": 0,
+                    "format": "mp4",
+                    "support_formats": [
+                      {
+                        "display_desc": "720P",
+                        "superscript": "",
+                        "need_login": true,
+                        "codecs": [],
+                        "format": "mp4",
+                        "description": "高清 720P",
+                        "quality": 64,
+                        "new_description": "720P 准高清"
+                      },
+                      {
+                        "display_desc": "480P",
+                        "superscript": "",
+                        "need_login": false,
+                        "codecs": [],
+                        "format": "mp4",
+                        "description": "清晰 480P",
+                        "quality": 32,
+                        "new_description": "480P 标清"
+                      },
+                      {
+                        "display_desc": "360P",
+                        "superscript": "",
+                        "need_login": false,
+                        "codecs": [],
+                        "format": "mp4",
+                        "description": "流畅 360P",
+                        "quality": 16,
+                        "new_description": "360P 流畅"
+                      }
+                    ],
+                    "message": "Success",
+                    "accept_quality": [
+                      64,
+                      32,
+                      16
+                    ],
+                    "quality": 64,
+                    "timelength": 6000,
+                    "durls": [
+                      {
+                        "durl": [
+                          {
+                            "size": 1091473,
+                            "ahead": "",
+                            "length": 4900,
+                            "vhead": "",
+                            "backup_url": [
+                              "https://upos-sz-mirrorcos.bilivideo.com/upgcxcode/74/92/783349274/783349274_x1-1-448.mp4?e=ig8euxZM2rNcNbNghbdVhwdlhbNghwdVhoNvNC8BqJIzNbfqXBvEqxTEto8BTrNvN0GvT90W5JZMkX_YN0MvXg8gNEV4NC8xNEV4N03eN0B5tZlqNxTEto8BTrNvNeZVuJ10Kj_g2UB02J0mN0B5tZlqNCNEto8BTrNvNC7MTX502C8f2jmMQJ6mqF2fka1mqx6gqj0eN0B599M=&mid=0&oi=2085477495&platform=pc&deadline=1769984609&trid=32e8e103dcae46c8a6bb047e104bf51u&gen=playurlv3&nbs=1&uipk=5&os=cosbv&og=cos&upsig=cd2c60e469b789be0b9f921c2a6641fb&uparams=e,mid,oi,platform,deadline,trid,gen,nbs,uipk,os,og&bvc=vod&nettype=0&bw=2182946&agrr=1&buvid=&build=0&dl=0&f=u_0_0&orderid=1,3",
+                              "https://upos-sz-mirrorcosb.bilivideo.com/upgcxcode/74/92/783349274/783349274_x1-1-448.mp4?e=ig8euxZM2rNcNbNghbdVhwdlhbNghwdVhoNvNC8BqJIzNbfqXBvEqxTEto8BTrNvN0GvT90W5JZMkX_YN0MvXg8gNEV4NC8xNEV4N03eN0B5tZlqNxTEto8BTrNvNeZVuJ10Kj_g2UB02J0mN0B5tZlqNCNEto8BTrNvNC7MTX502C8f2jmMQJ6mqF2fka1mqx6gqj0eN0B599M=&mid=0&oi=2085477495&uipk=5&deadline=1769984609&gen=playurlv3&og=cos&nbs=1&platform=pc&trid=32e8e103dcae46c8a6bb047e104bf51u&os=cosbbv&upsig=eee70a535ef1f7030d4a94dcc2009c73&uparams=e,mid,oi,uipk,deadline,gen,og,nbs,platform,trid,os&bvc=vod&nettype=0&bw=2182946&agrr=1&buvid=&build=0&dl=0&f=u_0_0&orderid=2,3"
+                            ],
+                            "url": "https://upos-sz-estgcos.bilivideo.com/upgcxcode/74/92/783349274/783349274_x1-1-448.mp4?e=ig8euxZM2rNcNbNghbdVhwdlhbNghwdVhoNvNC8BqJIzNbfqXBvEqxTEto8BTrNvN0GvT90W5JZMkX_YN0MvXg8gNEV4NC8xNEV4N03eN0B5tZlqNxTEto8BTrNvNeZVuJ10Kj_g2UB02J0mN0B5tZlqNCNEto8BTrNvNC7MTX502C8f2jmMQJ6mqF2fka1mqx6gqj0eN0B599M=&mid=0&nbs=1&platform=pc&deadline=1769984609&og=cos&trid=32e8e103dcae46c8a6bb047e104bf51u&oi=2085477495&uipk=5&gen=playurlv3&os=estgcos&upsig=cff4bc0ae138988379dd30f80086a7cb&uparams=e,mid,nbs,platform,deadline,og,trid,oi,uipk,gen,os&bvc=vod&nettype=0&bw=2182946&agrr=1&buvid=&build=0&dl=0&f=u_0_0&orderid=0,3",
+                            "order": 1,
+                            "md5": "84fc80de0c93a7a33d7652fe05d4ec4a"
+                          }
+                        ],
+                        "quality": 64
+                      },
+                      {
+                        "durl": [
+                          {
+                            "size": 494148,
+                            "ahead": "",
+                            "length": 4900,
+                            "vhead": "",
+                            "backup_url": [
+                              "https://upos-sz-mirror08c.bilivideo.com/upgcxcode/74/92/783349274/783349274_x1-1-416.mp4?e=ig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfqXBvEqxTEto8BTrNvN0GvT90W5JZMkX_YN0MvXg8gNEV4NC8xNEV4N03eN0B5tZlqNxTEto8BTrNvNeZVuJ10Kj_g2UB02J0mN0B5tZlqNCNEto8BTrNvNC7MTX502C8f2jmMQJ6mqF2fka1mqx6gqj0eN0B599M=&nbs=1&oi=2085477495&uipk=5&gen=playurlv3&og=hw&platform=pc&deadline=1769984609&trid=32e8e103dcae46c8a6bb047e104bf51u&mid=0&os=08cbv&upsig=453f0f05d63e4c84871fa364b99917cc&uparams=e,nbs,oi,uipk,gen,og,platform,deadline,trid,mid,os&bvc=vod&nettype=0&bw=988296&f=u_0_0&agrr=1&buvid=&build=0&dl=0&orderid=1,3",
+                              "https://upos-sz-mirrorhwb.bilivideo.com/upgcxcode/74/92/783349274/783349274_x1-1-416.mp4?e=ig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfqXBvEqxTEto8BTrNvN0GvT90W5JZMkX_YN0MvXg8gNEV4NC8xNEV4N03eN0B5tZlqNxTEto8BTrNvNeZVuJ10Kj_g2UB02J0mN0B5tZlqNCNEto8BTrNvNC7MTX502C8f2jmMQJ6mqF2fka1mqx6gqj0eN0B599M=&mid=0&nbs=1&oi=2085477495&platform=pc&deadline=1769984609&os=hwbbv&trid=32e8e103dcae46c8a6bb047e104bf51u&uipk=5&gen=playurlv3&og=hw&upsig=c1d2686d6c0610d1fafa597377bad501&uparams=e,mid,nbs,oi,platform,deadline,os,trid,uipk,gen,og&bvc=vod&nettype=0&bw=988296&build=0&dl=0&f=u_0_0&agrr=1&buvid=&orderid=2,3"
+                            ],
+                            "url": "https://upos-sz-estghw.bilivideo.com/upgcxcode/74/92/783349274/783349274_x1-1-416.mp4?e=ig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfqXBvEqxTEto8BTrNvN0GvT90W5JZMkX_YN0MvXg8gNEV4NC8xNEV4N03eN0B5tZlqNxTEto8BTrNvNeZVuJ10Kj_g2UB02J0mN0B5tZlqNCNEto8BTrNvNC7MTX502C8f2jmMQJ6mqF2fka1mqx6gqj0eN0B599M=&platform=pc&mid=0&nbs=1&uipk=5&og=hw&deadline=1769984609&trid=32e8e103dcae46c8a6bb047e104bf51u&oi=2085477495&gen=playurlv3&os=estghw&upsig=e46901203f6490257f540861f17c4687&uparams=e,platform,mid,nbs,uipk,og,deadline,trid,oi,gen,os&bvc=vod&nettype=0&bw=988296&dl=0&f=u_0_0&agrr=1&buvid=&build=0&orderid=0,3",
+                            "order": 1,
+                            "md5": "c728040932f2ad6ef56e4948e578e520"
+                          }
+                        ],
+                        "quality": 32
+                      },
+                      {
+                        "durl": [
+                          {
+                            "size": 230970,
+                            "ahead": "",
+                            "length": 4900,
+                            "vhead": "",
+                            "backup_url": [
+                              "https://upos-sz-mirror08c.bilivideo.com/upgcxcode/74/92/783349274/783349274_x1-1-400.mp4?e=ig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfqXBvEqxTEto8BTrNvN0GvT90W5JZMkX_YN0MvXg8gNEV4NC8xNEV4N03eN0B5tZlqNxTEto8BTrNvNeZVuJ10Kj_g2UB02J0mN0B5tZlqNCNEto8BTrNvNC7MTX502C8f2jmMQJ6mqF2fka1mqx6gqj0eN0B599M=&nbs=1&uipk=5&trid=32e8e103dcae46c8a6bb047e104bf51u&mid=0&os=08cbv&oi=2085477495&platform=pc&deadline=1769984609&gen=playurlv3&og=hw&upsig=f48dad6c81b507318d5d252d3cc2d1e0&uparams=e,nbs,uipk,trid,mid,os,oi,platform,deadline,gen,og&bvc=vod&nettype=0&bw=461940&f=u_0_0&agrr=1&buvid=&build=0&dl=0&orderid=1,3",
+                              "https://upos-sz-mirrorhwb.bilivideo.com/upgcxcode/74/92/783349274/783349274_x1-1-400.mp4?e=ig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfqXBvEqxTEto8BTrNvN0GvT90W5JZMkX_YN0MvXg8gNEV4NC8xNEV4N03eN0B5tZlqNxTEto8BTrNvNeZVuJ10Kj_g2UB02J0mN0B5tZlqNCNEto8BTrNvNC7MTX502C8f2jmMQJ6mqF2fka1mqx6gqj0eN0B599M=&mid=0&oi=2085477495&gen=playurlv3&os=hwbbv&deadline=1769984609&trid=32e8e103dcae46c8a6bb047e104bf51u&nbs=1&uipk=5&og=hw&platform=pc&upsig=1b7b15bc3e110d85e465a113513517c2&uparams=e,mid,oi,gen,os,deadline,trid,nbs,uipk,og,platform&bvc=vod&nettype=0&bw=461940&agrr=1&buvid=&build=0&dl=0&f=u_0_0&orderid=2,3"
+                            ],
+                            "url": "https://upos-sz-mirror08c.bilivideo.com/upgcxcode/74/92/783349274/783349274_x1-1-400.mp4?e=ig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfqXBvEqxTEto8BTrNvN0GvT90W5JZMkX_YN0MvXg8gNEV4NC8xNEV4N03eN0B5tZlqNxTEto8BTrNvNeZVuJ10Kj_g2UB02J0mN0B5tZlqNCNEto8BTrNvNC7MTX502C8f2jmMQJ6mqF2fka1mqx6gqj0eN0B599M=&og=hw&mid=0&uipk=5&platform=pc&deadline=1769984609&os=08cbv&nbs=1&oi=2085477495&trid=32e8e103dcae46c8a6bb047e104bf51u&gen=playurlv3&upsig=648f503982fe1da23a97d579aa8bbb75&uparams=e,og,mid,uipk,platform,deadline,os,nbs,oi,trid,gen&bvc=vod&nettype=0&bw=461940&dl=0&f=u_0_0&agrr=1&buvid=&build=0&orderid=0,3",
+                            "order": 1,
+                            "md5": "4af3c012e5d76f1e9533072ed549ec33"
+                          }
+                        ],
+                        "quality": 16
+                      }
+                    ],
+                    "has_paid": false,
+                    "fragment_videos": [],
+                    "accept_description": [
+                      "高清 720P",
+                      "清晰 480P",
+                      "流畅 360P"
+                    ],
+                    "status": 0
+                  },
+                  "message": "success"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/v3/fav/folder/info": {
+      "get": {
+        "summary": "获取收藏夹信息",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "收藏"
+        ],
+        "parameters": [
+          {
+            "name": "media_id",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "106",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "fid": {
+                          "type": "integer"
+                        },
+                        "mid": {
+                          "type": "integer"
+                        },
+                        "attr": {
+                          "type": "integer"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "cover": {
+                          "type": "string"
+                        },
+                        "upper": {
+                          "type": "object",
+                          "properties": {
+                            "mid": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "face": {
+                              "type": "string"
+                            },
+                            "followed": {
+                              "type": "boolean"
+                            },
+                            "vip_type": {
+                              "type": "integer"
+                            },
+                            "vip_statue": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "mid",
+                            "name",
+                            "face",
+                            "followed",
+                            "vip_type",
+                            "vip_statue"
+                          ]
+                        },
+                        "cover_type": {
+                          "type": "integer"
+                        },
+                        "cnt_info": {
+                          "type": "object",
+                          "properties": {
+                            "collect": {
+                              "type": "integer"
+                            },
+                            "play": {
+                              "type": "integer"
+                            },
+                            "thumb_up": {
+                              "type": "integer"
+                            },
+                            "share": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "collect",
+                            "play",
+                            "thumb_up",
+                            "share"
+                          ]
+                        },
+                        "type": {
+                          "type": "integer"
+                        },
+                        "intro": {
+                          "type": "string"
+                        },
+                        "ctime": {
+                          "type": "integer"
+                        },
+                        "mtime": {
+                          "type": "integer"
+                        },
+                        "state": {
+                          "type": "integer"
+                        },
+                        "fav_state": {
+                          "type": "integer"
+                        },
+                        "like_state": {
+                          "type": "integer"
+                        },
+                        "media_count": {
+                          "type": "integer"
+                        },
+                        "is_top": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "fid",
+                        "mid",
+                        "attr",
+                        "title",
+                        "cover",
+                        "upper",
+                        "cover_type",
+                        "cnt_info",
+                        "type",
+                        "intro",
+                        "ctime",
+                        "mtime",
+                        "state",
+                        "fav_state",
+                        "like_state",
+                        "media_count",
+                        "is_top"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "id": 106,
+                    "fid": 1,
+                    "mid": 75379106,
+                    "attr": 0,
+                    "title": "默认收藏夹",
+                    "cover": "",
+                    "upper": {
+                      "mid": 75379106,
+                      "name": "哔哩哔哩测试1326",
+                      "face": "http://i0.hdslb.com/bfs/face/member/noface.jpg",
+                      "followed": false,
+                      "vip_type": 0,
+                      "vip_statue": 0
+                    },
+                    "cover_type": 0,
+                    "cnt_info": {
+                      "collect": 0,
+                      "play": 198,
+                      "thumb_up": 0,
+                      "share": 0
+                    },
+                    "type": 11,
+                    "intro": "",
+                    "ctime": 1499106583,
+                    "mtime": 1594034659,
+                    "state": 0,
+                    "fav_state": 0,
+                    "like_state": 0,
+                    "media_count": 2,
+                    "is_top": false
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/v3/fav/folder/created/list-all": {
+      "get": {
+        "summary": "用户全部收藏夹",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "收藏"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer"
+                        },
+                        "list": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "fid": {
+                                "type": "integer"
+                              },
+                              "mid": {
+                                "type": "integer"
+                              },
+                              "attr": {
+                                "type": "integer"
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "fav_state": {
+                                "type": "integer"
+                              },
+                              "media_count": {
+                                "type": "integer"
+                              }
+                            }
+                          }
+                        },
+                        "season": {
+                          "type": "null"
+                        }
+                      },
+                      "required": [
+                        "count",
+                        "list",
+                        "season"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                }
+              }
+            },
+            "headers": {}
           }
         },
         "security": []
