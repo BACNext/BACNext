@@ -10,7 +10,7 @@
       "name": "安全中心"
     },
     {
-      "name": "SNS登录"
+      "name": "SNS 登录"
     },
     {
       "name": "Web"
@@ -472,7 +472,7 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "SNS登录"
+          "SNS 登录"
         ],
         "parameters": [
           {
@@ -553,7 +553,7 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "SNS登录"
+          "SNS 登录"
         ],
         "parameters": [],
         "responses": {
@@ -587,7 +587,7 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "SNS登录"
+          "SNS 登录"
         ],
         "parameters": [
           {
