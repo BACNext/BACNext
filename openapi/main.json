@@ -77,71 +77,9 @@
     },
     {
       "name": "Wbi"
-    },
-    {
-      "name": "Web"
     }
   ],
   "paths": {
-    "/x/space/wbi/acc/relation": {
-      "get": {
-        "summary": "相互关系",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "空间/Wbi 接口",
-          "Wbi"
-        ],
-        "parameters": [
-          {
-            "name": "mid",
-            "in": "query",
-            "description": "",
-            "required": true,
-            "example": "489191198",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {}
-                },
-                "example": {
-                  "code": 0,
-                  "message": "OK",
-                  "ttl": 1,
-                  "data": {
-                    "relation": {
-                      "mid": 0,
-                      "attribute": 0,
-                      "mtime": 0,
-                      "tag": null,
-                      "special": 0
-                    },
-                    "be_relation": {
-                      "mid": 531718444,
-                      "attribute": 128,
-                      "mtime": 1767000860,
-                      "tag": null,
-                      "special": 0
-                    }
-                  }
-                }
-              }
-            },
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
     "/x/space/wbi/acc/info": {
       "get": {
         "summary": "用户空间详细信息",
@@ -149,8 +87,7 @@
         "description": "",
         "tags": [
           "空间/Wbi 接口",
-          "Wbi",
-          "Web"
+          "Wbi"
         ],
         "parameters": [
           {
@@ -1116,6 +1053,98 @@
         "security": []
       }
     },
+    "/x/space/wbi/acc/relation": {
+      "get": {
+        "summary": "相互关系",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "空间/Wbi 接口",
+          "Wbi"
+        ],
+        "parameters": [
+          {
+            "name": "mid",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": "489191198",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "relation": {
+                          "$ref": "#/components/schemas/Relation",
+                          "title": "与对方的关系"
+                        },
+                        "be_relation": {
+                          "$ref": "#/components/schemas/Relation",
+                          "title": "对方与自己的关系"
+                        }
+                      },
+                      "required": [
+                        "relation",
+                        "be_relation"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "relation": {
+                      "mid": 0,
+                      "attribute": 0,
+                      "mtime": 0,
+                      "tag": null,
+                      "special": 0
+                    },
+                    "be_relation": {
+                      "mid": 114514,
+                      "attribute": 128,
+                      "mtime": 1767000860,
+                      "tag": null,
+                      "special": 0
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
     "/x/space/myinfo": {
       "get": {
         "summary": "登录用户空间详细信息",
@@ -1958,13 +1987,17 @@
                           "type": "object",
                           "properties": {
                             "enable_vt": {
-                              "type": "integer"
+                              "type": "integer",
+                              "title": "是否启用播放时长数统计"
                             },
                             "view": {
-                              "type": "integer"
+                              "type": "integer",
+                              "title": "稿件播放量"
                             },
                             "vt": {
-                              "type": "integer"
+                              "type": "integer",
+                              "description": "如果enable_vt为0此字段为0",
+                              "title": "播放时长分钟数"
                             }
                           },
                           "required": [
@@ -1977,7 +2010,8 @@
                           "type": "object",
                           "properties": {
                             "view": {
-                              "type": "integer"
+                              "type": "integer",
+                              "title": "专栏阅读量"
                             }
                           },
                           "required": [
@@ -1985,7 +2019,8 @@
                           ]
                         },
                         "likes": {
-                          "type": "integer"
+                          "type": "integer",
+                          "title": "获赞数"
                         }
                       },
                       "required": [
@@ -2030,7 +2065,7 @@
       "get": {
         "summary": "导航栏状态数",
         "deprecated": false,
-        "description": "本接口被412具体原因待查",
+        "description": "本接口校验Referer，请开发者注意",
         "tags": [
           "空间"
         ],
@@ -2044,6 +2079,16 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "Referer",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "https://www.bilibili.com",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -2053,7 +2098,149 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {}
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "video": {
+                          "type": "integer",
+                          "title": "稿件数"
+                        },
+                        "bangumi": {
+                          "type": "integer",
+                          "title": "追番数"
+                        },
+                        "cinema": {
+                          "type": "integer",
+                          "title": "追剧数"
+                        },
+                        "channel": {
+                          "type": "object",
+                          "properties": {
+                            "master": {
+                              "type": "integer",
+                              "title": "全部"
+                            },
+                            "guest": {
+                              "type": "integer",
+                              "title": "公开"
+                            }
+                          },
+                          "required": [
+                            "master",
+                            "guest"
+                          ],
+                          "title": "视频列表数"
+                        },
+                        "favourite": {
+                          "type": "object",
+                          "properties": {
+                            "master": {
+                              "type": "integer",
+                              "title": "全部"
+                            },
+                            "guest": {
+                              "type": "integer",
+                              "title": "公开"
+                            }
+                          },
+                          "required": [
+                            "master",
+                            "guest"
+                          ],
+                          "title": "收藏夹数"
+                        },
+                        "tag": {
+                          "type": "integer",
+                          "title": "关注分组数"
+                        },
+                        "article": {
+                          "type": "integer",
+                          "title": "专栏数"
+                        },
+                        "playlist": {
+                          "type": "integer",
+                          "description": "未知"
+                        },
+                        "album": {
+                          "type": "integer",
+                          "title": "图文数"
+                        },
+                        "audio": {
+                          "type": "integer",
+                          "title": "音频数"
+                        },
+                        "pugv": {
+                          "type": "integer",
+                          "title": "课程数"
+                        },
+                        "season_num": {
+                          "type": "integer",
+                          "title": "合集数"
+                        },
+                        "opus": {
+                          "type": "integer",
+                          "title": "动态数"
+                        }
+                      },
+                      "required": [
+                        "video",
+                        "bangumi",
+                        "cinema",
+                        "channel",
+                        "favourite",
+                        "tag",
+                        "article",
+                        "playlist",
+                        "album",
+                        "audio",
+                        "pugv",
+                        "season_num",
+                        "opus"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "video": 160,
+                    "bangumi": 0,
+                    "cinema": 0,
+                    "channel": {
+                      "master": 0,
+                      "guest": 0
+                    },
+                    "favourite": {
+                      "master": 1,
+                      "guest": 1
+                    },
+                    "tag": 0,
+                    "article": 0,
+                    "playlist": 0,
+                    "album": 91,
+                    "audio": 0,
+                    "pugv": 0,
+                    "season_num": 3,
+                    "opus": 91
+                  }
                 }
               }
             },
@@ -2104,40 +2291,53 @@
                       "type": "object",
                       "properties": {
                         "aid": {
-                          "type": "integer"
+                          "type": "integer",
+                          "title": "稿件aid"
                         },
                         "videos": {
-                          "type": "integer"
+                          "type": "integer",
+                          "title": "分p数"
                         },
                         "tid": {
-                          "type": "integer"
+                          "type": "integer",
+                          "title": "分区id"
                         },
                         "tname": {
-                          "type": "string"
+                          "type": "string",
+                          "title": "子分区分区名"
                         },
                         "copyright": {
-                          "type": "integer"
+                          "type": "integer",
+                          "description": "1原创2转载3未填写"
                         },
                         "pic": {
-                          "type": "string"
+                          "type": "string",
+                          "title": "封面url"
                         },
                         "title": {
-                          "type": "string"
+                          "type": "string",
+                          "title": "稿件标题"
                         },
                         "pubdate": {
-                          "type": "integer"
+                          "type": "integer",
+                          "title": "发布时间"
                         },
                         "ctime": {
-                          "type": "integer"
+                          "type": "integer",
+                          "title": "提交时间"
                         },
                         "desc": {
-                          "type": "string"
+                          "type": "string",
+                          "title": "简介"
                         },
                         "state": {
-                          "type": "integer"
+                          "type": "integer",
+                          "title": "状态",
+                          "description": "详见杂项-视频状态"
                         },
                         "duration": {
-                          "type": "integer"
+                          "type": "integer",
+                          "title": "总时长"
                         },
                         "rights": {
                           "type": "object",
@@ -56991,6 +57191,38 @@
   "webhooks": {},
   "components": {
     "schemas": {
+      "Relation": {
+        "type": "object",
+        "properties": {
+          "mid": {
+            "type": "integer",
+            "description": "对方mid"
+          },
+          "attribute": {
+            "type": "integer",
+            "description": "关系属性：\n0：未关注\n1：悄悄关注\n2：已关注\n6：已互粉\n128：已拉黑"
+          },
+          "mtime": {
+            "type": "integer",
+            "description": "属性开始时间，如关注时间或拉黑时间"
+          },
+          "tag": {
+            "type": "null",
+            "description": "分组id"
+          },
+          "special": {
+            "type": "integer",
+            "description": "是否特别关注"
+          }
+        },
+        "required": [
+          "mid",
+          "attribute",
+          "mtime",
+          "tag",
+          "special"
+        ]
+      },
       "DynamicDetail": {
         "type": "object",
         "properties": {
