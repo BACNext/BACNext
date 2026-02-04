@@ -9548,7 +9548,7 @@
     },
     "/x/relation/followers": {
       "get": {
-        "summary": "用户粉丝(旧)",
+        "summary": "用户粉丝 (旧)",
         "deprecated": false,
         "description": "",
         "tags": [
