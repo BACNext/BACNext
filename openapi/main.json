@@ -77,6 +77,9 @@
     },
     {
       "name": "Wbi"
+    },
+    {
+      "name": "Web"
     }
   ],
   "paths": {
@@ -87,7 +90,8 @@
         "description": "",
         "tags": [
           "空间/Wbi 接口",
-          "Wbi"
+          "Wbi",
+          "Web"
         ],
         "parameters": [
           {
@@ -1945,7 +1949,7 @@
     },
     "/x/space/upstat": {
       "get": {
-        "summary": "UP状态数",
+        "summary": "UP 状态数",
         "deprecated": false,
         "description": "",
         "tags": [

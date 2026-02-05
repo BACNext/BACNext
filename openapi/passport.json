@@ -863,7 +863,7 @@
     },
     "/web/captcha/combine": {
       "get": {
-        "summary": "申请验证码(旧版)",
+        "summary": "申请验证码 (旧版)",
         "deprecated": true,
         "description": "",
         "tags": [],
@@ -1106,7 +1106,7 @@
     },
     "/qrcode/getLoginUrl": {
       "get": {
-        "summary": "申请二维码(旧版)",
+        "summary": "申请二维码 (旧版)",
         "deprecated": true,
         "description": "",
         "tags": [],
@@ -1169,7 +1169,7 @@
     },
     "/qrcode/getLoginInfo": {
       "get": {
-        "summary": "扫码登录(旧版)",
+        "summary": "扫码登录 (旧版)",
         "deprecated": true,
         "description": "扫码登录 确认登录 流程完成后，会同时设置以下 Cookie 值：\n- `SESSDATA`\n- `bili_jct`\n- `DedeUserID`\n- `DedeUserID__ckMd5`\n- `sid`",
         "tags": [],
@@ -3000,7 +3000,7 @@
       "post": {
         "summary": "密码登录",
         "deprecated": false,
-        "description": "本接口需要先[申请验证码](apifox://link/endpoint/412263926)和[获取公钥&盐](apifox://link/endpoint/412887455)\n\n密码加密伪代码如下\n\n```\npubkey, salt = get_pubkey_and_salt()\npassword = base64_encode(RSA_encrypt(pubkey, salt+plain_password))\n```",
+        "description": "本接口需要先[申请验证码](apifox://link/endpoint/412263926)和[获取公钥&盐](apifox://link/endpoint/412887455)\n\n密码加密伪代码如下\n\n```\npubkey, salt = get_pubkey_and_salt()\npassword = base64_encode(RSA_encrypt(pubkey, salt+plain_password))\n```\n\n此登录方式**在极大部分情况下**均需要进行二次验证，因此**除非必要，不建议使用此登录方式**。",
         "tags": [
           "Web"
         ],

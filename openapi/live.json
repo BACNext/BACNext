@@ -2691,7 +2691,7 @@
     },
     "/xlive/web-room/v1/index/getIpInfo": {
       "get": {
-        "summary": "IP属地",
+        "summary": "IP 属地",
         "deprecated": false,
         "description": "",
         "tags": [],
