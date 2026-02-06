@@ -70992,6 +70992,197 @@
         },
         "security": []
       }
+    },
+    "/x/player/videoshot": {
+      "get": {
+        "summary": "获取视频快照",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "播放器"
+        ],
+        "parameters": [
+          {
+            "name": "aid",
+            "in": "query",
+            "description": "aid和bvid任选其一",
+            "required": false,
+            "example": "1700001",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "bvid",
+            "in": "query",
+            "description": "aid和bvid任选其一",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cid",
+            "in": "query",
+            "description": "默认为1P",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "index",
+            "in": "query",
+            "description": "json数组截取时间表，默认为0",
+            "required": false,
+            "example": 0,
+            "schema": {
+              "type": "number",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "code": 0,
+                  "message": "OK",
+                  "ttl": 1,
+                  "data": {
+                    "pvdata": "//i0.hdslb.com/bfs/videoshot/2593502.bin",
+                    "img_x_len": 10,
+                    "img_y_len": 10,
+                    "img_x_size": 160,
+                    "img_y_size": 90,
+                    "image": [
+                      "//i0.hdslb.com/bfs/videoshot/2593502.jpg",
+                      "//i0.hdslb.com/bfs/videoshot/2593502-1.jpg"
+                    ],
+                    "index": [
+                      0,
+                      0,
+                      3,
+                      5,
+                      6,
+                      9,
+                      10,
+                      11,
+                      12,
+                      14,
+                      16,
+                      19,
+                      21,
+                      24,
+                      26,
+                      27,
+                      29,
+                      31,
+                      33,
+                      36,
+                      38,
+                      40,
+                      45,
+                      46,
+                      48,
+                      49,
+                      56,
+                      58,
+                      59,
+                      62,
+                      66,
+                      69,
+                      71,
+                      72,
+                      76,
+                      79,
+                      81,
+                      83,
+                      86,
+                      88,
+                      89,
+                      91,
+                      93,
+                      94,
+                      98,
+                      101,
+                      106,
+                      107,
+                      108,
+                      109,
+                      110,
+                      111,
+                      115,
+                      118,
+                      121,
+                      123,
+                      129,
+                      131,
+                      134,
+                      136,
+                      136,
+                      139,
+                      140,
+                      141,
+                      142,
+                      144,
+                      145,
+                      147,
+                      148,
+                      149,
+                      151,
+                      151,
+                      153,
+                      154,
+                      156,
+                      158,
+                      159,
+                      160,
+                      161,
+                      162,
+                      164,
+                      166,
+                      168,
+                      170,
+                      171,
+                      172,
+                      173,
+                      175,
+                      176,
+                      177,
+                      178,
+                      180,
+                      181,
+                      182,
+                      184,
+                      185,
+                      187,
+                      189,
+                      190,
+                      192,
+                      199,
+                      202
+                    ],
+                    "video_shots": {},
+                    "indexs": {}
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
     }
   },
   "webhooks": {},
