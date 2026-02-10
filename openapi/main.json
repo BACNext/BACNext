@@ -100,6 +100,9 @@
       "name": "项目/CNY"
     },
     {
+      "name": "拉新"
+    },
+    {
       "name": "Wbi"
     },
     {
@@ -79009,6 +79012,94 @@
                     "has_more_chat_rooms": true,
                     "broadcast_room_id": 26271604
                   }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/x/fission/backflow": {
+      "post": {
+        "summary": "CNY拉新",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "拉新"
+        ],
+        "parameters": [
+          {
+            "name": "platform",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "buvid",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "csrf",
+            "in": "query",
+            "description": "Cookie方式必要",
+            "required": true,
+            "example": "408196667534983c8cf0357922940985",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "mid": {
+                    "type": "string"
+                  },
+                  "activity_id": {
+                    "type": "integer"
+                  },
+                  "uk": {
+                    "type": "string",
+                    "title": "unique_k"
+                  },
+                  "room_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "mid",
+                  "activity_id",
+                  "uk",
+                  "room_id"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
                 }
               }
             },
