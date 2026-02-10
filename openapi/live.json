@@ -2777,6 +2777,494 @@
         },
         "security": []
       }
+    },
+    "/live.center.interface.v1.Chat/GetChatRoomsDetail": {
+      "get": {
+        "summary": "获取CNY直播间列表",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "第几次获取",
+            "required": true,
+            "example": "2",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "room_id",
+            "in": "query",
+            "description": "可为固定值",
+            "required": true,
+            "example": "26271604",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "exist_ids",
+            "in": "query",
+            "description": "将已获取过的roomid以逗号隔开传入防止二次获取",
+            "required": true,
+            "example": "22747055,6732538,1546736,683703,23205090,22893259,30013108,12262419,23192840,9776925",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "ttl": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "chat_rooms": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "room_id": {
+                                "type": "integer"
+                              },
+                              "anchor_id": {
+                                "type": "integer"
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "description": {
+                                "type": "string"
+                              },
+                              "live_status": {
+                                "type": "integer"
+                              },
+                              "area_id": {
+                                "type": "integer"
+                              },
+                              "parent_area_id": {
+                                "type": "integer"
+                              },
+                              "live_url": {
+                                "type": "string"
+                              },
+                              "jump_url": {
+                                "type": "string"
+                              },
+                              "is_inline": {
+                                "type": "boolean"
+                              },
+                              "member_face_list": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "fortune_value_str": {
+                                "type": "string"
+                              },
+                              "fortune_percent": {
+                                "type": "integer"
+                              },
+                              "fortune_toast": {
+                                "type": "string"
+                              },
+                              "live_toast": {
+                                "type": "string"
+                              },
+                              "room_type": {
+                                "type": "integer"
+                              },
+                              "image_url": {
+                                "type": "string"
+                              },
+                              "image_index": {
+                                "type": "integer"
+                              },
+                              "badge_text": {
+                                "type": "string"
+                              },
+                              "show_fortune": {
+                                "type": "boolean"
+                              },
+                              "overlay_index": {
+                                "type": "integer"
+                              },
+                              "overlay_url": {
+                                "type": "string"
+                              },
+                              "use_overlay": {
+                                "type": "boolean"
+                              }
+                            },
+                            "required": [
+                              "room_id",
+                              "anchor_id",
+                              "title",
+                              "description",
+                              "live_status",
+                              "area_id",
+                              "parent_area_id",
+                              "live_url",
+                              "jump_url",
+                              "is_inline",
+                              "member_face_list",
+                              "fortune_value_str",
+                              "fortune_percent",
+                              "fortune_toast",
+                              "live_toast",
+                              "room_type",
+                              "image_url",
+                              "image_index",
+                              "badge_text",
+                              "show_fortune",
+                              "overlay_index",
+                              "overlay_url",
+                              "use_overlay"
+                            ]
+                          }
+                        },
+                        "has_more": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "chat_rooms",
+                        "has_more"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message",
+                    "ttl",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "code": 0,
+                  "message": "0",
+                  "ttl": 1,
+                  "data": {
+                    "chat_rooms": [
+                      {
+                        "room_id": 3645373,
+                        "anchor_id": 10510808,
+                        "title": "正在抽奖~跟全站修勾一起蹦迪",
+                        "description": "进来蹦迪领红包大奖！",
+                        "live_status": 1,
+                        "area_id": 371,
+                        "parent_area_id": 9,
+                        "live_url": "",
+                        "jump_url": "https://live.bilibili.com/3645373?accept_quality=%5B10000%2C400%2C250%5D&all_special_types=%5B50%5D&area_id=371&av1_current_qn=0&broadcast_type=0&current_qn=250&current_quality=250&expected_hdr_type=0&expected_qn=250&h264_current_qn=250&h264_session=http%3A%2F%2F123.234.3.202%2Flive-bvc%2F359210%2Flive_10510808_4791127_2500.flv%3Fexpires%3D1770735802%26pt%3Dandroid%26deadline%3D1770735802%26len%3D0%26oi%3D2042944895%26platform%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26uipk%3D100%26uipv%3D100%26nbs%3D1%26bmt%3D2%26uparams%3Dcdn%2Cdeadline%2Clen%2Coi%2Cplatform%2Cqn%2Ctrid%2Cuipk%2Cuipv%2Cnbs%2Cbmt%26cdn%3Dcn-gotcha01%26upsig%3Dbd3c3daf0b9b2d310d50a55ad3b1447c%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26sid%3Dcn-sdqd-cu-01-33%26chash%3D1%26sg%3Ddf%26trace%3D4877%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26long_ab_flag%3Dlive_default_longitudinal%26strategy_id%3D25%26strategy_types%3D0%2C1%26info_source%3Dcache%26suffix%3D2500%26expected_qn%3D250%26hdr_type%3D0%26p2p_type%3D-1%26origin_bitrate%3D2454%26long_ab_id%3D45%26deploy_env%3Dprod%26ld%3Djchz%26hot_cdn%3D57353%26score%3D1%26sk%3D7b9ca197a822eebb7933bf2a49b49d0f674b24980be7c2a821073ed4b7505a6d%26strategy_type%3D0%26strategy_ids%3D25%2C122%26long_ab_flag_value%3Dtest%26pp%3Dsrt%26sl%3D1%26media_type%3D0%26strategy_version%3Dlatest%26codec%3D0%26source%3Dpuv3_batch%26vd%3Dnc%26zoneid_l%3D151355408%26sid_l%3Dstream_name_cold%26src%3Dpuv3%26order%3D1&h265_current_qn=250&h265_session=http%3A%2F%2Fd1--cn-gotcha04.bilivideo.com%2Flive-bvc%2F731585%2Flive_10510808_4791127_minihevc.flv%3Fexpires%3D1770735802%26len%3D0%26oi%3D2042944895%26pt%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26bmt%3D2%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%2Cbmt%26cdn%3Dcn-gotcha04%26sign%3D3a61aa1d842d34880650fa47b039d55d%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26trace%3D4%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26deploy_env%3Dprod%26origin_bitrate%3D1762%26media_type%3D0%26p2p_type%3D-1%26suffix%3Dminihevc%26expected_qn%3D250%26hot_cdn%3D57353%26strategy_version%3Dlatest%26ld%3Djchz%26strategy_id%3D25%26long_ab_flag%3Dlive_default_longitudinal%26source%3Dpuv3_batch%26pp%3Dsrt%26hdr_type%3D0%26long_ab_id%3D45%26score%3D57%26strategy_types%3D0%2C1%26strategy_type%3D0%26sk%3D7b9ca197a822eebb7933bf2a49b49d0f52be7f14e5fab7b47de00f809a0be40a%26long_ab_flag_value%3Dtest%26info_source%3Dcache%26strategy_ids%3D25%2C122%26sl%3D1%26codec%3D1%26vd%3Dbc%26src%3Dpuv3%26order%3D1&is_room_feed=1&live_from=24805&live_play_network=other&master_url=https%3A%2F%2Fapi.live.bilibili.com%2Fxlive%2Fplay-gateway%2Fmaster%2Furl%3Fcid%3D3645373%26mid%3D0%26pt%3Dandroid%26p2p_type%3D-1%26net%3D3%26free_type%3D0%26build%3D0%26feature%3D0%26qn%3D250%26drm_type%3D0%26cam_id%3D0&p2p_type=-1&parent_area_id=9&playurl_av1=&playurl_h264=http%3A%2F%2F123.234.3.202%2Flive-bvc%2F359210%2Flive_10510808_4791127_2500.flv%3Fexpires%3D1770735802%26pt%3Dandroid%26deadline%3D1770735802%26len%3D0%26oi%3D2042944895%26platform%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26uipk%3D100%26uipv%3D100%26nbs%3D1%26bmt%3D2%26uparams%3Dcdn%2Cdeadline%2Clen%2Coi%2Cplatform%2Cqn%2Ctrid%2Cuipk%2Cuipv%2Cnbs%2Cbmt%26cdn%3Dcn-gotcha01%26upsig%3Dbd3c3daf0b9b2d310d50a55ad3b1447c%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26sid%3Dcn-sdqd-cu-01-33%26chash%3D1%26sg%3Ddf%26trace%3D4877%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26long_ab_flag%3Dlive_default_longitudinal%26strategy_id%3D25%26strategy_types%3D0%2C1%26info_source%3Dcache%26suffix%3D2500%26expected_qn%3D250%26hdr_type%3D0%26p2p_type%3D-1%26origin_bitrate%3D2454%26long_ab_id%3D45%26deploy_env%3Dprod%26ld%3Djchz%26hot_cdn%3D57353%26score%3D1%26sk%3D7b9ca197a822eebb7933bf2a49b49d0f674b24980be7c2a821073ed4b7505a6d%26strategy_type%3D0%26strategy_ids%3D25%2C122%26long_ab_flag_value%3Dtest%26pp%3Dsrt%26sl%3D1%26media_type%3D0%26strategy_version%3Dlatest%26codec%3D0%26source%3Dpuv3_batch%26vd%3Dnc%26zoneid_l%3D151355408%26sid_l%3Dstream_name_cold%26src%3Dpuv3%26order%3D1&playurl_h265=http%3A%2F%2Fd1--cn-gotcha04.bilivideo.com%2Flive-bvc%2F731585%2Flive_10510808_4791127_minihevc.flv%3Fexpires%3D1770735802%26len%3D0%26oi%3D2042944895%26pt%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26bmt%3D2%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%2Cbmt%26cdn%3Dcn-gotcha04%26sign%3D3a61aa1d842d34880650fa47b039d55d%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26trace%3D4%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26deploy_env%3Dprod%26origin_bitrate%3D1762%26media_type%3D0%26p2p_type%3D-1%26suffix%3Dminihevc%26expected_qn%3D250%26hot_cdn%3D57353%26strategy_version%3Dlatest%26ld%3Djchz%26strategy_id%3D25%26long_ab_flag%3Dlive_default_longitudinal%26source%3Dpuv3_batch%26pp%3Dsrt%26hdr_type%3D0%26long_ab_id%3D45%26score%3D57%26strategy_types%3D0%2C1%26strategy_type%3D0%26sk%3D7b9ca197a822eebb7933bf2a49b49d0f52be7f14e5fab7b47de00f809a0be40a%26long_ab_flag_value%3Dtest%26info_source%3Dcache%26strategy_ids%3D25%2C122%26sl%3D1%26codec%3D1%26vd%3Dbc%26src%3Dpuv3%26order%3D1&qn_desc_more_ab=1&quality_description=%5B%7B%22qn%22%3A10000%2C%22desc%22%3A%22%E5%8E%9F%E7%94%BB%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%221080P+%E5%8E%9F%E7%94%BB%22%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%221080P%22%2C%22badge%22%3A%22%E5%8E%9F%E7%94%BB%22%7D%7D%7D%2C%7B%22qn%22%3A400%2C%22desc%22%3A%22%E8%93%9D%E5%85%89%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%221080P+%E8%93%9D%E5%85%89%22%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%221080P%22%7D%7D%7D%2C%7B%22qn%22%3A250%2C%22desc%22%3A%22%E8%B6%85%E6%B8%85%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%22720P+%E8%B6%85%E6%B8%85%22%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%22720P%22%7D%7D%7D%5D",
+                        "is_inline": false,
+                        "member_face_list": [
+                          "https://i2.hdslb.com/bfs/face/d24e82159762a5943e1570eab2ad0551f235b910.jpg",
+                          "https://i2.hdslb.com/bfs/face/0b57f2b386fa440fc6907a839b2bf310fcfc50b0.jpg",
+                          "https://i0.hdslb.com/bfs/face/13768ea44fec5a8e88937a6c6f17d0a8d1e8a6d3.jpg"
+                        ],
+                        "fortune_value_str": "119.4万",
+                        "fortune_percent": 23,
+                        "fortune_toast": "福气值",
+                        "live_toast": "正在直播",
+                        "room_type": 0,
+                        "image_url": "",
+                        "image_index": 3,
+                        "badge_text": "154人正在聊",
+                        "show_fortune": true,
+                        "overlay_index": 0,
+                        "overlay_url": "",
+                        "use_overlay": false
+                      },
+                      {
+                        "room_id": 6302033,
+                        "anchor_id": 32708657,
+                        "title": "一直奏乐一直舞",
+                        "description": "限时！鹿火、小缘邀你抽现金！",
+                        "live_status": 1,
+                        "area_id": 21,
+                        "parent_area_id": 1,
+                        "live_url": "",
+                        "jump_url": "https://live.bilibili.com/6302033?accept_quality=%5B10000%5D&all_special_types=%5B50%5D&area_id=21&av1_current_qn=0&broadcast_type=0&current_qn=10000&current_quality=10000&expected_hdr_type=0&expected_qn=250&h264_current_qn=10000&h264_session=http%3A%2F%2F123.234.3.143%2Flive-bvc%2F438839%2Flive_32708657_2857828.flv%3Fexpires%3D1770735802%26pt%3Dandroid%26deadline%3D1770735802%26len%3D0%26oi%3D2042944895%26platform%3Dandroid%26qn%3D10000%26trid%3D1000003d08b65a4ed464187f367103698b3a%26uipk%3D100%26uipv%3D100%26nbs%3D1%26bmt%3D2%26uparams%3Dcdn%2Cdeadline%2Clen%2Coi%2Cplatform%2Cqn%2Ctrid%2Cuipk%2Cuipv%2Cnbs%2Cbmt%26cdn%3Dcn-gotcha01%26upsig%3D6ffe95348a1f221c79eea4375da7a71f%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26sid%3Dcn-sdqd-cu-01-14%26chash%3D1%26sg%3Ddf%26trace%3D4877%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26suffix%3Dorigin%26ld%3Djchz%26long_ab_id%3D45%26long_ab_flag%3Dlive_default_longitudinal%26info_source%3Dcache%26strategy_id%3D25%26origin_bitrate%3D3966%26strategy_type%3D0%26strategy_ids%3D25%2C122%26expected_qn%3D250%26strategy_types%3D0%2C1%26hot_cdn%3D909449%26pp%3D%26hdr_type%3D0%26score%3D1%26p2p_type%3D-1%26codec%3D0%26source%3Dpuv3_batch%26long_ab_flag_value%3Dtest%26deploy_env%3Dprod%26media_type%3D0%26strategy_version%3Dlatest%26sl%3D2%26sk%3D2953674e992ffcf87e6e50ef9d344449%26vd%3Dnc%26zoneid_l%3D151355408%26sid_l%3Dstream_name_cold%26src%3Dpuv3%26order%3D1&h265_current_qn=0&is_room_feed=1&live_from=24805&live_play_network=other&master_url=&p2p_type=-1&parent_area_id=1&playurl_av1=&playurl_h264=http%3A%2F%2F123.234.3.143%2Flive-bvc%2F438839%2Flive_32708657_2857828.flv%3Fexpires%3D1770735802%26pt%3Dandroid%26deadline%3D1770735802%26len%3D0%26oi%3D2042944895%26platform%3Dandroid%26qn%3D10000%26trid%3D1000003d08b65a4ed464187f367103698b3a%26uipk%3D100%26uipv%3D100%26nbs%3D1%26bmt%3D2%26uparams%3Dcdn%2Cdeadline%2Clen%2Coi%2Cplatform%2Cqn%2Ctrid%2Cuipk%2Cuipv%2Cnbs%2Cbmt%26cdn%3Dcn-gotcha01%26upsig%3D6ffe95348a1f221c79eea4375da7a71f%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26sid%3Dcn-sdqd-cu-01-14%26chash%3D1%26sg%3Ddf%26trace%3D4877%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26suffix%3Dorigin%26ld%3Djchz%26long_ab_id%3D45%26long_ab_flag%3Dlive_default_longitudinal%26info_source%3Dcache%26strategy_id%3D25%26origin_bitrate%3D3966%26strategy_type%3D0%26strategy_ids%3D25%2C122%26expected_qn%3D250%26strategy_types%3D0%2C1%26hot_cdn%3D909449%26pp%3D%26hdr_type%3D0%26score%3D1%26p2p_type%3D-1%26codec%3D0%26source%3Dpuv3_batch%26long_ab_flag_value%3Dtest%26deploy_env%3Dprod%26media_type%3D0%26strategy_version%3Dlatest%26sl%3D2%26sk%3D2953674e992ffcf87e6e50ef9d344449%26vd%3Dnc%26zoneid_l%3D151355408%26sid_l%3Dstream_name_cold%26src%3Dpuv3%26order%3D1&playurl_h265=&qn_desc_more_ab=1&quality_description=%5B%7B%22qn%22%3A10000%2C%22desc%22%3A%22%E5%8E%9F%E7%94%BB%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%221080P+%E5%8E%9F%E7%94%BB%22%2C%22tag%22%3A%5B%22%E9%AB%98%E5%B8%A7%E7%8E%87%22%5D%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%221080P%22%2C%22badge%22%3A%22%E5%8E%9F%E7%94%BB%22%7D%7D%7D%5D",
+                        "is_inline": false,
+                        "member_face_list": [
+                          "https://i0.hdslb.com/bfs/face/member/noface.jpg",
+                          "http://i0.hdslb.com/bfs/face/member/noface.jpg",
+                          "https://i1.hdslb.com/bfs/face/6e24dc3929c0f4a2982277068cc76d12b0e0f4c6.jpg"
+                        ],
+                        "fortune_value_str": "114.6万",
+                        "fortune_percent": 22,
+                        "fortune_toast": "福气值",
+                        "live_toast": "正在直播",
+                        "room_type": 0,
+                        "image_url": "",
+                        "image_index": 3,
+                        "badge_text": "9999+人气",
+                        "show_fortune": true,
+                        "overlay_index": 0,
+                        "overlay_url": "",
+                        "use_overlay": false
+                      },
+                      {
+                        "room_id": 23259710,
+                        "anchor_id": 237140787,
+                        "title": "好耶！先邦豆人联动然后过一半主线~",
+                        "description": "看米游合家欢，赢手办周边！",
+                        "live_status": 1,
+                        "area_id": 662,
+                        "parent_area_id": 3,
+                        "live_url": "",
+                        "jump_url": "https://live.bilibili.com/23259710?accept_quality=%5B10000%2C400%2C250%5D&all_special_types=%5B50%2C51%5D&area_id=662&av1_current_qn=0&broadcast_type=0&current_qn=250&current_quality=250&expected_hdr_type=0&expected_qn=250&h264_current_qn=250&h264_session=http%3A%2F%2F175.4.62.21%2Flive-bvc%2F679114%2Flive_237140787_3981131_2500.flv%3Fexpires%3D1770735802%26pt%3Dandroid%26deadline%3D1770735802%26len%3D0%26oi%3D2042944895%26platform%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26uipk%3D100%26uipv%3D100%26nbs%3D1%26bmt%3D2%26uparams%3Dcdn%2Cdeadline%2Clen%2Coi%2Cplatform%2Cqn%2Ctrid%2Cuipk%2Cuipv%2Cnbs%2Cbmt%26cdn%3Dcn-gotcha01%26upsig%3D76d4a30e9d46a837daf935753b21b856%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26sid%3Dcn-hnld-ct-01-20%26chash%3D1%26sg%3Ddf%26trace%3D4877%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26strategy_version%3Dlatest%26origin_bitrate%3D1449%26long_ab_flag_value%3Dtest%26pp%3Drtmp%26media_type%3D0%26score%3D1%26suffix%3D2500%26hot_cdn%3D909449%26long_ab_id%3D45%26long_ab_flag%3Dlive_default_longitudinal%26expected_qn%3D250%26p2p_type%3D-1%26strategy_id%3D25%26sl%3D2%26codec%3D0%26ld%3Djchz%26deploy_env%3Dprod%26strategy_ids%3D25%2C122%26strategy_type%3D0%26strategy_types%3D0%2C1%26info_source%3Dcache%26source%3Dpuv3_batch%26sk%3Daba6b89675f46c15f5571a009049917b%26hdr_type%3D0%26vd%3Dnc%26zoneid_l%3D151355408%26sid_l%3Dstream_name_cold%26src%3Dpuv3%26order%3D1&h265_current_qn=250&h265_session=http%3A%2F%2Fd1--cn-gotcha04.bilivideo.com%2Flive-bvc%2F747861%2Flive_237140787_3981131_minihevc.flv%3Fexpires%3D1770735802%26len%3D0%26oi%3D2042944895%26pt%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26bmt%3D2%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%2Cbmt%26cdn%3Dcn-gotcha04%26sign%3D34a602007ff4948436a53f876cc9b486%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26trace%3D4%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26p2p_type%3D-1%26origin_bitrate%3D688%26suffix%3Dminihevc%26strategy_id%3D25%26expected_qn%3D250%26long_ab_flag_value%3Dtest%26hdr_type%3D0%26codec%3D1%26source%3Dpuv3_batch%26strategy_type%3D0%26long_ab_flag%3Dlive_default_longitudinal%26deploy_env%3Dprod%26media_type%3D0%26sl%3D2%26sk%3D7b9ca197a822eebb7933bf2a49b49d0f12251fa9d38b6dccca3fcbabde659b2f%26strategy_version%3Dlatest%26pp%3Drtmp%26hot_cdn%3D909449%26ld%3Djchz%26info_source%3Dcache%26strategy_types%3D0%2C1%26long_ab_id%3D45%26score%3D60%26strategy_ids%3D25%2C122%26vd%3Dbc%26src%3Dpuv3%26order%3D1&is_room_feed=1&live_from=24805&live_play_network=other&master_url=https%3A%2F%2Fapi.live.bilibili.com%2Fxlive%2Fplay-gateway%2Fmaster%2Furl%3Fcid%3D23259710%26mid%3D0%26pt%3Dandroid%26p2p_type%3D-1%26net%3D3%26free_type%3D0%26build%3D0%26feature%3D0%26qn%3D250%26drm_type%3D0%26cam_id%3D0&p2p_type=-1&parent_area_id=3&playurl_av1=&playurl_h264=http%3A%2F%2F175.4.62.21%2Flive-bvc%2F679114%2Flive_237140787_3981131_2500.flv%3Fexpires%3D1770735802%26pt%3Dandroid%26deadline%3D1770735802%26len%3D0%26oi%3D2042944895%26platform%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26uipk%3D100%26uipv%3D100%26nbs%3D1%26bmt%3D2%26uparams%3Dcdn%2Cdeadline%2Clen%2Coi%2Cplatform%2Cqn%2Ctrid%2Cuipk%2Cuipv%2Cnbs%2Cbmt%26cdn%3Dcn-gotcha01%26upsig%3D76d4a30e9d46a837daf935753b21b856%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26sid%3Dcn-hnld-ct-01-20%26chash%3D1%26sg%3Ddf%26trace%3D4877%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26strategy_version%3Dlatest%26origin_bitrate%3D1449%26long_ab_flag_value%3Dtest%26pp%3Drtmp%26media_type%3D0%26score%3D1%26suffix%3D2500%26hot_cdn%3D909449%26long_ab_id%3D45%26long_ab_flag%3Dlive_default_longitudinal%26expected_qn%3D250%26p2p_type%3D-1%26strategy_id%3D25%26sl%3D2%26codec%3D0%26ld%3Djchz%26deploy_env%3Dprod%26strategy_ids%3D25%2C122%26strategy_type%3D0%26strategy_types%3D0%2C1%26info_source%3Dcache%26source%3Dpuv3_batch%26sk%3Daba6b89675f46c15f5571a009049917b%26hdr_type%3D0%26vd%3Dnc%26zoneid_l%3D151355408%26sid_l%3Dstream_name_cold%26src%3Dpuv3%26order%3D1&playurl_h265=http%3A%2F%2Fd1--cn-gotcha04.bilivideo.com%2Flive-bvc%2F747861%2Flive_237140787_3981131_minihevc.flv%3Fexpires%3D1770735802%26len%3D0%26oi%3D2042944895%26pt%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26bmt%3D2%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%2Cbmt%26cdn%3Dcn-gotcha04%26sign%3D34a602007ff4948436a53f876cc9b486%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26trace%3D4%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26p2p_type%3D-1%26origin_bitrate%3D688%26suffix%3Dminihevc%26strategy_id%3D25%26expected_qn%3D250%26long_ab_flag_value%3Dtest%26hdr_type%3D0%26codec%3D1%26source%3Dpuv3_batch%26strategy_type%3D0%26long_ab_flag%3Dlive_default_longitudinal%26deploy_env%3Dprod%26media_type%3D0%26sl%3D2%26sk%3D7b9ca197a822eebb7933bf2a49b49d0f12251fa9d38b6dccca3fcbabde659b2f%26strategy_version%3Dlatest%26pp%3Drtmp%26hot_cdn%3D909449%26ld%3Djchz%26info_source%3Dcache%26strategy_types%3D0%2C1%26long_ab_id%3D45%26score%3D60%26strategy_ids%3D25%2C122%26vd%3Dbc%26src%3Dpuv3%26order%3D1&qn_desc_more_ab=1&quality_description=%5B%7B%22qn%22%3A10000%2C%22desc%22%3A%22%E5%8E%9F%E7%94%BB%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%221080P+%E5%8E%9F%E7%94%BB%22%2C%22tag%22%3A%5B%22%E9%AB%98%E5%B8%A7%E7%8E%87%22%5D%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%221080P%22%2C%22badge%22%3A%22%E5%8E%9F%E7%94%BB%22%7D%7D%7D%2C%7B%22qn%22%3A400%2C%22desc%22%3A%22%E8%93%9D%E5%85%89%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%221080P+%E8%93%9D%E5%85%89%22%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%221080P%22%7D%7D%7D%2C%7B%22qn%22%3A250%2C%22desc%22%3A%22%E8%B6%85%E6%B8%85%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%22720P+%E8%B6%85%E6%B8%85%22%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%22720P%22%7D%7D%7D%5D",
+                        "is_inline": false,
+                        "member_face_list": [
+                          "https://i2.hdslb.com/bfs/face/2f2ba3da070ed755ae8ff15c25e40753c39f6f30.jpg",
+                          "https://i2.hdslb.com/bfs/face/7ed85228f143832ea8dc5ed4c71da349776b56f8.jpg",
+                          "https://i0.hdslb.com/bfs/face/dddeeac363edaa06d321623b7ba74ccd0b22e471.jpg"
+                        ],
+                        "fortune_value_str": "113.6万",
+                        "fortune_percent": 22,
+                        "fortune_toast": "福气值",
+                        "live_toast": "正在直播",
+                        "room_type": 0,
+                        "image_url": "",
+                        "image_index": 0,
+                        "badge_text": "317人正在聊",
+                        "show_fortune": true,
+                        "overlay_index": 0,
+                        "overlay_url": "",
+                        "use_overlay": false
+                      },
+                      {
+                        "room_id": 17961,
+                        "anchor_id": 1351379,
+                        "title": "动画神回鉴赏！",
+                        "description": "新春贺马年，直播间好礼不断！",
+                        "live_status": 1,
+                        "area_id": 86,
+                        "parent_area_id": 2,
+                        "live_url": "",
+                        "jump_url": "https://live.bilibili.com/17961?accept_quality=%5B10000%2C400%2C250%5D&all_special_types=%5B50%5D&area_id=86&av1_current_qn=0&broadcast_type=0&current_qn=250&current_quality=250&expected_hdr_type=0&expected_qn=250&h264_current_qn=250&h264_session=http%3A%2F%2F223.111.252.88%2Flive-bvc%2F352390%2Flive_1351379_332_c521e483_2500.flv%3Fexpires%3D1770735802%26pt%3Dandroid%26deadline%3D1770735802%26len%3D0%26oi%3D2042944895%26platform%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26uipk%3D100%26uipv%3D100%26nbs%3D1%26bmt%3D2%26uparams%3Dcdn%2Cdeadline%2Clen%2Coi%2Cplatform%2Cqn%2Ctrid%2Cuipk%2Cuipv%2Cnbs%2Cbmt%26cdn%3Dcn-gotcha01%26upsig%3Df665d00c6a5c398e3401b0c83b73bda0%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26sid%3Dcn-jssz-cm-02-37%26chash%3D1%26sg%3Ddf%26trace%3D4877%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26strategy_ids%3D25%2C122%26hdr_type%3D0%26media_type%3D0%26hot_cdn%3D909705%26strategy_types%3D0%2C1%26sk%3D63b0113bd36247f7cbf2acd6adb340c2%26p2p_type%3D-1%26suffix%3D2500%26long_ab_flag_value%3Dtest%26strategy_type%3D0%26sl%3D3%26info_source%3Dcache%26long_ab_id%3D45%26codec%3D0%26strategy_version%3Dlatest%26origin_bitrate%3D559%26long_ab_flag%3Dlive_default_longitudinal%26pp%3Drtmp%26score%3D1%26source%3Dpuv3_batch%26deploy_env%3Dprod%26ld%3Djchz%26expected_qn%3D250%26strategy_id%3D25%26vd%3Dnc%26zoneid_l%3D151355408%26sid_l%3Dstream_name_cold%26src%3Dpuv3%26order%3D1&h265_current_qn=250&h265_session=http%3A%2F%2Fd1--cn-gotcha04.bilivideo.com%2Flive-bvc%2F466159%2Flive_1351379_332_c521e483_minihevc.flv%3Fexpires%3D1770735802%26len%3D0%26oi%3D2042944895%26pt%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26bmt%3D2%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%2Cbmt%26cdn%3Dcn-gotcha04%26sign%3D988a5019ab174397da40aaee1d140ad6%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26trace%3D4%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26deploy_env%3Dprod%26strategy_ids%3D25%2C122%26strategy_id%3D25%26strategy_types%3D0%2C1%26long_ab_flag_value%3Dtest%26codec%3D1%26ld%3Djchz%26suffix%3Dminihevc%26long_ab_flag%3Dlive_default_longitudinal%26source%3Dpuv3_batch%26media_type%3D0%26pp%3Drtmp%26hot_cdn%3D909705%26strategy_version%3Dlatest%26hdr_type%3D0%26sl%3D3%26origin_bitrate%3D425%26expected_qn%3D250%26score%3D58%26info_source%3Dcache%26long_ab_id%3D45%26strategy_type%3D0%26sk%3D7b9ca197a822eebb7933bf2a49b49d0f1efa065d994c3d39b63574bcd57f147e%26p2p_type%3D-1%26vd%3Dbc%26src%3Dpuv3%26order%3D1&is_room_feed=1&live_from=24805&live_play_network=other&master_url=https%3A%2F%2Fapi.live.bilibili.com%2Fxlive%2Fplay-gateway%2Fmaster%2Furl%3Fcid%3D17961%26mid%3D0%26pt%3Dandroid%26p2p_type%3D-1%26net%3D3%26free_type%3D0%26build%3D0%26feature%3D0%26qn%3D250%26drm_type%3D0%26cam_id%3D0&p2p_type=-1&parent_area_id=2&playurl_av1=&playurl_h264=http%3A%2F%2F223.111.252.88%2Flive-bvc%2F352390%2Flive_1351379_332_c521e483_2500.flv%3Fexpires%3D1770735802%26pt%3Dandroid%26deadline%3D1770735802%26len%3D0%26oi%3D2042944895%26platform%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26uipk%3D100%26uipv%3D100%26nbs%3D1%26bmt%3D2%26uparams%3Dcdn%2Cdeadline%2Clen%2Coi%2Cplatform%2Cqn%2Ctrid%2Cuipk%2Cuipv%2Cnbs%2Cbmt%26cdn%3Dcn-gotcha01%26upsig%3Df665d00c6a5c398e3401b0c83b73bda0%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26sid%3Dcn-jssz-cm-02-37%26chash%3D1%26sg%3Ddf%26trace%3D4877%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26strategy_ids%3D25%2C122%26hdr_type%3D0%26media_type%3D0%26hot_cdn%3D909705%26strategy_types%3D0%2C1%26sk%3D63b0113bd36247f7cbf2acd6adb340c2%26p2p_type%3D-1%26suffix%3D2500%26long_ab_flag_value%3Dtest%26strategy_type%3D0%26sl%3D3%26info_source%3Dcache%26long_ab_id%3D45%26codec%3D0%26strategy_version%3Dlatest%26origin_bitrate%3D559%26long_ab_flag%3Dlive_default_longitudinal%26pp%3Drtmp%26score%3D1%26source%3Dpuv3_batch%26deploy_env%3Dprod%26ld%3Djchz%26expected_qn%3D250%26strategy_id%3D25%26vd%3Dnc%26zoneid_l%3D151355408%26sid_l%3Dstream_name_cold%26src%3Dpuv3%26order%3D1&playurl_h265=http%3A%2F%2Fd1--cn-gotcha04.bilivideo.com%2Flive-bvc%2F466159%2Flive_1351379_332_c521e483_minihevc.flv%3Fexpires%3D1770735802%26len%3D0%26oi%3D2042944895%26pt%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26bmt%3D2%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%2Cbmt%26cdn%3Dcn-gotcha04%26sign%3D988a5019ab174397da40aaee1d140ad6%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26trace%3D4%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26deploy_env%3Dprod%26strategy_ids%3D25%2C122%26strategy_id%3D25%26strategy_types%3D0%2C1%26long_ab_flag_value%3Dtest%26codec%3D1%26ld%3Djchz%26suffix%3Dminihevc%26long_ab_flag%3Dlive_default_longitudinal%26source%3Dpuv3_batch%26media_type%3D0%26pp%3Drtmp%26hot_cdn%3D909705%26strategy_version%3Dlatest%26hdr_type%3D0%26sl%3D3%26origin_bitrate%3D425%26expected_qn%3D250%26score%3D58%26info_source%3Dcache%26long_ab_id%3D45%26strategy_type%3D0%26sk%3D7b9ca197a822eebb7933bf2a49b49d0f1efa065d994c3d39b63574bcd57f147e%26p2p_type%3D-1%26vd%3Dbc%26src%3Dpuv3%26order%3D1&qn_desc_more_ab=1&quality_description=%5B%7B%22qn%22%3A10000%2C%22desc%22%3A%22%E5%8E%9F%E7%94%BB%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%221080P+%E5%8E%9F%E7%94%BB%22%2C%22tag%22%3A%5B%22%E9%AB%98%E5%B8%A7%E7%8E%87%22%5D%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%221080P%22%2C%22badge%22%3A%22%E5%8E%9F%E7%94%BB%22%7D%7D%7D%2C%7B%22qn%22%3A400%2C%22desc%22%3A%22%E8%93%9D%E5%85%89%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%221080P+%E8%93%9D%E5%85%89%22%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%221080P%22%7D%7D%7D%2C%7B%22qn%22%3A250%2C%22desc%22%3A%22%E8%B6%85%E6%B8%85%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%22720P+%E8%B6%85%E6%B8%85%22%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%22720P%22%7D%7D%7D%5D",
+                        "is_inline": false,
+                        "member_face_list": [
+                          "https://i0.hdslb.com/bfs/face/754ae62a72dfea8fbd4ff3cbd0a667978491897b.jpg",
+                          "https://i2.hdslb.com/bfs/face/208b9676ef3bb20680f66f1d61df0576b1a845ff.jpg",
+                          "https://i0.hdslb.com/bfs/face/eab814734ea064c848d58541f9ba562d8b4a355a.jpg"
+                        ],
+                        "fortune_value_str": "2.4万",
+                        "fortune_percent": 1,
+                        "fortune_toast": "福气值",
+                        "live_toast": "正在直播",
+                        "room_type": 0,
+                        "image_url": "",
+                        "image_index": 1,
+                        "badge_text": "805人正在聊",
+                        "show_fortune": true,
+                        "overlay_index": 0,
+                        "overlay_url": "",
+                        "use_overlay": false
+                      },
+                      {
+                        "room_id": 801410,
+                        "anchor_id": 5870268,
+                        "title": "纯鹿人新春唠嗑局",
+                        "description": "和三代鹿人聊聊新年八卦！",
+                        "live_status": 1,
+                        "area_id": 868,
+                        "parent_area_id": 1,
+                        "live_url": "",
+                        "jump_url": "https://live.bilibili.com/801410?accept_quality=%5B10000%2C250%2C400%5D&all_special_types=%5B50%5D&area_id=868&av1_current_qn=0&broadcast_type=0&current_qn=250&current_quality=250&expected_hdr_type=0&expected_qn=250&h264_current_qn=250&h264_session=http%3A%2F%2F223.111.250.34%2Flive-bvc%2F775508%2Flive_5870268_2376986_2500.flv%3Fexpires%3D1770735802%26pt%3Dandroid%26deadline%3D1770735802%26len%3D0%26oi%3D2042944895%26platform%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26uipk%3D100%26uipv%3D100%26nbs%3D1%26bmt%3D2%26uparams%3Dcdn%2Cdeadline%2Clen%2Coi%2Cplatform%2Cqn%2Ctrid%2Cuipk%2Cuipv%2Cnbs%2Cbmt%26cdn%3Dcn-gotcha01%26upsig%3D8847e81892b669d3c93886b8009aaa09%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26sid%3Dcn-jssz-cm-02-13%26chash%3D1%26sg%3Ddf%26trace%3D4877%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26long_ab_id%3D45%26pp%3Dsrt%26long_ab_flag_value%3Dtest%26media_type%3D0%26long_ab_flag%3Dlive_default_longitudinal%26score%3D1%26p2p_type%3D-1%26ld%3Djchz%26info_source%3Dcache%26hot_cdn%3D909701%26hdr_type%3D0%26deploy_env%3Dprod%26sk%3D7b9ca197a822eebb7933bf2a49b49d0f7108405b6c5ad3ad8444632648071155%26suffix%3D2500%26source%3Dpuv3_batch%26origin_bitrate%3D1109%26expected_qn%3D250%26strategy_ids%3D25%2C122%26strategy_version%3Dlatest%26strategy_id%3D25%26strategy_type%3D0%26strategy_types%3D0%2C1%26codec%3D0%26sl%3D1%26vd%3Dnc%26zoneid_l%3D151355408%26sid_l%3Dstream_name_cold%26src%3Dpuv3%26order%3D1&h265_current_qn=250&h265_session=http%3A%2F%2Fd1--cn-gotcha07.bilivideo.com%2Flive-bvc%2F692982%2Flive_5870268_2376986_minihevc.flv%3Fexpires%3D1770735802%26len%3D0%26oi%3D2042944895%26pt%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26bmt%3D2%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%2Cbmt%26cdn%3Dcn-gotcha07%26sign%3D3abfbcf701f6c657e41f7e432f67a158%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26trace%3D4%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26pp%3Dsrt%26deploy_env%3Dprod%26expected_qn%3D250%26hot_cdn%3D909701%26long_ab_id%3D45%26codec%3D1%26strategy_types%3D0%2C1%26source%3Dpuv3_batch%26strategy_ids%3D25%2C122%26origin_bitrate%3D858%26info_source%3Dcache%26long_ab_flag%3Dlive_default_longitudinal%26strategy_id%3D25%26sl%3D1%26strategy_type%3D0%26p2p_type%3D-1%26long_ab_flag_value%3Dtest%26score%3D62%26media_type%3D0%26sk%3D3ff3d081192b939627f646d4ec98d0a9db0d7138b964e61a3c503a793d7a00e3%26hdr_type%3D0%26suffix%3Dminihevc%26strategy_version%3Dlatest%26ld%3Djchz%26vd%3Dbc%26src%3Dpuv3%26order%3D1&is_room_feed=1&live_from=24805&live_play_network=other&master_url=https%3A%2F%2Fapi.live.bilibili.com%2Fxlive%2Fplay-gateway%2Fmaster%2Furl%3Fcid%3D801410%26mid%3D0%26pt%3Dandroid%26p2p_type%3D-1%26net%3D3%26free_type%3D0%26build%3D0%26feature%3D0%26qn%3D250%26drm_type%3D0%26cam_id%3D0&p2p_type=-1&parent_area_id=1&playurl_av1=&playurl_h264=http%3A%2F%2F223.111.250.34%2Flive-bvc%2F775508%2Flive_5870268_2376986_2500.flv%3Fexpires%3D1770735802%26pt%3Dandroid%26deadline%3D1770735802%26len%3D0%26oi%3D2042944895%26platform%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26uipk%3D100%26uipv%3D100%26nbs%3D1%26bmt%3D2%26uparams%3Dcdn%2Cdeadline%2Clen%2Coi%2Cplatform%2Cqn%2Ctrid%2Cuipk%2Cuipv%2Cnbs%2Cbmt%26cdn%3Dcn-gotcha01%26upsig%3D8847e81892b669d3c93886b8009aaa09%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26sid%3Dcn-jssz-cm-02-13%26chash%3D1%26sg%3Ddf%26trace%3D4877%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26long_ab_id%3D45%26pp%3Dsrt%26long_ab_flag_value%3Dtest%26media_type%3D0%26long_ab_flag%3Dlive_default_longitudinal%26score%3D1%26p2p_type%3D-1%26ld%3Djchz%26info_source%3Dcache%26hot_cdn%3D909701%26hdr_type%3D0%26deploy_env%3Dprod%26sk%3D7b9ca197a822eebb7933bf2a49b49d0f7108405b6c5ad3ad8444632648071155%26suffix%3D2500%26source%3Dpuv3_batch%26origin_bitrate%3D1109%26expected_qn%3D250%26strategy_ids%3D25%2C122%26strategy_version%3Dlatest%26strategy_id%3D25%26strategy_type%3D0%26strategy_types%3D0%2C1%26codec%3D0%26sl%3D1%26vd%3Dnc%26zoneid_l%3D151355408%26sid_l%3Dstream_name_cold%26src%3Dpuv3%26order%3D1&playurl_h265=http%3A%2F%2Fd1--cn-gotcha07.bilivideo.com%2Flive-bvc%2F692982%2Flive_5870268_2376986_minihevc.flv%3Fexpires%3D1770735802%26len%3D0%26oi%3D2042944895%26pt%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26bmt%3D2%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%2Cbmt%26cdn%3Dcn-gotcha07%26sign%3D3abfbcf701f6c657e41f7e432f67a158%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26trace%3D4%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26pp%3Dsrt%26deploy_env%3Dprod%26expected_qn%3D250%26hot_cdn%3D909701%26long_ab_id%3D45%26codec%3D1%26strategy_types%3D0%2C1%26source%3Dpuv3_batch%26strategy_ids%3D25%2C122%26origin_bitrate%3D858%26info_source%3Dcache%26long_ab_flag%3Dlive_default_longitudinal%26strategy_id%3D25%26sl%3D1%26strategy_type%3D0%26p2p_type%3D-1%26long_ab_flag_value%3Dtest%26score%3D62%26media_type%3D0%26sk%3D3ff3d081192b939627f646d4ec98d0a9db0d7138b964e61a3c503a793d7a00e3%26hdr_type%3D0%26suffix%3Dminihevc%26strategy_version%3Dlatest%26ld%3Djchz%26vd%3Dbc%26src%3Dpuv3%26order%3D1&qn_desc_more_ab=1&quality_description=%5B%7B%22qn%22%3A10000%2C%22desc%22%3A%22%E5%8E%9F%E7%94%BB%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%221080P+%E5%8E%9F%E7%94%BB%22%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%221080P%22%2C%22badge%22%3A%22%E5%8E%9F%E7%94%BB%22%7D%7D%7D%2C%7B%22qn%22%3A400%2C%22desc%22%3A%22%E8%93%9D%E5%85%89%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%221080P+%E8%93%9D%E5%85%89%22%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%221080P%22%7D%7D%7D%2C%7B%22qn%22%3A250%2C%22desc%22%3A%22%E8%B6%85%E6%B8%85%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%22720P+%E8%B6%85%E6%B8%85%22%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%22720P%22%7D%7D%7D%5D",
+                        "is_inline": false,
+                        "member_face_list": [
+                          "https://i2.hdslb.com/bfs/face/a44e84d69f9ab8dae309faeefe3b1beb3523e5bc.jpg",
+                          "https://i2.hdslb.com/bfs/face/67db38a5a767dbc92c3df6669bb5a76f71db05d4.jpg",
+                          "http://i0.hdslb.com/bfs/face/member/noface.jpg"
+                        ],
+                        "fortune_value_str": "52.1万",
+                        "fortune_percent": 10,
+                        "fortune_toast": "福气值",
+                        "live_toast": "正在直播",
+                        "room_type": 0,
+                        "image_url": "",
+                        "image_index": 0,
+                        "badge_text": "130人正在聊",
+                        "show_fortune": true,
+                        "overlay_index": 0,
+                        "overlay_url": "",
+                        "use_overlay": false
+                      },
+                      {
+                        "room_id": 6746187,
+                        "anchor_id": 17482241,
+                        "title": "160小时连播！新春大作战！",
+                        "description": "新春火力全开，大红送不停！",
+                        "live_status": 1,
+                        "area_id": 878,
+                        "parent_area_id": 2,
+                        "live_url": "",
+                        "jump_url": "https://live.bilibili.com/6746187?accept_quality=%5B10000%2C400%2C250%5D&all_special_types=%5B50%5D&area_id=878&av1_current_qn=0&broadcast_type=0&current_qn=250&current_quality=250&expected_hdr_type=0&expected_qn=250&h264_current_qn=250&h264_session=http%3A%2F%2F123.234.3.178%2Flive-bvc%2F267003%2Flive_17482241_5662279_2500.flv%3Fexpires%3D1770735802%26pt%3Dandroid%26deadline%3D1770735802%26len%3D0%26oi%3D2042944895%26platform%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26uipk%3D100%26uipv%3D100%26nbs%3D1%26bmt%3D2%26uparams%3Dcdn%2Cdeadline%2Clen%2Coi%2Cplatform%2Cqn%2Ctrid%2Cuipk%2Cuipv%2Cnbs%2Cbmt%26cdn%3Dcn-gotcha01%26upsig%3D1b9eed4cb5e58478f2884db7d8f01858%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26sid%3Dcn-sdqd-cu-01-23%26chash%3D1%26sg%3Ddf%26trace%3D4877%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26source%3Dpuv3_batch%26origin_bitrate%3D585%26deploy_env%3Dprod%26media_type%3D0%26score%3D1%26hdr_type%3D0%26expected_qn%3D250%26strategy_type%3D0%26p2p_type%3D-1%26long_ab_flag%3Dlive_default_longitudinal%26codec%3D0%26long_ab_id%3D45%26strategy_id%3D25%26info_source%3Dcache%26strategy_version%3Dlatest%26pp%3Dsrt%26hot_cdn%3D909705%26sl%3D3%26ld%3Djchz%26suffix%3D2500%26long_ab_flag_value%3Dtest%26sk%3D7b9ca197a822eebb7933bf2a49b49d0fc18fcfc04e4f8cd71f2efe59a7ef7d7c%26strategy_types%3D0%2C1%26strategy_ids%3D25%2C122%26vd%3Dnc%26zoneid_l%3D151355408%26sid_l%3Dstream_name_cold%26src%3Dpuv3%26order%3D1&h265_current_qn=250&h265_session=http%3A%2F%2Fd1--cn-gotcha04.bilivideo.com%2Flive-bvc%2F753551%2Flive_17482241_5662279_minihevc.flv%3Fexpires%3D1770735802%26len%3D0%26oi%3D2042944895%26pt%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26bmt%3D2%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%2Cbmt%26cdn%3Dcn-gotcha04%26sign%3D34f97e4ff424eaa26df24bf9b8b9758f%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26trace%3D4%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26strategy_ids%3D25%2C122%26sl%3D3%26long_ab_flag%3Dlive_default_longitudinal%26suffix%3Dminihevc%26long_ab_flag_value%3Dtest%26info_source%3Dcache%26p2p_type%3D-1%26expected_qn%3D250%26codec%3D1%26origin_bitrate%3D567%26strategy_type%3D0%26hdr_type%3D0%26score%3D66%26long_ab_id%3D45%26media_type%3D0%26pp%3Dsrt%26hot_cdn%3D909705%26strategy_types%3D0%2C1%26sk%3D7b9ca197a822eebb7933bf2a49b49d0fba686897541c3cdc3041bcc6c6eaf77f%26deploy_env%3Dprod%26strategy_id%3D25%26strategy_version%3Dlatest%26ld%3Djchz%26source%3Dpuv3_batch%26vd%3Dbc%26src%3Dpuv3%26order%3D1&is_room_feed=1&live_from=24805&live_play_network=other&master_url=https%3A%2F%2Fapi.live.bilibili.com%2Fxlive%2Fplay-gateway%2Fmaster%2Furl%3Fcid%3D6746187%26mid%3D0%26pt%3Dandroid%26p2p_type%3D-1%26net%3D3%26free_type%3D0%26build%3D0%26feature%3D0%26qn%3D250%26drm_type%3D0%26cam_id%3D0&p2p_type=-1&parent_area_id=2&playurl_av1=&playurl_h264=http%3A%2F%2F123.234.3.178%2Flive-bvc%2F267003%2Flive_17482241_5662279_2500.flv%3Fexpires%3D1770735802%26pt%3Dandroid%26deadline%3D1770735802%26len%3D0%26oi%3D2042944895%26platform%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26uipk%3D100%26uipv%3D100%26nbs%3D1%26bmt%3D2%26uparams%3Dcdn%2Cdeadline%2Clen%2Coi%2Cplatform%2Cqn%2Ctrid%2Cuipk%2Cuipv%2Cnbs%2Cbmt%26cdn%3Dcn-gotcha01%26upsig%3D1b9eed4cb5e58478f2884db7d8f01858%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26sid%3Dcn-sdqd-cu-01-23%26chash%3D1%26sg%3Ddf%26trace%3D4877%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26source%3Dpuv3_batch%26origin_bitrate%3D585%26deploy_env%3Dprod%26media_type%3D0%26score%3D1%26hdr_type%3D0%26expected_qn%3D250%26strategy_type%3D0%26p2p_type%3D-1%26long_ab_flag%3Dlive_default_longitudinal%26codec%3D0%26long_ab_id%3D45%26strategy_id%3D25%26info_source%3Dcache%26strategy_version%3Dlatest%26pp%3Dsrt%26hot_cdn%3D909705%26sl%3D3%26ld%3Djchz%26suffix%3D2500%26long_ab_flag_value%3Dtest%26sk%3D7b9ca197a822eebb7933bf2a49b49d0fc18fcfc04e4f8cd71f2efe59a7ef7d7c%26strategy_types%3D0%2C1%26strategy_ids%3D25%2C122%26vd%3Dnc%26zoneid_l%3D151355408%26sid_l%3Dstream_name_cold%26src%3Dpuv3%26order%3D1&playurl_h265=http%3A%2F%2Fd1--cn-gotcha04.bilivideo.com%2Flive-bvc%2F753551%2Flive_17482241_5662279_minihevc.flv%3Fexpires%3D1770735802%26len%3D0%26oi%3D2042944895%26pt%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26bmt%3D2%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%2Cbmt%26cdn%3Dcn-gotcha04%26sign%3D34f97e4ff424eaa26df24bf9b8b9758f%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26trace%3D4%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26strategy_ids%3D25%2C122%26sl%3D3%26long_ab_flag%3Dlive_default_longitudinal%26suffix%3Dminihevc%26long_ab_flag_value%3Dtest%26info_source%3Dcache%26p2p_type%3D-1%26expected_qn%3D250%26codec%3D1%26origin_bitrate%3D567%26strategy_type%3D0%26hdr_type%3D0%26score%3D66%26long_ab_id%3D45%26media_type%3D0%26pp%3Dsrt%26hot_cdn%3D909705%26strategy_types%3D0%2C1%26sk%3D7b9ca197a822eebb7933bf2a49b49d0fba686897541c3cdc3041bcc6c6eaf77f%26deploy_env%3Dprod%26strategy_id%3D25%26strategy_version%3Dlatest%26ld%3Djchz%26source%3Dpuv3_batch%26vd%3Dbc%26src%3Dpuv3%26order%3D1&qn_desc_more_ab=1&quality_description=%5B%7B%22qn%22%3A10000%2C%22desc%22%3A%22%E5%8E%9F%E7%94%BB%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%221080P+%E5%8E%9F%E7%94%BB%22%2C%22tag%22%3A%5B%22%E9%AB%98%E5%B8%A7%E7%8E%87%22%5D%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%221080P%22%2C%22badge%22%3A%22%E5%8E%9F%E7%94%BB%22%7D%7D%7D%2C%7B%22qn%22%3A400%2C%22desc%22%3A%22%E8%93%9D%E5%85%89%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%221080P+%E8%93%9D%E5%85%89%22%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%221080P%22%7D%7D%7D%2C%7B%22qn%22%3A250%2C%22desc%22%3A%22%E8%B6%85%E6%B8%85%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%22720P+%E8%B6%85%E6%B8%85%22%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%22720P%22%7D%7D%7D%5D",
+                        "is_inline": false,
+                        "member_face_list": [
+                          "https://i0.hdslb.com/bfs/face/member/noface.jpg",
+                          "https://i0.hdslb.com/bfs/face/member/noface.jpg",
+                          "https://i0.hdslb.com/bfs/face/9016d19ffadf32cc3c983204ad981ed0c6a327e4.jpg"
+                        ],
+                        "fortune_value_str": "46.2万",
+                        "fortune_percent": 9,
+                        "fortune_toast": "福气值",
+                        "live_toast": "正在直播",
+                        "room_type": 0,
+                        "image_url": "",
+                        "image_index": 7,
+                        "badge_text": "9999+人气",
+                        "show_fortune": true,
+                        "overlay_index": 0,
+                        "overlay_url": "",
+                        "use_overlay": false
+                      },
+                      {
+                        "room_id": 1750752727,
+                        "anchor_id": 395931838,
+                        "title": "和恩师小迷解说es vs RNGM",
+                        "description": "新春定制语音包免费领！！！",
+                        "live_status": 1,
+                        "area_id": 35,
+                        "parent_area_id": 3,
+                        "live_url": "",
+                        "jump_url": "https://live.bilibili.com/1750752727?accept_quality=%5B10000%2C400%2C250%5D&all_special_types=%5B50%5D&area_id=35&av1_current_qn=0&broadcast_type=0&current_qn=250&current_quality=250&expected_hdr_type=0&expected_qn=250&h264_current_qn=250&h264_session=http%3A%2F%2Fd1--cn-gotcha07.bilivideo.com%2Flive-bvc%2F555347%2Flive_395931838_1933004_2500.flv%3Fexpires%3D1770735802%26len%3D0%26oi%3D2042944895%26pt%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26bmt%3D2%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%2Cbmt%26cdn%3Dcn-gotcha07%26sign%3Db6b637d5f194e5c8e4164388b555df9b%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26trace%3D4%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26long_ab_flag%3Dlive_default_longitudinal%26ld%3Djchz%26deploy_env%3Dprod%26strategy_ids%3D25%2C122%26expected_qn%3D250%26score%3D100%26origin_bitrate%3D873%26pp%3Drtmp%26strategy_type%3D0%26sk%3D7b9ca197a822eebb7933bf2a49b49d0f15e999543943deb4a28e7defee2b901a%26info_source%3Dcache%26sl%3D6%26codec%3D0%26media_type%3D0%26strategy_version%3Dlatest%26hot_cdn%3D909773%26p2p_type%3D-1%26long_ab_flag_value%3Dtest%26strategy_id%3D25%26long_ab_id%3D45%26hdr_type%3D0%26strategy_types%3D0%2C1%26source%3Dpuv3_batch%26suffix%3D2500%26vd%3Dbc%26src%3Dpuv3%26order%3D1&h265_current_qn=250&h265_session=http%3A%2F%2Fd1--cn-gotcha07.bilivideo.com%2Flive-bvc%2F727544%2Flive_395931838_1933004_minihevc.flv%3Fexpires%3D1770735802%26len%3D0%26oi%3D2042944895%26pt%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26bmt%3D2%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%2Cbmt%26cdn%3Dcn-gotcha07%26sign%3D42d133cb46ef16f6d965c0e2a5678c60%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26trace%3D4%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26source%3Dpuv3_batch%26long_ab_id%3D45%26long_ab_flag%3Dlive_default_longitudinal%26hdr_type%3D0%26pp%3Drtmp%26strategy_type%3D0%26strategy_version%3Dlatest%26ld%3Djchz%26sl%3D6%26codec%3D1%26strategy_types%3D0%2C1%26deploy_env%3Dprod%26sk%3D7b9ca197a822eebb7933bf2a49b49d0f4a0202a2de717e4d9d322b4668876c5e%26score%3D100%26strategy_ids%3D25%2C122%26p2p_type%3D-1%26long_ab_flag_value%3Dtest%26media_type%3D0%26suffix%3Dminihevc%26info_source%3Dcache%26hot_cdn%3D909773%26expected_qn%3D250%26origin_bitrate%3D775%26strategy_id%3D25%26vd%3Dbc%26src%3Dpuv3%26order%3D1&is_room_feed=1&live_from=24805&live_play_network=other&master_url=https%3A%2F%2Fapi.live.bilibili.com%2Fxlive%2Fplay-gateway%2Fmaster%2Furl%3Fcid%3D1750752727%26mid%3D0%26pt%3Dandroid%26p2p_type%3D-1%26net%3D3%26free_type%3D0%26build%3D0%26feature%3D0%26qn%3D250%26drm_type%3D0%26cam_id%3D0&p2p_type=-1&parent_area_id=3&playurl_av1=&playurl_h264=http%3A%2F%2Fd1--cn-gotcha07.bilivideo.com%2Flive-bvc%2F555347%2Flive_395931838_1933004_2500.flv%3Fexpires%3D1770735802%26len%3D0%26oi%3D2042944895%26pt%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26bmt%3D2%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%2Cbmt%26cdn%3Dcn-gotcha07%26sign%3Db6b637d5f194e5c8e4164388b555df9b%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26trace%3D4%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26long_ab_flag%3Dlive_default_longitudinal%26ld%3Djchz%26deploy_env%3Dprod%26strategy_ids%3D25%2C122%26expected_qn%3D250%26score%3D100%26origin_bitrate%3D873%26pp%3Drtmp%26strategy_type%3D0%26sk%3D7b9ca197a822eebb7933bf2a49b49d0f15e999543943deb4a28e7defee2b901a%26info_source%3Dcache%26sl%3D6%26codec%3D0%26media_type%3D0%26strategy_version%3Dlatest%26hot_cdn%3D909773%26p2p_type%3D-1%26long_ab_flag_value%3Dtest%26strategy_id%3D25%26long_ab_id%3D45%26hdr_type%3D0%26strategy_types%3D0%2C1%26source%3Dpuv3_batch%26suffix%3D2500%26vd%3Dbc%26src%3Dpuv3%26order%3D1&playurl_h265=http%3A%2F%2Fd1--cn-gotcha07.bilivideo.com%2Flive-bvc%2F727544%2Flive_395931838_1933004_minihevc.flv%3Fexpires%3D1770735802%26len%3D0%26oi%3D2042944895%26pt%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26bmt%3D2%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%2Cbmt%26cdn%3Dcn-gotcha07%26sign%3D42d133cb46ef16f6d965c0e2a5678c60%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26trace%3D4%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26source%3Dpuv3_batch%26long_ab_id%3D45%26long_ab_flag%3Dlive_default_longitudinal%26hdr_type%3D0%26pp%3Drtmp%26strategy_type%3D0%26strategy_version%3Dlatest%26ld%3Djchz%26sl%3D6%26codec%3D1%26strategy_types%3D0%2C1%26deploy_env%3Dprod%26sk%3D7b9ca197a822eebb7933bf2a49b49d0f4a0202a2de717e4d9d322b4668876c5e%26score%3D100%26strategy_ids%3D25%2C122%26p2p_type%3D-1%26long_ab_flag_value%3Dtest%26media_type%3D0%26suffix%3Dminihevc%26info_source%3Dcache%26hot_cdn%3D909773%26expected_qn%3D250%26origin_bitrate%3D775%26strategy_id%3D25%26vd%3Dbc%26src%3Dpuv3%26order%3D1&qn_desc_more_ab=1&quality_description=%5B%7B%22qn%22%3A10000%2C%22desc%22%3A%22%E5%8E%9F%E7%94%BB%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%221080P+%E5%8E%9F%E7%94%BB%22%2C%22tag%22%3A%5B%22%E9%AB%98%E5%B8%A7%E7%8E%87%22%5D%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%221080P%22%2C%22badge%22%3A%22%E5%8E%9F%E7%94%BB%22%7D%7D%7D%2C%7B%22qn%22%3A400%2C%22desc%22%3A%22%E8%93%9D%E5%85%89%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%221080P+%E8%93%9D%E5%85%89%22%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%221080P%22%7D%7D%7D%2C%7B%22qn%22%3A250%2C%22desc%22%3A%22%E8%B6%85%E6%B8%85%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%22720P+%E8%B6%85%E6%B8%85%22%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%22720P%22%7D%7D%7D%5D",
+                        "is_inline": false,
+                        "member_face_list": [
+                          "https://i1.hdslb.com/bfs/face/f68a8597d0ac116a26defb8105129b9007ffe2e6.jpg",
+                          "https://i0.hdslb.com/bfs/face/dc66b16102a4cfa2825c918ccec59c5708996dc9.jpg",
+                          "https://i1.hdslb.com/bfs/face/7ed71b2aeeec137280932a3e95aace4fe0ff0900.jpg"
+                        ],
+                        "fortune_value_str": "76.3万",
+                        "fortune_percent": 15,
+                        "fortune_toast": "福气值",
+                        "live_toast": "正在直播",
+                        "room_type": 0,
+                        "image_url": "",
+                        "image_index": 7,
+                        "badge_text": "3854人正在聊",
+                        "show_fortune": true,
+                        "overlay_index": 0,
+                        "overlay_url": "",
+                        "use_overlay": false
+                      },
+                      {
+                        "room_id": 1926780370,
+                        "anchor_id": 477833444,
+                        "title": "进来看小猫直播，还能看哈利波特~",
+                        "description": "全体巫师骑着扫帚飞",
+                        "live_status": 1,
+                        "area_id": 624,
+                        "parent_area_id": 10,
+                        "live_url": "",
+                        "jump_url": "https://live.bilibili.com/1926780370?accept_quality=%5B10000%2C400%2C250%5D&all_special_types=%5B50%5D&area_id=624&av1_current_qn=0&broadcast_type=0&current_qn=250&current_quality=250&expected_hdr_type=0&expected_qn=250&h264_current_qn=250&h264_session=http%3A%2F%2F223.111.252.80%2Flive-bvc%2F838021%2Flive_477833444_19024088_2500.flv%3Fexpires%3D1770735802%26pt%3Dandroid%26deadline%3D1770735802%26len%3D0%26oi%3D2042944895%26platform%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26uipk%3D100%26uipv%3D100%26nbs%3D1%26bmt%3D2%26uparams%3Dcdn%2Cdeadline%2Clen%2Coi%2Cplatform%2Cqn%2Ctrid%2Cuipk%2Cuipv%2Cnbs%2Cbmt%26cdn%3Dcn-gotcha01%26upsig%3Dde1842f1047a183c0c636d7149338182%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26sid%3Dcn-jssz-cm-02-29%26chash%3D1%26sg%3Ddf%26trace%3D4877%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26strategy_types%3D0%2C1%26strategy_ids%3D25%2C122%26expected_qn%3D250%26strategy_type%3D0%26codec%3D0%26origin_bitrate%3D787%26ld%3Djchz%26hot_cdn%3D909705%26hdr_type%3D0%26info_source%3Dcache%26suffix%3D2500%26strategy_id%3D25%26deploy_env%3Dprod%26long_ab_flag%3Dlive_default_longitudinal%26pp%3Dsrt%26long_ab_flag_value%3Dtest%26score%3D1%26p2p_type%3D-1%26media_type%3D0%26strategy_version%3Dlatest%26source%3Dpuv3_batch%26long_ab_id%3D45%26sl%3D2%26sk%3Dca6c51a4e7a476377b6b56942b90bd75%26vd%3Dnc%26zoneid_l%3D151355408%26sid_l%3Dstream_name_cold%26src%3Dpuv3%26order%3D1&h265_current_qn=250&h265_session=http%3A%2F%2Fd1--cn-gotcha07.bilivideo.com%2Flive-bvc%2F362756%2Flive_477833444_19024088_minihevc.flv%3Fexpires%3D1770735802%26len%3D0%26oi%3D2042944895%26pt%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26bmt%3D2%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%2Cbmt%26cdn%3Dcn-gotcha07%26sign%3D94ac7aae6a53b8bf3bfa4ac160790617%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26trace%3D4%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26suffix%3Dminihevc%26pp%3Dsrt%26long_ab_id%3D45%26strategy_type%3D0%26strategy_types%3D0%2C1%26media_type%3D0%26strategy_ids%3D25%2C122%26deploy_env%3Dprod%26ld%3Djchz%26source%3Dpuv3_batch%26long_ab_flag_value%3Dtest%26p2p_type%3D-1%26origin_bitrate%3D515%26sl%3D2%26sk%3D7b9ca197a822eebb7933bf2a49b49d0f4a0202a2de717e4d9d322b4668876c5e%26info_source%3Dcache%26hot_cdn%3D909705%26strategy_id%3D25%26expected_qn%3D250%26codec%3D1%26strategy_version%3Dlatest%26score%3D64%26long_ab_flag%3Dlive_default_longitudinal%26hdr_type%3D0%26vd%3Dbc%26src%3Dpuv3%26order%3D1&is_room_feed=0&live_from=24805&live_play_network=other&master_url=https%3A%2F%2Fapi.live.bilibili.com%2Fxlive%2Fplay-gateway%2Fmaster%2Furl%3Fcid%3D1926780370%26mid%3D0%26pt%3Dandroid%26p2p_type%3D-1%26net%3D3%26free_type%3D0%26build%3D0%26feature%3D0%26qn%3D250%26drm_type%3D0%26cam_id%3D0&p2p_type=-1&parent_area_id=10&playurl_av1=&playurl_h264=http%3A%2F%2F223.111.252.80%2Flive-bvc%2F838021%2Flive_477833444_19024088_2500.flv%3Fexpires%3D1770735802%26pt%3Dandroid%26deadline%3D1770735802%26len%3D0%26oi%3D2042944895%26platform%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26uipk%3D100%26uipv%3D100%26nbs%3D1%26bmt%3D2%26uparams%3Dcdn%2Cdeadline%2Clen%2Coi%2Cplatform%2Cqn%2Ctrid%2Cuipk%2Cuipv%2Cnbs%2Cbmt%26cdn%3Dcn-gotcha01%26upsig%3Dde1842f1047a183c0c636d7149338182%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26sid%3Dcn-jssz-cm-02-29%26chash%3D1%26sg%3Ddf%26trace%3D4877%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26strategy_types%3D0%2C1%26strategy_ids%3D25%2C122%26expected_qn%3D250%26strategy_type%3D0%26codec%3D0%26origin_bitrate%3D787%26ld%3Djchz%26hot_cdn%3D909705%26hdr_type%3D0%26info_source%3Dcache%26suffix%3D2500%26strategy_id%3D25%26deploy_env%3Dprod%26long_ab_flag%3Dlive_default_longitudinal%26pp%3Dsrt%26long_ab_flag_value%3Dtest%26score%3D1%26p2p_type%3D-1%26media_type%3D0%26strategy_version%3Dlatest%26source%3Dpuv3_batch%26long_ab_id%3D45%26sl%3D2%26sk%3Dca6c51a4e7a476377b6b56942b90bd75%26vd%3Dnc%26zoneid_l%3D151355408%26sid_l%3Dstream_name_cold%26src%3Dpuv3%26order%3D1&playurl_h265=http%3A%2F%2Fd1--cn-gotcha07.bilivideo.com%2Flive-bvc%2F362756%2Flive_477833444_19024088_minihevc.flv%3Fexpires%3D1770735802%26len%3D0%26oi%3D2042944895%26pt%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26bmt%3D2%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%2Cbmt%26cdn%3Dcn-gotcha07%26sign%3D94ac7aae6a53b8bf3bfa4ac160790617%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26trace%3D4%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26suffix%3Dminihevc%26pp%3Dsrt%26long_ab_id%3D45%26strategy_type%3D0%26strategy_types%3D0%2C1%26media_type%3D0%26strategy_ids%3D25%2C122%26deploy_env%3Dprod%26ld%3Djchz%26source%3Dpuv3_batch%26long_ab_flag_value%3Dtest%26p2p_type%3D-1%26origin_bitrate%3D515%26sl%3D2%26sk%3D7b9ca197a822eebb7933bf2a49b49d0f4a0202a2de717e4d9d322b4668876c5e%26info_source%3Dcache%26hot_cdn%3D909705%26strategy_id%3D25%26expected_qn%3D250%26codec%3D1%26strategy_version%3Dlatest%26score%3D64%26long_ab_flag%3Dlive_default_longitudinal%26hdr_type%3D0%26vd%3Dbc%26src%3Dpuv3%26order%3D1&qn_desc_more_ab=1&quality_description=%5B%7B%22qn%22%3A10000%2C%22desc%22%3A%22%E5%8E%9F%E7%94%BB%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%221080P+%E5%8E%9F%E7%94%BB%22%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%221080P%22%2C%22badge%22%3A%22%E5%8E%9F%E7%94%BB%22%7D%7D%7D%2C%7B%22qn%22%3A400%2C%22desc%22%3A%22%E8%93%9D%E5%85%89%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%221080P+%E8%93%9D%E5%85%89%22%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%221080P%22%7D%7D%7D%2C%7B%22qn%22%3A250%2C%22desc%22%3A%22%E8%B6%85%E6%B8%85%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%22720P+%E8%B6%85%E6%B8%85%22%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%22720P%22%7D%7D%7D%5D",
+                        "is_inline": false,
+                        "member_face_list": [
+                          "https://i2.hdslb.com/bfs/face/f1b4072605eb8a0f4056448755214f35023ab3b2.jpg",
+                          "https://i1.hdslb.com/bfs/face/217aec78c2d20d16740ae4df4bcc520736f17748.webp",
+                          "https://i0.hdslb.com/bfs/face/b2975ce7b3c32871efa8066cf2fef41fd633cf4c.jpg"
+                        ],
+                        "fortune_value_str": "55.5万",
+                        "fortune_percent": 11,
+                        "fortune_toast": "福气值",
+                        "live_toast": "正在直播",
+                        "room_type": 0,
+                        "image_url": "",
+                        "image_index": 0,
+                        "badge_text": "577人正在聊",
+                        "show_fortune": true,
+                        "overlay_index": 0,
+                        "overlay_url": "",
+                        "use_overlay": false
+                      },
+                      {
+                        "room_id": 1708072144,
+                        "anchor_id": 1822369923,
+                        "title": "喜剧人说学逗唱联欢会",
+                        "description": "新春乐不停欢乐开席",
+                        "live_status": 1,
+                        "area_id": 624,
+                        "parent_area_id": 10,
+                        "live_url": "",
+                        "jump_url": "https://live.bilibili.com/1708072144?accept_quality=%5B10000%5D&area_id=624&av1_current_qn=0&broadcast_type=0&current_qn=10000&current_quality=10000&expected_hdr_type=0&expected_qn=250&h264_current_qn=10000&h264_session=http%3A%2F%2F175.4.62.20%2Flive-bvc%2F440954%2Flive_1822369923_62857.flv%3Fexpires%3D1770735802%26pt%3Dandroid%26deadline%3D1770735802%26len%3D0%26oi%3D2042944895%26platform%3Dandroid%26qn%3D10000%26trid%3D1000003d08b65a4ed464187f367103698b3a%26uipk%3D100%26uipv%3D100%26nbs%3D1%26bmt%3D2%26uparams%3Dcdn%2Cdeadline%2Clen%2Coi%2Cplatform%2Cqn%2Ctrid%2Cuipk%2Cuipv%2Cnbs%2Cbmt%26cdn%3Dcn-gotcha01%26upsig%3D4d7858157be382580d4c128904438917%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26sid%3Dcn-hnld-ct-01-19%26chash%3D0%26sg%3Ddf%26trace%3D4877%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26source%3Dpuv3_batch%26info_source%3Dcache%26p2p_type%3D-1%26strategy_type%3D0%26long_ab_flag%3Dlive_default_longitudinal%26ld%3Djchz%26long_ab_id%3D45%26origin_bitrate%3D6183%26strategy_ids%3D25%2C122%26sl%3D1%26hot_cdn%3D57345%26codec%3D0%26strategy_id%3D25%26pp%3D%26hdr_type%3D0%26media_type%3D0%26score%3D1%26sk%3D2953674e992ffcf87e6e50ef9d344449%26strategy_types%3D0%2C1%26suffix%3Dorigin%26strategy_version%3Dlatest%26expected_qn%3D250%26deploy_env%3Dprod%26long_ab_flag_value%3Dtest%26vd%3Dnc%26zoneid_l%3D151355408%26sid_l%3Dstream_name_cold%26src%3Dpuv3%26order%3D1&h265_current_qn=0&is_room_feed=1&live_from=24805&live_play_network=other&master_url=https%3A%2F%2Fapi.live.bilibili.com%2Fxlive%2Fplay-gateway%2Fmaster%2Furl%3Fcid%3D1708072144%26mid%3D0%26pt%3Dandroid%26p2p_type%3D-1%26net%3D3%26free_type%3D0%26build%3D0%26feature%3D0%26qn%3D250%26drm_type%3D0%26cam_id%3D0&p2p_type=-1&parent_area_id=10&playurl_av1=&playurl_h264=http%3A%2F%2F175.4.62.20%2Flive-bvc%2F440954%2Flive_1822369923_62857.flv%3Fexpires%3D1770735802%26pt%3Dandroid%26deadline%3D1770735802%26len%3D0%26oi%3D2042944895%26platform%3Dandroid%26qn%3D10000%26trid%3D1000003d08b65a4ed464187f367103698b3a%26uipk%3D100%26uipv%3D100%26nbs%3D1%26bmt%3D2%26uparams%3Dcdn%2Cdeadline%2Clen%2Coi%2Cplatform%2Cqn%2Ctrid%2Cuipk%2Cuipv%2Cnbs%2Cbmt%26cdn%3Dcn-gotcha01%26upsig%3D4d7858157be382580d4c128904438917%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26sid%3Dcn-hnld-ct-01-19%26chash%3D0%26sg%3Ddf%26trace%3D4877%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26source%3Dpuv3_batch%26info_source%3Dcache%26p2p_type%3D-1%26strategy_type%3D0%26long_ab_flag%3Dlive_default_longitudinal%26ld%3Djchz%26long_ab_id%3D45%26origin_bitrate%3D6183%26strategy_ids%3D25%2C122%26sl%3D1%26hot_cdn%3D57345%26codec%3D0%26strategy_id%3D25%26pp%3D%26hdr_type%3D0%26media_type%3D0%26score%3D1%26sk%3D2953674e992ffcf87e6e50ef9d344449%26strategy_types%3D0%2C1%26suffix%3Dorigin%26strategy_version%3Dlatest%26expected_qn%3D250%26deploy_env%3Dprod%26long_ab_flag_value%3Dtest%26vd%3Dnc%26zoneid_l%3D151355408%26sid_l%3Dstream_name_cold%26src%3Dpuv3%26order%3D1&playurl_h265=&qn_desc_more_ab=1&quality_description=%5B%7B%22qn%22%3A10000%2C%22desc%22%3A%22%E5%8E%9F%E7%94%BB%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%221080P+%E5%8E%9F%E7%94%BB%22%2C%22tag%22%3A%5B%22%E9%AB%98%E5%B8%A7%E7%8E%87%22%5D%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%221080P%22%2C%22badge%22%3A%22%E5%8E%9F%E7%94%BB%22%7D%7D%7D%5D",
+                        "is_inline": false,
+                        "member_face_list": [
+                          "https://i0.hdslb.com/bfs/face/member/noface.jpg",
+                          "https://i1.hdslb.com/bfs/face/95b5beeb5d3e36a6aea2f06ada9633ca28773f55.jpg",
+                          "https://i1.hdslb.com/bfs/face/0c4a802f5d63b44b2997763a71deb19eaaf36dfc.jpg"
+                        ],
+                        "fortune_value_str": "8.4万",
+                        "fortune_percent": 1,
+                        "fortune_toast": "福气值",
+                        "live_toast": "正在直播",
+                        "room_type": 0,
+                        "image_url": "",
+                        "image_index": 4,
+                        "badge_text": "27人正在聊",
+                        "show_fortune": true,
+                        "overlay_index": 0,
+                        "overlay_url": "",
+                        "use_overlay": false
+                      },
+                      {
+                        "room_id": 24957887,
+                        "anchor_id": 627676911,
+                        "title": "在三角洲里过春节",
+                        "description": "进直播间学技术 领红包！",
+                        "live_status": 1,
+                        "area_id": 878,
+                        "parent_area_id": 2,
+                        "live_url": "",
+                        "jump_url": "https://live.bilibili.com/24957887?accept_quality=%5B10000%2C400%2C250%5D&all_special_types=%5B50%5D&area_id=878&av1_current_qn=0&broadcast_type=0&current_qn=250&current_quality=250&expected_hdr_type=0&expected_qn=250&h264_current_qn=250&h264_session=http%3A%2F%2F123.234.3.202%2Flive-bvc%2F585645%2Flive_627676911_39484285_2500.flv%3Fexpires%3D1770735802%26pt%3Dandroid%26deadline%3D1770735802%26len%3D0%26oi%3D2042944895%26platform%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26uipk%3D100%26uipv%3D100%26nbs%3D1%26bmt%3D2%26uparams%3Dcdn%2Cdeadline%2Clen%2Coi%2Cplatform%2Cqn%2Ctrid%2Cuipk%2Cuipv%2Cnbs%2Cbmt%26cdn%3Dcn-gotcha01%26upsig%3Ddf1e1e24a4b39b5182fa5233569e659a%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26sid%3Dcn-sdqd-cu-01-33%26chash%3D1%26sg%3Ddf%26trace%3D4877%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26long_ab_flag_value%3Dtest%26deploy_env%3Dprod%26hdr_type%3D0%26expected_qn%3D250%26strategy_type%3D0%26strategy_version%3Dlatest%26ld%3Djchz%26codec%3D0%26p2p_type%3D-1%26pp%3Drtmp%26suffix%3D2500%26hot_cdn%3D909705%26long_ab_flag%3Dlive_default_longitudinal%26score%3D1%26strategy_types%3D0%2C1%26info_source%3Dcache%26sl%3D3%26strategy_id%3D25%26source%3Dpuv3_batch%26strategy_ids%3D25%2C122%26sk%3D46c2e69f0e5eb2f59a21a1f8d65143fd%26origin_bitrate%3D1706%26long_ab_id%3D45%26media_type%3D0%26vd%3Dnc%26zoneid_l%3D151355408%26sid_l%3Dstream_name_cold%26src%3Dpuv3%26order%3D1&h265_current_qn=250&h265_session=http%3A%2F%2Fd1--cn-gotcha07.bilivideo.com%2Flive-bvc%2F634998%2Flive_627676911_39484285_minihevc.flv%3Fexpires%3D1770735802%26len%3D0%26oi%3D2042944895%26pt%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26bmt%3D2%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%2Cbmt%26cdn%3Dcn-gotcha07%26sign%3D66feafa7e55554909fdb1dfc02a7c940%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26trace%3D4%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26strategy_ids%3D25%2C122%26source%3Dpuv3_batch%26media_type%3D0%26info_source%3Dcache%26hot_cdn%3D909705%26strategy_version%3Dlatest%26strategy_types%3D0%2C1%26codec%3D1%26long_ab_flag_value%3Dtest%26long_ab_flag%3Dlive_default_longitudinal%26suffix%3Dminihevc%26hdr_type%3D0%26p2p_type%3D-1%26pp%3Drtmp%26expected_qn%3D250%26sl%3D3%26strategy_id%3D25%26strategy_type%3D0%26long_ab_id%3D45%26score%3D70%26sk%3D7b9ca197a822eebb7933bf2a49b49d0f8f94ac61f5a58b1512348d6bca0222c1%26deploy_env%3Dprod%26ld%3Djchz%26origin_bitrate%3D784%26vd%3Dbc%26src%3Dpuv3%26order%3D1&is_room_feed=1&live_from=24805&live_play_network=other&master_url=https%3A%2F%2Fapi.live.bilibili.com%2Fxlive%2Fplay-gateway%2Fmaster%2Furl%3Fcid%3D24957887%26mid%3D0%26pt%3Dandroid%26p2p_type%3D-1%26net%3D3%26free_type%3D0%26build%3D0%26feature%3D0%26qn%3D250%26drm_type%3D0%26cam_id%3D0&p2p_type=-1&parent_area_id=2&playurl_av1=&playurl_h264=http%3A%2F%2F123.234.3.202%2Flive-bvc%2F585645%2Flive_627676911_39484285_2500.flv%3Fexpires%3D1770735802%26pt%3Dandroid%26deadline%3D1770735802%26len%3D0%26oi%3D2042944895%26platform%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26uipk%3D100%26uipv%3D100%26nbs%3D1%26bmt%3D2%26uparams%3Dcdn%2Cdeadline%2Clen%2Coi%2Cplatform%2Cqn%2Ctrid%2Cuipk%2Cuipv%2Cnbs%2Cbmt%26cdn%3Dcn-gotcha01%26upsig%3Ddf1e1e24a4b39b5182fa5233569e659a%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26sid%3Dcn-sdqd-cu-01-33%26chash%3D1%26sg%3Ddf%26trace%3D4877%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26long_ab_flag_value%3Dtest%26deploy_env%3Dprod%26hdr_type%3D0%26expected_qn%3D250%26strategy_type%3D0%26strategy_version%3Dlatest%26ld%3Djchz%26codec%3D0%26p2p_type%3D-1%26pp%3Drtmp%26suffix%3D2500%26hot_cdn%3D909705%26long_ab_flag%3Dlive_default_longitudinal%26score%3D1%26strategy_types%3D0%2C1%26info_source%3Dcache%26sl%3D3%26strategy_id%3D25%26source%3Dpuv3_batch%26strategy_ids%3D25%2C122%26sk%3D46c2e69f0e5eb2f59a21a1f8d65143fd%26origin_bitrate%3D1706%26long_ab_id%3D45%26media_type%3D0%26vd%3Dnc%26zoneid_l%3D151355408%26sid_l%3Dstream_name_cold%26src%3Dpuv3%26order%3D1&playurl_h265=http%3A%2F%2Fd1--cn-gotcha07.bilivideo.com%2Flive-bvc%2F634998%2Flive_627676911_39484285_minihevc.flv%3Fexpires%3D1770735802%26len%3D0%26oi%3D2042944895%26pt%3Dandroid%26qn%3D250%26trid%3D1000003d08b65a4ed464187f367103698b3a%26bmt%3D2%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%2Cbmt%26cdn%3Dcn-gotcha07%26sign%3D66feafa7e55554909fdb1dfc02a7c940%26site%3D865240eba7a306aa4b4cde7f2cec9503%26free_type%3D0%26mid%3D0%26sche%3Dban%26trace%3D4%26isp%3Dother%26rg%3DEast%26pv%3DZhejiang%26strategy_ids%3D25%2C122%26source%3Dpuv3_batch%26media_type%3D0%26info_source%3Dcache%26hot_cdn%3D909705%26strategy_version%3Dlatest%26strategy_types%3D0%2C1%26codec%3D1%26long_ab_flag_value%3Dtest%26long_ab_flag%3Dlive_default_longitudinal%26suffix%3Dminihevc%26hdr_type%3D0%26p2p_type%3D-1%26pp%3Drtmp%26expected_qn%3D250%26sl%3D3%26strategy_id%3D25%26strategy_type%3D0%26long_ab_id%3D45%26score%3D70%26sk%3D7b9ca197a822eebb7933bf2a49b49d0f8f94ac61f5a58b1512348d6bca0222c1%26deploy_env%3Dprod%26ld%3Djchz%26origin_bitrate%3D784%26vd%3Dbc%26src%3Dpuv3%26order%3D1&qn_desc_more_ab=1&quality_description=%5B%7B%22qn%22%3A10000%2C%22desc%22%3A%22%E5%8E%9F%E7%94%BB%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%221080P+%E5%8E%9F%E7%94%BB%22%2C%22tag%22%3A%5B%22%E9%AB%98%E5%B8%A7%E7%8E%87%22%5D%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%221080P%22%2C%22badge%22%3A%22%E5%8E%9F%E7%94%BB%22%7D%7D%7D%2C%7B%22qn%22%3A400%2C%22desc%22%3A%22%E8%93%9D%E5%85%89%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%221080P+%E8%93%9D%E5%85%89%22%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%221080P%22%7D%7D%7D%2C%7B%22qn%22%3A250%2C%22desc%22%3A%22%E8%B6%85%E6%B8%85%22%2C%22hdr_type%22%3A0%2C%22media_base_desc%22%3A%7B%22detail_desc%22%3A%7B%22desc%22%3A%22720P+%E8%B6%85%E6%B8%85%22%7D%2C%22brief_desc%22%3A%7B%22desc%22%3A%22720P%22%7D%7D%7D%5D",
+                        "is_inline": false,
+                        "member_face_list": [
+                          "http://i2.hdslb.com/bfs/face/7e882fa91d6f2a7b539b45a95e2fb4cd7e8e5d1c.jpg",
+                          "https://i1.hdslb.com/bfs/face/8f1bc517b42068288f79d6059f28c06e42df28a9.jpg",
+                          "https://i0.hdslb.com/bfs/face/30dec742cab862a597e328ed6e0f56548f5c460f.jpg"
+                        ],
+                        "fortune_value_str": "75.0万",
+                        "fortune_percent": 15,
+                        "fortune_toast": "福气值",
+                        "live_toast": "正在直播",
+                        "room_type": 0,
+                        "image_url": "",
+                        "image_index": 7,
+                        "badge_text": "2040人正在聊",
+                        "show_fortune": true,
+                        "overlay_index": 0,
+                        "overlay_url": "",
+                        "use_overlay": false
+                      }
+                    ],
+                    "has_more": true
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
     }
   },
   "webhooks": {},
